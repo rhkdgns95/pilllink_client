@@ -2,11 +2,13 @@
 > pill link client app.
 
 ## 1. Todo
+- [x] Init React to Typescript.
+- [x] ThemeProvider - styled-components.
 
 
 ## 2. Install
 1. yarn create react-app ./ --typescript
-
+2. yarn add styled-components @types/styled-components
 
 ## 3. Dev
 
