@@ -4,11 +4,15 @@
 ## 1. Todo
 - [x] Init React to Typescript.
 - [x] ThemeProvider - styled-components.
-
+- [x] ApolloProvider, Router, Auth.
+- [] App ProgressBar
 
 ## 2. Install
 1. yarn create react-app ./ --typescript
 2. yarn add styled-components @types/styled-components
+3. yarn add apollo-boost graphql react-apollo 
+4. yarn add apollo-cache-inmemory apollo-link-http apollo-client
+5. yarn add react-router-dom @types/react-router-dom
 
 ## 3. Dev
 

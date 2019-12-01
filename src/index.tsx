@@ -5,12 +5,16 @@ import { ThemeProvider } from './Styles/typed-components';
 import { GlobalStlyes } from './Styles/global-styled';
 import App from './Routes/App';
 import theme from './Styles/theme';
+import { ApolloProvider } from "react-apollo";
+import client from './apollo';
 
 ReactDOM.render(
-    <ThemeProvider theme={theme}>
-        <App />
-        <GlobalStlyes />
-    </ThemeProvider>, 
+    <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
+            <App />
+            <GlobalStlyes />
+        </ThemeProvider>
+    </ApolloProvider>, 
 document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

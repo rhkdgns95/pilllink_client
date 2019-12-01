@@ -2,7 +2,7 @@ import { createGlobalStyle } from "./typed-components";
 
 export const GlobalStlyes = createGlobalStyle`
     html, body {
-        marign: 0;
+        margin: 0;
         border: 0;
     }
     body {
