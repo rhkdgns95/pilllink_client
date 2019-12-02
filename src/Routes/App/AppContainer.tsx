@@ -1,33 +1,50 @@
 import React from "react";
-import AppProvider from "./AppProvider";
-import { graphql } from "react-apollo";
-import { IS_LOGGED } from "./AppQueries.local";
-import { BrowserRouter } from "react-router-dom";
-import LoggedIn from "../LoggedInRoutes";
-import LoggedOut from "../LoggedOutRoutes";
-
-interface IContainer {
-    loggedIn: boolean;
-}
+import AppProvider, { useAppContext } from "./AppProvider";
+import { BrowserRouter, Switch, Route as Router, Redirect } from "react-router-dom";
+import ProgressBar from "../../Components/ProgressBar";
+import Home from "../Home";
+import Login from "../Login";
 
 const App = ({data}: {data: any}) => {
+    const { loggedIn } = data.auth;
     return (
-        <AppProvider> 
+        <AppProvider loggedIn={loggedIn}> 
+            <ProgressBar/>
             <AppContainer { ...data.auth }/>
         </AppProvider>
     )
-}
+};
 
-const AppContainer: React.FC<IContainer> = ({
+const AppContainer: React.FC<any> = ({
     loggedIn
 }) => {
+    const { loadingGetMyProfile } = useAppContext();
     return (
         <BrowserRouter>
         {
-            loggedIn ? <LoggedIn/> : <LoggedOut/>
+            loadingGetMyProfile ? (
+                // Loading progress.....
+                <></>
+            ) : (
+                loggedIn ? <LoggedIn/> : <LoggedOut/>
+            )
         }
         </BrowserRouter>
-    )
-}
+    );
+};
 
-export default graphql<any, any>(IS_LOGGED)(App);
+const LoggedIn = () => (
+    <Switch>
+        <Router path={"/"} component={Home} exact={true}/>
+        <Redirect from={"*"} to={"/"}/>
+    </Switch>
+);
+
+const LoggedOut = () => (
+    <Switch>
+        <Router path={"/"} component={Login} exact={true}/>
+        <Redirect to={"/"} from={"*"}/>
+    </Switch>  
+);
+
+export default App;

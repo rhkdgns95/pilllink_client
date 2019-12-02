@@ -7,9 +7,7 @@
 - [x] ApolloProvider, Router, Auth.
 - [x] Headers context, Create Routes Logged In/Out.
 - [x] Codegen.
-- [] LoggedIn Component.
-- [] LoggedOut Component.
-- [] App ProgressBar.
+- [x] Login Component, App ProgressBar.
 - [] General User Componnent.
 - [] Manager Component.
 
@@ -22,12 +20,18 @@
 5. yarn add react-router-dom @types/react-router-dom
 6. yarn add apollo -g
 > codegen global로 사용하기 위한것.
+7. yarn add lodash @types/lodash
+> compose를 사용해서 graphql - hoc 방식을 겹쳐서 사용하려고했으나 제거함.
+
 ## 3. Dev
 
 
 ## 4. Study
-
-
+- 4.1 ref 주의점.
+: ref를 사용시, 인자로 ref를넣어주려고 컴포넌트의 prop에 ref라는 이름을 주면안된다.
+: 이와 비슷하게 이미 존재하는 props로 key가 있다는 점을 주의하자.
+- 4.2 useLazyQuery사용시 주의점
+: fetchPolicy: "cache-and-network" 를 설정하지 않으면, 값이 에러난경우 변경하지 않는다면, 실행되지 않는다.
 
 
 <!-- 

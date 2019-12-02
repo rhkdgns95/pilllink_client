@@ -3,7 +3,7 @@ import { createHttpLink } from "apollo-link-http";
 import { ApolloClient } from "apollo-client";
 import { ApolloLink } from "apollo-link";
 
-const cache: InMemoryCache = new InMemoryCache();
+const cache = new InMemoryCache();
 const getCacheData = () => localStorage.getItem('x-jwt') || "";
 
 cache.writeData({
@@ -34,7 +34,8 @@ const client = new ApolloClient({
     link,
     resolvers: {
         Mutation: {
-            userLoggedIn: (_, args, cache: InMemoryCache) => {
+            UserLoggedIn: (_, { token }, {cache}) => {
+                localStorage.setItem('x-jwt', token);
                 cache.writeData({
                     data: {
                         auth: {
@@ -45,7 +46,8 @@ const client = new ApolloClient({
                 });
                 return null;
             },
-            userLoggedOut: (_, args, cache: InMemoryCache) => {
+            UserLoggedOut: (_, { token }, {cache}) => {
+                localStorage.removeItem('x-jwt');
                 cache.writeData({
                     data: {
                         auth: {
@@ -54,7 +56,6 @@ const client = new ApolloClient({
                         }
                     }
                 });
-
                 return null;
             }
         }

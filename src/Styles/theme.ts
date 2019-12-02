@@ -1,5 +1,5 @@
 const theme: ITheme = {
-    bgColor: "#eef7ff",
+    bgColor: "#f8fbff",
     redColor: "#f44336",
     blueColor: "#2196f3"
 }
