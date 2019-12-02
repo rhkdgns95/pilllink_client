@@ -5,7 +5,14 @@
 - [x] Init React to Typescript.
 - [x] ThemeProvider - styled-components.
 - [x] ApolloProvider, Router, Auth.
-- [] App ProgressBar
+- [] Headers context, Description Logged In/Out.
+- [] codegen
+- [] LoggedIn Component.
+- [] LoggedOut Component.
+- [] App ProgressBar.
+- [] General User Componnent.
+- [] Manager Component.
+
 
 ## 2. Install
 1. yarn create react-app ./ --typescript

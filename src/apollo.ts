@@ -1,23 +1,34 @@
 import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpLink } from "apollo-link-http";
+import { createHttpLink } from "apollo-link-http";
 import { ApolloClient } from "apollo-client";
+import { ApolloLink } from "apollo-link";
 
 const cache: InMemoryCache = new InMemoryCache();
-const link: HttpLink = new HttpLink({ uri: "http://localhost:4000/graphql" });
-
-const getCacheData = () => {
-    const data = localStorage.getItem('x-jwt') || "";
-    return data === "" ? false : true;
-}
+const getCacheData = () => localStorage.getItem('x-jwt') || "";
 
 cache.writeData({
     data: {
         auth: {
             __typename: "Auth",
-            loggedIn: getCacheData()
+            loggedIn: Boolean(getCacheData())
         }
     }
 });
+
+const httpLink = createHttpLink({
+    uri: "http://localhost:4000/graphql"
+});
+const middlewareLink = new ApolloLink((operation, forward) => {
+    operation.setContext({
+        headers: {
+            "X-JWT": localStorage.getItem("x-jwt") || ""
+        }
+    });
+    return forward(operation);
+});
+
+const link = middlewareLink.concat(httpLink);
+
 const client = new ApolloClient({
     cache,
     link,

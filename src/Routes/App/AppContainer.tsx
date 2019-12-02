@@ -1,16 +1,18 @@
 import React from "react";
-import AppProvider, { useAppContext } from "./AppProvider";
+import AppProvider from "./AppProvider";
 import { graphql } from "react-apollo";
 import { IS_LOGGED } from "./AppQueries";
 import { BrowserRouter } from "react-router-dom";
+import LoggedIn from "../LoggedIn";
+
 interface IContainer {
     loggedIn: boolean;
 }
 
-const App = ({auth}: {auth: any}) => {
+const App = ({data}: {data: any}) => {
     return (
         <AppProvider> 
-            <AppContainer loggedIn={...auth}/>
+            <AppContainer { ...data.auth }/>
         </AppProvider>
     )
 }
@@ -26,8 +28,6 @@ const AppContainer: React.FC<IContainer> = ({
         </BrowserRouter>
     )
 }
-
-const LoggedIn = () => <div>Logged - In</div>
 
 const LoggedOut = () => <div>Logged - Out</div>
 

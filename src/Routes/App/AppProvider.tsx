@@ -20,9 +20,11 @@ const useFetch = (): { value: IContext } => {
     const handleAppTitle = (title: string) => {
         setTitle(title);
     }
+
     useEffect(() => {
         document.title = title;
     }, [title])
+
     return {
         value: {
             homeData,
