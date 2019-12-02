@@ -1,2 +1,2 @@
-import LoggedOut from "./LoggedOut";
+import LoggedOut from "./LoggedOutContainer";
 export default LoggedOut;

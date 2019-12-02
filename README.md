@@ -5,8 +5,8 @@
 - [x] Init React to Typescript.
 - [x] ThemeProvider - styled-components.
 - [x] ApolloProvider, Router, Auth.
-- [] Headers context, Description Logged In/Out.
-- [] codegen
+- [x] Headers context, Create Routes Logged In/Out.
+- [x] Codegen.
 - [] LoggedIn Component.
 - [] LoggedOut Component.
 - [] App ProgressBar.
@@ -20,7 +20,8 @@
 3. yarn add apollo-boost graphql react-apollo 
 4. yarn add apollo-cache-inmemory apollo-link-http apollo-client
 5. yarn add react-router-dom @types/react-router-dom
-
+6. yarn add apollo -g
+> codegen global로 사용하기 위한것.
 ## 3. Dev
 
 

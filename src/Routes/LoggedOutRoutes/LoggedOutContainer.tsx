@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route as Router, Redirect } from "react-router-dom";
 import LoggedOutProvider from "./LoggedOutProvider";
+import Login from "../Login";
 
 const LoggedOut = () => (
     <LoggedOutProvider>

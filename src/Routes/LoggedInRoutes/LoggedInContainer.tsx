@@ -1,9 +1,10 @@
 import React from "react";
-import { Switch, Route as Router, Redirect } from "react-router";
+import { Switch, Route as Router, Redirect, RouteComponentProps } from "react-router";
 import LoggedInProvider from "./LoggedInProvider";
-import Home from "../../Components/Home";
+import Home from "../Home";
 import { GET_MY_PROFIE } from "./LoggedInQueries";
 import { graphql } from "react-apollo";
+import { getMyProfile } from "../../Types/api";
 
 /**
  *  LoggedIn
@@ -15,10 +16,10 @@ import { graphql } from "react-apollo";
  *  data = User | undefined.
  */
 interface IProps {
-    GetMyProfile: any
+    data: getMyProfile
 };
-const LoggedIn: React.FC<any> = ({data}: {data: IProps}) => {
-    console.log("DATA: ", data.GetMyProfile);
+const LoggedIn: React.FC<IProps> = ({data}) => {
+    console.log("Loggined : ", data.GetMyProfile);
     return (
         <LoggedInProvider>
             <PublicUser />
