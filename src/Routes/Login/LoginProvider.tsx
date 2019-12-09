@@ -13,6 +13,7 @@ interface IContext {
     handleLogin: any;
     element: any;
 }
+
 const InitContext: IContext = {
     error: null,
     loginLoading: false,
@@ -51,8 +52,8 @@ const useFetch = (): {value: IContext} => {
             element.current.focus();
         }
     }, []);
-    const email = useInputText("email");
-    const password = useInputText("password");
+    const email = useInputText("EMAIL");
+    const password = useInputText("PASSWORD");
     const [ userLoggedIn ] = useMutation(USER_LOGGED_IN);
     const [ handleLogin, { loading: loginLoading } ] = useLazyQuery<emailSignIn, emailSignInVariables>(LOGIN_QUERY, {
         fetchPolicy: "cache-and-network",

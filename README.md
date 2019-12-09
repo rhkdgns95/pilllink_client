@@ -8,7 +8,11 @@
 - [x] Headers context, Create Routes Logged In/Out.
 - [x] Codegen.
 - [x] Login Component, App ProgressBar.
-- [] General User Componnent.
+- [x] Login Component / SignUp Component.
+- [x] General User Componnent.
+- [x] MyPage - Edit
+- [] MyPage - History 
+- [] Css Background - SignUp, Edit
 - [] Manager Component.
 
 
@@ -22,6 +26,8 @@
 > codegen global로 사용하기 위한것.
 7. yarn add lodash @types/lodash
 > compose를 사용해서 graphql - hoc 방식을 겹쳐서 사용하려고했으나 제거함.
+8. yarn add react-daum-postcode
+
 
 ## 3. Dev
 

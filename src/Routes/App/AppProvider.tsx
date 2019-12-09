@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useQuery } from "react-apollo";
+import { useQuery, useMutation } from "react-apollo";
 import { GET_MY_PROFILE } from "./AppQueries";
-import { getMyProfile_GetMyProfile_user, getMyProfile } from "../../Types/api";
+import { getMyProfile_GetMyProfile_user, getMyProfile, updateMyProfile_UpdateMyProfile, updateMyProfile, updateMyProfileVariables } from "../../Types/api";
+import { UPDATE_MY_RPFOILE } from "../Edit/EditQueries";
 
 interface IContext {
     loadingGetMyProfile: boolean;
@@ -10,6 +11,9 @@ interface IContext {
     user: getMyProfile_GetMyProfile_user | null;
     handleProgress: (isProgress: boolean) => any;
     handleTitle: (title: string) => any;
+    message: IMessage;
+    updateMyprofile: (data: { variables: updateMyProfileVariables }) => any;
+    loadingUpdateMyProfile: boolean;
 }
 
 const AppTitle: string = "Pill Link";
@@ -21,25 +25,95 @@ const InitContext: IContext = {
     user: null,
     isProgress: false,
     handleProgress: () => {},
-    handleTitle: () => {}
+    handleTitle: () => {},
+    message: { ok: true, data: "", onChangeMessage: () => {} },
+    updateMyprofile: () => {},
+    loadingUpdateMyProfile: false
 };
+
+
 
 const AppContext: React.Context<IContext> = createContext<IContext>(InitContext);
 const useAppContext = () => useContext(AppContext);
+
+const useMessage = (): IMessage => {
+    const [ok, setOk] = useState<boolean>(true);
+    const [data, setData] = useState<string>("");
+    
+    const onChangeMessage = ({ok, data}: {ok: boolean, data: string}) => {
+        console.log("Message_ok: ", ok);
+        console.log("Message_message: ", data);
+        setOk(ok);
+        setData(data);
+    };
+    return {
+        ok,
+        data,
+        onChangeMessage
+    };
+};
+
 const useFetch = (loggedIn: boolean): { value: IContext } => {
     const timeOut:number = 500;
-    const [ user, setUser ] = useState<getMyProfile_GetMyProfile_user | null>(null);
-
-    const { data: queryProfile, loading: loadingGetMyProfile } = useQuery<getMyProfile>(GET_MY_PROFILE, {
+    const message = useMessage();
+    
+    /**
+     * 
+     *  GetMyProfile
+     */
+    const { loading: loadingGetMyProfile, data } = useQuery<getMyProfile>(GET_MY_PROFILE, {
+        fetchPolicy: "cache-and-network",
         onCompleted: data => {
             const { GetMyProfile: { ok, user } } = data;
             if(ok && user) {
                 if(data.GetMyProfile.ok) {
-                    setUser(user);
+                    // console.log("data.GetMyProfile.ok: ", data.GetMyProfile);
                 }
             }
         },
+        onError: data => {
+            console.log("GetMyProfile error: ", data);
+        },
         skip: !loggedIn
+    });
+    const user = data ? data.GetMyProfile.user : null;
+
+    /**
+     *  UpdateMyProfile
+     */
+    const [ updateMyprofile, { loading: loadingUpdateMyProfile }] = useMutation<updateMyProfile, updateMyProfileVariables>(UPDATE_MY_RPFOILE, {
+        onCompleted: data => {
+            const { UpdateMyProfile: { ok, error }} = data;
+            setTimeout(() => {
+                if(ok) {
+                    message.onChangeMessage({
+                        ok,
+                        data: "Updated!"
+                    });
+                } else {
+                    message.onChangeMessage({
+                        ok,
+                        data: error
+                    });
+                }    
+                if(isProgress) {
+                    handleProgress(false);
+                }
+            }, timeOut);
+        },
+        onError: data => {
+            console.log("UpdateMyProfile error: ", data);
+            if(isProgress) {
+                handleProgress(false);
+            }
+            message.onChangeMessage({
+                ok: false,
+                data: data.message
+            });
+        },
+        refetchQueries: [
+            {query: GET_MY_PROFILE}
+        ]
     });
     const [ isProgress, setIsProgress ] = useState<boolean>(false);
     const [ title, setTitle ] = useState<string>(AppTitle);
@@ -51,6 +125,9 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
         setIsProgress(data);
     }
     useEffect(() => {
+        // User 데이터 변경시,
+    }, [data])
+    useEffect(() => {
         document.title = title;
     }, [title])
 
@@ -61,7 +138,10 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
             handleTitle,
             handleProgress,
             timeOut,
-            user
+            user,
+            message,
+            updateMyprofile,
+            loadingUpdateMyProfile
         }
     };
 }

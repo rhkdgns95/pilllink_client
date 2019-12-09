@@ -1,22 +1,27 @@
 import { createGlobalStyle } from "./typed-components";
 
 export const GlobalStlyes = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
     html, body {
         margin: 0;
         border: 0;
     }
     body {
         background-color: ${props => props.theme.bgColor};
+        font-family: 'Nanum Gothic', sans-serif;
+        padding-bottom: 30px;
     }
     * {
         box-sizing: border-box;
     }
-    ul, li, a {
+    ul, li, a, p {
         margin: 0;
         padding: 0;
         list-style: none;
-        color: inherit;
+        text-decoration: none;
+        color: inherit; 
     }
+    select,
     input {
         border: 0;
         margin: 0;
@@ -26,6 +31,9 @@ export const GlobalStlyes = createGlobalStyle`
             border: 0;
             box-shadow: none;
         }
+    }
+    select {
+        // margin-bottom: -1px;
     }
     button {
         border: 0;
@@ -42,6 +50,12 @@ export const GlobalStlyes = createGlobalStyle`
         flex-flow: row warp;
         width: 100%;
         margin: 0 auto;
-        max-width: 1100px;
+        max-width: 900px;
+        @media(max-width: 910px) {
+            width: 90%;
+        }
+        @media(max-width: 510px) {
+
+        }
     }
 `;

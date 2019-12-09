@@ -795,7 +795,7 @@
             "deprecationReason": null
           },
           {
-            "name": "FR",
+            "name": "US",
             "description": "",
             "isDeprecated": false,
             "deprecationReason": null
@@ -1003,6 +1003,18 @@
             "deprecationReason": null
           },
           {
+            "name": "fullName",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "email",
             "description": "",
             "args": [],
@@ -1087,6 +1099,22 @@
             "deprecationReason": null
           },
           {
+            "name": "isAbroad",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "nationality",
             "description": "",
             "args": [],
@@ -1095,7 +1123,7 @@
               "name": null,
               "ofType": {
                 "kind": "ENUM",
-                "name": "Language",
+                "name": "Nationality",
                 "ofType": null
               }
             },
@@ -1168,6 +1196,41 @@
           },
           {
             "name": "W",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "Nationality",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "KO",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "EN",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "CH",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "US",
             "description": "",
             "isDeprecated": false,
             "deprecationReason": null
@@ -1963,6 +2026,20 @@
                 "defaultValue": null
               },
               {
+                "name": "isAbroad",
+                "description": "",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "age",
                 "description": "",
                 "type": {
@@ -2022,6 +2099,16 @@
             "description": "",
             "args": [
               {
+                "name": "isAbroad",
+                "description": "",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "firstName",
                 "description": "",
                 "type": {
@@ -2067,6 +2154,26 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "gender",
+                "description": "",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "Gender",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "nationality",
+                "description": "",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "Nationality",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -2237,41 +2344,6 @@
         "inputFields": null,
         "interfaces": [],
         "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "Nationality",
-        "description": "",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "KO",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "EN",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "CH",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "FR",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
         "possibleTypes": null
       },
       {

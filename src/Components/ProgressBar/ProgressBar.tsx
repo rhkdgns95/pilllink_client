@@ -9,6 +9,7 @@ const Progress = styled.div`
     left: 0;
     width: 0;
     height: 3px;
+    z-index: 9;
     background: linear-gradient(90deg, rgba(108,177,254,1) 0%, rgba(186,68,199,1) 33%, rgba(192,35,227,1) 66%, rgba(206,70,21,1) 100%);
     // background: linear-gradient(90deg, rgba(108,177,254,1) 0%, rgba(29,141,191,1) 33%, rgba(227,137,35,1) 66%, rgba(206,70,21,1) 100%);
     &.active {
@@ -16,9 +17,7 @@ const Progress = styled.div`
         transition: .3s;    
     }
 `;
-const ProgressBar = ({
-    
-}) => {
+const ProgressBar = () => {
     const { isProgress } = useAppContext();  
     return (
         <Container>

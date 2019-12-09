@@ -13,12 +13,14 @@ const Text = styled.p`
 `;
 interface IProps {
     text: string | null;
+    className?: string;
 }
 const Message: React.FC<IProps> = ({
-    text
+    text,
+    className
 }) => (
-    <Container>
-        <Text className={text ? "active" : ""}>
+    <Container className={className}>
+        <Text className={text !== "" ? "active" : ""}>
             { text }
         </Text>
     </Container>

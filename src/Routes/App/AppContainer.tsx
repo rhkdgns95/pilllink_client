@@ -4,6 +4,10 @@ import { BrowserRouter, Switch, Route as Router, Redirect } from "react-router-d
 import ProgressBar from "../../Components/ProgressBar";
 import Home from "../Home";
 import Login from "../Login";
+import SignUp from "../SignUp";
+import Edit from "../Edit";
+import History from "../History";
+
 
 const App = ({data}: {data: any}) => {
     const { loggedIn } = data.auth;
@@ -18,16 +22,17 @@ const App = ({data}: {data: any}) => {
 const AppContainer: React.FC<any> = ({
     loggedIn
 }) => {
-    const { loadingGetMyProfile } = useAppContext();
+    const { loadingGetMyProfile, user } = useAppContext();
     return (
         <BrowserRouter>
         {
-            loadingGetMyProfile ? (
-                // Loading progress.....
-                <></>
-            ) : (
-                loggedIn ? <LoggedIn/> : <LoggedOut/>
-            )
+            loggedIn ? <LoggedIn/> : <LoggedOut/>
+            // (loadingGetMyProfile) ? (
+            //     // Loading progress.....
+            //     <></>
+            // ) : (
+            //     loggedIn ? <LoggedIn/> : <LoggedOut/>
+            // )
         }
         </BrowserRouter>
     );
@@ -36,6 +41,8 @@ const AppContainer: React.FC<any> = ({
 const LoggedIn = () => (
     <Switch>
         <Router path={"/"} component={Home} exact={true}/>
+        <Router path={"/edit"} component={Edit}/>
+        <Router path={"/history"} component={History}/>
         <Redirect from={"*"} to={"/"}/>
     </Switch>
 );
@@ -43,6 +50,7 @@ const LoggedIn = () => (
 const LoggedOut = () => (
     <Switch>
         <Router path={"/"} component={Login} exact={true}/>
+        <Router path={"/signup"} component={SignUp}/>
         <Redirect to={"/"} from={"*"}/>
     </Switch>  
 );
