@@ -41,8 +41,8 @@ const AppContainer: React.FC<any> = ({
 const LoggedIn = () => (
     <Switch>
         <Router path={"/"} component={Home} exact={true}/>
-        <Router path={"/edit"} component={Edit}/>
-        <Router path={"/history"} component={History}/>
+        <Router path={"/edit"} component={Edit} exact={true}/>
+        <Router path={"/history"} component={History} exact={true}/>
         <Redirect from={"*"} to={"/"}/>
     </Switch>
 );
@@ -50,7 +50,7 @@ const LoggedIn = () => (
 const LoggedOut = () => (
     <Switch>
         <Router path={"/"} component={Login} exact={true}/>
-        <Router path={"/signup"} component={SignUp}/>
+        <Router path={"/signup"} component={SignUp} exact={true}/>
         <Redirect to={"/"} from={"*"}/>
     </Switch>  
 );

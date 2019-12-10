@@ -12,5 +12,13 @@ export const FRAGMENT_USER = gql`
         age
         isAbroad
         address
+        medicalRecordsCount
+    }
+`;
+
+export const FRAGMENT_MEDICAL_RECORDS = gql`
+    fragment ItemMedicalRecord on MedicalRecord {
+        id
+        lang
     }
 `;

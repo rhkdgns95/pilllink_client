@@ -34,6 +34,19 @@ interface IUseSelectEdit {
     onChange: React.ChangeEventHandler<HTMLSelectElement>;
     onInit: (value: string) => any;
 }
+interface IUsePagination {
+    cursor: number;
+    screen: number;
+    totalCount: number;
+    hasFirst: boolean;
+    hasLast: boolean;
+    hasPrev: boolean;
+    hasNext: boolean;
+    onChangeCursor: (cursor: number) => any;
+    onClickDBArrow: (newScreen: number)  => any;
+    onClickArrow: (newScreen: number) => any;
+    onhandleUsingArrow: () => any;
+}
 // User Data.
 type TGender = "M" | "W";
 type TNationality = "KO" | "EN" | "CH" | "US";

@@ -1,23 +1,13 @@
 import React from "react";
-import styled from "../../Styles/typed-components";
-import Navbar from "../../Components/Navbar";
-import StepTitle from "../../Components/StepTitle";
-import MyMenu from "../../Components/MyMenu";
 import HistoryProvider from "./HistoryProvider";
 import HistoryPresenter from "./HistoryPresenter";
+import { RouteComponentProps } from "react-router";
 
-const Container = styled.div`
+interface IProps extends RouteComponentProps<any> {
 
-`;
-const Wrapper = styled.div`
-    display: block;
-`;
-
-const List = styled.form`
-
-`;
-
-const History = () => (
+}
+const History: React.FC<IProps> = ({
+}) => (
     <HistoryProvider>
         <HistoryContainer />
     </HistoryProvider>

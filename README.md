@@ -11,7 +11,8 @@
 - [x] Login Component / SignUp Component.
 - [x] General User Componnent.
 - [x] MyPage - Edit
-- [] MyPage - History 
+- [x] MyPage - History Part 1 (Pagination)
+- [] MyPage - History Part 2 (Confirm)
 - [] Css Background - SignUp, Edit
 - [] Manager Component.
 
@@ -38,6 +39,30 @@
 : 이와 비슷하게 이미 존재하는 props로 key가 있다는 점을 주의하자.
 - 4.2 useLazyQuery사용시 주의점
 : fetchPolicy: "cache-and-network" 를 설정하지 않으면, 값이 에러난경우 변경하지 않는다면, 실행되지 않는다.
+
+## 5. Pagination - Medical Record 요청
+- 5.0 총 데이터 갯수를 가져오도록 한다.
+: 전체를 나누어서 페이지 갯수를 정한다. 
+> 5.0.0 N / 40 + 1 =>  ??
+> 5.0.1 한 Page당 4개씩. N * (4 * 10) // N은 현 페이지 index.
+
+
+- 5.1 URL에 갯수를 받는다.
+: 없는 경우 1로 redirect시킴.
+
+- 5.2 URL의 쿼리에 4개씩 요청.
+> 5.2.1 Page 1
+: 1부터 4까지 가져온다. 
+: 1 * 4 = 4 => 4 - (4 - 1)
+> 5.2.2 Page 2
+: 5부터 8까지 가져온다
+: 2 * 4 = 8 => 8 - (4 - 1)
+> 5.2.3 Page 3
+: 3 * 4 = 12 => 12 - (4 - 1)
+
+- 5.3 [1-10], [11-20], [21-31] 
+: 1페이지 / 10 => 0 => (0 + 1) * 10 => 10
+: 11페이지 / 10 => 1 => (1 + 1) * 10 => 20
 
 
 <!-- 

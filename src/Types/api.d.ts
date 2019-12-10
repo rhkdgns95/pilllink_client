@@ -18,6 +18,7 @@ export interface getMyProfile_GetMyProfile_user {
   age: number;
   isAbroad: boolean;
   address: string;
+  medicalRecordsCount: number | null;
 }
 
 export interface getMyProfile_GetMyProfile {
@@ -58,6 +59,37 @@ export interface updateMyProfileVariables {
   address: string;
   isAbroad: boolean;
   nationality?: Nationality | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: getMyMedicalRecords
+// ====================================================
+
+export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords {
+  __typename: "MedicalRecord";
+  id: number;
+  lang: Language;
+}
+
+export interface getMyMedicalRecords_GetMyMedicalRecords {
+  __typename: "GetMyMedicalRecordsResponse";
+  ok: boolean;
+  error: string | null;
+  totalCount: number | null;
+  medicalRecords: (getMyMedicalRecords_GetMyMedicalRecords_medicalRecords | null)[] | null;
+}
+
+export interface getMyMedicalRecords {
+  GetMyMedicalRecords: getMyMedicalRecords_GetMyMedicalRecords;
+}
+
+export interface getMyMedicalRecordsVariables {
+  first?: number | null;
+  offset?: number | null;
 }
 
 /* tslint:disable */
@@ -195,6 +227,21 @@ export interface ItemUser {
   age: number;
   isAbroad: boolean;
   address: string;
+  medicalRecordsCount: number | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL fragment: ItemMedicalRecord
+// ====================================================
+
+export interface ItemMedicalRecord {
+  __typename: "MedicalRecord";
+  id: number;
+  lang: Language;
 }
 
 /* tslint:disable */
