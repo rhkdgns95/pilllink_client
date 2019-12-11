@@ -12,6 +12,15 @@ const Wrapper = styled.div`
     display: flex;
     flex: 4;
     align-items: center;
+    @media(max-width: 510px) {
+        label {
+            flex: 2;
+            font-size: 11px;
+        }
+        select {
+            font-size: 11px;
+        }
+    }
 `;
 const Title = styled.label`
     font-size: 12px;

@@ -14,6 +14,25 @@ const Wrapper = styled.div`
     align-items: center;
     flex: 4;
     padding: 15px 10px;
+    @media(max-width: 510px) {
+        padding: 10px 0;
+        & {
+            label {
+                padding-left: 10px;
+                font-size: 11px;
+                flex: 2;
+            }
+            input, select {
+                margin-top: 0;
+            }
+            .radio-cell {
+                display: block;
+                & > div {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
 `;
 const Label = styled.label`
     flex: 1;
@@ -79,7 +98,7 @@ const AddressEdit: React.FC<IProps> = ({
             <Wrapper>
                 <Label> { title }</Label>
                 <InputBox>
-                    <Cell>
+                    <Cell className={"radio-cell"}>
                         <InputRadio 
                             id={1}
                             label={"living in korea"}

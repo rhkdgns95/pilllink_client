@@ -9,6 +9,19 @@ const Wrapper = styled.div`
     flex-flow: row wrap;
     flex: 4;
     padding: 15px 10px;
+    @media(max-width: 510px) {
+        padding: 15px 0;
+        & {
+            label {
+                padding-left: 10px;
+                font-size: 11px;
+                flex: 2;
+            }
+            .input-cell-radio {
+                margin-left: -13px;
+            }
+        }
+    }
 `;
 const Title = styled.label`
     color: #147d51;
@@ -33,7 +46,7 @@ const InputCell: React.FC<IProps> = ({
     <Container>
         <Wrapper>
             <Title>{ title }</Title>
-            <Cell>
+            <Cell className={"input-cell-radio"}>
                 { input }
             </Cell>
         </Wrapper>

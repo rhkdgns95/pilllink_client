@@ -8,6 +8,14 @@ const Container = styled.div`
     padding: 0;
     padding-left: 20px;
     margin-right: 20px;
+    @media(max-width: 510px) {
+        & {
+            padding-left: 8px;
+            input {
+
+            }
+        }
+    }
 `;
 const Radio = styled.input`
     position: absolute;
@@ -26,6 +34,7 @@ const Radio = styled.input`
             }
         }
     }
+    
 `;
 const Label = styled.label`
     cursor: pointer;

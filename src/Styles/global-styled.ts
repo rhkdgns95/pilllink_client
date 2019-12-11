@@ -55,7 +55,7 @@ export const GlobalStlyes = createGlobalStyle`
             width: 90%;
         }
         @media(max-width: 510px) {
-
+            width: 95%;
         }
     }
 `;

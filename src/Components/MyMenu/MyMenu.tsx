@@ -10,6 +10,16 @@ const Wrapper = styled.div`
     display: flex;
     width: 100%;
     flex: 2;
+    @media(max-width: 510px) {
+        & {
+            a {
+                font-size: 11px;
+                & > svg {
+                    margin-left: -20px;
+                }
+            }
+        }
+    }
 `;
 const GoLink = styled(Link)`
     cursor: pointer;
@@ -22,14 +32,14 @@ const GoLink = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;
-    & > svg {
+    & svg {
         fill: white;
         margin-left: -5px;
         margin-right: 10px;
         opacity: 0;
     }
     &.active {
-        & > svg {
+        & svg {
             opacity: 1;
         }
         background-color: #119458;

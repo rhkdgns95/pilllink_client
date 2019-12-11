@@ -5,7 +5,7 @@ const Container = styled.div`
     display: flex;
     justify-content: flex-end;
     flex-flow: column;
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         justify-content: flex-start;
         & {
             & > div {
@@ -26,6 +26,24 @@ const Container = styled.div`
                 &.top-header {
                     margin-top: 10px;
                     letter-spacing: 5px;
+                }
+            }
+        }
+    }
+    @media(max-width: 430px) {
+        & {
+            & > div {
+                padding-left: 22px;
+                &::before {
+                    left: 5px;
+                }
+            }
+            p {
+            }
+            span {
+                font-size: 10px;
+
+                &.top-header {
                 }
             }
         }

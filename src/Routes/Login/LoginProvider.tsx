@@ -12,6 +12,7 @@ interface IContext {
     password: IUseInputText;
     handleLogin: any;
     element: any;
+    handleError: (message: string | null) => any;
 }
 
 const InitContext: IContext = {
@@ -20,7 +21,8 @@ const InitContext: IContext = {
     element: null,
     email: { onChange: () => {}, placeholder: "", value: "" },
     password: { onChange: () => {}, placeholder: "", value: "" },
-    handleLogin: () => {}
+    handleLogin: () => {},
+    handleError: () => {}
 }
 
 const LoginContext: React.Context<IContext> = createContext<IContext>(InitContext);
@@ -45,6 +47,11 @@ const title = "Pill Link | Login";
 const useFetch = (): {value: IContext} => {
     const { handleTitle, isProgress, handleProgress } = useAppContext();
     const [ error, setError ] = useState<string | null>(null);
+    
+    const handleError = (message: string | null) => {
+        setError(message);
+    }
+
     const element = useRef<HTMLInputElement>(null);
     useEffect(() => {
         handleTitle(title);
@@ -69,7 +76,7 @@ const useFetch = (): {value: IContext} => {
                     }
                 });
             } else {
-                setError(error);
+                handleError(error);
             }
         },  
         onError: data => {
@@ -84,7 +91,8 @@ const useFetch = (): {value: IContext} => {
             password,
             handleLogin,
             element,
-            error
+            error,
+            handleError
         }
     };
 };

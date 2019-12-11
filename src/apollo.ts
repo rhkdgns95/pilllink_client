@@ -46,7 +46,7 @@ const client = new ApolloClient({
                 });
                 return null;
             },
-            UserLoggedOut: (_, { token }, {cache}) => {
+            UserLoggedOut: (_, __, {cache}) => {
                 localStorage.removeItem('x-jwt');
                 cache.writeData({
                     data: {

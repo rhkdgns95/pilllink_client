@@ -19,6 +19,44 @@ const Container = styled.div`
 `;
 const Wrapper = styled.div`
     display: block;
+    @media(max-width: 910px) {
+        & {
+            .info {
+                padding: 0;
+                .edit-form {
+                    
+                }
+                .bg-box { 
+                    display: none;
+                }
+            }
+        }
+    }
+    @media(max-width: 510px) {
+        & {
+            .message-box {
+                padding: 10px 0;
+            }
+            .info {
+                .edit-form {
+                     .select-box {
+                         padding: 10px 0;
+                         select {
+                            font-size: 11px;
+                         }
+                         label {
+                             padding-left: 10px;
+                             flex: 2;
+                             font-size: 11px;
+                         }
+                     }
+                }
+            }
+            .circle-btn-box {
+                padding-top: 50px;
+            }
+        }
+    }
 `;
 const Info = styled.div`
     display: flex;
@@ -30,7 +68,10 @@ const Info = styled.div`
     }
 `;
 const Bg = styled.div`
-
+`;
+const Img = styled.img`
+    width: 100%;
+    display: block; 
 `;
 const EditForm = styled.form`
 
@@ -108,11 +149,11 @@ const EditPresenter = () => {
                     subTitle={"You can update your information and see your history"}
                 />
                 <MyMenu isEdit={true}/>
-                <MessageBox ok={message.ok} message={message.data}>
+                <MessageBox className={"message-box"} ok={message.ok} message={message.data}>
                     <Message className={"message"} text={message.data}/>
                 </MessageBox>
-                <Info>
-                    <EditForm>
+                <Info className={"info"}>
+                    <EditForm className={"edit-form"}>
                         <InputTitleText 
                             title={"first name"}
                             { ...firstName }
@@ -149,7 +190,7 @@ const EditPresenter = () => {
                                 </>
                             }
                         />
-                        <SelectorBox>
+                        <SelectorBox className={"select-box"}>
                             <Title>Age</Title>
                             <Select value={age.value} onChange={age.onChange}>
                             {
@@ -159,7 +200,7 @@ const EditPresenter = () => {
                             }
                             </Select>
                         </SelectorBox>
-                        <SelectorBox>
+                        <SelectorBox className={"select-box"}>
                             <Title>Nationality</Title>
                             <Select value={nationality.value} onChange={nationality.onChange}>
                                 {
@@ -171,12 +212,12 @@ const EditPresenter = () => {
                         </SelectorBox>
                         <AddressEdit title={"Address"}/> 
                     </EditForm>
-                    <Bg>
-                        background
+                    <Bg className={"bg-box"}>
+                        <Img src={"/images/bg/mypage.jpg"}/>
                     </Bg>
                 </Info>
 
-                <ButtonBox>
+                <ButtonBox className={"circle-btn-box"}>
                     <CircleButton 
                         color={"gold"}
                         disabled={false}

@@ -6,11 +6,13 @@ import { getMyMedicalRecords, getMyMedicalRecordsVariables, getMyMedicalRecords_
 import { useAppContext } from "../App/AppProvider";
 
 interface IContext {
+    loadingMedicalRecords: boolean;
     max: number;
     records: Array<getMyMedicalRecords_GetMyMedicalRecords_medicalRecords | null> | null;
     pagination: IUsePagination;
 }
 const InitContext: IContext = {
+    loadingMedicalRecords: false,
     max: 0,
     records: null,
     pagination: { cursor: 1, screen: 1, onChangeCursor: () => {}, totalCount: 0, hasFirst: false, hasLast: false, hasPrev: false, hasNext: false, onClickArrow: () => {}, onClickDBArrow: () => {}, onhandleUsingArrow: () => {} }
@@ -20,8 +22,8 @@ const HistoryContext: React.Context<IContext> = createContext<IContext>(InitCont
 const useHistoryContext = () => useContext(HistoryContext);
 
 export const PaginationSettings = {
-    pageCount: 2,  // pageCount: 한 페이지에서 보여질 리스트 갯수
-    tableCount: 1, // tableCount: 한페이지에 보여질 table 갯수
+    pageCount: 3,  // pageCount: 한 페이지에서 보여질 리스트 갯수
+    tableCount: 4, // tableCount: 한페이지에 보여질 table 갯수
 }
 const START_SCREEN = 1; // 1부터 시작, 인덱스가 아니므로 주의!
 const START_OFFSET = 1; 
@@ -132,7 +134,7 @@ const useFetch = (): { value: IContext } => {
     const max: number = user ? (user.medicalRecordsCount ? user.medicalRecordsCount : 0) : 0;
     // const currentPageIndex: number = parseInt(recordId);
     const pagination = usePagination(max, START_OFFSET, START_SCREEN);
-    const [ getRecords, { data } ] = useLazyQuery<getMyMedicalRecords, getMyMedicalRecordsVariables>(GET_MY_RECORDS, {
+    const [ getRecords, { data, loading: loadingMedicalRecords } ] = useLazyQuery<getMyMedicalRecords, getMyMedicalRecordsVariables>(GET_MY_RECORDS, {
         onCompleted: data => {
             // onhandleUsingArrow();
         }
@@ -157,6 +159,7 @@ const useFetch = (): { value: IContext } => {
 
     return {
         value: {
+            loadingMedicalRecords,
             records,
             pagination,
             max

@@ -2,6 +2,16 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 
 const Container = styled.div`
+    @media(max-width: 510px) {
+        & { 
+            input {
+                padding: 8px 7px;
+                width: 110px;
+                font-size: 10px;
+            }
+        }
+
+    }
 `;
 
 interface IButton {

@@ -11,13 +11,55 @@ import MainHeader from "../../Components/MainHeader";
 
 const Container = styled.div`
     position: relative;
-    @media(max-width: 500px) {
+    @media(max-width: 910px) {
+        & > {
+            .wrapper {
+                flex-flow: column-reverse;
+                form {
+                    width: 100%;
+                    max-width: 100%;    
+                }
+                .login-bg-box {
+                    width: 400px;
+                    margin: 0;
+                    margin-left: auto;
+                    & > img {
+                        margin-top: -100px;
+                    }
+                }
+            }
+        }
+    }
+    @media(max-width: 600px) {
         & > {
             .bg {
                 height: 200px;
             }
             .wrapper {
-                padding-top: 300px;
+                height: auto;
+                padding-top: 200px;
+                .login-bg-box {
+                    width: 80%;
+                    & > img {
+                        margin-top: -100px;
+                    }
+                }
+            }
+        }
+    }
+    @media(max-width: 430px) {
+        & > {
+            .bg {
+                height: 180px;
+            }
+            .wrapper {
+                padding-top: 180px;
+                .login-bg-box {
+                    width: 214px;
+                    & > img {
+                        margin-top: -60px;
+                    }
+                }
             }
         }
     }
@@ -27,6 +69,8 @@ const Wrapper = styled.div`
     display: block;
     height: 100vh;
     padding-top: 340px;
+    display: flex;
+    z-index: 1;
 `;
 const HeaderBg = styled.div`
     position: absolute;
@@ -37,11 +81,23 @@ const HeaderBg = styled.div`
     background-color: #dfdfdf;
     height: 300px;
     display: flex;
+    
 `;
 
 const LoginForm = styled.form`
     width: 100%;
     max-width: 400px;
+    display: block;
+`;
+const LoginBg = styled.div`
+    & {
+        img {
+            margin-top: -100px;
+        }
+    }
+`;
+const Img = styled.img`
+    width: 100%;
     display: block;
 `;
 const MessageExtended = styled(Message)`
@@ -77,7 +133,7 @@ const LoginPresenter: React.FC<IProps> = ({
     onSubmit
 }) => {
     const { isProgress } = useAppContext();
-    const { email, password, loginLoading, element, error } = useLoginContext();
+    const { email, password, loginLoading, element, error, handleError } = useLoginContext();
     return (
         <Container>
             <HeaderBg className={"bg"}>
@@ -94,7 +150,13 @@ const LoginPresenter: React.FC<IProps> = ({
                         e.currentTarget.onkeyup = (data: TextInputKeyPressEventData) => {
                             const { key } = data;
                             if(key === "Enter") {
-                                onSubmit();
+                                if(email.value === "") {
+                                    handleError("Please enter your e-mail");
+                                } else if(password.value === "") {
+                                    handleError("Please enter your password");
+                                } else {
+                                    onSubmit();
+                                }
                             }
                         }
                     }
@@ -130,11 +192,21 @@ const LoginPresenter: React.FC<IProps> = ({
                             value={"LOGIN"}
                             color={"gold"}
                             disabled={ isProgress || loginLoading }
-                            onClick={onSubmit}
+                            onClick={() => {
+                                if(email.value === "") {
+                                    handleError("Please enter your e-mail");
+                                } else if(password.value === "") {
+                                    handleError("Please enter your password");
+                                } else {
+                                    onSubmit();
+                                }
+                            }}
                         />
                     </ButtonBox>
-                    
                 </LoginForm>
+                <LoginBg className={"login-bg-box"}>
+                    <Img src={"/images/bg/login.png"}/>
+                </LoginBg>
             </Wrapper>
         </Container>    
     );

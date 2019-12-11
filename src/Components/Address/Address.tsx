@@ -12,6 +12,28 @@ const Wrapper = styled.div`
     align-items: center;
     flex: 4;
     padding: 15px 10px;
+    @media(max-width: 510px) {
+        padding: 10px 0;
+        & {
+            label {
+                padding-left: 10px;
+                font-size: 11px;
+                flex: 2;
+            }
+            input, select {
+                margin-top: 0;
+            }
+            .radio-cell {
+                display: block;
+                & > div {
+                    margin-bottom: 10px;
+                }
+            }
+            .input-box {
+                margin-left: -14px;
+            }
+        }
+    }
 `;
 const Label = styled.label`
     flex: 1;
@@ -26,6 +48,7 @@ const Cell = styled.div`
 `;
 const InputBox = styled.div`
     flex: 3;
+    margin-left: -7px;
 `;
 const InputAddress = styled.input`
     width: 100%;
@@ -69,8 +92,8 @@ const Address: React.FC<IProps> = ({
         <Container>
             <Wrapper>
                 <Label> { title }</Label>
-                <InputBox>
-                    <Cell>
+                <InputBox className={"input-box"}>
+                    <Cell className={"radio-cell"}>
                         <InputRadio 
                             defaultChecked={isAbroad.value === "false"}
                             id={1}

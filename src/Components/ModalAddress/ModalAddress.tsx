@@ -15,8 +15,11 @@ const Container = styled.div`
     align-items: center;
     transform: scale(0);
     opacity: 0;
-
+    z-index: -9;
+    display: none;
     &.active {
+        z-index: 1;
+        display: flex;
         transform: scale(1);
         opacity: 1;
         transition: .3s;

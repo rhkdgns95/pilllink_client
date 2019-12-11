@@ -10,8 +10,14 @@ import TextArea from "../TextArea";
 import CircleButton from "../CircleButton";
 import { useSignUpContext } from "../../Routes/SignUp/SignUpProvider";
 import AgreeCheckbox from "../AgreeCheckbox";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
+    @media(max-width: 510px) {
+        & .signup-title {
+            margin-left: 10px;
+        }
+    }
 `;
 const TitleExtended = styled(Title)`
     margin: 20px 0;
@@ -21,6 +27,9 @@ const ButtonBox = styled.div`
     justify-content: space-around;
     align-items: center;
     padding-top: 30px;
+`;
+const CircleButtonLink = styled(CircleButton)`
+
 `;
 
 const AgreementText: string = `이용약관 
@@ -213,12 +222,14 @@ const SignUpForm = () => {
                 name={"agree"}
             />
             <ButtonBox>
-                <CircleButton 
-                    color={"gold"}
-                    disabled={false}
-                    value={"CANCEL"}
-                    onClick={() => {}}
-                />
+                <Link to={"/"}>
+                    <CircleButtonLink
+                        color={"gold"}
+                        disabled={false}
+                        value={"CANCEL"}
+                        onClick={() => {}}
+                    />
+                </Link>
                 {
                     agree && (
                         <CircleButton 

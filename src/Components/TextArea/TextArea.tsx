@@ -6,6 +6,15 @@ const Container = styled.div`
     flex: 4;
     flex-flow: row-reverse;
     padding: 10px;
+    @media(max-width: 510px) {
+        flex-flow: column-reverse;   
+        label {
+            margin-bottom: 10px;
+        }
+        textarea {
+            font-size: 11px;
+        }
+    }
 `;
 const Wrapper = styled.textarea`
     display: block;

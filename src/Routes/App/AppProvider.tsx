@@ -3,6 +3,7 @@ import { useQuery, useMutation } from "react-apollo";
 import { GET_MY_PROFILE } from "./AppQueries";
 import { getMyProfile_GetMyProfile_user, getMyProfile, updateMyProfile_UpdateMyProfile, updateMyProfile, updateMyProfileVariables } from "../../Types/api";
 import { UPDATE_MY_RPFOILE } from "../Edit/EditQueries";
+import { USER_LOGOUT } from "./AppQueries.local";
 
 interface IContext {
     loadingGetMyProfile: boolean;
@@ -14,6 +15,7 @@ interface IContext {
     message: IMessage;
     updateMyprofile: (data: { variables: updateMyProfileVariables }) => any;
     loadingUpdateMyProfile: boolean;
+    logout: () => any;
 }
 
 const AppTitle: string = "Pill Link";
@@ -28,7 +30,8 @@ const InitContext: IContext = {
     handleTitle: () => {},
     message: { ok: true, data: "", onChangeMessage: () => {} },
     updateMyprofile: () => {},
-    loadingUpdateMyProfile: false
+    loadingUpdateMyProfile: false,
+    logout: () => {}
 };
 
 
@@ -76,6 +79,13 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
         },
         skip: !loggedIn
     });
+    /**
+     *  
+     *  User Logout
+     */
+    const [ logout, { loading: loadingLogout }] = useMutation(USER_LOGOUT);
+    
+    
     const user = data ? data.GetMyProfile.user : null;
 
     /**
@@ -141,7 +151,8 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
             user,
             message,
             updateMyprofile,
-            loadingUpdateMyProfile
+            loadingUpdateMyProfile,
+            logout
         }
     };
 }

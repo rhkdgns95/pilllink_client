@@ -9,6 +9,17 @@ const Wrapper = styled.div`
     flex: 4;
     align-items: center;
     padding: 10px;
+    @media(max-width: 510px) {
+        padding: 10px 0;
+        input {
+            font-size: 11px;
+        }
+        label {
+            padding-left: 10px;
+            font-size: 11px;
+            flex: 2;
+        }
+    }
 `;
 const InputTyped = styled.input`
     flex: 3;

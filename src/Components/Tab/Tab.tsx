@@ -72,7 +72,7 @@ const Container = styled.div`
                         padding: 35px 15px;
                         .tab-menu-btn {
                             &:not(:nth-of-type(1)) {
-                                margin: 0;
+                                // margin: 0;
                             }
                         }
                     }
@@ -157,7 +157,7 @@ const Name = styled.span`
     margin-left: 3px;
 `;
 const Tab = () => {
-    const { user } = useAppContext();
+    const { user, logout } = useAppContext();
     const [ isOpen, setIsOpen ] = useState<boolean>(false);
 
     const toggleOpen = () => {
@@ -185,7 +185,7 @@ const Tab = () => {
                             </TabHeader>
                             <TabBody className={"tab-body"}>
                                 <TabButton to={"/edit"} className={"tab-menu-btn"} bg_color={"#39b14d"}>MY PAGE</TabButton>
-                                <TabButton to={"/"} className={"tab-menu-btn"} bg_color={"#e4b633"}>LOGOUT</TabButton>
+                                <TabButton to={"/"} onClick={logout} className={"tab-menu-btn"} bg_color={"#e4b633"}>LOGOUT</TabButton>
                             </TabBody>
                         </TabInfo>
                     </TabWrapper>

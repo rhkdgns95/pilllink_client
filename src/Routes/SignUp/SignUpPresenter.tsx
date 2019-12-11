@@ -9,11 +9,32 @@ const Container = styled.div`
 const Wrapper = styled.div`
     & > div {
         width: 50%;
+        padding-top: 30px;
+    }
+    @media(max-width: 910px) {
+        & {
+            & > div {
+                width: 100%;
+            }
+            .bg-box {
+                display: none;
+            }
+        }
+    }
+    @media(max-width: 510px) {
+        & {
+            
+        }
     }
 `;
-const Img = styled.div`
+const Bg = styled.div`
+    margin-right: -45px;
 `;
-
+const Img = styled.img`
+    margin-top: 100px;
+    width: 100%;
+    display: block;
+`;
 const SignUpPresenter = () => (
     <Container>
         <Navbar 
@@ -21,9 +42,9 @@ const SignUpPresenter = () => (
             subTitle={"Show your symptoms to pharmacy and hospital"}
         />
         <Wrapper className={"row"}>   
-            <Img>
-
-            </Img>
+            <Bg className={"bg-box"}>
+                <Img src={"/images/bg/signup.png"}/>
+            </Bg>
             <SignUpForm/>
         </Wrapper>
         <ModalAddress />

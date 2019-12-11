@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "../../Styles/typed-components";
 import { Link } from "react-router-dom";
 import Tab from "../Tab";
+import { useAppContext } from "../../Routes/App/AppProvider";
 
 const Container = styled.div`
     width: 100%;
@@ -54,18 +55,21 @@ interface IProps {
 const Navbar: React.FC<IProps> = ({
     title,
     subTitle
-}) => (
-    <Container>
-        <Line/>
-        <BottomLine/>
-        <Wrapper className={"row"}>
-            <HomeLink to={"/"}>
-                <Title className={"title"}>{ title }</Title>          
-                <SubTitle className={"sub-title"}>{ subTitle }</SubTitle>          
-            </HomeLink>    
-            <Tab />
-        </Wrapper>
-    </Container>
-);
+}) => {
+    const { user } = useAppContext();
+    return (
+        <Container>
+            <Line/>
+            <BottomLine/>
+            <Wrapper className={"row"}>
+                <HomeLink to={"/"}>
+                    <Title className={"title"}>{ title }</Title>          
+                    <SubTitle className={"sub-title"}>{ subTitle }</SubTitle>          
+                </HomeLink>    
+                { user && <Tab /> }
+            </Wrapper>
+        </Container>
+    )
+}
 
 export default Navbar;

@@ -17,11 +17,11 @@ const Container = styled.div`
     z-index: -9;
     display: none;
     &.active {
+        z-index: 1;
         display: flex;
         transform: scale(1);
         opacity: 1;
         transition: .3s;
-        z-index: 1;
     }
 `;
 
