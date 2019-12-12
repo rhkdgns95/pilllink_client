@@ -147,7 +147,7 @@ const useFetch = (): {value: IContext} => {
     const gender = useRadio("male");
     const isAbroad = useRadio("false");
     const addressNationality = useSelectNationality("EN");
-    const email = useInput("");
+    const email = useInput("ex) abc@XXX.XXX");
     const password = useInput("");
     const [ handleLogin ] = useMutation(USER_LOGIN);
     const [ signUp ] = useMutation<emailSignUp, emailSignUpVariables>(EMAIL_SIGNUP, {

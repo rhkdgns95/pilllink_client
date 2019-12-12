@@ -130,7 +130,7 @@ const usePagination = (max: number, initCursor: number, initScreen: number): IUs
 
 const useFetch = (): { value: IContext } => {
 
-    const { user } = useAppContext();
+    const { user, handleTitle } = useAppContext();
     const max: number = user ? (user.medicalRecordsCount ? user.medicalRecordsCount : 0) : 0;
     // const currentPageIndex: number = parseInt(recordId);
     const pagination = usePagination(max, START_OFFSET, START_SCREEN);
@@ -139,9 +139,14 @@ const useFetch = (): { value: IContext } => {
             // onhandleUsingArrow();
         }
     });
+
     const { cursor, screen, onhandleUsingArrow } = pagination;
     const records: Array<getMyMedicalRecords_GetMyMedicalRecords_medicalRecords | null> | null  = data ? data.GetMyMedicalRecords.medicalRecords : null;
     
+    useEffect(() => {
+        handleTitle("Pill Link | My History");
+    }, []);
+
     useEffect(() => {
         const { tableCount } = PaginationSettings;
         getRecords({

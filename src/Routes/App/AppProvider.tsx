@@ -20,6 +20,10 @@ interface IContext {
 
 const AppTitle: string = "Pill Link";
 
+export const PATH_ALL_IMGS: string = "/images";
+export const PATH_IMG_BG: string = PATH_ALL_IMGS + "/bg";
+export const PATH_IMG_LANG: string = PATH_ALL_IMGS + "/lang";
+export const PATH_IMG_NA: string = PATH_ALL_IMGS + "/nationality";
 
 const InitContext: IContext = {
     timeOut: 0,

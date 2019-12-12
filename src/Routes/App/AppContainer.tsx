@@ -7,6 +7,7 @@ import Login from "../Login";
 import SignUp from "../SignUp";
 import Edit from "../Edit";
 import History from "../History";
+import Footer from "../../Components/Footer";
 
 
 const App = ({data}: {data: any}) => {
@@ -15,6 +16,7 @@ const App = ({data}: {data: any}) => {
         <AppProvider loggedIn={loggedIn}> 
             <ProgressBar/>
             <AppContainer { ...data.auth }/>
+            <Footer />
         </AppProvider>
     )
 };

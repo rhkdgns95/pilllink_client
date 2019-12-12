@@ -12,9 +12,16 @@
 - [x] General User Componnent.
 - [x] MyPage - Edit
 - [x] MyPage - History Part 1 (Pagination)
+- [x] Added image, Mobile screen check.
+- [x] Natinoality, Translate Language.
+- [] Feedback.
+- [] Result.
 - [] MyPage - History Part 2 (Confirm)
-- [] Css Background - SignUp, Edit
-- [] Manager Component.
+- [] Manager.
+- [] Browser IE - polyfill
+- [] Git Update - Security.
+- [] Register Domain.
+- [] Teting.
 
 
 ## 2. Install
@@ -39,7 +46,8 @@
 : 이와 비슷하게 이미 존재하는 props로 key가 있다는 점을 주의하자.
 - 4.2 useLazyQuery사용시 주의점
 : fetchPolicy: "cache-and-network" 를 설정하지 않으면, 값이 에러난경우 변경하지 않는다면, 실행되지 않는다.
-
+- 4.3 변수 바로이동
+: 참조하는 변수로 바로 이동할경우, [Ctrl + d]로 지정해서 변수 셀렉트하고 F12를 누르면 바로이동가능.
 ## 5. Pagination - Medical Record 요청
 - 5.0 총 데이터 갯수를 가져오도록 한다.
 : 전체를 나누어서 페이지 갯수를 정한다. 
@@ -63,6 +71,9 @@
 : 1페이지 / 10 => 0 => (0 + 1) * 10 => 10
 : 11페이지 / 10 => 1 => (1 + 1) * 10 => 20
 
+## 6. ICons
+- 6.1 Flag
+> https://www.flaticon.com/packs/international-flags
 
 <!-- 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

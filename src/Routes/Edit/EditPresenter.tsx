@@ -7,7 +7,7 @@ import InputTitleText from "../../Components/InputTitleText";
 import InputCell from "../../Components/InputCell";
 import InputRadio from "../../Components/InputRadio";
 import { useEditContext } from "./EditProvider";
-import { Nationality } from "../../nationality";
+import { Nationality, INationality } from "../../nationality";
 import ModalAddressEdit from "../../Components/ModalAddressEdit";
 import AddressEdit from "../../Components/AddressEdit";
 import CircleButton from "../../Components/CircleButton";
@@ -41,8 +41,13 @@ const Wrapper = styled.div`
                 .edit-form {
                      .select-box {
                          padding: 10px 0;
+                         flex: 5;
                          select {
                             font-size: 11px;
+                            flex: 4;
+                         }
+                         div {
+                             flex: 4;
                          }
                          label {
                              padding-left: 10px;
@@ -80,7 +85,7 @@ const EditForm = styled.form`
 
 const SelectorBox = styled.div`
     width: 100%;
-    padding: 15px 10px;
+    padding: 10px;
     display: flex;
     flex: 4;
     align-items: center;
@@ -90,6 +95,29 @@ const Title = styled.label`
     flex: 1;
     text-transform: uppercase;
     color: #147d51;
+`;
+const NationalitySelectBox = styled.div`
+    position: relative;
+    flex: 3;
+    & > select {
+        width: 102%;
+        @media(max-width: 910px) {
+            width: 101%;
+        }
+        @media(max-width: 510px) {
+            width: 102%;
+        }
+        padding: 7px 10px;
+        border: 1px solid #dfdfdf
+        border-radius: 3px;
+        font-size: 12px;
+        margin-left: -5px;
+        &:focus {
+            border: 1px solid ${props => props.theme.greenColor};
+            box-shadow: none;
+            outline: none;
+        }
+    }
 `;
 const Select = styled.select`
     width: 100%;
@@ -105,7 +133,16 @@ const Select = styled.select`
         outline: none;
     }
 `;
-
+const FlagImg = styled.img`
+    position: absolute;
+    top: 20%;
+    right: 26px;
+    width: 18px;
+    @media(max-width: 510px) {
+        right: 22px;
+        top: 21%;
+    }
+`;
 const Option = styled.option`
 `;
 const ButtonBox = styled.div`
@@ -136,6 +173,10 @@ const EditPresenter = () => {
     const { loadingUpdateMyProfile, message, } = useAppContext();
     const { firstName, lastName, password, age, gender, nationality, onFormInit, onUpdate } = useEditContext();
     let optionsAge: Array<any> = [];
+    const currentNationality: INationality | undefined = Nationality.find(item => item.code === nationality.value);
+    
+    const flagImg: string = currentNationality!.flag;
+
     for(var i = 1; i <= 100; i++) { optionsAge[i - 1]  = i; }
     return (
         <Container>
@@ -202,13 +243,16 @@ const EditPresenter = () => {
                         </SelectorBox>
                         <SelectorBox className={"select-box"}>
                             <Title>Nationality</Title>
-                            <Select value={nationality.value} onChange={nationality.onChange}>
-                                {
-                                    Nationality.map((option, key) => 
-                                        <Option key={key} value={option.code}>{ option.name }</Option>
-                                    )
-                                }
-                            </Select>
+                            <NationalitySelectBox>
+                                <Select value={nationality.value} onChange={nationality.onChange}>
+                                    {
+                                        Nationality.map((option, key) => 
+                                            <Option key={key} value={option.code}>{ option.name }</Option>
+                                        )
+                                    }
+                                </Select>
+                                <FlagImg src={flagImg} />
+                            </NationalitySelectBox>
                         </SelectorBox>
                         <AddressEdit title={"Address"}/> 
                     </EditForm>

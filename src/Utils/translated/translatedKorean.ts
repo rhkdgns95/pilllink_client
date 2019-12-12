@@ -4,7 +4,7 @@ const { COLD, COLIC, HANGOVER, FEMALE, HEADACHE, SKIN, OTHER, TOOTHACHE } = Comm
 export const TranslatedKorean: ICountry = {
     name: "한국어",
     value: "KO",
-    imgPath: "https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg",
+    imgPath: "/images/lang/lang_ko.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],

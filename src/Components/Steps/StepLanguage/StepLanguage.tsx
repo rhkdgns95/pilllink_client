@@ -2,7 +2,6 @@ import React, { ReactNode } from "react";
 import styled from "../../../Styles/typed-components";
 import RadioButton from "../../RadioButton";
 import { useHomeContext } from "../../../Routes/Home/HomeProvider";
-import languages from "../../../languages";
 import translator from "../../../Utils/translator";
 
 const Container = styled.div`

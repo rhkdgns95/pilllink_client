@@ -11,7 +11,9 @@ const Wrapper = styled.div`
     padding: 10px;
     @media(max-width: 510px) {
         padding: 10px 0;
+        flex: 5;
         input {
+            flex: 4;
             font-size: 11px;
         }
         label {
@@ -29,7 +31,7 @@ const InputTyped = styled.input`
     padding: 7px 10px;
     transition: border .1s;
     &:focus {
-        border: 1px solid #4bd38e;
+        border: 1px solid ${props => props.theme.greenColor};
         & ~ label {
             color: #0aa147;
         }

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 import InputRadio from "../InputRadio";
 import { useEditContext } from "../../Routes/Edit/EditProvider";
-import { Nationality } from "../../nationality";
+import { Nationality, INationality } from "../../nationality";
 import { useAppContext } from "../../Routes/App/AppProvider";
 
 const Container = styled.div`
@@ -14,8 +14,12 @@ const Wrapper = styled.div`
     align-items: center;
     flex: 4;
     padding: 15px 10px;
+    .input-box {
+        margin-left: -4px;
+    }
     @media(max-width: 510px) {
         padding: 10px 0;
+        flex: 5;
         & {
             label {
                 padding-left: 10px;
@@ -27,9 +31,14 @@ const Wrapper = styled.div`
             }
             .radio-cell {
                 display: block;
+                margin-left: 1px;
                 & > div {
                     margin-bottom: 10px;
                 }
+            }
+            .input-box {
+                margin-left: -7px;
+                flex: 4;
             }
         }
     }
@@ -47,6 +56,7 @@ const Cell = styled.div`
 `;
 const InputBox = styled.div`
     flex: 3;
+    
 `;
 const InputAddress = styled.input`
     width: 100%;
@@ -63,7 +73,10 @@ const InputAddress = styled.input`
         }      
     }
 `;
-const SelectAddress = styled.select`
+const SelectAddress = styled.div`
+    position: relative;
+`;
+const Select = styled.select`
     width: 100%;
     border: 1px solid #dfdfdf;
     border-radius: 3px;
@@ -73,9 +86,19 @@ const SelectAddress = styled.select`
     margin-top: 10px;
     font-size: 12px;
     &:focus {
-        border: 1px solid #4bd38e;
+        border: 1px solid ${props => props.theme.greenColor};
         & ~ label {
         }      
+    }
+`;
+const FlagImg = styled.img`
+    position: absolute;
+    top: 40%;
+    right: 26px;
+    width: 18px;
+    @media(max-width: 510px) {
+        right: 18px;
+        top: 21%;
     }
 `;
 const Option = styled.option`
@@ -89,7 +112,9 @@ const AddressEdit: React.FC<IProps> = ({
 }) => {
     const { user } = useAppContext();
     const { isModal, toggleModal, detailAddress, isAbroad, abroadAddress } = useEditContext();
-    const abroadNationality = Nationality.filter(item => item.code !== "KO");
+    const abroadNationality: Array<INationality> = Nationality.filter(item => item.code !== "KO");
+    
+    const currentAbroadImage = abroadNationality.find(item => item.code === abroadAddress.value);
     if(!user) {
         return <></>
     }
@@ -97,7 +122,7 @@ const AddressEdit: React.FC<IProps> = ({
         <Container>
             <Wrapper>
                 <Label> { title }</Label>
-                <InputBox>
+                <InputBox className={"input-box"}>
                     <Cell className={"radio-cell"}>
                         <InputRadio 
                             id={1}
@@ -132,10 +157,13 @@ const AddressEdit: React.FC<IProps> = ({
                     {
                         //In no-korea
                         isAbroad.value === "true" && (
-                            <SelectAddress onChange={abroadAddress.onChange} value={abroadAddress.value}>
-                                {
-                                    abroadNationality.map((item, key) => <Option key={key} value={item.code}>{ item.name }</Option>)
-                                }
+                            <SelectAddress>
+                                <Select className={"select-address-box"} onChange={abroadAddress.onChange} value={abroadAddress.value}>
+                                    {
+                                        abroadNationality.map((item, key) => <Option key={key} value={item.code}>{ item.name }</Option>)
+                                    }
+                                </Select>
+                                <FlagImg src={currentAbroadImage!.flag}/>
                             </SelectAddress>
                         )
                     }

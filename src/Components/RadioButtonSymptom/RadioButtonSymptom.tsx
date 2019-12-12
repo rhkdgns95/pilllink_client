@@ -5,7 +5,17 @@ const Container = styled.div`
     margin: 10px 15px;
 `;
 const Wrapper = styled.div`
+    @media(max-width: 510px) {
+        label {
+            position: relative;
 
+            & span {
+                position: absolute;
+                top: 97%;
+                margin-top: 7px;
+            }
+        }      
+    }
 `;
 
 const Radio = styled.input`
@@ -15,7 +25,7 @@ const Radio = styled.input`
     pointer-events: none;
     &:checked {
         & ~ label {
-            border: 1px solid #13a964;
+            border: 1px solid #4e9393;
             box-shadow: 0 1px 2px rgba(0,0,0,.24), 0 -1px 4px rgba(0,0,0,.32);
             transition: .2s;
             opacity: 1;
@@ -23,8 +33,9 @@ const Radio = styled.input`
                 opacity: 1;
             }
             & > span {
+                font-weight: bold;
                 transition: .2s;
-                color: #13a964;
+                color: #29505f;
             }
         }
     }
@@ -32,11 +43,12 @@ const Radio = styled.input`
 const Label = styled.label`
     display: flex;
     flex-flow: column;
-    border: 1px solid #dfdfdf;
+    border: 1px solid rgba(0,0,0,0);
+    box-shadow: 0 0.5px 10px rgba(0,50,100,.2);
     justify-content: center;
     align-items: center;
-    width: 125px;
-    height: 125px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     cursor: pointer;
     opacity: .8;
@@ -55,8 +67,10 @@ const Img = styled.img`
 `;
 const Text = styled.span`
     margin: 0 auto;
-    margin-top: 7px;
+    margin-top: 12px;
     font-size: 12px;
+    color: #8a8a8a;
+
 `;
 
 interface IProps {

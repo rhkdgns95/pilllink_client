@@ -1,55 +1,57 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
-
 const { COLD, COLIC, HANGOVER, FEMALE, HEADACHE, SKIN, OTHER, TOOTHACHE } = CommonSymptomsText;
 
-export const TranslatedEnglish: ICountry = {
-    name: "English",
-    value: "EN",
-    imgPath: "/images/lang/lang_en.svg",
+export const TranslatedSpain: ICountry = {
+    name: "Espanol",
+    value: "ES",
+    imgPath: "/images/lang/lang_es.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
+            name: "ES_알레르기",
             details: [
                 {
-                    name: "None",
+                    name: "ES_해당사항 없음",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "Painkiller",
+                    name: "ES_진통제",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "Antibiotic",
+                    name: "ES_유당",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
+            name: "ES_임신여부",
             details: [
                 {
-                    name: "None",
+                    name: "ES_임신 X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "Pregnant",
+                    name: "ES_임신 O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
+            name: "ES_만성질환",
             details: [
                 {
-                    name: "None",
+                    name: "ES_해당사항 없음",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "Liver disease",
+                    name: "ES_간질환",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "Kidney disease",
+                    name: "ES_신장질환",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -57,173 +59,182 @@ export const TranslatedEnglish: ICountry = {
     ],
     symptoms: [
         { 
-            ...CommonSymptoms[COLD], // S-1. 감기
+            ...CommonSymptoms[COLD],
+            name: "ES_감기",
             details: [
                 { 
-                    name: "Cough",
+                    name: "ES_기침",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "Headache",
+                    name: "ES_두통",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "Snot",
+                    name: "ES_콧물",
                     ...CommonSymptomsText.cold_snot
                 },
                 {
-                    name: "Throat",
+                    name: "ES_목아픔",
                     ...CommonSymptomsText.cold_throat
                 },
                 {
-                    name: "Fever",
+                    name: "ES_열",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "Muscle",
+                    name: "ES_몸살",
                     ...CommonSymptomsText.cold_muscle
                 }
             ]
         },
         {
             ...CommonSymptoms[COLIC],
+            name: "ES_복통",
             details: [
                 {
-                    name: "Diarrhead",
+                    name: "ES_설사",
                     ...CommonSymptomsText.colic_diarrhead
                 },
                 {
-                    name: "PeriodCramps",
+                    name: "ES_생리통",
                     ...CommonSymptomsText.colic_periodCramps
                 },
                 {
-                    name: "Indigestion",
+                    name: "ES_소화불량",
                     ...CommonSymptomsText.colic_indigestion
                 },
                 {
-                    name: "Constipation",
+                    name: "ES_변비",
                     ...CommonSymptomsText.colic_constipation
                 },
                 {
-                    name: "Sickness",
+                    name: "ES_메스꺼움",
                     ...CommonSymptomsText.colic_sickness
                 },
                 {
-                    name: "Heartburn",
+                    name: "ES_속쓰림",
                     ...CommonSymptomsText.colic_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
+            name: "ES_여성질환",
             details: [
                 {
-                    name: "Tmp",
+                    name: "ES_임시",
                     ...CommonSymptomsText.female_tmp
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
+            name: "ES_숙취",
             details: [
                 {
-                    name: "Headache",
+                    name: "ES_두통",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "Diarrhea",
+                    name: "ES_설사",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "Throwup",
+                    name: "ES_구토",
                     ...CommonSymptomsText.hangover_throwup
                 },
                 {
-                    name: "Sickness",
+                    name: "ES_메스꺼움",
                     ...CommonSymptomsText.hangover_sickness
                 },
                 {
-                    name: "Heartburn",
+                    name: "ES_속쓰림",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[HEADACHE],
+            name: "ES_두통",
             details: [
                 {
-                    name: "Headache",
+                    name: "ES_두통",
                     ...CommonSymptomsText.headache_headache
                 },
                 {
-                    name: "Migraine",
+                    name: "ES_편두통",
                     ...CommonSymptomsText.headache_migraine
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
+            name: "ES_피부질환",
+            imgPath: "/images/symptoms/symptoms_skin.svg",
             details: [
                 {
-                    name: "Abrasion",
+                    name: "ES_철과상",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "Acne",
+                    name: "ES_여드름",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "Hives",
+                    name: "ES_두드러기",
                     ...CommonSymptomsText.skin_hives
                 },
                 {
-                    name: "Eczema",
+                    name: "ES_습진",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "Blister",
+                    name: "ES_수포",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "Athletesfoot",
+                    name: "ES_무좀",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[TOOTHACHE],
+            name: "ES_구강질환",
             details: [
                 {
-                    name: "Needle",
+                    name: "ES_혓바늘",
                     ...CommonSymptomsText.toothache_needle
                 },
                 {
-                    name: "Stomatitis",
+                    name: "ES_구내염",
                     ...CommonSymptomsText.toothache_stomatitis
                 },
                 {
-                    name: "Drylips",
+                    name: "ES_마른입술",
                     ...CommonSymptomsText.toothache_drylips
                 },
                 {
-                    name: "Badbreath",
+                    name: "ES_입냄새",
                     ...CommonSymptomsText.toothache_badbreath
                 },
                 {
-                    name: "Gum",
+                    name: "ES_잇몸",
                     ...CommonSymptomsText.toothache_gum
                 },
                 {
-                    name: "Drymouth",
+                    name: "ES_구강건조증",
                     ...CommonSymptomsText.toothache_drymouth
                 }
             ]
         },
         {
             ...CommonSymptoms[OTHER],
+            name: "ES_기타",
             details: [
                 {
-                    name: "Tmp",
+                    name: "ES_기타_임시",
                     ...CommonSymptomsText.other_tmp
                 }
             ]

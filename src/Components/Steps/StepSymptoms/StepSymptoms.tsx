@@ -9,13 +9,26 @@ const Container = styled.div`
 
 `;
 const Wrapper = styled.div`
-    @media(max-width: 500px) {
+    @media(max-width: 910px) {
+        & > {
+            .group-select {
+                padding-left: 0;
+                margin-bottom: 0;
+                .bg-box {
+                    display: none;
+                }
+            }
+            .group-radio {
+                margin: 45px 0;
+            }
+        }
+    }
+    @media(max-width: 510px) {
         & > .group-select {
             padding: 20px 0;
-            padding-left: 0;
             display: block;
             & > div {
-                margin-bottom: 10px;
+                margin-bottom: 10px; 
                 & > div {
                     display: flex;
                     flex: 2;
@@ -34,13 +47,15 @@ const Wrapper = styled.div`
             }
         }
         & > .group-radio {
+            margin: 15px 0;
             justify-content: space-between;
             & > div {
                 // margin: 10px 5px;
-                margin: 10px 0;
+                margin: 20px 0;
+                width: 33%;
                 & label {
-                    width: 90px;
-                    height: 90px;
+                    width: 95px;
+                    height: 95px;
                     & img {
                         width: 40%;
                         height: 40%;
@@ -51,18 +66,31 @@ const Wrapper = styled.div`
     }
 `;
 const SymptomGroup = styled.div`
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-bottom: 30px;
     padding: 40px 0;
-    background-color: #dcecea;
-    padding-left: 50px;
+    background-color: #dbebeb;
+    padding-left: 220px;
+`;
+const SelectorBg = styled.div`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-28%);
+    left: 50px;
+    width: 172px;
+`;
+const Img = styled.img`
+    display: block;
+    width: 100%;
 `;
 const RadioButtonGroup = styled.div`
     display: flex;
     flex-flow: wrap;
     justify-content: center;
+    margin: 80px 0;
 `;
 
 interface IProps {
@@ -85,6 +113,9 @@ const StepSymptoms: React.FC<IProps> = ({
             <Wrapper>
                 { stepTitle }
                 <SymptomGroup className={"group-select"}>
+                    <SelectorBg className={"bg-box"}>
+                        <Img src={"/images/bg/select.png"}/>
+                    </SelectorBg>
                     {
                         country && (
                             country.selectors.map((selector: any, key: number) =>

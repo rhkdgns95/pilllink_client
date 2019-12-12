@@ -11,14 +11,17 @@ const Wrapper = styled.div`
     padding: 15px 10px;
     @media(max-width: 510px) {
         padding: 15px 0;
+        flex: 5;
         & {
             label {
                 padding-left: 10px;
                 font-size: 11px;
                 flex: 2;
             }
+
             .input-cell-radio {
-                margin-left: -13px;
+                margin-left: -8px;
+                flex: 4;
             }
         }
     }

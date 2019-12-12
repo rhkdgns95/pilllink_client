@@ -29,7 +29,8 @@ const Wrapper = styled.textarea`
     line-height: 20px;
     background-color: #ffffff;
     &:focus {
-        border: 1px solid #4bd38e;
+        outline: none;
+        border: 1px solid ${props => props.theme.greenColor};
         & ~ label {
             color: #0aa147;
         }

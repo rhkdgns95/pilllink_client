@@ -9,7 +9,7 @@ export const GlobalStlyes = createGlobalStyle`
     body {
         background-color: ${props => props.theme.bgColor};
         font-family: 'Nanum Gothic', sans-serif;
-        padding-bottom: 30px;
+        height: 100vh;
     }
     * {
         box-sizing: border-box;
@@ -34,6 +34,7 @@ export const GlobalStlyes = createGlobalStyle`
     }
     select {
         // margin-bottom: -1px;
+        background-color: #ffffff;
     }
     button {
         border: 0;

@@ -1,24 +1,32 @@
 import React from "react";
 import styled from "../../Styles/typed-components";
 import { useSignUpContext } from "../../Routes/SignUp/SignUpProvider";
-import { Nationality } from "../../nationality";
+import { Nationality, INationality } from "../../nationality";
 
 const Container = styled.div`
     width: 100%;
 `;
 const Wrapper = styled.div`
     width: 100%;
-    padding: 15px 10px;
+    padding: 10px;
     display: flex;
     flex: 4;
     align-items: center;
     @media(max-width: 510px) {
+        flex: 5;
+        padding: 10px 0;
         label {
+            padding-left: 10px
             flex: 2;
             font-size: 11px;
         }
         select {
-            font-size: 11px;
+            flex: 4;
+            font-size: 11px !important;
+        }
+        .national-select-box {
+            flex: 4;
+            margin-left: -3px;
         }
     }
 `;
@@ -41,6 +49,43 @@ const Select = styled.select`
         outline: none;
     }
 `;
+const SelectBox = styled.div`
+    display: flex;
+    position: relative;
+    flex: 3;
+    & > select {
+        width: 102%;
+        @media(max-width: 910px) {
+            width: 101%;
+        }
+        @media(max-width: 510px) {
+            width: 102%;
+        }
+        padding: 7px 10px;
+        border: 1px solid #dfdfdf
+        border-radius: 3px;
+        font-size: 12px;
+        margin-left: -5px;
+        &:focus {
+            border: 1px solid ${props => props.theme.greenColor};
+            box-shadow: none;
+            outline: none;
+        }
+    }
+`;
+const NationalSelect = styled.select`
+
+`;
+const FlagImg = styled.img`
+    position: absolute;
+    top: 20%;
+    right: 26px;
+    width: 18px;
+    @media(max-width: 510px) {
+        right: 22px;
+        top: 21%;
+    }
+`;
 const Option = styled.option`
 `;
 interface IProps {
@@ -51,12 +96,15 @@ const Selector: React.FC<IProps> = ({
 }) => { 
     const { age, nationality } = useSignUpContext();
     let options: Array<any> = [];
+    let flagImg: string = "";
     if(title === "Age") {
         for(var i = 1; i <= 100; i++) {
             options[i-1] = i + "";
         }
     } else {
         options = Nationality;
+        const currentNationality: INationality | undefined = Nationality.find(item => item.code === nationality.value);
+        flagImg = currentNationality!.flag;
     }
     return (
         <Container>
@@ -75,13 +123,23 @@ const Selector: React.FC<IProps> = ({
                 }
                 {
                     title === "Nationality" && (
-                        <Select defaultValue={nationality.value} onChange={nationality.onChange}>
-                            {
-                                options.map((option, key) => 
-                                    <Option key={key} value={option.code}>{ option.name }</Option>  
-                                )
-                            }
-                        </Select>
+                        <SelectBox className={"national-select-box"}>
+                            <NationalSelect defaultValue={nationality.value} onChange={nationality.onChange}>
+                                {
+                                    options.map((option, key) => 
+                                        <Option key={key} value={option.code}>{ option.name }</Option>  
+                                    )
+                                }
+                            </NationalSelect>
+                            <FlagImg src={flagImg} />
+                        </SelectBox>
+                        // <Select defaultValue={nationality.value} onChange={nationality.onChange}>
+                        //     {
+                        //         options.map((option, key) => 
+                        //             <Option key={key} value={option.code}>{ option.name }</Option>  
+                        //         )
+                        //     }
+                        // </Select>
                     )
                 }
             </Wrapper>

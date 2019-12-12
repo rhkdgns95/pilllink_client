@@ -2,6 +2,7 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 import InputRadio from "../InputRadio";
 import { useSignUpContext } from "../../Routes/SignUp/SignUpProvider";
+import { Nationality, INationality } from "../../nationality";
 
 const Container = styled.div`
 
@@ -14,6 +15,7 @@ const Wrapper = styled.div`
     padding: 15px 10px;
     @media(max-width: 510px) {
         padding: 10px 0;
+        flex: 5;
         & {
             label {
                 padding-left: 10px;
@@ -21,16 +23,18 @@ const Wrapper = styled.div`
                 flex: 2;
             }
             input, select {
-                margin-top: 0;
+                margin-top: 0 !important;
             }
             .radio-cell {
                 display: block;
+                margin-left: 1px;
                 & > div {
                     margin-bottom: 10px;
                 }
             }
             .input-box {
-                margin-left: -14px;
+                margin-left: -10px;
+                flex: 4;
             }
         }
     }
@@ -64,7 +68,23 @@ const InputAddress = styled.input`
         }      
     }
 `;
-const SelectAddress = styled.select`
+const SelectAddress = styled.div`
+    position: relative;
+    & > .flag-img {
+        
+    }
+`;
+const FlagImg = styled.img`
+    position: absolute;
+    top: 40%;
+    right: 26px;
+    width: 18px;
+    @media(max-width: 510px) {
+        right: 18px;
+        top: 21%;
+    }
+`;
+const Select = styled.select`
     width: 100%;
     border: 1px solid #dfdfdf;
     border-radius: 3px;
@@ -72,15 +92,16 @@ const SelectAddress = styled.select`
     transition: border .1s;
     margin-top: 10px;
     font-size: 12px;
+    position: relative;
     &:focus {
-        border: 1px solid #4bd38e;
-        & ~ label {
-        }      
+        border: 1px solid ${props => props.theme.greenColor};
+        box-shadow: none;
+        outline: none;
     }
 `;
 const Option = styled.option`
-
 `;
+
 interface IProps {
     title: string;
 }
@@ -88,9 +109,12 @@ const Address: React.FC<IProps> = ({
     title
 }) => {
     const { isModal, toggleModal, detailAddress, isAbroad, addressNationality } = useSignUpContext();
+    const abroadNational: Array<INationality> = Nationality.filter(item => item.code !== "KO" );
+    const currentAbroadImage = abroadNational.find(item => item.code === addressNationality.value);
     return (
         <Container>
             <Wrapper>
+                
                 <Label> { title }</Label>
                 <InputBox className={"input-box"}>
                     <Cell className={"radio-cell"}>
@@ -127,10 +151,15 @@ const Address: React.FC<IProps> = ({
                     {
                         //In no-korea
                         isAbroad.value === "true" && (
-                            <SelectAddress defaultValue={addressNationality.value} onChange={addressNationality.onChange}>
-                                <Option value={"EN"}>England</Option>
-                                <Option value={"CH"}>China</Option>
-                                <Option value={"FR"}>France</Option>
+                            <SelectAddress>
+                                    <Select className={"select-address-box"} defaultValue={addressNationality.value} onChange={addressNationality.onChange}>
+                                        {
+                                            abroadNational.map((nationality, key) => 
+                                                <Option key={key} value={nationality.code}>{nationality.name} </Option>
+                                            )
+                                        }
+                                    </Select>
+                                    <FlagImg src={currentAbroadImage!.flag}/>
                             </SelectAddress>
                         )
                     }
