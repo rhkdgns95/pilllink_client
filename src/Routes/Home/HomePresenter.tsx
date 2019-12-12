@@ -6,6 +6,7 @@ import StepTitle from "../../Components/StepTitle";
 import StepButton from "../../Components/StepButton";
 import { useHomeContext } from "./HomeProvider";
 import StepSymptoms from "../../Components/Steps/StepSymptoms";
+import StepDetailSymptoms from "../../Components/Steps/StepDetailSymptoms";
 
 const Container = styled.div`
 `;
@@ -33,7 +34,7 @@ const SlideBtnBox = styled.div`
 
 
 const HomePresenter = () => {
-    const { lang, step, handleStep } = useHomeContext();
+    const { lang, step, handleStep, symptom, submitOk } = useHomeContext();
 
     return (
         <Container>
@@ -47,6 +48,7 @@ const HomePresenter = () => {
                         <Steps>
                             { step === 0 && <StepLanguage stepTitle={ <StepTitle title={"Language"} subTitle={"Please, select your language"}/> } />}
                             { step === 1 && <StepSymptoms stepTitle={ <StepTitle title={"Symptoms"} subTitle={"Please, select your conditions and symptoms"}/> } />}
+                            { step === 2 && <StepDetailSymptoms stepTitle={ <StepTitle title={"Details"} subTitle={"Please, show this result to your pharmacist"} /> } />}
                         </Steps>
                     </Slide>
                     <SlideBtnBox>
@@ -68,13 +70,19 @@ const HomePresenter = () => {
                                         value={"PREV"}
                                         onClick={() => { handleStep(step - 1) }}
                                     />
-                                    <StepButton 
-                                        value={"NEXT"}
-                                        onClick={() => { handleStep(step + 1) }}
-                                    />
+                                    {
+                                        symptom.value !== "" && (
+                                            <StepButton 
+                                                value={"NEXT"}
+                                                onClick={() => { handleStep(step + 1) }}
+                                                isNext={true}
+                                            />
+                                        )
+                                    }
                                 </>
                             )
                         }
+                        
                         {
                             step == 2 &&
                             lang.value !== "" && (
@@ -83,10 +91,14 @@ const HomePresenter = () => {
                                         value={"PREV"}
                                         onClick={() => { handleStep(step - 1) }}
                                     />
-                                    <StepButton 
-                                        value={"NEXT"}
-                                        onClick={() => { handleStep(step + 1) }}
-                                    />
+                                    {
+                                    submitOk && 
+                                        <StepButton 
+                                            value={"FEED BACK"}
+                                            onClick={() => { alert("Feedback!") }}
+                                            isNext={true}
+                                        />
+                                    }
                                 </>
                             )
                         }

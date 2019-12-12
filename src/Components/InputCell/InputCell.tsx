@@ -5,6 +5,7 @@ const Container = styled.div`
 
 `;
 const Wrapper = styled.div`
+    position: relative;
     display: flex;
     flex-flow: row wrap;
     flex: 4;

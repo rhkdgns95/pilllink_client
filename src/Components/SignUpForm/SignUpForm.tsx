@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
     @media(max-width: 510px) {
+        padding-right: 10px;
         & .signup-title {
             margin-left: 10px;
         }

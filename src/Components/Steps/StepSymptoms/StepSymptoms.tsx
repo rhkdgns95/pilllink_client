@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "../../../Styles/typed-components";
 import RadioButtonSymptom from "../../RadioButtonSymptom";
 import { useHomeContext } from "../../../Routes/Home/HomeProvider";
@@ -6,7 +6,7 @@ import SelectorSymptom from "../../SelectorSymptom";
 import translator from "../../../Utils/translator";
 
 const Container = styled.div`
-
+    
 `;
 const Wrapper = styled.div`
     @media(max-width: 910px) {
@@ -101,13 +101,18 @@ const StepSymptoms: React.FC<IProps> = ({
     stepTitle
 }) => {
     const { lang, symptom, allergy, pregnant, chronicdisease } = useHomeContext();
+    const [isEffected, setIsEffected] = useState<boolean>(false);
     const country: ICountry | undefined = translator.find(country => country.value === lang.value);
     const selectorSymptoms: Array<any> = [
         allergy,
         pregnant,
         chronicdisease
     ];
-
+    useEffect(() => {
+        if(!isEffected) {
+            setIsEffected(true);
+        }
+    }, []);
     return (
         <Container>
             <Wrapper>
@@ -149,7 +154,7 @@ const StepSymptoms: React.FC<IProps> = ({
                     /> */}
                 </SymptomGroup>
                 
-                <RadioButtonGroup className={"group-radio"}>
+                <RadioButtonGroup className={isEffected ? "active step-container group-radio" : "step-container group-radio"}>
                     {
                         country && (
                             country.symptoms.map((item, key) => 

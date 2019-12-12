@@ -8,6 +8,7 @@ const Container = styled.div`
     padding: 10px;
     @media(max-width: 510px) {
         flex-flow: column-reverse;   
+        padding-right: 0;
         label {
             margin-bottom: 10px;
         }

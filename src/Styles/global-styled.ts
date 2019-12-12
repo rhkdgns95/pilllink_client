@@ -59,4 +59,14 @@ export const GlobalStlyes = createGlobalStyle`
             width: 95%;
         }
     }
+    .step-container {
+        transition: opacity .4s, transform .3s;
+        transform: translateY(-30px);
+        opacity: 0;
+        transition-timing-function: ease-in-out;
+        &.active {
+            opacity: 1;
+            transform: translate(0);
+        }
+    }
 `;

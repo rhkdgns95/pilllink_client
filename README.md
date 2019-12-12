@@ -14,7 +14,8 @@
 - [x] MyPage - History Part 1 (Pagination)
 - [x] Added image, Mobile screen check.
 - [x] Natinoality, Translate Language.
-- [] Feedback.
+- [x] Feedback Part 1 (Manage Step State).
+- [x] Feedback Part 2 (Create Medical Record).
 - [] Result.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.
@@ -22,7 +23,7 @@
 - [] Git Update - Security.
 - [] Register Domain.
 - [] Teting.
-
+- [] Ralations Server - Nationality Code / Value.
 
 ## 2. Install
 1. yarn create react-app ./ --typescript
@@ -48,6 +49,13 @@
 : fetchPolicy: "cache-and-network" 를 설정하지 않으면, 값이 에러난경우 변경하지 않는다면, 실행되지 않는다.
 - 4.3 변수 바로이동
 : 참조하는 변수로 바로 이동할경우, [Ctrl + d]로 지정해서 변수 셀렉트하고 F12를 누르면 바로이동가능.
+- 4.4 setState
+: prevState와 newState를 비교하여 데이터를 변경되도록 한다.
+: setState의 return값은 새로운 데이터가 변경될 데이터고, 인자로는 prevState를 받는다.
+: ex) setState((prevState: number) => return prevState + 1); 
+: 주의점으로 인자와 리턴값으로는 useState에설정된 <>의 타입을 잘살펴보도록한다.
+: 위의 예제에서는 당연히 number값으로 인자로하는 것이라면, number값이 리턴되도록 한다.
+
 ## 5. Pagination - Medical Record 요청
 - 5.0 총 데이터 갯수를 가져오도록 한다.
 : 전체를 나누어서 페이지 갯수를 정한다. 

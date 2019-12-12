@@ -15,6 +15,7 @@ interface IUseInputText {
 interface IUseSelect {
     value: string;
     onChange: React.ChangeEventHandler<HTMLSelectElement>;
+    onInit?: () => any;
 }
 interface IUseSelectNationality {
     value: TNationality;
@@ -23,6 +24,12 @@ interface IUseSelectNationality {
 interface IUseRadio {
     value: string;
     onChange: React.ChangeEventHandler<HTMLInputElement>;
+    onInit?: () => any;
+}
+interface IUseCheckbox {
+    details: Array<ISymptomDetails>;
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
+    onInit: (initSymptomDetails: Array<ISymptomDetails>) => any;
 }
 interface IUseInputEdit {
     value: string;
@@ -196,6 +203,7 @@ interface ISelectors {
     name: string;
     details: Array<ISymptomInputData>;
 }
+
 interface ISymptom extends ISymptomInputData{
     imgPath: string;
     details: Array<ISymptomInputData>
@@ -204,4 +212,9 @@ interface ICountry extends ISymptomInputData {
     imgPath: string;
     selectors: Array<>
     symptoms: Array<ISymptom>;
+}
+
+interface ISymptomDetails {
+    value: string;
+    checked: boolean;
 }

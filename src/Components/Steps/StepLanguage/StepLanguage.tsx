@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import styled from "../../../Styles/typed-components";
 import RadioButton from "../../RadioButton";
 import { useHomeContext } from "../../../Routes/Home/HomeProvider";
@@ -35,12 +35,17 @@ const StepLanguage: React.FC<IProps> = ({
     stepTitle
 }) => {
     const { lang } = useHomeContext();
-
+    const [isEffected, setIsEffected] = useState<boolean>(false);
+    useEffect(() => {
+        if(!isEffected) {
+            setIsEffected(true);
+        }
+    }, []);
     return (
         <Container>
             <Wrapper>
                 { stepTitle }
-                <RadioBox className={"radio-box"}>
+                <RadioBox className={isEffected ? "active step-container radio-box" : "step-container radio-box"}>
                     {
                         translator.map((country, key) => 
                             <RadioButton 

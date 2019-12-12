@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     @media(max-width: 510px) {
         label {
             position: relative;
-
+            margin: 0 auto;
             & span {
                 position: absolute;
                 top: 97%;
