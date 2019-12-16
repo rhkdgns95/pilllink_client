@@ -11,7 +11,19 @@ export const GET_MY_RECORDS = gql`
             error
             totalCount
             medicalRecords {
+                
                 ...ItemMedicalRecord
+                ...ItemCold
+                ...ItemColic
+                ...ItemFemale
+                ...ItemHangover
+                ...ItemHeadache
+                ...ItemSkin
+                ...ItemOther
+                ...ItemToothache
+                confirm {
+                    ...ItemConfirm
+                }
             }
         }
     }

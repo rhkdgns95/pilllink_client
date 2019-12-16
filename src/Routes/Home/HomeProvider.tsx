@@ -2,7 +2,9 @@ import React, { useContext, createContext, useState, useEffect } from "react";
 import { useMutation } from "react-apollo";
 import { CREATE_MEDICAL_RECORD } from "./HomeQueries";
 import { useAppContext } from "../App/AppProvider";
-
+import translator from "../../Utils/translator";
+import { createMedicalRecord, createMedicalRecordVariables }  from "../../Types/api";
+import { GET_MY_RECORDS } from "../History/HistoryQueries";
 interface IContext {
     step: number;
     handleStep: (step: number) => void,
@@ -13,6 +15,8 @@ interface IContext {
     chronicdisease: IUseSelect;
     submitOk: boolean;
     handleSubmitOk: (isOk: boolean) => any;
+    onCreateResultDetails: (data: any) => any;
+    handleMedicalRecord: () => any;
 }
 
 const InitContext: IContext = {
@@ -24,7 +28,9 @@ const InitContext: IContext = {
     pregnant: { value: "", onChange: () => {} },
     chronicdisease: { value: "", onChange: () => {} },
     submitOk: false,
-    handleSubmitOk: (isOk: boolean) => {}
+    handleSubmitOk: (isOk: boolean) => {},
+    onCreateResultDetails: () => {},
+    handleMedicalRecord: () => {}
 };
 
 const HomeContext: React.Context<IContext> = createContext<IContext>(InitContext);
@@ -37,10 +43,13 @@ const useInput = (defaultName: TLanguage | string): IUseRadio => {
         const { target: { name, value }} = event;
         setValue(value);
     };
-
+    const onInit = () => {
+        setValue(defaultName);
+    }
     return {
         value,
-        onChange
+        onChange,
+        onInit
     };
 }
 const useRadio = (initValue: string): IUseRadio => {
@@ -48,11 +57,11 @@ const useRadio = (initValue: string): IUseRadio => {
     const onChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         const { target: { name, value }} = event;
         setValue(value);
-        console.log("Current Value: ", value);
+        // console.log("Current Value: ", value);
     }
     const onInit = () => {
         setValue(initValue);
-        console.log("useRadio onInit: ", initValue);
+        // console.log("useRadio onInit: ", initValue);
     };
 
     return {
@@ -66,13 +75,13 @@ const useSelect = (initValue: string): IUseSelect => {
     
     const onChange: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
         const { target: { name, value }} = event;
-        console.log("onChange: ", value);
+        // console.log("onChange: ", value);
         setValue(value);
     }
 
     const onInit = () => {
         setValue(initValue);
-        console.log("useSelect onInit: ", initValue);
+        // console.log("useSelect onInit: ", initValue);
     }
     return {
         value,
@@ -82,9 +91,10 @@ const useSelect = (initValue: string): IUseSelect => {
 };
 
 const useFetch = (): {value: IContext} => {
-    const { handleTitle } = useAppContext();
+    const { handleTitle, handleProgress, isProgress, timeOut } = useAppContext();
     const [ step, setStep ] = useState<number>(0);
     const [ submitOk, setSubmitOk ] = useState<boolean>(false);
+    const [ resultDetails, setResultDetails ] = useState<Array<ISymptomDetails>>([]);
 
     const updateStep = () => {
         switch(step) {
@@ -96,7 +106,13 @@ const useFetch = (): {value: IContext} => {
                 handleTitle("Pill Link | Symptoms")
                 break;
             case 2:
-                handleTitle("Pill Link | Details")
+                const country = translator.find(item => item.value === lang.value);
+                const symptomName: ISymptom  | undefined = country ? country.symptoms.find(item => item.value === symptom.value) : undefined;
+                const title: string = symptomName ? symptomName.name : "No";
+                handleTitle("Pill Link | " + title);
+                break;
+            case 3: 
+                handleTitle("Pill Link | Result");
                 break;
             default:
                 break;
@@ -115,11 +131,95 @@ const useFetch = (): {value: IContext} => {
     const allergy = useSelect("NULL");
     const pregnant = useSelect("NULL")
     const chronicdisease = useSelect("NULL")
-
     const symptom = useRadio("");
 
-    const [] = useMutation(CREATE_MEDICAL_RECORD);
+
+    /**
+     *  handleInit
+     *  
+     *  CreateMedicalRecord가 실행 한 입력 값 초기화시키기.
+     *  (실행 이후엔 선택값을 초기화 시킴)
+     *  조건: step이 3일때 실행됨.
+     */
+    const handleInit = () => {
+        if(step === 3) {
+            lang.onInit!();
+            allergy.onInit!();
+            pregnant.onInit!();
+            chronicdisease.onInit!();
+            symptom.onInit!();
+            onCreateResultDetails({});
+            handleStep(0);
+        }
+    }
+    const [ createMedicalRecord, { data, loading } ] = useMutation<createMedicalRecord, createMedicalRecordVariables>(CREATE_MEDICAL_RECORD, {
+        onCompleted: data => {
+            if(isProgress) {
+                setTimeout(() => {
+                    handleProgress(false);
+                    handleInit();
+                }, timeOut);
+            }
+            // console.log("create medical record completed: ", data);
+        },
+        onError: data => {
+            if(isProgress) {
+                setTimeout(() => {
+                    handleProgress(false);
+                    handleInit();
+                }, timeOut);
+            }
+            // console.log("create medical record error: ", data);
+        },
+        refetchQueries: [
+            { query: GET_MY_RECORDS }
+        ]
+    });
     
+    /**
+     *  onCreateResultDetails - 최종 선택된 값이 저장됨.
+     *  @param newResult : 새로운 증상의 Details의 check값이 들어가있음.
+     */
+    const onCreateResultDetails = (newResult: any) => {
+        setResultDetails(newResult);
+        // console.log(resultDetails);    
+    }
+
+    /**
+     *  handleMedicalRecord
+     *  진단결과를 의사에게 알림 (Feedback)
+     *  
+     *  results: 선택된것들로 필터링함. (checked === true)
+     */
+    const handleMedicalRecord = () => {
+        if(isProgress) {
+            return;
+        }
+        handleProgress(true);
+        // console.log("Hello Feed back");
+        const results: Array<ISymptomDetails> = resultDetails.filter(detail => detail.checked === true);
+        let newResult: any = {};
+        results.map(item => {
+            newResult[item.value] = true;
+        });
+        
+        // console.log("New Details: ", newResult);
+        // console.log("알러지: ", allergy.value);
+        // console.log("만성질환: ", chronicdisease.value);
+        // console.log("임신여부: ", pregnant.value);
+
+        createMedicalRecord({
+            variables: {
+                lang: lang.value,
+                status: symptom.value,
+                allergy: allergy.value,
+                pregnant: pregnant.value,
+                chronicDiseases: chronicdisease.value,
+                ...newResult  
+            } 
+        } as any);
+        // console.log("results: ", results);
+    }
     /**
      *  handleInitStepSymptom
      * 
@@ -155,7 +255,8 @@ const useFetch = (): {value: IContext} => {
      *  @param newStep 변경될 값
      */
     const handleStep = (newStep: number) => {
-        console.log("currentStep : ", newStep);
+        window.scrollTo({top: 0});
+        
         setStep((prevStep: number) => {
             if(prevStep === 1 && newStep === 0) {
                 handleInitStepSymptom();   
@@ -168,7 +269,6 @@ const useFetch = (): {value: IContext} => {
             // newStep
             return newStep;
         });
-        console.log("afterStep : ", newStep);
     }
     
     /**
@@ -182,7 +282,7 @@ const useFetch = (): {value: IContext} => {
         setSubmitOk(isOk);
     }
 
-    console.log("Current Language: ", lang);
+    // console.log("Current Language: ", lang);
     return {
         value: {
             lang,
@@ -193,7 +293,9 @@ const useFetch = (): {value: IContext} => {
             pregnant,
             chronicdisease,
             submitOk,
-            handleSubmitOk
+            handleSubmitOk,
+            handleMedicalRecord,
+            onCreateResultDetails
         }
     };
 }

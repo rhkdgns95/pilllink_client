@@ -50,7 +50,7 @@ const Radio = styled.input`
                 }
             }
             & p {
-                color: #567685;
+                color: #2ba762;
                 font-weight: bold;
             }
         }

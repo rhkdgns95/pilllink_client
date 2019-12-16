@@ -9,7 +9,7 @@ export const CREATE_MEDICAL_RECORD = gql`
         $chronicDiseases: ChronicDiseases!
         $cold_cough: Boolean
         $cold_headache: Boolean
-        $cold_snot: Boolean!
+        $cold_snot: Boolean
         $cold_throat: Boolean
         $cold_fever: Boolean
         $cold_muscle: Boolean

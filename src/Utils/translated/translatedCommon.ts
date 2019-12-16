@@ -1,10 +1,12 @@
+import { PATH_IMG_DETAILS } from "../../Routes/App/AppProvider";
+
 const CommonSymptomsText: ICommonSymptomsText = {
     // [1] - COLD
     COLD: "COLD",
     COLD_IMG: "/images/symptoms/symptoms_cold.svg",
     cold_cough: {
         value: "cold_cough",
-        imgPath: "/"
+        imgPath: PATH_IMG_DETAILS + "/comming_soon.svg"
     },
     cold_headache: {
         value: "cold_headache",
@@ -12,7 +14,7 @@ const CommonSymptomsText: ICommonSymptomsText = {
     },  // 두통    
     cold_snot: {
         value: "cold_snot",
-        imgPath: "/"
+        imgPath: PATH_IMG_DETAILS + "/comming_soon.svg"
     },  // 콧물
     cold_throat: {
         value: "cold_throat",

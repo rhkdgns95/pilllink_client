@@ -22,23 +22,29 @@ const Button = styled.input<IButton>`
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: .6px;
-    &:hover {
+    &:not(:disabled):hover {
         opacity: 1;
+    }
+    &:disabled {
+        cursor: auto;
+        opacity: .7;
     }
 `;
 interface IProps {
     value: string;
     onClick: () => any;
     isNext?: boolean;
+    disabled: boolean;
 }
 const StepButton: React.FC<IProps> = ({
     value,
     onClick,
-    isNext
+    isNext,
+    disabled
 }) => (
     <Container>
         <Wrapper>
-            <Button onClick={onClick} type={"button"} value={value} isNext={isNext}/>
+            <Button onClick={onClick} type={"button"} value={value} isNext={isNext} disabled={disabled}/>
         </Wrapper>
     </Container>
 );

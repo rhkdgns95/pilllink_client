@@ -176,7 +176,7 @@ const MessageBox = styled.div<IMessage>`
     opacity: ${props => props.message === "" ? 0 : 1};
     height: ${props => props.message === "" ? 0 : "auto"};
     & p {
-        color: ${props => props.ok ? "blue" : "red"} !important;
+        color: ${props => props.ok ? "#2674d4" : "red"} !important;
     }
 `;
 const EditPresenter = () => {

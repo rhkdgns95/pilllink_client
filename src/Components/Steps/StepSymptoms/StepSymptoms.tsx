@@ -48,6 +48,7 @@ const Wrapper = styled.div`
         }
         & > .group-radio {
             margin: 15px 0;
+            margin-bottom: 30px;
             justify-content: space-between;
             & > div {
                 // margin: 10px 5px;
@@ -101,7 +102,7 @@ const StepSymptoms: React.FC<IProps> = ({
     stepTitle
 }) => {
     const { lang, symptom, allergy, pregnant, chronicdisease } = useHomeContext();
-    const [isEffected, setIsEffected] = useState<boolean>(false);
+    const [ isEffected, setIsEffected ] = useState<boolean>(false);
     const country: ICountry | undefined = translator.find(country => country.value === lang.value);
     const selectorSymptoms: Array<any> = [
         allergy,

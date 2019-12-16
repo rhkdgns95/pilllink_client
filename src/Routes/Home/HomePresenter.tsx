@@ -7,6 +7,7 @@ import StepButton from "../../Components/StepButton";
 import { useHomeContext } from "./HomeProvider";
 import StepSymptoms from "../../Components/Steps/StepSymptoms";
 import StepDetailSymptoms from "../../Components/Steps/StepDetailSymptoms";
+import { useAppContext } from "../App/AppProvider";
 
 const Container = styled.div`
 `;
@@ -34,7 +35,8 @@ const SlideBtnBox = styled.div`
 
 
 const HomePresenter = () => {
-    const { lang, step, handleStep, symptom, submitOk } = useHomeContext();
+    const { isProgress } = useAppContext();
+    const { lang, step, handleStep, symptom, submitOk, handleMedicalRecord } = useHomeContext();
 
     return (
         <Container>
@@ -48,7 +50,7 @@ const HomePresenter = () => {
                         <Steps>
                             { step === 0 && <StepLanguage stepTitle={ <StepTitle title={"Language"} subTitle={"Please, select your language"}/> } />}
                             { step === 1 && <StepSymptoms stepTitle={ <StepTitle title={"Symptoms"} subTitle={"Please, select your conditions and symptoms"}/> } />}
-                            { step === 2 && <StepDetailSymptoms stepTitle={ <StepTitle title={"Details"} subTitle={"Please, show this result to your pharmacist"} /> } />}
+                            { step >= 2 && <StepDetailSymptoms stepTitle={[ <StepTitle title={"Details"} subTitle={"You can choose more than one option."} />, <StepTitle title={"Result"} subTitle={"Please, show this result to your pharmacist"} />]} />}
                         </Steps>
                     </Slide>
                     <SlideBtnBox>
@@ -58,6 +60,7 @@ const HomePresenter = () => {
                                 <StepButton 
                                     value={"Done"}
                                     onClick={() => { handleStep(step + 1) }}
+                                    disabled={isProgress}
                                 />
                             )
                         }
@@ -69,6 +72,7 @@ const HomePresenter = () => {
                                     <StepButton 
                                         value={"PREV"}
                                         onClick={() => { handleStep(step - 1) }}
+                                        disabled={isProgress}
                                     />
                                     {
                                         symptom.value !== "" && (
@@ -76,33 +80,57 @@ const HomePresenter = () => {
                                                 value={"NEXT"}
                                                 onClick={() => { handleStep(step + 1) }}
                                                 isNext={true}
+                                                disabled={isProgress}
                                             />
                                         )
                                     }
                                 </>
                             )
                         }
-                        
-                        {
+                         
+                        {   // details
                             step == 2 &&
                             lang.value !== "" && (
                                 <>
                                     <StepButton 
                                         value={"PREV"}
                                         onClick={() => { handleStep(step - 1) }}
+                                        disabled={isProgress}
                                     />
                                     {
                                     submitOk && 
                                         <StepButton 
-                                            value={"FEED BACK"}
-                                            onClick={() => { alert("Feedback!") }}
+                                            value={"NEXT"}
+                                            onClick={() => { handleStep(step + 1) }}
                                             isNext={true}
+                                            disabled={isProgress}
                                         />
                                     }
                                 </>
                             )
                         }
-                        
+                        {
+                            // feedback
+                            step == 3 &&
+                            lang.value !== "" && (
+                                <>
+                                    <StepButton 
+                                        value={"PREV"}
+                                        onClick={() => { handleStep(step - 1) }}
+                                        disabled={isProgress}
+                                    />
+                                    {
+                                    submitOk && 
+                                        <StepButton 
+                                            value={"FEEDBACK"}
+                                            onClick={handleMedicalRecord}
+                                            isNext={true}
+                                            disabled={isProgress}
+                                        />
+                                    }
+                                </>
+                            )
+                        }
 
                     </SlideBtnBox>
                 </SlideForm>

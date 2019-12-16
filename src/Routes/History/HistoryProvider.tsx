@@ -30,7 +30,7 @@ const START_OFFSET = 1;
 
 const usePagination = (max: number, initCursor: number, initScreen: number): IUsePagination => {
     const { pageCount, tableCount } = PaginationSettings;
-    console.log("MAX: ", max);
+    // console.log("MAX: ", max);
     const [ hasFirst, setHasFirst ] = useState<boolean>(initScreen !== 1); // 맨 처음
     const [ hasPrev, setHasPrev ] = useState<boolean>(initScreen !== 1); // '<' 버튼
     const [ hasLast, setHasLast ] = useState<boolean>(max > (pageCount * tableCount)); // 맨 끝
@@ -111,6 +111,7 @@ const usePagination = (max: number, initCursor: number, initScreen: number): IUs
 
     useEffect(() => {
         onhandleUsingArrow();
+        window.scrollTo({top: 0});
     }, [cursor, screen, onChangeCursor]);
     return {
         cursor,
@@ -135,8 +136,13 @@ const useFetch = (): { value: IContext } => {
     // const currentPageIndex: number = parseInt(recordId);
     const pagination = usePagination(max, START_OFFSET, START_SCREEN);
     const [ getRecords, { data, loading: loadingMedicalRecords } ] = useLazyQuery<getMyMedicalRecords, getMyMedicalRecordsVariables>(GET_MY_RECORDS, {
+        fetchPolicy: "cache-and-network",
         onCompleted: data => {
+            // console.log("DATA: ", data.GetMyMedicalRecords.medicalRecords);
             // onhandleUsingArrow();
+        },
+        onError: data => {
+            console.log("GetMyRecords error: ", data);
         }
     });
 

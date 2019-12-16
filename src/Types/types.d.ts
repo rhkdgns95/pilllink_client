@@ -198,15 +198,18 @@ interface ICommonSymptomsText {
 interface ISymptomInputData {
     name: string;
     value: string;
+    imgPath: string;
 }
 interface ISelectors {
     name: string;
     details: Array<ISymptomInputData>;
 }
-
+interface ISymptomPath {
+    imgPath: string;
+}
 interface ISymptom extends ISymptomInputData{
     imgPath: string;
-    details: Array<ISymptomInputData>
+    details: Array<ISymptomInputData>;
 }
 interface ICountry extends ISymptomInputData {
     imgPath: string;

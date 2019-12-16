@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "../../Styles/typed-components";
 import { Link } from "react-router-dom";
+import { useAppContext } from "../../Routes/App/AppProvider";
 
 const Container = styled.div`
 
@@ -38,6 +39,10 @@ const GoLink = styled(Link)`
         margin-right: 10px;
         opacity: 0;
     }
+    transition: .2s;
+    &:hover {
+        background-color: #389e6f;
+    }
     &.active {
         & svg {
             opacity: 1;
@@ -56,19 +61,24 @@ interface IProps {
 }
 const MyMenu: React.FC<IProps> = ({
     isEdit
-}) => (
-    <Container>
-        <Wrapper>
-            <GoProfile className={isEdit ? "active" : ""} to={"/edit"}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z"/></svg>
-                My Information
-            </GoProfile>
-            <GoHistory className={isEdit ? "" : "active"} to={"/history"}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z"/></svg>
-                My History
-            </GoHistory>
-        </Wrapper>
-    </Container>
-);
+}) => {
+    const { user } = useAppContext();
+    
+    return (
+        <Container>
+            <Wrapper>
+                <GoProfile className={isEdit ? "active" : ""} to={"/edit"}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z"/></svg>
+                    My Information
+                </GoProfile>
+                <GoHistory className={isEdit ? "" : "active"} to={"/history"}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z"/></svg>
+                    My History
+                    { user && " ("+ user.medicalRecordsCount + ")"}
+                </GoHistory>
+            </Wrapper>
+        </Container>
+    );
+}
 
 export default MyMenu;

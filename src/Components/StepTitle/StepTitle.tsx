@@ -19,6 +19,7 @@ const Wrapper = styled.div`
         & > span {
             font-size: 11px;
             margin-left: 16px;
+            display: none;
         }
     }
 `;

@@ -8,12 +8,13 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
     display: flex;
-    justify-content: space-around;
+    // justify-content: space-around;
+    justify-content: center;
     align-items: center;
     max-width: 550px;
     margin: 0 auto;
     & > button {
-        margin: 5px;
+        margin: 5px 10px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -23,6 +24,14 @@ const Wrapper = styled.div`
             opacity: 0;
             pointer-events: none;
             cursor: default;
+        }
+    }
+    @media(max-width: 510px) {
+        & > button {
+            margin: 5px;
+            & > svg {
+                width: 9px;
+            }
         }
     }
 `;
@@ -53,12 +62,21 @@ const Arrow = styled.button`
         transform: translate(-50%, -50%);
         fill: #8a8787;
     }
+    &:not(:disabled) {
+        cursor: pointer;
+        &:hover {
+            transition: .2s;
+            border: 1px solid #34af77;
+            & svg {
+                transition: .2s;
+                fill: #34af77;
+            }
+        }
+    }
 `;
 const GoPrev = styled(Arrow)`
-
 `;
 const GoNext = styled(Arrow)`
-
 `;
 const GoFirst = styled(Arrow)`
     & > svg {
@@ -83,7 +101,6 @@ const Pagination = () => {
     const { pageCount, tableCount } = PaginationSettings;
     const startPageNumber: number = screen * pageCount - (pageCount - 1);
     
-    
     let pages: Array<number> = [];
     
     for(var i = 0; i < pageCount; i++) {
@@ -97,7 +114,7 @@ const Pagination = () => {
             break;
         }
     }
-    console.log("PAGES:" ,pages);
+    // console.log("PAGES:" ,pages);
     
     return (
         <Container>

@@ -12,6 +12,7 @@ const Title = styled.p`
     position: relative;
     font-size: 13px;
     color: #739281;
+    text-shadow: 0.7px 0.7px rgba(250,250,250,.9);
     &::before {
         content: "";
         position: absolute;

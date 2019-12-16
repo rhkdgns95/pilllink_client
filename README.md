@@ -55,6 +55,10 @@
 : ex) setState((prevState: number) => return prevState + 1); 
 : 주의점으로 인자와 리턴값으로는 useState에설정된 <>의 타입을 잘살펴보도록한다.
 : 위의 예제에서는 당연히 number값으로 인자로하는 것이라면, number값이 리턴되도록 한다.
+- 4.5 [CTRL + SHIFT + L]
+: 한 파일에서 선택한 단어에 커서를 지정한다.
+- 4.6 F2
+: 한 파일에서 선택한 단어를 리팩토링해준다.
 
 ## 5. Pagination - Medical Record 요청
 - 5.0 총 데이터 갯수를 가져오도록 한다.
