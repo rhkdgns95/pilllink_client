@@ -27,7 +27,8 @@ const ButtonBox = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 30px;
 `;
 const CircleButtonLink = styled(CircleButton)`
 

@@ -37,15 +37,19 @@ const HomeContext: React.Context<IContext> = createContext<IContext>(InitContext
 const useHomeContext = () => useContext(HomeContext);
 
 const useInput = (defaultName: TLanguage | string): IUseRadio => {
-    const [value, setValue] = useState<string>(defaultName);
-    
+    const [value, setValue] = useState<string>(defaultName); 
+    const [currentValue, setCurrentValue] = useState<string>(defaultName); // 실제 저장될 LANG.
+
     const onChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         const { target: { name, value }} = event;
         setValue(value);
+        setCurrentValue(value);
     };
+
     const onInit = () => {
         setValue(defaultName);
     }
+
     return {
         value,
         onChange,
@@ -132,7 +136,7 @@ const useFetch = (): {value: IContext} => {
     const pregnant = useSelect("NULL")
     const chronicdisease = useSelect("NULL")
     const symptom = useRadio("");
-
+    
 
     /**
      *  handleInit

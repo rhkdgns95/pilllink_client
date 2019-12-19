@@ -25,6 +25,7 @@ interface IUseRadio {
     value: string;
     onChange: React.ChangeEventHandler<HTMLInputElement>;
     onInit?: () => any;
+    onToggleTranslate?: () => any;
 }
 interface IUseCheckbox {
     details: Array<ISymptomDetails>;

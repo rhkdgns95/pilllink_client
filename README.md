@@ -16,7 +16,8 @@
 - [x] Natinoality, Translate Language.
 - [x] Feedback Part 1 (Manage Step State).
 - [x] Feedback Part 2 (Create Medical Record).
-- [] Result.
+- [X] Result.
+- [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.
 - [] Browser IE - polyfill
@@ -36,6 +37,7 @@
 7. yarn add lodash @types/lodash
 > compose를 사용해서 graphql - hoc 방식을 겹쳐서 사용하려고했으나 제거함.
 8. yarn add react-daum-postcode
+9. yarn add react-app-polyfill
 
 
 ## 3. Dev

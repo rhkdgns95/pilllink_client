@@ -26,10 +26,9 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-    max-width: 500px;
-    max-height: 600px;
+    max-width: 650px;
+    width: 90%;
 `;
-
 
 interface IProps {
 

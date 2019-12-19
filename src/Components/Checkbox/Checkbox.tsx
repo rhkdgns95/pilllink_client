@@ -74,6 +74,7 @@ const Label = styled.label`
 `;
 const ImgBox = styled.div`
     width: 50%;
+    height: 50%;
 `;
 const Img = styled.img`
     width: 100%;

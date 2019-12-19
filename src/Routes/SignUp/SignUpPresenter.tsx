@@ -6,6 +6,9 @@ import ModalAddress from "../../Components/ModalAddress";
 
 const Container = styled.div`
 `;
+const Box = styled.div`
+
+`;
 const Wrapper = styled.div`
     & > div {
         width: 50%;
@@ -36,18 +39,20 @@ const Img = styled.img`
     display: block;
 `;
 const SignUpPresenter = () => (
-    <Container>
-        <Navbar 
-            title={"PillLink"}
-            subTitle={"Show your symptoms to pharmacy and hospital"}
-        />
-        <Wrapper className={"row"}>   
-            <Bg className={"bg-box"}>
-                <Img src={"/images/bg/signup.png"}/>
-            </Bg>
-            <SignUpForm/>
-        </Wrapper>
-        <ModalAddress />
+    <Container className={"container"}>
+        <Box className={"box"}>
+            <Navbar 
+                title={"PillLink"}
+                subTitle={"Show your symptoms to pharmacy and hospital"}
+            />
+            <Wrapper className={"row"}>   
+                <Bg className={"bg-box"}>
+                    <Img src={"/images/bg/signup.png"}/>
+                </Bg>
+                <SignUpForm/>
+            </Wrapper>
+            <ModalAddress />
+        </Box>
     </Container>
 );
 

@@ -2,12 +2,12 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 
 const Container = styled.div`
-    margin-top: 30px;
+    margin-top: -75px;
 `;
 const Wrapper = styled.div`
     display: flex;
     justify-content: center;
-    padding: 30px 0;
+    padding: 30px;
     border-top: 1px solid #e8e8e8;
 `;
 const Text = styled.span`

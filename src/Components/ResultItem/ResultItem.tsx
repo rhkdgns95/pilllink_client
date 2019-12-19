@@ -30,6 +30,7 @@ const Wrapper = styled.div`
 `;
 const Img = styled.img`
     width: 50%;
+    height: 50%;
     display: block;
 `;
 const Text = styled.span`

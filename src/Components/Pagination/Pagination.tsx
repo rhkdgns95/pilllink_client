@@ -27,6 +27,7 @@ const Wrapper = styled.div`
         }
     }
     @media(max-width: 510px) {
+        margin-top: 25px;
         & > button {
             margin: 5px;
             & > svg {

@@ -25,6 +25,7 @@ export const PATH_IMG_BG: string = PATH_ALL_IMGS + "/bg";
 export const PATH_IMG_LANG: string = PATH_ALL_IMGS + "/lang";
 export const PATH_IMG_NA: string = PATH_ALL_IMGS + "/nationality";
 export const PATH_IMG_DETAILS: string = PATH_ALL_IMGS + "/details";
+export const PATH_IMG_ACTION: string = PATH_ALL_IMGS + "/action";
 
 const InitContext: IContext = {
     timeOut: 0,

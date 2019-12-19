@@ -5,11 +5,11 @@ export const GlobalStlyes = createGlobalStyle`
     html, body {
         margin: 0;
         border: 0;
+        height: 100%;
     }
     body {
         background-color: ${props => props.theme.bgColor};
         font-family: 'Nanum Gothic', sans-serif;
-        height: 100vh;
     }
     * {
         box-sizing: border-box;
@@ -69,4 +69,21 @@ export const GlobalStlyes = createGlobalStyle`
             transform: translate(0);
         }
     }
+    label {
+        display: inline-block;
+        img {
+            pointer-events: none;
+        }
+    }
+    #root {
+        height: 100%;
+    }
+    .container {
+        min-height: 100%;
+        & > .box {
+            width: 100%;
+            padding-bottom: 75px;
+        }
+    }
+    
 `;

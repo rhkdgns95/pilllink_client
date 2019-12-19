@@ -3,8 +3,9 @@ import styled from "../../../Styles/typed-components";
 import { useHomeContext } from "../../../Routes/Home/HomeProvider";
 import countries from "../../../Utils/translator";
 import Checkbox from "../../Checkbox";
-import { PATH_IMG_DETAILS, useAppContext, PATH_IMG_BG } from "../../../Routes/App/AppProvider";
+import { PATH_IMG_DETAILS, useAppContext, PATH_IMG_BG, PATH_IMG_ACTION } from "../../../Routes/App/AppProvider";
 import ResultItem from "../../ResultItem";
+import { TranslatedKorean } from "../../../Utils/translated/translatedKorean";
 
 const Container = styled.div`
     @media(max-width: 910px) {
@@ -68,6 +69,7 @@ const Container = styled.div`
     }
 `;
 const Wrapper = styled.div`
+    position: relative;
 `;
 const Tmp = styled.div`
     width: 100%;
@@ -112,6 +114,39 @@ const ResultGroup = styled.div`
         }
     }
 `;
+const TranslateButton = styled.span`
+    position: absolute;
+    background-color: white;
+    color: white;
+    top: 0;
+    right: 0;
+    
+    width: 15px;
+    height: 15px;
+    padding: 15px;
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        transition: transform .2s;
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+    &:hover {
+        img {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+    }
+    
+`;
+const TranslateIcon = styled.img`
+    
+`;
+
 interface IProps {
     stepTitle: Array<any>;
 }
@@ -151,7 +186,9 @@ const StepDetailSymptoms: React.FC<IProps> = ({
     const { symptom, lang, handleSubmitOk, submitOk, step, onCreateResultDetails } = useHomeContext();
     const [ isEffected, setIsEffected ] = useState<Array<boolean>>([false, false]);
     const [ symptomDetails, setSymptomDetails ] = useState<ISymptom>();
-    
+    const [ symptomDetailsKorean, setSymptomDetailsKorean ] = useState<ISymptom>();
+    const [ isTranslated, setIsTranslated ] = useState<boolean>(false);
+
     const currentDetails = useInputChecked();
 
     const {} = useInputChecked();
@@ -192,8 +229,45 @@ const StepDetailSymptoms: React.FC<IProps> = ({
         }));
         onCreateResultDetails({});
     };
+    const handleSymptomDetailsKorean = () => {
+        
+        if(symptomDetails) {
+            const value = symptomDetails!.value || "";
+            const symptomKorean: ISymptom | undefined = TranslatedKorean.symptoms.find(symptom => symptom.value === value);
+            if(symptomKorean) {
+                let tmpSymptoms: ISymptom = {
+                    name: "한국어",
+                    value: "KO",
+                    imgPath: "",
+                    details: symptomDetails.details.map(detail => {
+                        const { name, value } = detail;
+                        const newName = symptomKorean.details.find(koDetail => koDetail.value === value) || detail;
+                        return {
+                            ...detail,
+                            name: newName.name
+                        };
+                    })
+                };
+                setSymptomDetailsKorean(tmpSymptoms);
+                setIsTranslated(!isTranslated);
 
-    // console.log("currentDetails: ", currentDetails);
+                console.log("Current Details: ", symptomDetails);
+                console.log("Korean Details: ", symptomKorean);
+                console.log("New Details: ", tmpSymptoms);
+            }
+            
+        }
+    };
+
+    const onToggleTranslate = () => {
+        console.log("onToggleTranslate");
+        handleSymptomDetailsKorean();
+    }
+    /**
+     * 
+     * 
+     */
+    
 
     /**
      *  초기화 
@@ -210,13 +284,16 @@ const StepDetailSymptoms: React.FC<IProps> = ({
        }   
        
     }, []);  
+    
     useEffect(() => {
+        setIsTranslated(false);
         if(step === 3) {
             setIsEffected([false, true]);
         } else if(step === 2) {
             setIsEffected([true, false]);
         }
     }, [step]);
+
     useEffect(() => {
         if(symptomDetails && currentDetails.details.length <= 0) {
             handleCurrentDetails(symptomDetails);
@@ -265,7 +342,8 @@ const StepDetailSymptoms: React.FC<IProps> = ({
                             isEffected={isEffected[1]}
                             title={stepTitle[1]}
                             currentDetails={currentDetails.details.filter(item => item.checked === true)}
-                            symptomDetails={symptomDetails}
+                            symptomDetails={isTranslated ? symptomDetailsKorean : symptomDetails}
+                            onToggleTranslate={onToggleTranslate}
                         />
                     )
                 }
@@ -273,6 +351,7 @@ const StepDetailSymptoms: React.FC<IProps> = ({
         </Container>
     );
 }
+
 interface IDetails {
     isEffected: boolean;
     title: string;
@@ -310,12 +389,14 @@ interface IResult {
     isEffected: boolean;
     currentDetails: Array<ISymptomDetails>;
     symptomDetails?: ISymptom;
+    onToggleTranslate: () => any;
 }
 const Result: React.FC<IResult> = ({
     title,
     isEffected,
     currentDetails,
-    symptomDetails
+    symptomDetails,
+    onToggleTranslate
 }) => (
     <>
         { title }
@@ -336,6 +417,9 @@ const Result: React.FC<IResult> = ({
                 }
             </ResultGroup>
         </ResultBgBox>
+        <TranslateButton onClick={onToggleTranslate}>
+            <TranslateIcon src={PATH_IMG_ACTION + "/translator.svg"}/>
+        </TranslateButton>
     </>
 );
 

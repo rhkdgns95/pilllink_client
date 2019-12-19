@@ -1,3 +1,8 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+// import 'react-app-polyfill/ie9';
+// import 'react-app-polyfill/ie11';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
@@ -7,6 +12,7 @@ import App from './Routes/App';
 import theme from './Styles/theme';
 import { ApolloProvider } from "react-apollo";
 import client from './apollo';
+
 
 ReactDOM.render(
     <ApolloProvider client={client}>

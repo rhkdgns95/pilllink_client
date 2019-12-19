@@ -80,7 +80,8 @@ const Tr = styled.tr`
 
 const Th = styled.th`
     background-color: #d3ede3;
-    color: #1ca673;
+    // color: #1ca673;
+    color: #197150;
     text-align: center;
     // width: 30%;
     min-width: 100px;

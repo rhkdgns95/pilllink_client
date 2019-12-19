@@ -19,12 +19,13 @@ interface IButton {
 }
 const Button = styled.input<IButton>`
     border-radius: 30px;
-    padding: 9px;
+    padding: 8px;
     width: 130px;
     color: white;
     font-size: 12px;
     cursor: pointer;
     opacity: .8;
+    letter-spacing: .5px;
     &:hover {
         transition: .2s;
         opacity: 1;
