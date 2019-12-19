@@ -1,5 +1,5 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
-const { COLD, COLIC, HANGOVER, FEMALE, HEADACHE, SKIN, OTHER, TOOTHACHE } = CommonSymptomsText;
+const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedItaly: ICountry = {
     name: "Italiano",
@@ -72,11 +72,11 @@ export const TranslatedItaly: ICountry = {
                 },
                 {
                     name: "IT_콧물",
-                    ...CommonSymptomsText.cold_snot
+                    ...CommonSymptomsText.cold_runnyNose
                 },
                 {
                     name: "IT_목아픔",
-                    ...CommonSymptomsText.cold_throat
+                    ...CommonSymptomsText.cold_soreThroat
                 },
                 {
                     name: "IT_열",
@@ -84,47 +84,7 @@ export const TranslatedItaly: ICountry = {
                 },
                 {
                     name: "IT_몸살",
-                    ...CommonSymptomsText.cold_muscle
-                }
-            ]
-        },
-        {
-            ...CommonSymptoms[COLIC],
-            name: "IT_복통",
-            details: [
-                {
-                    name: "IT_설사",
-                    ...CommonSymptomsText.colic_diarrhead
-                },
-                {
-                    name: "IT_생리통",
-                    ...CommonSymptomsText.colic_periodCramps
-                },
-                {
-                    name: "IT_소화불량",
-                    ...CommonSymptomsText.colic_indigestion
-                },
-                {
-                    name: "IT_변비",
-                    ...CommonSymptomsText.colic_constipation
-                },
-                {
-                    name: "IT_메스꺼움",
-                    ...CommonSymptomsText.colic_sickness
-                },
-                {
-                    name: "IT_속쓰림",
-                    ...CommonSymptomsText.colic_heartburn
-                }
-            ]
-        },
-        {
-            ...CommonSymptoms[FEMALE],
-            name: "IT_여성질환",
-            details: [
-                {
-                    name: "IT_임시",
-                    ...CommonSymptomsText.female_tmp
+                    ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
@@ -142,11 +102,11 @@ export const TranslatedItaly: ICountry = {
                 },
                 {
                     name: "IT_구토",
-                    ...CommonSymptomsText.hangover_throwup
+                    ...CommonSymptomsText.hangover_vomit
                 },
                 {
                     name: "IT_메스꺼움",
-                    ...CommonSymptomsText.hangover_sickness
+                    ...CommonSymptomsText.hangover_nausea
                 },
                 {
                     name: "IT_속쓰림",
@@ -155,23 +115,38 @@ export const TranslatedItaly: ICountry = {
             ]
         },
         {
-            ...CommonSymptoms[HEADACHE],
-            name: "IT_두통",
+            ...CommonSymptoms[STOMACHACHE],
+            name: "IT_복통",
             details: [
                 {
-                    name: "IT_두통",
-                    ...CommonSymptomsText.headache_headache
+                    name: "IT_설사",
+                    ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "IT_편두통",
-                    ...CommonSymptomsText.headache_migraine
+                    name: "IT_생리통",
+                    ...CommonSymptomsText.stomachache_periodCramps
+                },
+                {
+                    name: "IT_소화불량",
+                    ...CommonSymptomsText.stomachache_indigestion
+                },
+                {
+                    name: "IT_변비",
+                    ...CommonSymptomsText.stomachache_constipation
+                },
+                {
+                    name: "IT_메스꺼움",
+                    ...CommonSymptomsText.stomachache_nausea
+                },
+                {
+                    name: "IT_속쓰림",
+                    ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
             name: "IT_피부질환",
-            imgPath: "/images/symptoms/symptoms_skin.svg",
             details: [
                 {
                     name: "IT_철과상",
@@ -183,7 +158,7 @@ export const TranslatedItaly: ICountry = {
                 },
                 {
                     name: "IT_두드러기",
-                    ...CommonSymptomsText.skin_hives
+                    ...CommonSymptomsText.skin_rash
                 },
                 {
                     name: "IT_습진",
@@ -200,33 +175,25 @@ export const TranslatedItaly: ICountry = {
             ]
         },
         {
-            ...CommonSymptoms[TOOTHACHE],
-            name: "IT_구강질환",
+            ...CommonSymptoms[FEMALE],
+            name: "IT_여성질환",
             details: [
                 {
-                    name: "IT_혓바늘",
-                    ...CommonSymptomsText.toothache_needle
+                    name: "IT_생리통",
+                    ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "IT_구내염",
-                    ...CommonSymptomsText.toothache_stomatitis
+                    name: "IT_임신테스트",
+                    ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "IT_마른입술",
-                    ...CommonSymptomsText.toothache_drylips
+                    name: "IT_경구피임약",
+                    ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "IT_입냄새",
-                    ...CommonSymptomsText.toothache_badbreath
+                    name: "IT_사후피임약",
+                    ...CommonSymptomsText.female_postCoitalBirthControl
                 },
-                {
-                    name: "IT_잇몸",
-                    ...CommonSymptomsText.toothache_gum
-                },
-                {
-                    name: "IT_구강건조증",
-                    ...CommonSymptomsText.toothache_drymouth
-                }
             ]
         },
         {

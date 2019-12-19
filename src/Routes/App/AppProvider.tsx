@@ -4,6 +4,7 @@ import { GET_MY_PROFILE } from "./AppQueries";
 import { getMyProfile_GetMyProfile_user, getMyProfile, updateMyProfile_UpdateMyProfile, updateMyProfile, updateMyProfileVariables } from "../../Types/api";
 import { UPDATE_MY_RPFOILE } from "../Edit/EditQueries";
 import { USER_LOGOUT } from "./AppQueries.local";
+import { GET_MY_RECORDS } from "../History/HistoryQueries";
 
 interface IContext {
     loadingGetMyProfile: boolean;
@@ -71,7 +72,7 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
      *  GetMyProfile
      */
     const { loading: loadingGetMyProfile, data } = useQuery<getMyProfile>(GET_MY_PROFILE, {
-        fetchPolicy: "cache-and-network",
+        // fetchPolicy: "cache-and-network",
         onCompleted: data => {
             const { GetMyProfile: { ok, user } } = data;
             if(ok && user) {
@@ -127,6 +128,20 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
                 data: data.message
             });
         },
+        // update: (cache, { data }) => {
+            
+        //    if(data && data.UpdateMyProfile && data.UpdateMyProfile.ok) {
+        //        const { user } = data.UpdateMyProfile
+        //        alert("HI");
+
+        //        cache.writeQuery({
+        //            query: GET_MY_PROFILE,
+        //            data
+        //        });
+
+        //        console.log("user: ", user)
+        //    }
+        // },
         refetchQueries: [
             {query: GET_MY_PROFILE}
         ]

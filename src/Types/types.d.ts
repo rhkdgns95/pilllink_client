@@ -57,9 +57,9 @@ interface IUsePagination {
 }
 // User Data.
 type TGender = "M" | "W";
-type TNationality = "KO" | "EN" | "CH" | "US";
-type TLanguage = "KO" | "EN" | "CH" | "US";
-type TStatus = "COLD" | "COLIC" | "FEMALE" | "HANGOVER" | "HEADACHE" | "OTHER" | "SKIN" | "TOOTHACHE";
+type TNationality = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH";
+type TLanguage = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH";
+type TStatus = "COLD" | "HANGOVER" | "STOMACHACHE" | "SKIN" | "FEMALE" | "OTHER";
 type TPregnant = "NULL" | "PREGNANT_TRUE";
 type TAllergy = "NULL" | "ALLERGY_ANTIBIOTIC" | "ALLERGY_LACTOSE" | "ALLERGY_PAINKILLER";
 type TChronicDiseases =  "NULL" | "CHRONIC_KIDNEY" | "CHRONIC_LIVER";
@@ -84,37 +84,32 @@ interface IMedicalRecord {
     chronicDiseases: TChronicDiseases;
     cold_cough?: boolean | null;
     cold_headache?: boolean | null;
-    cold_snot: boolean;
-    cold_throat?: boolean | null;
+    cold_runnyNose?: boolean | null;
+    cold_soreThroat?: boolean | null;
     cold_fever?: boolean | null;
-    cold_muscle?: boolean | null;
-    colic_diarrhead?: boolean | null;
-    colic_periodCramps?: boolean | null;
-    colic_indigestion?: boolean | null;
-    colic_constipation?: boolean | null;
-    colic_sickness?: boolean | null;
-    colic_heartburn?: boolean | null;
-    female_tmp?: boolean | null;
+    cold_bodyache?: boolean | null;
     hangover_headache?: boolean | null;
     hangover_diarrhea?: boolean | null;
-    hangover_throwup?: boolean | null;
-    hangover_sickness?: boolean | null;
+    hangover_vomit?: boolean | null;
+    hangover_nausea?: boolean | null;
     hangover_heartburn?: boolean | null;
-    headache_headache?: boolean | null;
-    headache_migraine?: boolean | null;
+    stomachache_diarrhead?: boolean | null;
+    stomachache_periodCramps?: boolean | null;
+    stomachache_indigestion?: boolean | null;
+    stomachache_constipation?: boolean | null;
+    stomachache_nausea?: boolean | null;
+    stomachache_heartburn?: boolean | null;
     skin_abrasion?: boolean | null;
     skin_acne?: boolean | null;
-    skin_hives?: boolean | null;
+    skin_rash?: boolean | null;
     skin_eczema?: boolean | null;
     skin_blister?: boolean | null;
     skin_athletesfoot?: boolean | null;
+    female_periodCramp?: boolean | null;
+    female_pregnancyTest?: boolean | null;
+    female_oralBirthControl?: boolean | null;
+    female_postCoitalBirthControl?: boolean | null;
     other_tmp?: boolean | null;
-    toothache_needle?: boolean | null;
-    toothache_stomatitis?: boolean | null;
-    toothache_drylips?: boolean | null;
-    toothache_badbreath?: boolean | null;
-    toothache_gum?: boolean | null;
-    toothache_drymouth?: boolean | null;
 }
 // Form Data - Update My Profile
 interface IUpdateFormData {
@@ -140,61 +135,50 @@ type TCommonText = {
 interface ICommonSymptomsText {
     COLD: string;
     COLD_IMG: string;
-    COLIC: string;
-    COLIC_IMG: string;
-    FEMALE: string;
-    FEMALE_IMG: string;
     HANGOVER: string;
     HANGOVER_IMG: string;
-    HEADACHE: string;
-    HEADACHE_IMG: string;
-    OTHER: string;
-    OTHER_IMG: string;
+    STOMACHACHE: string;
+    STOMACHACHE_IMG: string;
     SKIN: string;
     SKIN_IMG: string;
-    TOOTHACHE: string;
-    TOOTHACHE_IMG: string;
+    FEMALE: string;
+    FEMALE_IMG: string;
+    OTHER: string;
+    OTHER_IMG: string;
     // COLD
     cold_cough: TCommonText;
     cold_headache: TCommonText;
-    cold_snot: TCommonText;
-    cold_throat: TCommonText;
+    cold_runnyNose: TCommonText;
+    cold_soreThroat: TCommonText;
     cold_fever: TCommonText;
-    cold_muscle: TCommonText;
-    // COLIC
-    colic_diarrhead: TCommonText;
-    colic_periodCramps: TCommonText;
-    colic_indigestion: TCommonText;
-    colic_constipation: TCommonText;
-    colic_sickness: TCommonText;
-    colic_heartburn: TCommonText;
-    // FEMALE
-    female_tmp: TCommonText;
+    cold_bodyache: TCommonText;
     // HANGOVER
     hangover_headache: TCommonText;
     hangover_diarrhea: TCommonText;
-    hangover_throwup: TCommonText;
-    hangover_sickness: TCommonText;
+    hangover_vomit: TCommonText;
+    hangover_nausea: TCommonText;
     hangover_heartburn: TCommonText;
-    // HEADACHE
-    headache_headache: TCommonText;
-    headache_migraine: TCommonText;
+    // Stomachache
+    stomachache_diarrhead: TCommonText;
+    stomachache_periodCramps: TCommonText;
+    stomachache_indigestion: TCommonText;
+    stomachache_constipation: TCommonText;
+    stomachache_nausea: TCommonText;
+    stomachache_heartburn: TCommonText;
     // SKIN
     skin_abrasion: TCommonText;
     skin_acne: TCommonText;
-    skin_hives: TCommonText;
+    skin_rash: TCommonText;
     skin_eczema: TCommonText;
     skin_blister: TCommonText;
     skin_athletesfoot: TCommonText;
+    // FEMALE
+    female_periodCramp: TCommonText;
+    female_pregnancyTest: TCommonText;
+    female_oralBirthControl: TCommonText;
+    female_postCoitalBirthControl: TCommonText;
     // OTHER
     other_tmp: TCommonText;
-    // TOOTHACHE
-    toothache_needle: TCommonText;
-    toothache_stomatitis: TCommonText;
-    toothache_drylips: TCommonText;
-    toothache_badbreath: TCommonText;
-    toothache_gum: TCommonText;
-    toothache_drymouth: TCommonText;
 }
 interface ISymptomInputData {
     name: string;

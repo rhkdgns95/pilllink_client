@@ -1,5 +1,5 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
-const { COLD, COLIC, HANGOVER, FEMALE, HEADACHE, SKIN, OTHER, TOOTHACHE } = CommonSymptomsText;
+const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedKorean: ICountry = {
     name: "한국어",
@@ -72,11 +72,11 @@ export const TranslatedKorean: ICountry = {
                 },
                 {
                     name: "콧물",
-                    ...CommonSymptomsText.cold_snot
+                    ...CommonSymptomsText.cold_runnyNose
                 },
                 {
                     name: "목아픔",
-                    ...CommonSymptomsText.cold_throat
+                    ...CommonSymptomsText.cold_soreThroat
                 },
                 {
                     name: "열",
@@ -84,47 +84,7 @@ export const TranslatedKorean: ICountry = {
                 },
                 {
                     name: "몸살",
-                    ...CommonSymptomsText.cold_muscle
-                }
-            ]
-        },
-        {
-            ...CommonSymptoms[COLIC],
-            name: "복통",
-            details: [
-                {
-                    name: "설사",
-                    ...CommonSymptomsText.colic_diarrhead
-                },
-                {
-                    name: "생리통",
-                    ...CommonSymptomsText.colic_periodCramps
-                },
-                {
-                    name: "소화불량",
-                    ...CommonSymptomsText.colic_indigestion
-                },
-                {
-                    name: "변비",
-                    ...CommonSymptomsText.colic_constipation
-                },
-                {
-                    name: "메스꺼움",
-                    ...CommonSymptomsText.colic_sickness
-                },
-                {
-                    name: "속쓰림",
-                    ...CommonSymptomsText.colic_heartburn
-                }
-            ]
-        },
-        {
-            ...CommonSymptoms[FEMALE],
-            name: "여성질환",
-            details: [
-                {
-                    name: "임시",
-                    ...CommonSymptomsText.female_tmp
+                    ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
@@ -142,11 +102,11 @@ export const TranslatedKorean: ICountry = {
                 },
                 {
                     name: "구토",
-                    ...CommonSymptomsText.hangover_throwup
+                    ...CommonSymptomsText.hangover_vomit
                 },
                 {
                     name: "메스꺼움",
-                    ...CommonSymptomsText.hangover_sickness
+                    ...CommonSymptomsText.hangover_nausea
                 },
                 {
                     name: "속쓰림",
@@ -155,23 +115,38 @@ export const TranslatedKorean: ICountry = {
             ]
         },
         {
-            ...CommonSymptoms[HEADACHE],
-            name: "두통",
+            ...CommonSymptoms[STOMACHACHE],
+            name: "복통",
             details: [
                 {
-                    name: "두통",
-                    ...CommonSymptomsText.headache_headache
+                    name: "설사",
+                    ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "편두통",
-                    ...CommonSymptomsText.headache_migraine
+                    name: "생리통",
+                    ...CommonSymptomsText.stomachache_periodCramps
+                },
+                {
+                    name: "소화불량",
+                    ...CommonSymptomsText.stomachache_indigestion
+                },
+                {
+                    name: "변비",
+                    ...CommonSymptomsText.stomachache_constipation
+                },
+                {
+                    name: "메스꺼움",
+                    ...CommonSymptomsText.stomachache_nausea
+                },
+                {
+                    name: "속쓰림",
+                    ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
             name: "피부질환",
-            imgPath: "/images/symptoms/symptoms_skin.svg",
             details: [
                 {
                     name: "철과상",
@@ -183,7 +158,7 @@ export const TranslatedKorean: ICountry = {
                 },
                 {
                     name: "두드러기",
-                    ...CommonSymptomsText.skin_hives
+                    ...CommonSymptomsText.skin_rash
                 },
                 {
                     name: "습진",
@@ -200,33 +175,25 @@ export const TranslatedKorean: ICountry = {
             ]
         },
         {
-            ...CommonSymptoms[TOOTHACHE],
-            name: "구강질환",
+            ...CommonSymptoms[FEMALE],
+            name: "여성질환",
             details: [
                 {
-                    name: "혓바늘",
-                    ...CommonSymptomsText.toothache_needle
+                    name: "생리통",
+                    ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "구내염",
-                    ...CommonSymptomsText.toothache_stomatitis
+                    name: "임신테스트",
+                    ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "마른입술",
-                    ...CommonSymptomsText.toothache_drylips
+                    name: "경구피임약",
+                    ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "입냄새",
-                    ...CommonSymptomsText.toothache_badbreath
+                    name: "사후피임약",
+                    ...CommonSymptomsText.female_postCoitalBirthControl
                 },
-                {
-                    name: "잇몸",
-                    ...CommonSymptomsText.toothache_gum
-                },
-                {
-                    name: "구강건조증",
-                    ...CommonSymptomsText.toothache_drymouth
-                }
             ]
         },
         {

@@ -1,6 +1,6 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
 
-const { COLD, COLIC, HANGOVER, FEMALE, HEADACHE, SKIN, OTHER, TOOTHACHE } = CommonSymptomsText;
+const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedEnglish: ICountry = {
     name: "English",
@@ -57,7 +57,7 @@ export const TranslatedEnglish: ICountry = {
     ],
     symptoms: [
         { 
-            ...CommonSymptoms[COLD], // S-1. 감기
+            ...CommonSymptoms[COLD],
             details: [
                 { 
                     name: "Cough",
@@ -68,58 +68,20 @@ export const TranslatedEnglish: ICountry = {
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "Snot",
-                    ...CommonSymptomsText.cold_snot
+                    name: "Runny Nose",
+                    ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "Throat",
-                    ...CommonSymptomsText.cold_throat
+                    name: "Sore Throat",
+                    ...CommonSymptomsText.cold_soreThroat
                 },
                 {
                     name: "Fever",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "Muscle",
-                    ...CommonSymptomsText.cold_muscle
-                }
-            ]
-        },
-        {
-            ...CommonSymptoms[COLIC],
-            details: [
-                {
-                    name: "Diarrhead",
-                    ...CommonSymptomsText.colic_diarrhead
-                },
-                {
-                    name: "PeriodCramps",
-                    ...CommonSymptomsText.colic_periodCramps
-                },
-                {
-                    name: "Indigestion",
-                    ...CommonSymptomsText.colic_indigestion
-                },
-                {
-                    name: "Constipation",
-                    ...CommonSymptomsText.colic_constipation
-                },
-                {
-                    name: "Sickness",
-                    ...CommonSymptomsText.colic_sickness
-                },
-                {
-                    name: "Heartburn",
-                    ...CommonSymptomsText.colic_heartburn
-                }
-            ]
-        },
-        {
-            ...CommonSymptoms[FEMALE],
-            details: [
-                {
-                    name: "Tmp",
-                    ...CommonSymptomsText.female_tmp
+                    name: "Bodyache",
+                    ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
@@ -135,12 +97,12 @@ export const TranslatedEnglish: ICountry = {
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "Throwup",
-                    ...CommonSymptomsText.hangover_throwup
+                    name: "Vomit",
+                    ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "Sickness",
-                    ...CommonSymptomsText.hangover_sickness
+                    name: "Nausea",
+                    ...CommonSymptomsText.hangover_nausea
                 },
                 {
                     name: "Heartburn",
@@ -149,15 +111,31 @@ export const TranslatedEnglish: ICountry = {
             ]
         },
         {
-            ...CommonSymptoms[HEADACHE],
+            ...CommonSymptoms[STOMACHACHE],
             details: [
                 {
-                    name: "Headache",
-                    ...CommonSymptomsText.headache_headache
+                    name: "Diarrhea",
+                    ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "Migraine",
-                    ...CommonSymptomsText.headache_migraine
+                    name: "Period Cramp",
+                    ...CommonSymptomsText.stomachache_periodCramps
+                },
+                {
+                    name: "Indigestion",
+                    ...CommonSymptomsText.stomachache_indigestion
+                },
+                {
+                    name: "Constipation",
+                    ...CommonSymptomsText.stomachache_constipation
+                },
+                {
+                    name: "Nausea",
+                    ...CommonSymptomsText.stomachache_nausea
+                },
+                {
+                    name: "Heartburn",
+                    ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
@@ -173,8 +151,8 @@ export const TranslatedEnglish: ICountry = {
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "Hives",
-                    ...CommonSymptomsText.skin_hives
+                    name: "Rash",
+                    ...CommonSymptomsText.skin_rash
                 },
                 {
                     name: "Eczema",
@@ -185,45 +163,37 @@ export const TranslatedEnglish: ICountry = {
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "Athletesfoot",
+                    name: "Athlete's foot",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
-            ...CommonSymptoms[TOOTHACHE],
+            ...CommonSymptoms[FEMALE],
             details: [
                 {
-                    name: "Needle",
-                    ...CommonSymptomsText.toothache_needle
+                    name: "Period cramp",
+                    ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "Stomatitis",
-                    ...CommonSymptomsText.toothache_stomatitis
+                    name: "Pregnancy Test",
+                    ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "Drylips",
-                    ...CommonSymptomsText.toothache_drylips
+                    name: "Oral Birth Control",
+                    ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "Badbreath",
-                    ...CommonSymptomsText.toothache_badbreath
+                    name: "Postcoital Birth Control",
+                    ...CommonSymptomsText.female_postCoitalBirthControl
                 },
-                {
-                    name: "Gum",
-                    ...CommonSymptomsText.toothache_gum
-                },
-                {
-                    name: "Drymouth",
-                    ...CommonSymptomsText.toothache_drymouth
-                }
             ]
         },
         {
             ...CommonSymptoms[OTHER],
             details: [
                 {
-                    name: "Tmp",
+                    name: "Other_tmp",
                     ...CommonSymptomsText.other_tmp
                 }
             ]

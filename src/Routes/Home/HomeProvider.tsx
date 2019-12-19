@@ -5,6 +5,7 @@ import { useAppContext } from "../App/AppProvider";
 import translator from "../../Utils/translator";
 import { createMedicalRecord, createMedicalRecordVariables }  from "../../Types/api";
 import { GET_MY_RECORDS } from "../History/HistoryQueries";
+import { GET_MY_PROFILE } from "../App/AppQueries";
 interface IContext {
     step: number;
     handleStep: (step: number) => void,
@@ -176,7 +177,9 @@ const useFetch = (): {value: IContext} => {
             // console.log("create medical record error: ", data);
         },
         refetchQueries: [
-            { query: GET_MY_RECORDS }
+            // { query: GET_MY_RECORDS }
+            // GetMyProfile로 부터 갯수를 가져온다.
+            { query: GET_MY_PROFILE }
         ]
     });
     

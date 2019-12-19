@@ -14,13 +14,11 @@ export const GET_MY_RECORDS = gql`
                 
                 ...ItemMedicalRecord
                 ...ItemCold
-                ...ItemColic
-                ...ItemFemale
                 ...ItemHangover
-                ...ItemHeadache
+                ...ItemStomachache
                 ...ItemSkin
+                ...ItemFemale
                 ...ItemOther
-                ...ItemToothache
                 confirm {
                     ...ItemConfirm
                 }

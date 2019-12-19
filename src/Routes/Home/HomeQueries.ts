@@ -7,39 +7,41 @@ export const CREATE_MEDICAL_RECORD = gql`
         $allergy: Allergy!
         $pregnant: Pregnant!
         $chronicDiseases: ChronicDiseases!
-        $cold_cough: Boolean
-        $cold_headache: Boolean
-        $cold_snot: Boolean
-        $cold_throat: Boolean
-        $cold_fever: Boolean
-        $cold_muscle: Boolean
-        $colic_diarrhead: Boolean
-        $colic_periodCramps: Boolean
-        $colic_indigestion: Boolean
-        $colic_constipation: Boolean
-        $colic_sickness: Boolean
-        $colic_heartburn: Boolean
-        $female_tmp: Boolean
-        $hangover_headache: Boolean
-        $hangover_diarrhea: Boolean
-        $hangover_throwup: Boolean
-        $hangover_sickness: Boolean
-        $hangover_heartburn: Boolean
-        $headache_headache: Boolean
-        $headache_migraine: Boolean
-        $skin_abrasion: Boolean
-        $skin_acne: Boolean
-        $skin_hives: Boolean
-        $skin_eczema: Boolean
-        $skin_blister: Boolean
-        $skin_athletesfoot: Boolean
-        $other_tmp: Boolean
-        $toothache_needle: Boolean
-        $toothache_stomatitis: Boolean
-        $toothache_drylips: Boolean
-        $toothache_badbreath: Boolean
-        $toothache_gum: Boolean
-        $toothache_drymouth: Boolean
+        
+        # Cold - 감기
+        $cold_cough: Boolean #기침
+        $cold_headache: Boolean #두통
+        $cold_runnyNose: Boolean #콧물
+        $cold_soreThroat: Boolean #목아픔
+        $cold_fever: Boolean #열
+        $cold_bodyache: Boolean #몸살
+        # Hangover - 숙취
+        $hangover_headache: Boolean #두통
+        $hangover_diarrhea: Boolean #설사
+        $hangover_vomit: Boolean #구토
+        $hangover_nausea: Boolean #메스꺼움
+        $hangover_heartburn: Boolean #속쓰림
+        # Stomachache - 복통
+        $stomachache_diarrhead: Boolean #설사
+        $stomachache_periodCramps: Boolean #생리통
+        $stomachache_indigestion: Boolean #소화불량
+        $stomachache_constipation: Boolean #변비
+        $stomachache_nausea: Boolean #메스꺼움
+        $stomachache_heartburn: Boolean #속쓰림
+        # Skin - 피부질환
+        $skin_abrasion: Boolean #철과상
+        $skin_acne: Boolean #여드름
+        $skin_rash: Boolean #두드러기
+        $skin_eczema: Boolean #습진
+        $skin_blister: Boolean #수포
+        $skin_athletesfoot: Boolean #무좀
+        # Female - 여성질환
+        $female_periodCramp: Boolean #생리통
+        $female_pregnancyTest: Boolean #임신테스트
+        $female_oralBirthControl: Boolean #경구피임약
+        $female_postCoitalBirthControl: Boolean #사후피임약
+        # Other - 기타
+        $other_tmp: Boolean #임시
     ) {
         CreateMedicalRecord(
             lang: $lang
@@ -49,37 +51,32 @@ export const CREATE_MEDICAL_RECORD = gql`
             chronicDiseases: $chronicDiseases
             cold_cough: $cold_cough
             cold_headache: $cold_headache
-            cold_snot: $cold_snot
-            cold_throat: $cold_throat
+            cold_runnyNose: $cold_runnyNose
+            cold_soreThroat: $cold_soreThroat
             cold_fever: $cold_fever
-            cold_muscle: $cold_muscle
-            colic_diarrhead: $colic_diarrhead
-            colic_periodCramps: $colic_periodCramps
-            colic_indigestion: $colic_indigestion
-            colic_constipation: $colic_constipation
-            colic_sickness: $colic_sickness
-            colic_heartburn: $colic_heartburn
-            female_tmp: $female_tmp
+            cold_bodyache: $cold_bodyache
             hangover_headache: $hangover_headache
             hangover_diarrhea: $hangover_diarrhea
-            hangover_throwup: $hangover_throwup
-            hangover_sickness: $hangover_sickness
+            hangover_vomit: $hangover_vomit
+            hangover_nausea: $hangover_nausea
             hangover_heartburn: $hangover_heartburn
-            headache_headache: $headache_headache
-            headache_migraine: $headache_migraine
+            stomachache_diarrhead: $stomachache_diarrhead
+            stomachache_periodCramps: $stomachache_periodCramps
+            stomachache_indigestion: $stomachache_indigestion
+            stomachache_constipation: $stomachache_constipation
+            stomachache_nausea: $stomachache_nausea
+            stomachache_heartburn: $stomachache_heartburn
             skin_abrasion: $skin_abrasion
             skin_acne: $skin_acne
-            skin_hives: $skin_hives
+            skin_rash: $skin_rash
             skin_eczema: $skin_eczema
             skin_blister: $skin_blister
             skin_athletesfoot: $skin_athletesfoot
+            female_periodCramp: $female_periodCramp
+            female_pregnancyTest: $female_pregnancyTest
+            female_oralBirthControl: $female_oralBirthControl
+            female_postCoitalBirthControl: $female_postCoitalBirthControl
             other_tmp: $other_tmp
-            toothache_needle: $toothache_needle
-            toothache_stomatitis: $toothache_stomatitis
-            toothache_drylips: $toothache_drylips
-            toothache_badbreath: $toothache_badbreath
-            toothache_gum: $toothache_gum
-            toothache_drymouth: $toothache_drymouth
         ) {
             ok
             error

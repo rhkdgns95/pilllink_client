@@ -1,57 +1,57 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
-export const TranslatedPortugal: ICountry = {
-    name: "Português",
-    value: "PO",
-    imgPath: "/images/lang/lang_po.svg",
+export const TranslatedMongol: ICountry = {
+    name: "Монгол",
+    value: "MO",
+    imgPath: "/images/lang/lang_mo.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "PO_알레르기",
+            name: "MO_알레르기",
             details: [
                 {
-                    name: "PO_해당사항 없음",
+                    name: "MO_해당사항 없음",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "PO_진통제",
+                    name: "MO_진통제",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "PO_유당",
+                    name: "MO_유당",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "PO_임신여부",
+            name: "MO_임신여부",
             details: [
                 {
-                    name: "PO_임신 X",
+                    name: "MO_임신 X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "PO_임신 O",
+                    name: "MO_임신 O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
-            name: "PO_만성질환",
+            name: "MO_만성질환",
             details: [
                 {
-                    name: "PO_해당사항 없음",
+                    name: "MO_해당사항 없음",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "PO_간질환",
+                    name: "MO_간질환",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "PO_신장질환",
+                    name: "MO_신장질환",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -60,148 +60,148 @@ export const TranslatedPortugal: ICountry = {
     symptoms: [
         { 
             ...CommonSymptoms[COLD],
-            name: "PO_감기",
+            name: "MO_감기",
             details: [
                 { 
-                    name: "PO_기침",
+                    name: "MO_기침",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "PO_두통",
+                    name: "MO_두통",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "PO_콧물",
+                    name: "MO_콧물",
                     ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "PO_목아픔",
+                    name: "MO_목아픔",
                     ...CommonSymptomsText.cold_soreThroat
                 },
                 {
-                    name: "PO_열",
+                    name: "MO_열",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "PO_몸살",
+                    name: "MO_몸살",
                     ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
-            name: "PO_숙취",
+            name: "MO_숙취",
             details: [
                 {
-                    name: "PO_두통",
+                    name: "MO_두통",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "PO_설사",
+                    name: "MO_설사",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "PO_구토",
+                    name: "MO_구토",
                     ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "PO_메스꺼움",
+                    name: "MO_메스꺼움",
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
-                    name: "PO_속쓰림",
+                    name: "MO_속쓰림",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[STOMACHACHE],
-            name: "PO_복통",
+            name: "MO_복통",
             details: [
                 {
-                    name: "PO_설사",
+                    name: "MO_설사",
                     ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "PO_생리통",
+                    name: "MO_생리통",
                     ...CommonSymptomsText.stomachache_periodCramps
                 },
                 {
-                    name: "PO_소화불량",
+                    name: "MO_소화불량",
                     ...CommonSymptomsText.stomachache_indigestion
                 },
                 {
-                    name: "PO_변비",
+                    name: "MO_변비",
                     ...CommonSymptomsText.stomachache_constipation
                 },
                 {
-                    name: "PO_메스꺼움",
+                    name: "MO_메스꺼움",
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
-                    name: "PO_속쓰림",
+                    name: "MO_속쓰림",
                     ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
-            name: "PO_피부질환",
+            name: "MO_피부질환",
             details: [
                 {
-                    name: "PO_철과상",
+                    name: "MO_철과상",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "PO_여드름",
+                    name: "MO_여드름",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "PO_두드러기",
+                    name: "MO_두드러기",
                     ...CommonSymptomsText.skin_rash
                 },
                 {
-                    name: "PO_습진",
+                    name: "MO_습진",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "PO_수포",
+                    name: "MO_수포",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "PO_무좀",
+                    name: "MO_무좀",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
-            name: "PO_여성질환",
+            name: "MO_여성질환",
             details: [
                 {
-                    name: "PO_생리통",
+                    name: "MO_생리통",
                     ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "PO_임신테스트",
+                    name: "MO_임신테스트",
                     ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "PO_경구피임약",
+                    name: "MO_경구피임약",
                     ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "PO_사후피임약",
+                    name: "MO_사후피임약",
                     ...CommonSymptomsText.female_postCoitalBirthControl
                 },
             ]
         },
         {
             ...CommonSymptoms[OTHER],
-            name: "PO_기타",
+            name: "MO_기타",
             details: [
                 {
-                    name: "PO_기타_임시",
+                    name: "MO_기타_임시",
                     ...CommonSymptomsText.other_tmp
                 }
             ]

@@ -36,11 +36,13 @@ const StepLanguage: React.FC<IProps> = ({
 }) => {
     const { lang } = useHomeContext();
     const [isEffected, setIsEffected] = useState<boolean>(false);
+    
     useEffect(() => {
         if(!isEffected) {
             setIsEffected(true);
         }
     }, []);
+
     return (
         <Container>
             <Wrapper>

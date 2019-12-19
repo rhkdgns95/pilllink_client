@@ -1,4 +1,5 @@
 import { gql } from "apollo-boost";
+import { FRAGMENT_USER } from "../../fragments";
 
 export const UPDATE_MY_RPFOILE = gql`
     mutation updateMyProfile(
@@ -23,6 +24,10 @@ export const UPDATE_MY_RPFOILE = gql`
         ) {
             ok
             error
+            user {
+                ...ItemUser
+            }
         }
     }
+    ${FRAGMENT_USER}
 `;

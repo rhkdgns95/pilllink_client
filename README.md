@@ -17,6 +17,8 @@
 - [x] Feedback Part 1 (Manage Step State).
 - [x] Feedback Part 2 (Create Medical Record).
 - [X] Result.
+- [x] Result - Translator, MyPage - History - Translate Lang.
+- [x] fetchPolicy -> update -> refetchQueries, Translator Part 1.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.
@@ -25,6 +27,7 @@
 - [] Register Domain.
 - [] Teting.
 - [] Ralations Server - Nationality Code / Value.
+- [] LocalStorage - No JWT.
 
 ## 2. Install
 1. yarn create react-app ./ --typescript

@@ -12,57 +12,23 @@ const CommonSymptomsText: ICommonSymptomsText = {
         value: "cold_headache",
         imgPath: "/"
     },  // 두통    
-    cold_snot: {
-        value: "cold_snot",
+    cold_runnyNose: {
+        value: "cold_runnyNose",
         imgPath: PATH_IMG_DETAILS + "/comming_soon.svg"
     },  // 콧물
-    cold_throat: {
-        value: "cold_throat",
+    cold_soreThroat: {
+        value: "cold_soreThroat",
         imgPath: "/"
     },  // 목아픔
     cold_fever: {
         value: "cold_fever",
         imgPath: "/"
     },  // 열    
-    cold_muscle: {
-        value: "cold_muscle",
+    cold_bodyache: {
+        value: "cold_bodyache",
         imgPath: "/"
     },  // 몸살
-    // [2] - COLIC
-    COLIC: "COLIC",
-    COLIC_IMG: "/images/symptoms/symptoms_colic.svg",
-    colic_diarrhead: {
-        value: "colic_diarrhead",
-        imgPath: "/"
-    }, // 설사
-    colic_periodCramps: {
-        value: "colic_periodCramps",
-        imgPath: "/"
-    }, // 생리통
-    colic_indigestion: {
-        value: "colic_indigestion",
-        imgPath: "/"
-    }, // 소화불량
-    colic_constipation: {
-        value: "colic_constipation",
-        imgPath: "/"
-    }, // 변비
-    colic_sickness: {
-        value: "colic_sickness",
-        imgPath: "/"
-    }, // 메스꺼움
-    colic_heartburn: {
-        value: "colic_heartburn",
-        imgPath: "/"
-    }, // 속쓰림
-    // [3] - Female
-    FEMALE: "FEMALE",
-    FEMALE_IMG: "/images/symptoms/symptoms_female.svg",
-    female_tmp: {
-        value: "female_tmp",
-        imgPath: "/"
-    }, // 임시
-    // [4] - Hangover
+    // [2] - Hangover
     HANGOVER: "HANGOVER",
     HANGOVER_IMG: "/images/symptoms/symptoms_hangover.svg",
     hangover_headache: {
@@ -73,37 +39,46 @@ const CommonSymptomsText: ICommonSymptomsText = {
         value: "hangover_diarrhea",
         imgPath: "/"
     }, // 설사    
-    hangover_throwup: {
-        value: "hangover_throwup",
+    hangover_vomit: {
+        value: "hangover_vomit",
         imgPath: ""
     }, // 구토    
-    hangover_sickness: {
-        value: "hangover_sickness",
+    hangover_nausea: {
+        value: "hangover_nausea",
         imgPath: ""
     }, // 메스꺼움    
     hangover_heartburn: {
         value: "hangover_heartburn",
         imgPath: ""
     }, // 속쓰림
-    // [5] - Headache
-    HEADACHE: "HEADACHE",
-    HEADACHE_IMG: "/images/symptoms/symptoms_headache.svg",
-    headache_headache: { 
-        value: "headache_headache",
-        imgPath: ""
-    },
-    headache_migraine: {
-        value: "headache_migraine",
-        imgPath: ""
-    },
-    // [6] - Other
-    OTHER: "OTHER",
-    OTHER_IMG: "/images/symptoms/symptoms_other.svg",
-    other_tmp: {
-        value: "other_tmp",
-        imgPath: ""
-    }, // 임시
-    // [7] - Skin
+    // [3] - STOMACHACHE
+    STOMACHACHE: "STOMACHACHE",
+    STOMACHACHE_IMG: "/images/symptoms/symptoms_stomachache.svg",
+    stomachache_diarrhead: {
+        value: "stomachache_diarrhead",
+        imgPath: "/"
+    }, // 설사
+    stomachache_periodCramps: {
+        value: "stomachache_periodCramps",
+        imgPath: "/"
+    }, // 생리통
+    stomachache_indigestion: {
+        value: "stomachache_indigestion",
+        imgPath: "/"
+    }, // 소화불량
+    stomachache_constipation: {
+        value: "stomachache_constipation",
+        imgPath: "/"
+    }, // 변비
+    stomachache_nausea: {
+        value: "stomachache_nausea",
+        imgPath: "/"
+    }, // 메스꺼움
+    stomachache_heartburn: {
+        value: "stomachache_heartburn",
+        imgPath: "/"
+    }, // 속쓰림
+    // [4] - Skin
     SKIN: "SKIN",
     SKIN_IMG: "/images/symptoms/symptoms_skin.svg",
     skin_abrasion: {
@@ -114,8 +89,8 @@ const CommonSymptomsText: ICommonSymptomsText = {
         value: "skin_acne",
         imgPath: "/"
     },  // 여드름
-    skin_hives: {
-        value: "skin_hives",
+    skin_rash: {
+        value: "skin_rash",
         imgPath: "/"
     },  // 두드러기
     skin_eczema: {
@@ -130,37 +105,37 @@ const CommonSymptomsText: ICommonSymptomsText = {
         value: "skin_athletesfoot",
         imgPath: "/"
     },  // 무좀
-    // [8] - Toothache
-    TOOTHACHE: "TOOTHACHE",
-    TOOTHACHE_IMG: "/images/symptoms/symptoms_toothache.svg",
-    toothache_needle: {
-        value: "toothache_needle",
+    // [5] - Female
+    FEMALE: "FEMALE",
+    FEMALE_IMG: "/images/symptoms/symptoms_female.svg",
+    female_periodCramp: {
+        value: "female_periodCramp",
         imgPath: "/"
-    }, //  혓바늘
-    toothache_stomatitis: {
-        value: "toothache_stomatitis",
+    }, // 생리통
+    female_pregnancyTest: {
+        value: "female_pregnancyTest",
         imgPath: "/"
-    }, //  구내염
-    toothache_drylips: {
-        value: "toothache_drylips",
+    }, // 임신테스트
+    female_oralBirthControl: {
+        value: "female_oralBirthControl",
         imgPath: "/"
-    }, //  마른 입술
-    toothache_badbreath: {
-        value: "toothache_badbreath",
+    }, // 경구피임약
+    female_postCoitalBirthControl: {
+        value: "female_postCoitalBirthControl",
         imgPath: "/"
-    }, //  입냄새
-    toothache_gum: {
-        value: "toothache_gum",
+    }, // 사후피임약
+
+    // [6] - Other
+    OTHER: "OTHER",
+    OTHER_IMG: "/images/symptoms/symptoms_other.svg",
+    other_tmp: {
+        value: "other_tmp",
         imgPath: ""
-    }, //  잇몸
-    toothache_drymouth: {
-        value: "toothache_drymouth",
-        imgPath: "/"
-    }, //  구강건조증
+    }, // 임시
 };
 
-const { COLD, COLIC, HANGOVER, FEMALE, HEADACHE, SKIN, OTHER, TOOTHACHE } = CommonSymptomsText;
-const { COLD_IMG, COLIC_IMG, HANGOVER_IMG, FEMALE_IMG, HEADACHE_IMG, SKIN_IMG, OTHER_IMG, TOOTHACHE_IMG } = CommonSymptomsText;
+const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
+const { COLD_IMG, STOMACHACHE_IMG, HANGOVER_IMG, FEMALE_IMG, SKIN_IMG, OTHER_IMG } = CommonSymptomsText;
 
 const CommonSymptoms: any = {
     "COLD": {
@@ -169,14 +144,14 @@ const CommonSymptoms: any = {
         value: COLD,
         details: []
     },
-    "COLIC": {
-        name: "Colic",
-        imgPath: COLIC_IMG,
-        value: COLIC,
+    "STOMACHACHE": {
+        name: "Stomachache",
+        imgPath: STOMACHACHE_IMG,
+        value: STOMACHACHE,
         details: []
     },
     "FEMALE": {
-        name: "Female Diseases",
+        name: "Woman Health",
         imgPath: FEMALE_IMG,
         value: FEMALE,
         details: []
@@ -185,12 +160,6 @@ const CommonSymptoms: any = {
         name: "Hangover",
         imgPath: HANGOVER_IMG,
         value: HANGOVER,
-        details: []
-    },
-    "HEADACHE": {
-        name: "Headache",
-        imgPath: HEADACHE_IMG,
-        value: HEADACHE,
         details: []
     },
     "SKIN": {
@@ -205,12 +174,6 @@ const CommonSymptoms: any = {
         value: OTHER,
         details: []
     },
-    "TOOTHACHE": {
-        name: "Toothache",
-        imgPath: TOOTHACHE_IMG,
-        value: TOOTHACHE,
-        details: []
-    }
 };
 
 type ISelectors = "ALLERGY" | "PREGNANT" | "CHRONICDISEASES";

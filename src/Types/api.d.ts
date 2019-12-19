@@ -42,10 +42,28 @@ export interface getMyProfile {
 // GraphQL mutation operation: updateMyProfile
 // ====================================================
 
+export interface updateMyProfile_UpdateMyProfile_user {
+  __typename: "User";
+  id: number;
+  fullName: string | null;
+  firstName: string;
+  lastName: string;
+  email: string;
+  nationality: Nationality;
+  gender: Gender;
+  age: number;
+  isAbroad: boolean;
+  address: string;
+  medicalRecordsCount: number | null;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
 export interface updateMyProfile_UpdateMyProfile {
   __typename: "UpdateMyProfileResponse";
   ok: boolean;
   error: string | null;
+  user: updateMyProfile_UpdateMyProfile_user | null;
 }
 
 export interface updateMyProfile {
@@ -93,58 +111,47 @@ export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords {
    */
   cold_cough: boolean | null;
   cold_headache: boolean | null;
-  cold_snot: boolean | null;
-  cold_throat: boolean | null;
+  cold_runnyNose: boolean | null;
+  cold_soreThroat: boolean | null;
   cold_fever: boolean | null;
-  cold_muscle: boolean | null;
-  /**
-   * Colic - 복통
-   */
-  colic_diarrhead: boolean | null;
-  colic_periodCramps: boolean | null;
-  colic_indigestion: boolean | null;
-  colic_constipation: boolean | null;
-  colic_sickness: boolean | null;
-  colic_heartburn: boolean | null;
-  /**
-   * Female - 여성질환
-   */
-  female_tmp: boolean | null;
+  cold_bodyache: boolean | null;
   /**
    * Hangover - 숙취
    */
   hangover_headache: boolean | null;
   hangover_diarrhea: boolean | null;
-  hangover_throwup: boolean | null;
-  hangover_sickness: boolean | null;
+  hangover_vomit: boolean | null;
+  hangover_nausea: boolean | null;
   hangover_heartburn: boolean | null;
   /**
-   * Headache - 두통
+   * Stomachache - 복통
    */
-  headache_headache: boolean | null;
-  headache_migraine: boolean | null;
+  stomachache_diarrhead: boolean | null;
+  stomachache_periodCramps: boolean | null;
+  stomachache_indigestion: boolean | null;
+  stomachache_constipation: boolean | null;
+  stomachache_nausea: boolean | null;
+  stomachache_heartburn: boolean | null;
   /**
    * Skin - 피부질환
    */
   skin_abrasion: boolean | null;
   skin_acne: boolean | null;
-  skin_hives: boolean | null;
+  skin_rash: boolean | null;
   skin_eczema: boolean | null;
   skin_blister: boolean | null;
   skin_athletesfoot: boolean | null;
   /**
+   * Female - 여성질환
+   */
+  female_periodCramp: boolean | null;
+  female_pregnancyTest: boolean | null;
+  female_oralBirthControl: boolean | null;
+  female_postCoitalBirthControl: boolean | null;
+  /**
    * Other - 기타
    */
   other_tmp: boolean | null;
-  /**
-   * Toothache - 구강질환
-   */
-  toothache_needle: boolean | null;
-  toothache_stomatitis: boolean | null;
-  toothache_drylips: boolean | null;
-  toothache_badbreath: boolean | null;
-  toothache_gum: boolean | null;
-  toothache_drymouth: boolean | null;
   confirm: getMyMedicalRecords_GetMyMedicalRecords_medicalRecords_confirm | null;
 }
 
@@ -192,37 +199,32 @@ export interface createMedicalRecordVariables {
   chronicDiseases: ChronicDiseases;
   cold_cough?: boolean | null;
   cold_headache?: boolean | null;
-  cold_snot?: boolean | null;
-  cold_throat?: boolean | null;
+  cold_runnyNose?: boolean | null;
+  cold_soreThroat?: boolean | null;
   cold_fever?: boolean | null;
-  cold_muscle?: boolean | null;
-  colic_diarrhead?: boolean | null;
-  colic_periodCramps?: boolean | null;
-  colic_indigestion?: boolean | null;
-  colic_constipation?: boolean | null;
-  colic_sickness?: boolean | null;
-  colic_heartburn?: boolean | null;
-  female_tmp?: boolean | null;
+  cold_bodyache?: boolean | null;
   hangover_headache?: boolean | null;
   hangover_diarrhea?: boolean | null;
-  hangover_throwup?: boolean | null;
-  hangover_sickness?: boolean | null;
+  hangover_vomit?: boolean | null;
+  hangover_nausea?: boolean | null;
   hangover_heartburn?: boolean | null;
-  headache_headache?: boolean | null;
-  headache_migraine?: boolean | null;
+  stomachache_diarrhead?: boolean | null;
+  stomachache_periodCramps?: boolean | null;
+  stomachache_indigestion?: boolean | null;
+  stomachache_constipation?: boolean | null;
+  stomachache_nausea?: boolean | null;
+  stomachache_heartburn?: boolean | null;
   skin_abrasion?: boolean | null;
   skin_acne?: boolean | null;
-  skin_hives?: boolean | null;
+  skin_rash?: boolean | null;
   skin_eczema?: boolean | null;
   skin_blister?: boolean | null;
   skin_athletesfoot?: boolean | null;
+  female_periodCramp?: boolean | null;
+  female_pregnancyTest?: boolean | null;
+  female_oralBirthControl?: boolean | null;
+  female_postCoitalBirthControl?: boolean | null;
   other_tmp?: boolean | null;
-  toothache_needle?: boolean | null;
-  toothache_stomatitis?: boolean | null;
-  toothache_drylips?: boolean | null;
-  toothache_badbreath?: boolean | null;
-  toothache_gum?: boolean | null;
-  toothache_drymouth?: boolean | null;
 }
 
 /* tslint:disable */
@@ -355,47 +357,10 @@ export interface ItemCold {
    */
   cold_cough: boolean | null;
   cold_headache: boolean | null;
-  cold_snot: boolean | null;
-  cold_throat: boolean | null;
+  cold_runnyNose: boolean | null;
+  cold_soreThroat: boolean | null;
   cold_fever: boolean | null;
-  cold_muscle: boolean | null;
-}
-
-/* tslint:disable */
-/* eslint-disable */
-// This file was automatically generated and should not be edited.
-
-// ====================================================
-// GraphQL fragment: ItemColic
-// ====================================================
-
-export interface ItemColic {
-  __typename: "MedicalRecord";
-  /**
-   * Colic - 복통
-   */
-  colic_diarrhead: boolean | null;
-  colic_periodCramps: boolean | null;
-  colic_indigestion: boolean | null;
-  colic_constipation: boolean | null;
-  colic_sickness: boolean | null;
-  colic_heartburn: boolean | null;
-}
-
-/* tslint:disable */
-/* eslint-disable */
-// This file was automatically generated and should not be edited.
-
-// ====================================================
-// GraphQL fragment: ItemFemale
-// ====================================================
-
-export interface ItemFemale {
-  __typename: "MedicalRecord";
-  /**
-   * Female - 여성질환
-   */
-  female_tmp: boolean | null;
+  cold_bodyache: boolean | null;
 }
 
 /* tslint:disable */
@@ -413,8 +378,8 @@ export interface ItemHangover {
    */
   hangover_headache: boolean | null;
   hangover_diarrhea: boolean | null;
-  hangover_throwup: boolean | null;
-  hangover_sickness: boolean | null;
+  hangover_vomit: boolean | null;
+  hangover_nausea: boolean | null;
   hangover_heartburn: boolean | null;
 }
 
@@ -423,16 +388,20 @@ export interface ItemHangover {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL fragment: ItemHeadache
+// GraphQL fragment: ItemStomachache
 // ====================================================
 
-export interface ItemHeadache {
+export interface ItemStomachache {
   __typename: "MedicalRecord";
   /**
-   * Headache - 두통
+   * Stomachache - 복통
    */
-  headache_headache: boolean | null;
-  headache_migraine: boolean | null;
+  stomachache_diarrhead: boolean | null;
+  stomachache_periodCramps: boolean | null;
+  stomachache_indigestion: boolean | null;
+  stomachache_constipation: boolean | null;
+  stomachache_nausea: boolean | null;
+  stomachache_heartburn: boolean | null;
 }
 
 /* tslint:disable */
@@ -450,10 +419,29 @@ export interface ItemSkin {
    */
   skin_abrasion: boolean | null;
   skin_acne: boolean | null;
-  skin_hives: boolean | null;
+  skin_rash: boolean | null;
   skin_eczema: boolean | null;
   skin_blister: boolean | null;
   skin_athletesfoot: boolean | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL fragment: ItemFemale
+// ====================================================
+
+export interface ItemFemale {
+  __typename: "MedicalRecord";
+  /**
+   * Female - 여성질환
+   */
+  female_periodCramp: boolean | null;
+  female_pregnancyTest: boolean | null;
+  female_oralBirthControl: boolean | null;
+  female_postCoitalBirthControl: boolean | null;
 }
 
 /* tslint:disable */
@@ -470,27 +458,6 @@ export interface ItemOther {
    * Other - 기타
    */
   other_tmp: boolean | null;
-}
-
-/* tslint:disable */
-/* eslint-disable */
-// This file was automatically generated and should not be edited.
-
-// ====================================================
-// GraphQL fragment: ItemToothache
-// ====================================================
-
-export interface ItemToothache {
-  __typename: "MedicalRecord";
-  /**
-   * Toothache - 구강질환
-   */
-  toothache_needle: boolean | null;
-  toothache_stomatitis: boolean | null;
-  toothache_drylips: boolean | null;
-  toothache_badbreath: boolean | null;
-  toothache_gum: boolean | null;
-  toothache_drymouth: boolean | null;
 }
 
 /* tslint:disable */
@@ -522,15 +489,27 @@ export enum Gender {
 export enum Language {
   CH = "CH",
   EN = "EN",
+  ES = "ES",
+  FR = "FR",
+  JA = "JA",
   KO = "KO",
-  US = "US",
+  MO = "MO",
+  RU = "RU",
+  TH = "TH",
+  VI = "VI",
 }
 
 export enum Nationality {
   CH = "CH",
   EN = "EN",
+  ES = "ES",
+  FR = "FR",
+  JA = "JA",
   KO = "KO",
-  US = "US",
+  MO = "MO",
+  RU = "RU",
+  TH = "TH",
+  VI = "VI",
 }
 
 export enum Pregnant {
@@ -540,13 +519,11 @@ export enum Pregnant {
 
 export enum Status {
   COLD = "COLD",
-  COLIC = "COLIC",
   FEMALE = "FEMALE",
   HANGOVER = "HANGOVER",
-  HEADACHE = "HEADACHE",
   OTHER = "OTHER",
   SKIN = "SKIN",
-  TOOTHACHE = "TOOTHACHE",
+  STOMACHACHE = "STOMACHACHE",
 }
 
 //==============================================================

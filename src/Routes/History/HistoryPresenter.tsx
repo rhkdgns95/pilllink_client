@@ -118,7 +118,7 @@ const HistoryPresenter = () => {
                     // tmpSymptoms.push({
                     //     [findDetailsValue.value]: true
                     // });
-                    
+                        
                     // newRecords[recordKey] = {
                     //     ...newRecords[recordKey],
                     //     ...findDetailsValue
