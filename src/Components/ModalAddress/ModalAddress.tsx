@@ -38,21 +38,21 @@ interface IProps {
 
 
 const ModalAddress = () => {
-    const { isModal, toggleModal, handleDetailAddress } = useSignUpContext();
+    // const { isModal, toggleModal, handleDetailAddress } = useSignUpContext();
     
-    const onCompleted = (e: any) => {
-        const {address} = e;
-        handleDetailAddress(address);
-        toggleModal();
-    }
+    // const onCompleted = (e: any) => {
+    //     const {address} = e;
+    //     handleDetailAddress(address);
+    //     toggleModal();
+    // }
 
-    return (
-        <Container className={isModal ? "active" : ""} onClick={e => toggleModal()}>
-            <Wrapper>
-                <DaumPostCode onComplete={onCompleted} />
-            </Wrapper>
-        </Container>
-    )
+    // return (
+    //     <Container className={isModal ? "active" : ""} onClick={e => toggleModal()}>
+    //         <Wrapper>
+    //             <DaumPostCode onComplete={onCompleted} />
+    //         </Wrapper>
+    //     </Container>
+    // )
 }
 
 export default ModalAddress;

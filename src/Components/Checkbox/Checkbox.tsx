@@ -2,7 +2,7 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 
 const Container = styled.div`
-    margin: 10px 15px;
+    margin: 21px;
 `;
 const Wrapper = styled.div`
     & input:checked {
@@ -83,7 +83,8 @@ const Img = styled.img`
 const Text = styled.span`
     margin-top: 12px;
     font-size: 12px;
-    white-space: nowrap;
+    text-align: center;
+    max-width: 100px;
 `;
 const CheckedIcon = styled.div`
     position: absolute;

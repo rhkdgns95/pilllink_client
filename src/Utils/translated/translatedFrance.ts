@@ -60,138 +60,138 @@ export const TranslatedFrance: ICountry = {
     symptoms: [
         { 
             ...CommonSymptoms[COLD],
-            name: "FR_감기",
+            name: "Grippe",
             details: [
                 { 
-                    name: "FR_기침",
+                    name: "Toux",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "FR_두통",
+                    name: "Mal de tête",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "FR_콧물",
+                    name: "Nez qui coule",
                     ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "FR_목아픔",
+                    name: "Mal à la gorge",
                     ...CommonSymptomsText.cold_soreThroat
                 },
                 {
-                    name: "FR_열",
+                    name: "Fièvre",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "FR_몸살",
+                    name: "Courbatures",
                     ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
-            name: "FR_숙취",
+            name: "Mal de tête /\n Gueule de bois",
             details: [
                 {
-                    name: "FR_두통",
+                    name: "Mal de tête",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "FR_설사",
+                    name: "Diarrhée",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "FR_구토",
+                    name: "Vomissement",
                     ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "FR_메스꺼움",
+                    name: "Nausée",
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
-                    name: "FR_속쓰림",
+                    name: "Mal au coeur",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[STOMACHACHE],
-            name: "FR_복통",
+            name: "Mal de ventre",
             details: [
                 {
-                    name: "FR_설사",
+                    name: "Diarrhée",
                     ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "FR_생리통",
+                    name: "Crampes menstruelles",
                     ...CommonSymptomsText.stomachache_periodCramps
                 },
                 {
-                    name: "FR_소화불량",
+                    name: "Indigestion",
                     ...CommonSymptomsText.stomachache_indigestion
                 },
                 {
-                    name: "FR_변비",
+                    name: "Costipation",
                     ...CommonSymptomsText.stomachache_constipation
                 },
                 {
-                    name: "FR_메스꺼움",
+                    name: "Nausée",
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
-                    name: "FR_속쓰림",
+                    name: "Mal au coeur",
                     ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
-            name: "FR_피부질환",
+            name: "Eruption cutanée",
             details: [
                 {
-                    name: "FR_철과상",
+                    name: "Frottement/écorchure",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "FR_여드름",
+                    name: "Acné",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "FR_두드러기",
+                    name: "Rougeur/Irritation",
                     ...CommonSymptomsText.skin_rash
                 },
                 {
-                    name: "FR_습진",
+                    name: "Eczema",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "FR_수포",
+                    name: "Cloque/Ampoule",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "FR_무좀",
+                    name: "Le pied d'athlète",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
-            name: "FR_여성질환",
+            name: "Santé féminine",
             details: [
                 {
-                    name: "FR_생리통",
+                    name: "crampes menstruelle",
                     ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "FR_임신테스트",
+                    name: "Test de grossesse",
                     ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "FR_경구피임약",
+                    name: "Contraceptif oral",
                     ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "FR_사후피임약",
+                    name: "Contraceptif post coital",
                     ...CommonSymptomsText.female_postCoitalBirthControl
                 },
             ]

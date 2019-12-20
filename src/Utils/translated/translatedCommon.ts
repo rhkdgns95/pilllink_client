@@ -243,4 +243,21 @@ const CommonSelectors: ICommonSelectors = {
         }
     }
 };
+// 복약지도
+const CommonPrescription = {
+    "DOSAGE": { // 복약량
+        name: "Dosage",
+        value: "DOSAGE",
+        details: [
+            { value: "3DAY" }, // 3일
+            { value: "5DAY" }, // 5일
+            { value: "7DAY" } // 7일
+        ]
+    },
+    // 복약횟수
+    // 복용방법
+    // 주의점
+}
+
+
 export { CommonSymptomsText, CommonSymptoms, CommonSelectors };

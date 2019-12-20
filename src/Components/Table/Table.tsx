@@ -116,6 +116,7 @@ const Table: React.FC<IProps> = ({
         } else {
             resultText = resultText.concat(data.name);
         }
+        return null;
     });
     console.log("RESULTS: ", resultText);
     return (

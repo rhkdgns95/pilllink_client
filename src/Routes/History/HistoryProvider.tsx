@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useQuery, useApolloClient, useLazyQuery } from "react-apollo";
+import { useLazyQuery } from "react-apollo";
 import { GET_MY_RECORDS } from "./HistoryQueries";
-import { GET_CACHE_RECORDS } from "./HistoryQueries.local";
 import { getMyMedicalRecords, getMyMedicalRecordsVariables, getMyMedicalRecords_GetMyMedicalRecords_medicalRecords } from "../../Types/api";
 import { useAppContext } from "../App/AppProvider";
 
@@ -37,7 +36,7 @@ const usePagination = (max: number, initCursor: number, initScreen: number): IUs
     const [ hasNext, setHasNext ] = useState<boolean>(max > (pageCount * tableCount)); // '>' 버튼
     const [ screen, setScreen ] = useState<number>(initScreen); // 스크린 == 페이지 그룹핑
     const [ cursor, setCursor ] = useState<number>(initCursor); // 현 페이지
-    const [ totalCount, setTotalCount] = useState<number>(0);
+    const [ totalCount ] = useState<number>(0);
     
     const handleLeftArrows = () => {
         if(screen === 1) {
@@ -146,7 +145,7 @@ const useFetch = (): { value: IContext } => {
         }
     });
 
-    const { cursor, screen, onhandleUsingArrow } = pagination;
+    const { cursor, screen } = pagination;
     const records: Array<getMyMedicalRecords_GetMyMedicalRecords_medicalRecords | null> | null  = data ? data.GetMyMedicalRecords.medicalRecords : null;
     
     useEffect(() => {

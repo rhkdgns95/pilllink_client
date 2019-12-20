@@ -36,21 +36,21 @@ interface IProps {
 
 
 const ModalAddressEdit = () => {
-    const { isModal, toggleModal, handleDetailAddress } = useEditContext();
+    // const { isModal, toggleModal, handleDetailAddress } = useEditContext();
     
-    const onCompleted = (e: any) => {
-        const {address} = e;
-        handleDetailAddress(address);
-        toggleModal();
-    }
+    // const onCompleted = (e: any) => {
+    //     const {address} = e;
+    //     handleDetailAddress(address);
+    //     toggleModal();
+    // }
 
-    return (
-        <Container className={isModal ? "active" : ""} onClick={e => toggleModal()}>
-            <Wrapper>
-                <DaumPostCode onComplete={onCompleted} />
-            </Wrapper>
-        </Container>
-    )
+    // return (
+    //     <Container className={isModal ? "active" : ""} onClick={e => toggleModal()}>
+    //         <Wrapper>
+    //             <DaumPostCode onComplete={onCompleted} />
+    //         </Wrapper>
+    //     </Container>
+    // )
 }
 
 export default ModalAddressEdit;

@@ -92,6 +92,7 @@ const RadioButtonGroup = styled.div`
     flex-flow: wrap;
     justify-content: center;
     margin: 80px 0;
+    margin-bottom: 50px;
 `;
 
 interface IProps {

@@ -7,8 +7,7 @@ import Table from "../../Components/Table";
 import Pagination from "../../Components/Pagination";
 import { useHistoryContext } from "./HistoryProvider";
 import { getTime } from "../../Utils/getTime";
-import { getMyMedicalRecords_GetMyMedicalRecords_medicalRecords, Language } from "../../Types/api";
-import { TranslatedEnglish } from "../../Utils/translated/translatedEnglish";
+import { getMyMedicalRecords_GetMyMedicalRecords_medicalRecords } from "../../Types/api";
 import countries from "../../Utils/translator";
 
 const Container = styled.div`
@@ -68,7 +67,7 @@ const TmpText = styled.span`
 const cleanNullArgs = (arr: any) => {
     let newArr: Array<any> = [];
     if(arr) {
-        arr.map((record: any, arrKey: any) => {
+        arr.map((record: any) => {
             if(record) {
                 let data: any = {};
                 Object.keys(record).forEach(key => {

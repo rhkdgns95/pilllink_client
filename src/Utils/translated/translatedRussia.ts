@@ -60,138 +60,138 @@ export const TranslatedRussia: ICountry = {
     symptoms: [
         { 
             ...CommonSymptoms[COLD],
-            name: "RU_감기",
+            name: "простуда",
             details: [
                 { 
-                    name: "RU_기침",
+                    name: "кашель",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "RU_두통",
+                    name: "головная боль",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "RU_콧물",
+                    name: "сопли",
                     ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "RU_목아픔",
+                    name: "боль в горле",
                     ...CommonSymptomsText.cold_soreThroat
                 },
                 {
-                    name: "RU_열",
+                    name: "температура",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "RU_몸살",
+                    name: "переутомление",
                     ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
-            name: "RU_숙취",
+            name: "похмелье",
             details: [
                 {
-                    name: "RU_두통",
+                    name: "головная боль",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "RU_설사",
+                    name: "понос",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "RU_구토",
+                    name: "рвота",
                     ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "RU_메스꺼움",
+                    name: "тошнить",
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
-                    name: "RU_속쓰림",
+                    name: "изжога",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[STOMACHACHE],
-            name: "RU_복통",
+            name: "желудочное заболевание",
             details: [
                 {
-                    name: "RU_설사",
+                    name: "понос",
                     ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "RU_생리통",
+                    name: "менструальная боль",
                     ...CommonSymptomsText.stomachache_periodCramps
                 },
                 {
-                    name: "RU_소화불량",
+                    name: "несварение",
                     ...CommonSymptomsText.stomachache_indigestion
                 },
                 {
-                    name: "RU_변비",
+                    name: "запор",
                     ...CommonSymptomsText.stomachache_constipation
                 },
                 {
-                    name: "RU_메스꺼움",
+                    name: "тошнить",
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
-                    name: "RU_속쓰림",
+                    name: "изжога",
                     ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
-            name: "RU_피부질환",
+            name: "кожное заболевание",
             details: [
                 {
-                    name: "RU_철과상",
+                    name: "ссадина",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "RU_여드름",
+                    name: "угорь",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "RU_두드러기",
+                    name: "крапивница",
                     ...CommonSymptomsText.skin_rash
                 },
                 {
-                    name: "RU_습진",
+                    name: "экзема",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "RU_수포",
+                    name: "водянистая мозоль",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "RU_무좀",
+                    name: "эпидермофития стоп",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
-            name: "RU_여성질환",
+            name: "женщина здоровье",
             details: [
                 {
-                    name: "RU_생리통",
+                    name: "менструальная боль",
                     ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "RU_임신테스트",
+                    name: "беременность тест",
                     ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "RU_경구피임약",
+                    name: "ора́льные противозача́точные сре́дства",
                     ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "RU_사후피임약",
+                    name: "посме́ртный противозачаточные средства",
                     ...CommonSymptomsText.female_postCoitalBirthControl
                 },
             ]

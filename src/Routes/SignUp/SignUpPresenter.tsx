@@ -2,7 +2,7 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 import Navbar from "../../Components/Navbar";
 import SignUpForm from "../../Components/SignUpForm";
-import ModalAddress from "../../Components/ModalAddress";
+// import ModalAddress from "../../Components/ModalAddress";
 
 const Container = styled.div`
 `;
@@ -51,7 +51,7 @@ const SignUpPresenter = () => (
                 </Bg>
                 <SignUpForm/>
             </Wrapper>
-            <ModalAddress />
+            {/* <ModalAddress /> */}
         </Box>
     </Container>
 );

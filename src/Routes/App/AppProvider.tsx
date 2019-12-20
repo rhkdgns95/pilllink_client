@@ -1,10 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useQuery, useMutation } from "react-apollo";
 import { GET_MY_PROFILE } from "./AppQueries";
-import { getMyProfile_GetMyProfile_user, getMyProfile, updateMyProfile_UpdateMyProfile, updateMyProfile, updateMyProfileVariables } from "../../Types/api";
+import { getMyProfile_GetMyProfile_user, getMyProfile, updateMyProfile, updateMyProfileVariables } from "../../Types/api";
 import { UPDATE_MY_RPFOILE } from "../Edit/EditQueries";
 import { USER_LOGOUT } from "./AppQueries.local";
-import { GET_MY_RECORDS } from "../History/HistoryQueries";
 
 interface IContext {
     loadingGetMyProfile: boolean;
@@ -51,8 +50,8 @@ const useMessage = (): IMessage => {
     const [data, setData] = useState<string>("");
     
     const onChangeMessage = ({ok, data}: {ok: boolean, data: string}) => {
-        console.log("Message_ok: ", ok);
-        console.log("Message_message: ", data);
+        // console.log("Message_ok: ", ok);
+        // console.log("Message_message: ", data);
         setOk(ok);
         setData(data);
     };
@@ -90,7 +89,7 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
      *  
      *  User Logout
      */
-    const [ logout, { loading: loadingLogout }] = useMutation(USER_LOGOUT);
+    const [ logout ] = useMutation(USER_LOGOUT);
     
     
     const user = data ? data.GetMyProfile.user : null;
@@ -146,6 +145,7 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
             {query: GET_MY_PROFILE}
         ]
     });
+    
     const [ isProgress, setIsProgress ] = useState<boolean>(false);
     const [ title, setTitle ] = useState<string>(AppTitle);
     

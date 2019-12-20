@@ -3,7 +3,7 @@ import styled from "../../../Styles/typed-components";
 import { useHomeContext } from "../../../Routes/Home/HomeProvider";
 import countries from "../../../Utils/translator";
 import Checkbox from "../../Checkbox";
-import { PATH_IMG_DETAILS, useAppContext, PATH_IMG_BG, PATH_IMG_ACTION } from "../../../Routes/App/AppProvider";
+import { PATH_IMG_DETAILS, PATH_IMG_BG, PATH_IMG_ACTION } from "../../../Routes/App/AppProvider";
 import ResultItem from "../../ResultItem";
 import { TranslatedKorean } from "../../../Utils/translated/translatedKorean";
 
@@ -80,10 +80,10 @@ const DetailsGroup = styled.div`
     flex-flow: wrap;
     justify-content: center;
     margin: 80px 0;
+    margin-bottom: 50px;
 `;
 const ResultBgBox = styled.div`
     position: relative;
-    
     margin-bottom: 30px;
     display: flex;
     align-items: center;
@@ -136,6 +136,7 @@ const TranslateButton = styled.span`
         transition: transform .2s;
         transform: translate(-50%, -50%) rotate(180deg);
     }
+    &:active,
     &:hover {
         img {
             transform: translate(-50%, -50%) rotate(0deg);
@@ -182,7 +183,6 @@ const useInputChecked = (): IUseCheckbox => {
 const StepDetailSymptoms: React.FC<IProps> = ({
     stepTitle
 }) => { 
-    const { handleTitle } = useAppContext();
     const { symptom, lang, handleSubmitOk, submitOk, step, onCreateResultDetails } = useHomeContext();
     const [ isEffected, setIsEffected ] = useState<Array<boolean>>([false, false]);
     const [ symptomDetails, setSymptomDetails ] = useState<ISymptom>();
@@ -191,7 +191,6 @@ const StepDetailSymptoms: React.FC<IProps> = ({
 
     const currentDetails = useInputChecked();
 
-    const {} = useInputChecked();
     // GetDetailsScreen(symptom.value);
     
     /** 
@@ -234,13 +233,14 @@ const StepDetailSymptoms: React.FC<IProps> = ({
         if(symptomDetails) {
             const value = symptomDetails!.value || "";
             const symptomKorean: ISymptom | undefined = TranslatedKorean.symptoms.find(symptom => symptom.value === value);
+            
             if(symptomKorean) {
                 let tmpSymptoms: ISymptom = {
                     name: "한국어",
                     value: "KO",
                     imgPath: "",
                     details: symptomDetails.details.map(detail => {
-                        const { name, value } = detail;
+                        const { value } = detail;
                         const newName = symptomKorean.details.find(koDetail => koDetail.value === value) || detail;
                         return {
                             ...detail,
@@ -251,9 +251,9 @@ const StepDetailSymptoms: React.FC<IProps> = ({
                 setSymptomDetailsKorean(tmpSymptoms);
                 setIsTranslated(!isTranslated);
 
-                console.log("Current Details: ", symptomDetails);
-                console.log("Korean Details: ", symptomKorean);
-                console.log("New Details: ", tmpSymptoms);
+                // console.log("Current Details: ", symptomDetails);
+                // console.log("Korean Details: ", symptomKorean);
+                // console.log("New Details: ", tmpSymptoms);
             }
             
         }
@@ -404,7 +404,7 @@ const Result: React.FC<IResult> = ({
             <Img className={"img-box"} src={PATH_IMG_BG + "/result.jpg"} />
             <ResultGroup className={isEffected ? "active step-container" : "step-container"}>
                 {
-                    symptomDetails &&
+                    symptomDetails && 
                     currentDetails.map((item, key) => (
                         <ResultItem 
                             key={key}

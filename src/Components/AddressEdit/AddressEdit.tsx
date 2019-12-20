@@ -4,6 +4,7 @@ import InputRadio from "../InputRadio";
 import { useEditContext } from "../../Routes/Edit/EditProvider";
 import { Nationality, INationality } from "../../nationality";
 import { useAppContext } from "../../Routes/App/AppProvider";
+import { AddressKOR } from "../../Utils/addressKOR";
 
 const Container = styled.div`
 
@@ -58,21 +59,6 @@ const InputBox = styled.div`
     flex: 3;
     
 `;
-const InputAddress = styled.input`
-    width: 100%;
-    border: 1px solid #dfdfdf;
-    border-radius: 3px;
-    padding: 7px 10px;
-    transition: border .1s;
-    margin-top: 10px;
-    font-size: 12px;
-    &:focus {
-        border: 1px solid #4bd38e;
-        & ~ label {
-            color: #0aa147;
-        }      
-    }
-`;
 const SelectAddress = styled.div`
     position: relative;
 `;
@@ -104,6 +90,19 @@ const FlagImg = styled.img`
 const Option = styled.option`
 
 `;
+
+const AddrBox = styled.div`
+    width: 100%;
+`;
+const AddrSelect = styled(Select)`
+    @media(max-width:510px) {
+        margin: 5px 0;
+    }
+`;
+const AddrOption = styled(Option)`
+
+`;
+
 interface IProps {
     title: string;
 }
@@ -111,10 +110,12 @@ const AddressEdit: React.FC<IProps> = ({
     title
 }) => {
     const { user } = useAppContext();
-    const { isModal, toggleModal, detailAddress, isAbroad, abroadAddress } = useEditContext();
+    const { isAbroad, abroadAddress, addressItem, addressList } = useEditContext();
     const abroadNationality: Array<INationality> = Nationality.filter(item => item.code !== "KO");
     
     const currentAbroadImage = abroadNationality.find(item => item.code === abroadAddress.value);
+    const currentAddressList: IAddress | undefined = AddressKOR.find(list => list.value === addressList.value);
+    
     if(!user) {
         return <></>
     }
@@ -142,16 +143,36 @@ const AddressEdit: React.FC<IProps> = ({
                         />
                     </Cell>
                     {
-                        //In korea
-                        isAbroad.value === "false" && (
-                            <InputAddress 
-                                disabled={false}
-                                placeholder={"find address..."}
-                                value={detailAddress}
-                                onChange={e=> {}}
-                                onClick={e => toggleModal()}
-                                autoComplete={"off"}
-                            />
+                       //In korea
+                       isAbroad.value === "false" && currentAddressList && (
+                        <div>
+                            {
+                                <>
+                                    <AddrBox>
+                                        <AddrSelect onChange={addressList.onChange} value={addressList.value}>
+                                            {
+                                                AddressKOR.map((addressList, key) => 
+                                                    <AddrOption key={key} value={addressList.value}> { addressList.name }, { addressList.en_name } </AddrOption>
+                                            )}
+                                        </AddrSelect>
+                                    </AddrBox>
+                                    <AddrBox>
+                                        {
+                                            currentAddressList.details.length > 0 &&
+                                            <AddrSelect onChange={addressItem.onChange} value={addressItem.value}>
+                                                {
+                                                    
+                                                    currentAddressList.details.map((item, key) => 
+                                                        <AddrOption key={key} value={item.value}>{item.name}, {item.en_name}</AddrOption>
+                                                    )
+                                                }
+                                            </AddrSelect>
+                                        }
+                                        
+                                    </AddrBox>
+                                </>
+                            }
+                        </div>
                         )
                     }
                     {

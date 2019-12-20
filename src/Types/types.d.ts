@@ -72,9 +72,11 @@ interface ISignUpFormData {
     age: number,
     nationality: Nationality,
     isAbroad: boolean,
+    abroadAddress: string | null,
+    addressList: TAddressVal | null,
+    addressItem: string | null,
     email: string,
     password: string,
-    address: string
 }
 // Form Data - Create Medical Record.
 interface IMedicalRecord {
@@ -119,7 +121,9 @@ interface IUpdateFormData {
     age: number;
     nationality?: string;
     isAbroad: boolean;
-    address: string;
+    abroadAddress: string | null;
+    addressList: TAddressVal | null;
+    addressItem: string | null;
 }
 interface IMessage {
     ok: boolean;
@@ -200,9 +204,24 @@ interface ICountry extends ISymptomInputData {
     imgPath: string;
     selectors: Array<>
     symptoms: Array<ISymptom>;
+
 }
 
 interface ISymptomDetails {
     value: string;
     checked: boolean;
+}
+
+type TAddressVal = "SEOUL" | "BUSAN" | "DAEGU" | "INCHEON" | "GWANGJU" | "DAEJEON" | "ULSAN" | "SEJONG" | "GYEONGGI" | "GANGWON" | "CHUNGBUK" | "CHUNGNAM" | "JEONBUK" | "JEONNAM" | "GYEONGBUK" | "GYEONGNAM" | "JEJU"; 
+
+interface IAddressDetails {
+    name: string,
+    en_name: string,
+    value: string, // 문자열에 숫자가 들어감.
+}
+interface IAddress {
+    name: string,
+    en_name: string,
+    value: TAddressVal,
+    details: Array<IAddressDetails>
 }

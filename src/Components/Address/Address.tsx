@@ -3,6 +3,7 @@ import styled from "../../Styles/typed-components";
 import InputRadio from "../InputRadio";
 import { useSignUpContext } from "../../Routes/SignUp/SignUpProvider";
 import { Nationality, INationality } from "../../nationality";
+import { AddressKOR } from "../../Utils/addressKOR";
 
 const Container = styled.div`
 
@@ -54,20 +55,6 @@ const InputBox = styled.div`
     flex: 3;
     margin-left: -7px;
 `;
-const InputAddress = styled.input`
-    width: 100%;
-    border: 1px solid #dfdfdf;
-    border-radius: 3px;
-    padding: 7px 10px;
-    transition: border .1s;
-    margin-top: 10px;
-    &:focus {
-        border: 1px solid #4bd38e;
-        & ~ label {
-            color: #0aa147;
-        }      
-    }
-`;
 const SelectAddress = styled.div`
     position: relative;
     & > .flag-img {
@@ -102,15 +89,28 @@ const Select = styled.select`
 const Option = styled.option`
 `;
 
+const AddrBox = styled.div`
+    width: 100%;
+`;
+const AddrSelect = styled(Select)`
+    @media(max-width:510px) {
+        margin: 5px 0;
+    }
+`;
+const AddrOption = styled(Option)`
+
+`;
 interface IProps {
     title: string;
 }
 const Address: React.FC<IProps> = ({
     title
 }) => {
-    const { isModal, toggleModal, detailAddress, isAbroad, addressNationality } = useSignUpContext();
+    const { isAbroad, addressNationality, addressList, addressItem } = useSignUpContext();
     const abroadNational: Array<INationality> = Nationality.filter(item => item.code !== "KO" );
     const currentAbroadImage = abroadNational.find(item => item.code === addressNationality.value);
+    const currentAddressList: IAddress | undefined = AddressKOR.find(list => list.value === addressList.value);
+    
     return (
         <Container>
             <Wrapper>
@@ -137,16 +137,58 @@ const Address: React.FC<IProps> = ({
                     </Cell>
                     {
                         //In korea
-                        isAbroad.value === "false" && (
-                            <InputAddress 
-                                disabled={false}
-                                placeholder={"find address..."}
-                                value={detailAddress}
-                                onChange={e=> {}}
-                                onClick={e => toggleModal()}
-                                autoComplete={"off"}
-                            />
+                        isAbroad.value === "false" && currentAddressList && (
+                            <div>
+                                {
+                                    <>
+                                        <AddrBox>
+                                            <AddrSelect onChange={addressList.onChange} value={addressList.value}>
+                                            {
+                                                AddressKOR.map((addressList, key) => 
+                                                    <AddrOption key={key} value={addressList.value}> { addressList.name } ({ addressList.en_name }) </AddrOption>
+                                            )}
+                                            </AddrSelect>
+                                        </AddrBox>
+                                        <AddrBox>
+                                            {
+                                                currentAddressList.details.length > 0 &&
+                                                <AddrSelect onChange={addressItem.onChange} value={addressItem.value}>
+                                                    {
+                                                        currentAddressList.details.map((item, key) => 
+                                                            <AddrOption key={key} value={item.value}>{item.name} ({item.en_name})</AddrOption>
+                                                        )
+                                                    }
+                                                </AddrSelect>
+                                            }
+                                            
+                                        </AddrBox>
+                                    </>
+                                }
+                            </div>
+                            // <div>
+                            //     {
+                                    
+                            //     }
+                            //     <select>
+
+                            //     </select>
+                            // </div>
+                            // <div>
+                            //     <select>
+
+                            //     </select>
+                            // </div>
                         )
+                        // isAbroad.value === "false" && (
+                        //     <InputAddress 
+                        //         disabled={false}
+                        //         placeholder={"find address..."}
+                        //         value={detailAddress}
+                        //         onChange={e=> {}}
+                        //         onClick={e => toggleModal()}
+                        //         autoComplete={"off"}
+                        //     />
+                        // )
                     }
                     {
                         //In no-korea

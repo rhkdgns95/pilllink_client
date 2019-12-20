@@ -2,7 +2,7 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 
 const Container = styled.div`
-    margin: 10px 15px;
+    margin: 21px;
 `;
 const Wrapper = styled.div`
     @media(max-width: 510px) {
@@ -70,7 +70,8 @@ const Text = styled.span`
     margin-top: 12px;
     font-size: 12px;
     color: #8a8a8a;
-
+    max-width: 100px;
+    text-align: center;
 `;
 
 interface IProps {

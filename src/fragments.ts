@@ -11,7 +11,9 @@ export const FRAGMENT_USER = gql`
         gender
         age
         isAbroad
-        address
+        abroadAddress
+        addressList
+        addressItem
         medicalRecordsCount
         createdAt
         updatedAt

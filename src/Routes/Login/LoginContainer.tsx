@@ -2,7 +2,6 @@ import React from "react";
 import LoginPresenter from "./LoginPresenter";
 import LoginProvider, { useLoginContext } from "./LoginProvider";
 import { useAppContext } from "../App/AppProvider";
-import { timeout } from "q";
 
 const Login = () => (
     <LoginProvider>

@@ -4,8 +4,8 @@ import { CREATE_MEDICAL_RECORD } from "./HomeQueries";
 import { useAppContext } from "../App/AppProvider";
 import translator from "../../Utils/translator";
 import { createMedicalRecord, createMedicalRecordVariables }  from "../../Types/api";
-import { GET_MY_RECORDS } from "../History/HistoryQueries";
 import { GET_MY_PROFILE } from "../App/AppQueries";
+
 interface IContext {
     step: number;
     handleStep: (step: number) => void,
@@ -39,10 +39,10 @@ const useHomeContext = () => useContext(HomeContext);
 
 const useInput = (defaultName: TLanguage | string): IUseRadio => {
     const [value, setValue] = useState<string>(defaultName); 
-    const [currentValue, setCurrentValue] = useState<string>(defaultName); // 실제 저장될 LANG.
+    const [ , setCurrentValue] = useState<string>(defaultName); // 실제 저장될 LANG.
 
     const onChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        const { target: { name, value }} = event;
+        const { target: { value }} = event;
         setValue(value);
         setCurrentValue(value);
     };
@@ -60,7 +60,7 @@ const useInput = (defaultName: TLanguage | string): IUseRadio => {
 const useRadio = (initValue: string): IUseRadio => {
     const [value, setValue] = useState<string>(initValue);
     const onChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        const { target: { name, value }} = event;
+        const { target: { value }} = event;
         setValue(value);
         // console.log("Current Value: ", value);
     }
@@ -79,7 +79,7 @@ const useSelect = (initValue: string): IUseSelect => {
     const [value, setValue] = useState<string>(initValue);
     
     const onChange: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
-        const { target: { name, value }} = event;
+        const { target: { value }} = event;
         // console.log("onChange: ", value);
         setValue(value);
     }
@@ -157,7 +157,7 @@ const useFetch = (): {value: IContext} => {
             handleStep(0);
         }
     }
-    const [ createMedicalRecord, { data, loading } ] = useMutation<createMedicalRecord, createMedicalRecordVariables>(CREATE_MEDICAL_RECORD, {
+    const [ createMedicalRecordMutation ] = useMutation<createMedicalRecord, createMedicalRecordVariables>(CREATE_MEDICAL_RECORD, {
         onCompleted: data => {
             if(isProgress) {
                 setTimeout(() => {
@@ -208,6 +208,7 @@ const useFetch = (): {value: IContext} => {
         let newResult: any = {};
         results.map(item => {
             newResult[item.value] = true;
+            return null;
         });
         
         // console.log("New Details: ", newResult);
@@ -215,7 +216,7 @@ const useFetch = (): {value: IContext} => {
         // console.log("만성질환: ", chronicdisease.value);
         // console.log("임신여부: ", pregnant.value);
 
-        createMedicalRecord({
+        createMedicalRecordMutation({
             variables: {
                 lang: lang.value,
                 status: symptom.value,

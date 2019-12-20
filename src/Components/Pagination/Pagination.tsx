@@ -88,13 +88,13 @@ const GoLast = styled(Arrow)`
 
 `;
 
-const getLastpage = (max: number, pageCount: number) => {
-    if((max % pageCount) === 0) {
-        return max / pageCount;
-    } else {
-        return max / pageCount + 1;
-    }
-};
+// const getLastpage = (max: number, pageCount: number) => {
+//     if((max % pageCount) === 0) {
+//         return max / pageCount;
+//     } else {
+//         return max / pageCount + 1;
+//     }
+// };
 
 const Pagination = () => {
     const { pagination, max, loadingMedicalRecords } = useHistoryContext();

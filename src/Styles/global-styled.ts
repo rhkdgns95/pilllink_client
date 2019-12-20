@@ -25,6 +25,7 @@ export const GlobalStlyes = createGlobalStyle`
     input {
         border: 0;
         margin: 0;
+        color: #2c3e50;
         &:active,
         &:focus {
             outline: 0;
@@ -35,6 +36,7 @@ export const GlobalStlyes = createGlobalStyle`
     select {
         // margin-bottom: -1px;
         background-color: #ffffff;
+        min-height: 32px;
     }
     button {
         border: 0;

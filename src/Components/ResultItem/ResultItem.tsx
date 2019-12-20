@@ -36,7 +36,8 @@ const Img = styled.img`
 const Text = styled.span`
     margin-top: 12px;
     font-size: 12px;
-    white-space: nowrap;
+    max-width: 100px;
+    text-align: center;
 `;
 interface IProps {
     name: string;

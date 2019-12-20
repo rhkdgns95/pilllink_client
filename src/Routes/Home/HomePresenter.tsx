@@ -60,7 +60,7 @@ const HomePresenter = () => {
                         </Slide>
                         <SlideBtnBox>
                             {
-                                step == 0 &&
+                                step === 0 &&
                                 lang.value !== "" && (
                                     <StepButton 
                                         value={"Done"}
@@ -71,7 +71,7 @@ const HomePresenter = () => {
                             }
                             {
                                 // symptoms
-                                step == 1 &&
+                                step === 1 &&
                                 lang.value !== "" && (
                                     <>
                                         <StepButton 
@@ -94,7 +94,7 @@ const HomePresenter = () => {
                             }
                             
                             {   // details
-                                step == 2 &&
+                                step === 2 &&
                                 lang.value !== "" && (
                                     <>
                                         <StepButton 
@@ -116,7 +116,7 @@ const HomePresenter = () => {
                             }
                             {
                                 // feedback
-                                step == 3 &&
+                                step === 3 &&
                                 lang.value !== "" && (
                                     <>
                                         <StepButton 
@@ -132,15 +132,7 @@ const HomePresenter = () => {
                                                 isNext={true}
                                                 disabled={isProgress}
                                             />
-                                        }
-                                        {
-                                            submitOk && 
-                                            <StepButton 
-                                                value={"Translate"}
-                                                onClick={() => console.log("변환~")}
-                                                disabled={isProgress}
-                                            />
-                                        }
+                                        }   
                                     </>
                                 )
                             }

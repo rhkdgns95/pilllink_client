@@ -1,5 +1,5 @@
 import React from "react";
-import AppProvider, { useAppContext } from "./AppProvider";
+import AppProvider from "./AppProvider";
 import { BrowserRouter, Switch, Route as Router, Redirect } from "react-router-dom";
 import ProgressBar from "../../Components/ProgressBar";
 import Home from "../Home";
@@ -24,7 +24,7 @@ const App = ({data}: {data: any}) => {
 const AppContainer: React.FC<any> = ({
     loggedIn
 }) => {
-    const { loadingGetMyProfile, user } = useAppContext();
+    // const { loadingGetMyProfile, user } = useAppContext();
     return (
         <BrowserRouter>
         {

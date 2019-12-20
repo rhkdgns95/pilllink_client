@@ -10,12 +10,12 @@ interface IContext {
     nationality: IUseSelectEdit;
     isAbroad: IUseInputEdit;
     abroadAddress: IUseSelectEdit;
-    detailAddress: string;
-    handleDetailAddress: (address: string) => any;
     isModal: boolean;
     toggleModal: () => any;
     onFormInit: () => any;
     onUpdate: () => any;
+    addressList: IUseSelectEdit;
+    addressItem: IUseSelectEdit;
 }
 
 const InitContext: IContext = {
@@ -27,12 +27,12 @@ const InitContext: IContext = {
     nationality: { value: "", onChange: () => {}, onInit: () => {} },
     isAbroad: { value: "", onChange: () => {}, onInit: () => {} },
     abroadAddress: { value: "", onChange: () => {}, onInit: () => {} },
-    detailAddress: "",
-    handleDetailAddress: () => {},
     isModal: false,
     toggleModal: () => {},
     onUpdate: () => {},
     onFormInit: () => {},
+    addressList: { value: "", onChange: () => {}, onInit: () => {} },
+    addressItem: { value: "", onChange: () => {}, onInit: () => {} }
 };
 
 const EditContext: React.Context<IContext> = createContext<IContext>(InitContext);
@@ -59,8 +59,8 @@ const useSelect = (initValue: string): IUseSelectEdit => {
         const { target: { value }} = event;
         setValue(value);
     }
-    const onInit = (value: string) => {
-        setValue(value);
+    const onInit = (value?: string) => {
+        setValue(value ? value : initValue);
     }
     return {
         value,
@@ -81,12 +81,10 @@ const useFetch = (): {value: IContext} => {
     const isAbroad = useInput("");
     const abroadAddress = useSelect("EN"); // 외국 거주
     const [ isModal, setIsModal ] = useState<boolean>(false);
-    const [ detailAddress, setDetailAddress ] = useState<string>(""); // 한국 거주
     
-    const handleDetailAddress = (data: string) => {
-        setDetailAddress(data);
-    }
-
+    const addressList = useSelect("SEOUL");
+    const addressItem = useSelect("0");
+    
     const toggleModal = () => {
         setIsModal(!isModal);
     }
@@ -99,14 +97,17 @@ const useFetch = (): {value: IContext} => {
             gender.onInit(user.gender);
             age.onInit(user.age + "");
             nationality.onInit(user.nationality);
+            
             if(user.isAbroad) { // 외국 사는경우,
                 isAbroad.onInit("true");
-                abroadAddress.onInit(user.address);
-                handleDetailAddress("");
+                abroadAddress.onInit(user!.abroadAddress!);
+                addressList.onInit("SEOUL");
+                addressItem.onInit("0");
             } else { // 한국 사는경우,
                 isAbroad.onInit("false");
-                handleDetailAddress(user.address);
-                abroadAddress.onInit("");
+                abroadAddress.onInit("EN");
+                addressList.onInit(user!.addressList!);
+                addressItem.onInit(user!.addressItem!);
             }
         }
     }
@@ -116,7 +117,7 @@ const useFetch = (): {value: IContext} => {
      *  onUpdate의 데이터 검증
      * 
      *  1. first,last name은 빈값이면안된다.
-     *  2. 국내 거주자라면 address가 빈값이면 안됨!
+     *  2. 국내 거주자라면 address가 빈값이면 안됨! -> 삭제됨.
      */
     const verify = (): boolean => {
         let newMessage: string = "";
@@ -128,15 +129,7 @@ const useFetch = (): {value: IContext} => {
                 data: newMessage
             });
             return false;
-        } else if(isAbroad.value === "false" && detailAddress === "") {
-            // [2]
-            newMessage = "Please select an address";
-            message.onChangeMessage({
-                ok: false,
-                data: newMessage
-            });
-            return false;
-        }
+        } 
 
         return newMessage === "";
     }
@@ -151,8 +144,10 @@ const useFetch = (): {value: IContext} => {
                 age: parseInt(age.value),
                 nationality: nationality.value,
                 gender: gender.value === "M" ? "M" : "W",
-                address: isAbroad ? abroadAddress.value : detailAddress,
                 isAbroad: isAbroad.value === "true",
+                abroadAddress: isAbroad.value === "true" ? abroadAddress.value : null,
+                addressList: isAbroad.value === "true" ? null : addressList.value as any,
+                addressItem: isAbroad.value === "true" ? null : addressItem.value,
             }
             
             updateMyprofile({
@@ -184,13 +179,13 @@ const useFetch = (): {value: IContext} => {
             age,
             nationality,
             abroadAddress,
-            handleDetailAddress,
             isAbroad,
-            detailAddress,
             isModal,
             toggleModal,
             onUpdate,
-            onFormInit
+            onFormInit,
+            addressList,
+            addressItem
         }
     };
 };

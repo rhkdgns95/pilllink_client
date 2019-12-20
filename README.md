@@ -18,7 +18,7 @@
 - [x] Feedback Part 2 (Create Medical Record).
 - [X] Result.
 - [x] Result - Translator, MyPage - History - Translate Lang.
-- [x] fetchPolicy -> update -> refetchQueries, Translator Part 1.
+- [x] fetchPolicy->update->refetchQueries, My History Count Bug Fixed, Translator Part 1.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.

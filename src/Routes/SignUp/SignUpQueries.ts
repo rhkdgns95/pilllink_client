@@ -8,9 +8,11 @@ export const EMAIL_SIGNUP = gql`
         $age: Int!
         $nationality: Nationality!
         $isAbroad: Boolean!
+        $abroadAddress: String
+        $addressList: Address
+        $addressItem: String
         $email: String!
         $password: String!
-        $address: String!
     ) {
         EmailSignUp(
             firstName: $firstName
@@ -19,9 +21,11 @@ export const EMAIL_SIGNUP = gql`
             age: $age
             nationality: $nationality
             isAbroad: $isAbroad
+            abroadAddress: $abroadAddress
+            addressList: $addressList
+            addressItem: $addressItem
             email: $email
             password: $password
-            address: $address
         ) {
             ok
             error

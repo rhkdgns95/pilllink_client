@@ -1,4 +1,4 @@
-import React, { useContext, useState, createContext } from "react";
+import React, { useContext, useState, createContext, useEffect } from "react";
 import { emailSignUp, emailSignUpVariables, Gender, Nationality } from "../../Types/api.d";
 import { useAppContext } from "../App/AppProvider";
 import { useMutation } from "react-apollo";
@@ -9,8 +9,6 @@ import { USER_LOGIN } from "../App/AppQueries.local";
 interface IContext {
     isModal: boolean;
     toggleModal: () => any;
-    detailAddress: string;
-    handleDetailAddress: (address: string) => any;
     firstName: IUseInputText,
     lastName: IUseInputText,
     email: IUseInputText,
@@ -24,14 +22,14 @@ interface IContext {
     message: string,
     toggleAgree: () => any;
     onSubmit: () => any;
+    addressList: IUseSelect;
+    addressItem: IUseSelect;
 }
 
 const InitContext: IContext = {
     isModal: false,
     toggleModal: () => {},
-    detailAddress: "",
     message:"",
-    handleDetailAddress: () => {},
     firstName: { value: "", onChange: () => {}, placeholder: "" },
     lastName: { value: "", onChange: () => {}, placeholder: "" },
     email: { value: "", onChange: () => {}, placeholder: "" },
@@ -43,7 +41,9 @@ const InitContext: IContext = {
     addressNationality: { value: "", onChange: () => {} },
     agree: false,
     toggleAgree: () => {},
-    onSubmit: () => {}
+    onSubmit: () => {},
+    addressList: { value: "", onChange: () => {} },
+    addressItem: { value: "", onChange: () => {} }
 }
 
 const SignUpContext: React.Context<IContext> = createContext(InitContext);
@@ -71,9 +71,13 @@ const useSelect = (initValue: string): IUseSelect => {
         // setvalue;
         setValue(value);
     }
+    const onInit = () => {
+        setValue(initValue);
+    };
     return {
         value,
-        onChange
+        onChange,
+        onInit
     };
 }
 const useSelectNationality = (initValue: TNationality): IUseSelectNationality => {
@@ -102,7 +106,7 @@ const useRadio = (initValue: string): IUseRadio => {
 /** 
  *  verifySignUpForm 회원가입 양식 검증
  * 
- *  1. 해외거주자가 아닌경우, Address선택을 안한경우.
+ *  1. 해외거주자가 아닌경우, Address선택을 안한경우. // 생략됨.
  *  2. 이름입력을하지 않는경우,
  *  3. 패스워드 입력 6글자 이상작성하지 않는경우
  * 
@@ -111,14 +115,11 @@ const useRadio = (initValue: string): IUseRadio => {
  *  
  */
 const verifySignUpForm = (formData: ISignUpFormData, callbackFn: any): boolean => {
-    const { firstName, lastName, isAbroad, address, password } = formData;
+    const { firstName, lastName, password } = formData;
     
     let errorMessage: string = "";
     
-    if(!isAbroad && address === "") {
-        // [1]
-        errorMessage = "Please select an address";
-    } else if(firstName === "" || lastName === "") { 
+    if(firstName === "" || lastName === "") { 
         // [2]
         errorMessage = "Please write your name";
     } else if(password.length <= 5) {
@@ -139,7 +140,17 @@ const useFetch = (): {value: IContext} => {
     const [ message, setMessage ] = useState<string>("");
     const [ isModal, setIsModal ] = useState<boolean>(false);
     const [ agree, setAgree ]  = useState<boolean>(false);
-    const [ detailAddress, setDetailAddress ] = useState<string>('');
+    // detailAddress : 삭제될 예정.
+    // 추가됨 address List - Item
+    const addressList = useSelect("SEOUL");
+    const addressItem = useSelect("0");
+    useEffect(() => {
+        // 세부 주소사항을 맨 처음값으로 변경한다.
+        if(addressItem.onInit) {
+            addressItem.onInit();
+        }
+    }, [addressList.value])
+    
     const firstName = useInput("");
     const lastName = useInput("");
     const age = useSelect("5");
@@ -181,10 +192,6 @@ const useFetch = (): {value: IContext} => {
         setAgree(!agree);
     }
 
-    const handleDetailAddress = (address: string) => {
-        setDetailAddress(address);
-    }
-
     const onSubmit = () => {
         if(agree && !isProgress) { // 동의한 경우 + 이미 실행중인경우
             
@@ -197,7 +204,9 @@ const useFetch = (): {value: IContext} => {
                 isAbroad: isAbroad.value === "true" ? true : false,
                 email: email.value,
                 password: password.value,
-                address: isAbroad.value === "true" ? addressNationality.value : detailAddress
+                abroadAddress: isAbroad.value === "true" ? addressNationality.value : null,
+                addressList: isAbroad.value === "false" ? addressList.value as any : null,
+                addressItem: isAbroad.value === "false" ? addressItem.value : null,
             };
             const verified = verifySignUpForm(formData, setMessage);
             if(verified) {
@@ -210,7 +219,7 @@ const useFetch = (): {value: IContext} => {
                 signUp({
                     variables: {
                         ...formData
-                    }
+                    } as any
                 });
             }
             
@@ -221,8 +230,6 @@ const useFetch = (): {value: IContext} => {
         value: {
             isModal,
             toggleModal,
-            detailAddress,
-            handleDetailAddress,
             firstName,
             lastName,
             age,
@@ -235,7 +242,9 @@ const useFetch = (): {value: IContext} => {
             agree,
             toggleAgree,
             onSubmit,
-            message
+            message,
+            addressList,
+            addressItem
         }
     };
 }

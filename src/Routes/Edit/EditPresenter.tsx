@@ -8,7 +8,6 @@ import InputCell from "../../Components/InputCell";
 import InputRadio from "../../Components/InputRadio";
 import { useEditContext } from "./EditProvider";
 import { Nationality, INationality } from "../../nationality";
-import ModalAddressEdit from "../../Components/ModalAddressEdit";
 import AddressEdit from "../../Components/AddressEdit";
 import CircleButton from "../../Components/CircleButton";
 import Message from "../../Components/Message";
@@ -187,7 +186,7 @@ const EditPresenter = () => {
     const { loadingUpdateMyProfile, message, } = useAppContext();
     const [ isEffected, setIsEffected ] = useState<boolean>(false);
     
-    const { firstName, lastName, password, age, gender, nationality, onFormInit, onUpdate } = useEditContext();
+    const { firstName, lastName, age, gender, nationality, onFormInit, onUpdate } = useEditContext();
     let optionsAge: Array<any> = [];
     const currentNationality: INationality | undefined = Nationality.find(item => item.code === nationality.value);
     
@@ -307,7 +306,7 @@ const EditPresenter = () => {
                         />
                     </ButtonBox>
                 </Wrapper>
-                <ModalAddressEdit />
+                {/* <ModalAddressEdit /> */}
             </Box>
         </Container>
     );

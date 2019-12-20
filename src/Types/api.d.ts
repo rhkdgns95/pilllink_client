@@ -17,7 +17,9 @@ export interface getMyProfile_GetMyProfile_user {
   gender: Gender;
   age: number;
   isAbroad: boolean;
-  address: string;
+  abroadAddress: string | null;
+  addressList: Address | null;
+  addressItem: string | null;
   medicalRecordsCount: number | null;
   createdAt: string;
   updatedAt: string | null;
@@ -53,7 +55,9 @@ export interface updateMyProfile_UpdateMyProfile_user {
   gender: Gender;
   age: number;
   isAbroad: boolean;
-  address: string;
+  abroadAddress: string | null;
+  addressList: Address | null;
+  addressItem: string | null;
   medicalRecordsCount: number | null;
   createdAt: string;
   updatedAt: string | null;
@@ -76,8 +80,10 @@ export interface updateMyProfileVariables {
   age: number;
   password?: string | null;
   gender: Gender;
-  address: string;
   isAbroad: boolean;
+  abroadAddress?: string | null;
+  addressList?: Address | null;
+  addressItem?: string | null;
   nationality?: Nationality | null;
 }
 
@@ -277,9 +283,11 @@ export interface emailSignUpVariables {
   age: number;
   nationality: Nationality;
   isAbroad: boolean;
+  abroadAddress?: string | null;
+  addressList?: Address | null;
+  addressItem?: string | null;
   email: string;
   password: string;
-  address: string;
 }
 
 /* tslint:disable */
@@ -301,7 +309,9 @@ export interface ItemUser {
   gender: Gender;
   age: number;
   isAbroad: boolean;
-  address: string;
+  abroadAddress: string | null;
+  addressList: Address | null;
+  addressItem: string | null;
   medicalRecordsCount: number | null;
   createdAt: string;
   updatedAt: string | null;
@@ -467,6 +477,26 @@ export interface ItemOther {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+export enum Address {
+  BUSAN = "BUSAN",
+  CHUNGBUK = "CHUNGBUK",
+  CHUNGNAM = "CHUNGNAM",
+  DAEGU = "DAEGU",
+  DAEJEON = "DAEJEON",
+  GANGWON = "GANGWON",
+  GWANGJU = "GWANGJU",
+  GYEONGBUK = "GYEONGBUK",
+  GYEONGGI = "GYEONGGI",
+  GYEONGNAM = "GYEONGNAM",
+  INCHEON = "INCHEON",
+  JEJU = "JEJU",
+  JEONBUK = "JEONBUK",
+  JEONNAM = "JEONNAM",
+  SEJONG = "SEJONG",
+  SEOUL = "SEOUL",
+  ULSAN = "ULSAN",
+}
 
 export enum Allergy {
   ALLERGY_ANTIBIOTIC = "ALLERGY_ANTIBIOTIC",

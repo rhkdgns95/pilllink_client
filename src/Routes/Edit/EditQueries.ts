@@ -8,8 +8,10 @@ export const UPDATE_MY_RPFOILE = gql`
         $age: Int!
         $password: String
         $gender: Gender!
-        $address: String!
         $isAbroad: Boolean!
+        $abroadAddress: String
+        $addressList: Address
+        $addressItem: String
         $nationality: Nationality
     ) {
         UpdateMyProfile(
@@ -18,8 +20,10 @@ export const UPDATE_MY_RPFOILE = gql`
             age: $age
             password: $password
             gender: $gender
-            address: $address
             isAbroad: $isAbroad
+            abroadAddress: $abroadAddress
+            addressList: $addressList
+            addressItem: $addressItem
             nationality: $nationality
         ) {
             ok

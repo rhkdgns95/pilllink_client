@@ -60,52 +60,52 @@ export const TranslatedMongol: ICountry = {
     symptoms: [
         { 
             ...CommonSymptoms[COLD],
-            name: "MO_감기",
+            name: "ханиад",
             details: [
                 { 
-                    name: "MO_기침",
+                    name: "ханиад",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "MO_두통",
+                    name: "толгойн өвчин",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "MO_콧물",
+                    name: "нус",
                     ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "MO_목아픔",
+                    name: "хоолой хавдах",
                     ...CommonSymptomsText.cold_soreThroat
                 },
                 {
-                    name: "MO_열",
+                    name: "халуун",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "MO_몸살",
+                    name: "бие булрах",
                     ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
-            name: "MO_숙취",
+            name: "шарталт",
             details: [
                 {
-                    name: "MO_두통",
+                    name: "толгойн өвчин",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "MO_설사",
+                    name: "гэдэс суулгалт",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "MO_구토",
+                    name: "бөөлжис",
                     ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "MO_메스꺼움",
+                    name: "дотор муухайрах",
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
@@ -119,23 +119,23 @@ export const TranslatedMongol: ICountry = {
             name: "MO_복통",
             details: [
                 {
-                    name: "MO_설사",
+                    name: "гэдэс суулгалт",
                     ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "MO_생리통",
+                    name: "сарын тэмдэгийн өвдөлт",
                     ...CommonSymptomsText.stomachache_periodCramps
                 },
                 {
-                    name: "MO_소화불량",
+                    name: "хоолны шингэц муу",
                     ...CommonSymptomsText.stomachache_indigestion
                 },
                 {
-                    name: "MO_변비",
+                    name: "өтгөн хаталт",
                     ...CommonSymptomsText.stomachache_constipation
                 },
                 {
-                    name: "MO_메스꺼움",
+                    name: "дотор муухайрах",
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
@@ -146,52 +146,52 @@ export const TranslatedMongol: ICountry = {
         },
         {
             ...CommonSymptoms[SKIN],
-            name: "MO_피부질환",
+            name: "арьсны өвчин",
             details: [
                 {
-                    name: "MO_철과상",
+                    name: "шалбархай",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "MO_여드름",
+                    name: "батга",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "MO_두드러기",
+                    name: "харшил",
                     ...CommonSymptomsText.skin_rash
                 },
                 {
-                    name: "MO_습진",
+                    name: "экзем",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "MO_수포",
+                    name: "цэврүү",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "MO_무좀",
+                    name: "хөлний мөөгөнцөр",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
-            name: "MO_여성질환",
+            name: "эмэгтэй эрүүл мэнд",
             details: [
                 {
-                    name: "MO_생리통",
+                    name: "сарын тэмдэгийн өвдөлт",
                     ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "MO_임신테스트",
+                    name: "хөл хүнд тест",
                     ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "MO_경구피임약",
+                    name: "идэх жирэмслэлтээр хамгаалах эм",
                     ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "MO_사후피임약",
+                    name: "ажлын дараах жирэмслэлтээр хамгаалах эм",
                     ...CommonSymptomsText.female_postCoitalBirthControl
                 },
             ]

@@ -60,52 +60,52 @@ export const TranslatedThai: ICountry = {
     symptoms: [
         { 
             ...CommonSymptoms[COLD],
-            name: "TH_감기",
+            name: "หวัด",
             details: [
                 { 
-                    name: "TH_기침",
+                    name: "การไอ",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "TH_두통",
+                    name: "การปวดหัว",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "TH_콧물",
+                    name: "น้ำมูก",
                     ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "TH_목아픔",
+                    name: "คออักเสบ",
                     ...CommonSymptomsText.cold_soreThroat
                 },
                 {
-                    name: "TH_열",
+                    name: "ไข้",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "TH_몸살",
+                    name: "การเป็นไข้",
                     ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
-            name: "TH_숙취",
+            name: "อาการเมาค้าง",
             details: [
                 {
-                    name: "TH_두통",
+                    name: "การปวดหัว",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "TH_설사",
+                    name: "การท้องร่วง",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "TH_구토",
+                    name: "การอ้วก",
                     ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "TH_메스꺼움",
+                    name: "คลื่นไส้",
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
@@ -116,26 +116,26 @@ export const TranslatedThai: ICountry = {
         },
         {
             ...CommonSymptoms[STOMACHACHE],
-            name: "TH_복통",
+            name: "อาการปวดท้อง",
             details: [
                 {
-                    name: "TH_설사",
+                    name: "การท้องร่วง",
                     ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "TH_생리통",
+                    name: "อาการปวดท้องประจำเดือน",
                     ...CommonSymptomsText.stomachache_periodCramps
                 },
                 {
-                    name: "TH_소화불량",
+                    name: "การย่อยไม่ดี",
                     ...CommonSymptomsText.stomachache_indigestion
                 },
                 {
-                    name: "TH_변비",
+                    name: "อาการท้องผูก",
                     ...CommonSymptomsText.stomachache_constipation
                 },
                 {
-                    name: "TH_메스꺼움",
+                    name: "คลื่นไส้",
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
@@ -146,52 +146,52 @@ export const TranslatedThai: ICountry = {
         },
         {
             ...CommonSymptoms[SKIN],
-            name: "TH_피부질환",
+            name: "โรคผิวหนัง",
             details: [
                 {
-                    name: "TH_철과상",
+                    name: "รอยขีดข่วน",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "TH_여드름",
+                    name: "สิว",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "TH_두드러기",
+                    name: "ลมพิษ",
                     ...CommonSymptomsText.skin_rash
                 },
                 {
-                    name: "TH_습진",
+                    name: "โรคหัดเปื่อย",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "TH_수포",
+                    name: "แผลพุพอง",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "TH_무좀",
+                    name: "โรคน้ำกัดเท้า",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
-            name: "TH_여성질환",
+            name: "ผู้หญิง สุขภาพ",
             details: [
                 {
-                    name: "TH_생리통",
+                    name: "อาการปวดท้องประจำเดือน",
                     ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "TH_임신테스트",
+                    name: "การตั้งครรภ์ การทดสอบ",
                     ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "TH_경구피임약",
+                    name: "ยาคุมกำเนิดชนิดกิน",
                     ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "TH_사후피임약",
+                    name: "ภายหลังเหตุการณ์ ยาคุมกำเนิด",
                     ...CommonSymptomsText.female_postCoitalBirthControl
                 },
             ]
