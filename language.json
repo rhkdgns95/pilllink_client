@@ -1,0 +1,132 @@
+[
+    {
+        "Korea": {
+            "id": "KO",
+            "name": "Korea",
+            "symptoms": {
+                "cold": {
+                    "name": "감기",
+                    "cold_cough": "기침",
+                    "cold_headache": "두통",
+                    "cold_snot": "콧물",
+                    "cold_throat": "목아픔",
+                    "cold_fever": "열",
+                    "cold_muscle": "몸살"
+                },
+                "colic": {
+                    "name": "__",
+                    "colic_diarrhead": "설사",
+                    "colic_periodCramps": "생리통", 
+                    "colic_indigestion": "소화불량",
+                    "colic_constipation": "변비",
+                    "colic_sickness": "메스꺼움",
+                    "colic_heartburn": "속쓰림"
+                },
+                "female": {
+                    "name": "여성질환",
+                    "female_tmp": "임시"
+                },
+                "hangover": {
+                    "name": "__",
+                    "hangover_headache": "두통",
+                    "hangover_diarrhea": "설사",
+                    "hangover_throwup": "구토",
+                    "hangover_sickness": "메스꺼움",
+                    "hangover_heartburn": "속쓰림"
+                },
+                "headache": {
+                    "name": "__",
+                    "headache_headache": "두통",
+                    "headache_migraine": "편두통"
+                },
+                "other": {
+                    "name": "__",
+                    "other_tmp": "임시"
+                },
+                "skin": {
+                    "name": "__",
+                    "skin_abrasion": "철과상",
+                    "skin_acne": "여드름",
+                    "skin_hives": "두드러기",
+                    "skin_eczema": "습진",
+                    "skin_blister": "수포",
+                    "skin_athletesfoot": "무좀"
+                },
+                "toothache": {
+                    "name": "구강질환", 
+                    "toothache_needle": "혓바늘",
+                    "toothache_stomatitis": "구내염",
+                    "toothache_drylips": "마른 입술",
+                    "toothache_badbreath": "입냄새",
+                    "toothache_gum": "잇몸",
+                    "toothache_drymouth": "구강건조증"
+                }
+            }
+        }
+    },
+    {
+        "England": {
+            "id": "EN",
+            "name": "England",
+            "symptoms": {
+                "cold": {
+                    "name": "cold",
+                    "cold_cough": "cold_cough",
+                    "cold_headache": "cold_headache",
+                    "cold_snot": "cold_snot",
+                    "cold_throat": "cold_throat",
+                    "cold_fever": "cold_fever",
+                    "cold_muscle": "cold_muscle"
+                },
+                "colic": {
+                    "name": "colic",
+                    "colic_diarrhead": "colic_diarrhead",
+                    "colic_periodCramps": "colic_periodCramps", 
+                    "colic_indigestion": "colic_indigestion",
+                    "colic_constipation": "colic_constipation",
+                    "colic_sickness": "colic_sickness",
+                    "colic_heartburn": "colic_heartburn"
+                },
+                "female": {
+                    "name": "female",
+                    "female_tmp": "female_tmp"
+                },
+                "hangover": {
+                    "name": "hangover",
+                    "hangover_headache": "hangover_headache",
+                    "hangover_diarrhea": "hangover_diarrhea",
+                    "hangover_throwup": "hangover_throwup",
+                    "hangover_sickness": "hangover_sickness",
+                    "hangover_heartburn": "hangover_heartburn"
+                },
+                "headache": {
+                    "name": "headache",
+                    "headache_headache": "headache_headache",
+                    "headache_migraine": "headache_migraine"
+                },
+                "other": {
+                    "name": "other",
+                    "other_tmp": "other_tmp"
+                },
+                "skin": {
+                    "name": "skin",
+                    "skin_abrasion": "skin_abrasion",
+                    "skin_acne": "skin_acne",
+                    "skin_hives": "skin_hives",
+                    "skin_eczema": "skin_eczema",
+                    "skin_blister": "skin_blister",
+                    "skin_athletesfoot": "skin_athletesfoot"
+                },
+                "toothache": {
+                    "name": "toothache", 
+                    "toothache_needle": "toothache_needle",
+                    "toothache_stomatitis": "toothache_stomatitis",
+                    "toothache_drylips": "toothache_drylips",
+                    "toothache_badbreath": "toothache_badbreath",
+                    "toothache_gum": "toothache_gum",
+                    "toothache_drymouth": "toothache_drymouth"
+                }
+            }
+        }
+    }
+]
