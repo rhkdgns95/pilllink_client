@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/pilllink_client/static/js/main.c45f253f.chunk.js",
-    "main.js.map": "/pilllink_client/static/js/main.c45f253f.chunk.js.map",
+    "main.js": "/pilllink_client/static/js/main.32974889.chunk.js",
+    "main.js.map": "/pilllink_client/static/js/main.32974889.chunk.js.map",
     "runtime-main.js": "/pilllink_client/static/js/runtime-main.569d33f0.js",
     "runtime-main.js.map": "/pilllink_client/static/js/runtime-main.569d33f0.js.map",
     "static/js/2.767fa755.chunk.js": "/pilllink_client/static/js/2.767fa755.chunk.js",
     "static/js/2.767fa755.chunk.js.map": "/pilllink_client/static/js/2.767fa755.chunk.js.map",
     "index.html": "/pilllink_client/index.html",
-    "precache-manifest.5c16c078a58fd4ad07d42c3bb4028259.js": "/pilllink_client/precache-manifest.5c16c078a58fd4ad07d42c3bb4028259.js",
+    "precache-manifest.55b2f51d7e3738c3cd086241443fb0ee.js": "/pilllink_client/precache-manifest.55b2f51d7e3738c3cd086241443fb0ee.js",
     "service-worker.js": "/pilllink_client/service-worker.js"
   },
   "entrypoints": [
     "static/js/runtime-main.569d33f0.js",
     "static/js/2.767fa755.chunk.js",
-    "static/js/main.c45f253f.chunk.js"
+    "static/js/main.32974889.chunk.js"
   ]
 }
