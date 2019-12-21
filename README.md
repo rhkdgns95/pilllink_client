@@ -21,6 +21,8 @@
 - [x] fetchPolicy->update->refetchQueries, My History Count Bug Fixed, Translator Part 1.
 - [x] InKorea Address Update.
 - [x] Git deploy.
+- [x] Git deploy part 2.
+- [x] Git deploy part 3.
 - [] Feedback.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)

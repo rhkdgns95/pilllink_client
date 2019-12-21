@@ -1,5 +1,5 @@
 import React from "react";
-import AppProvider from "./AppProvider";
+import AppProvider, { PUBLIC_PATH } from "./AppProvider";
 import { BrowserRouter, Switch, Route as Router, Redirect } from "react-router-dom";
 import ProgressBar from "../../Components/ProgressBar";
 import Home from "../Home";
@@ -16,9 +16,6 @@ const App = ({data}: {data: any}) => {
     return (
         <AppProvider loggedIn={loggedIn}> 
             <ProgressBar/>
-            {
-                process.env.PUBLIC_URL 
-            }
             <AppContainer { ...data.auth }/>
             <Footer />
         </AppProvider>
@@ -43,21 +40,20 @@ const AppContainer: React.FC<any> = ({
         </BrowserRouter>
     );
 };
-
 const LoggedIn = () => (
     <Switch>
-        <Router path={"/"} component={Home} exact={true}/>
-        <Router path={"/edit"} component={Edit} exact={true}/>
-        <Router path={"/history"} component={History} exact={true}/>
-        <Router path={"/feedback"} component={Feedback} exact={true}/>
+        <Router path={PUBLIC_PATH} component={Home} exact={true}/>
+        <Router path={PUBLIC_PATH + "/edit"} component={Edit} exact={true}/>
+        <Router path={PUBLIC_PATH + "/history"} component={History} exact={true}/>
+        <Router path={PUBLIC_PATH + "/feedback"} component={Feedback} exact={true}/>
         <Redirect from={"*"} to={"/"}/>
     </Switch>
 );
 
 const LoggedOut = () => (
     <Switch>
-        <Router path={"/"} component={Login} exact={true}/>
-        <Router path={"/signup"} component={SignUp} exact={true}/>
+        <Router path={PUBLIC_PATH + "/"} component={Login} exact={true}/>
+        <Router path={PUBLIC_PATH + "/signup"} component={SignUp} exact={true}/>
         <Redirect to={"/"} from={"*"}/>
     </Switch>  
 );
