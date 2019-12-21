@@ -73,18 +73,35 @@ export const GlobalStlyes = createGlobalStyle`
     }
     label {
         display: inline-block;
+        user-select: none;
         img {
             pointer-events: none;
         }
     }
+
+    // footer - 조절
     #root {
         height: 100%;
     }
+
     .container {
         min-height: 100%;
         & > .box {
             width: 100%;
             padding-bottom: 75px;
+        }
+    }
+    @media(max-width: 510px) {
+        body {
+            .container {
+                & > .box {
+                    padding-bottom: 0;
+                }
+            }
+            .footer {
+                padding-top: 50px;
+                margin-top: 0;
+            }
         }
     }
     

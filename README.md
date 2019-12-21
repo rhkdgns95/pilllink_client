@@ -19,6 +19,9 @@
 - [X] Result.
 - [x] Result - Translator, MyPage - History - Translate Lang.
 - [x] fetchPolicy->update->refetchQueries, My History Count Bug Fixed, Translator Part 1.
+- [x] InKorea Address Update.
+- [x] Git deploy.
+- [] Feedback.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.
@@ -41,7 +44,7 @@
 > compose를 사용해서 graphql - hoc 방식을 겹쳐서 사용하려고했으나 제거함.
 8. yarn add react-daum-postcode
 9. yarn add react-app-polyfill
-
+10. yarn add --dev gh-pages
 
 ## 3. Dev
 

@@ -8,6 +8,7 @@ import SignUp from "../SignUp";
 import Edit from "../Edit";
 import History from "../History";
 import Footer from "../../Components/Footer";
+import Feedback from "../Feedback";
 
 
 const App = ({data}: {data: any}) => {
@@ -45,6 +46,7 @@ const LoggedIn = () => (
         <Router path={"/"} component={Home} exact={true}/>
         <Router path={"/edit"} component={Edit} exact={true}/>
         <Router path={"/history"} component={History} exact={true}/>
+        <Router path={"/feedback"} component={Feedback} exact={true}/>
         <Redirect from={"*"} to={"/"}/>
     </Switch>
 );

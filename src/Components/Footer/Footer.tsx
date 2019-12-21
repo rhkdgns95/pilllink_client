@@ -15,7 +15,7 @@ const Text = styled.span`
     font-size: 12px;
 `;
 const Footer = () => (
-    <Container>
+    <Container className={'footer'}>
         <Wrapper>
             <Text>2019 PILLLINK ⓒ All Copyrights Reserved.</Text>
         </Wrapper>
