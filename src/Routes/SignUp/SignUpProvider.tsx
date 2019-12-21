@@ -178,7 +178,12 @@ const useFetch = (): {value: IContext} => {
                         token
                     }
                 });
+            } else {
+                console.log("emailSignUp onCompleted Empty data: ", data);
             }
+        },
+        onError: data => {
+            console.log("emailSignUp onError: ", data);
         }
     });
 

@@ -16,6 +16,9 @@ const App = ({data}: {data: any}) => {
     return (
         <AppProvider loggedIn={loggedIn}> 
             <ProgressBar/>
+            {
+                process.env.PUBLIC_URL 
+            }
             <AppContainer { ...data.auth }/>
             <Footer />
         </AppProvider>
