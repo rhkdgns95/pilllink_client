@@ -1,7 +1,7 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
 import { useMutation } from "react-apollo";
 import { CREATE_MEDICAL_RECORD } from "./HomeQueries";
-import { useAppContext } from "../App/AppProvider";
+import { useAppContext, PUBLIC_PATH } from "../App/AppProvider";
 import translator from "../../Utils/translator";
 import { createMedicalRecord, createMedicalRecordVariables }  from "../../Types/api";
 import { GET_MY_PROFILE } from "../App/AppQueries";
@@ -123,8 +123,7 @@ const useFetch = (history: any): {value: IContext} => {
                 break;
         }
     }
-
-    useEffect(updateStep, [step]);
+    
     
     /**
      *  Step 2 - StepSymptoms
@@ -137,7 +136,34 @@ const useFetch = (history: any): {value: IContext} => {
     const pregnant = useSelect("NULL")
     const chronicdisease = useSelect("NULL")
     const symptom = useRadio("");
-    
+
+    /**
+     *  useEffect(() => {}, [lang])
+     * 
+     *  언어선택이 하나라도 된어있다면,
+     *  뒤로가기시 Confirm message를 출력하도록 한다.
+     */
+    // window.onpopstate = (e: any) => {
+    //     console.log("E : ", e);
+    // }
+
+    useEffect(() => {
+        
+        window.onbeforeunload = () => undefined;
+        // window.addEventListener('')
+        return () => {
+            if(lang.value !== "") {
+                // const isBack: boolean = window.confirm("이 페이지를 벗어나시겠습니까?");
+                // if(isBack) {
+                    
+                // } else {
+
+                // }
+                // alert("Good Bye!");
+            }
+        }
+    }, [lang]);
+    useEffect(updateStep, [step]);
 
     /**
      *  handleInit
@@ -167,7 +193,7 @@ const useFetch = (history: any): {value: IContext} => {
                     handleInit();
                     
                     history.push({
-                        pathname: "/feedback",
+                        pathname: PUBLIC_PATH + "feedback",
                         state: {
                             recordId
                         } 

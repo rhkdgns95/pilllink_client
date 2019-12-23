@@ -208,6 +208,7 @@ const useInputChecked = (): IUseCheckbox => {
         // 1. checked된 값을 찾아서 변경
         // 2. 변경된 데이터를 다시 setDetails하여 추가하도록 한다.
         const changedDetails: Array<ISymptomDetails> = details.map(item => {
+            
             return {
                 ...item,
                 checked: item.value !== value ? item.checked : checked 
@@ -255,6 +256,7 @@ const StepDetailSymptoms: React.FC<IProps> = ({
         if(country) {
             symptomDetails = country.symptoms.find(registeredSymptom => registeredSymptom.value === symptom.value);
             // console.log(symptomDetails);
+            
         } 
         setSymptomDetails(symptomDetails);
     }
@@ -436,7 +438,7 @@ const Details: React.FC<IDetails> = ({
                         key={key}
                         id={key}
                         name={detail.name}
-                        imgPath={PATH_IMG_DETAILS + "/comming_soon.svg"}
+                        imgPath={detail.imgPath}
                         value={detail.value}
                         checked={ (currentDetails.details.length > 0 && currentDetails.details) ? currentDetails.details[key].checked : false}
                         onChange={currentDetails.onChange}
@@ -471,7 +473,7 @@ const Result: React.FC<IResult> = ({
                         <ResultItem 
                             key={key}
                             name={symptomDetails.details.find(detail => detail.value === item.value)!.name || ""}
-                            imgPath={PATH_IMG_DETAILS + "/comming_soon.svg"}
+                            imgPath={symptomDetails.details.find(detail => detail.value === item.value)!.imgPath || ""}
                             className={currentDetails.length <= 2 ? "result-item active" : "result-item"}
                             // imgPath={symptomDetails.details.find(detail => detail.value === item.value)!.imgPath || PATH_IMG_DETAILS + "/comming_soon.svg"}
                         />

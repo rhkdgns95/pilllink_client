@@ -30,7 +30,7 @@ const Wrapper = styled.div`
             .checked-icon {
                 top: -10px;
                 left: 90%;
-                padding: 15px;
+                padding: 13ipx;
                 transform: scale(1) translate(-50%, -50%);
                 & svg {
                     width: 10px;
@@ -79,11 +79,14 @@ const Label = styled.label`
     }
 `;
 const ImgBox = styled.div`
-    width: 50%;
+    width: 43%;
     height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 const Img = styled.img`
-    width: 100%;
+    width: auto;
     display: block;
 `;
 const Text = styled.span`

@@ -78,12 +78,13 @@ const NationalSelect = styled.select`
 `;
 const FlagImg = styled.img`
     position: absolute;
-    top: 20%;
+    top: 26%;
     right: 26px;
-    width: 18px;
+    width: 23px;
     @media(max-width: 510px) {
-        right: 22px;
-        top: 21%;
+        right: 17px;
+        top: 31%;
+        width: 18px;
     }
 `;
 const Option = styled.option`

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "../../Styles/typed-components";
+import { Link } from "react-router-dom";
+import { PUBLIC_PATH } from "../../Routes/App/AppProvider";
 
 const Container = styled.div`
     margin-top: 10px;
@@ -93,6 +95,35 @@ const Td = styled.td`
     width: 80%;
     // width: 70%;
 `;
+const LinkBtn = styled(Link)`    
+    display: flex;
+    align-items: center;
+    width: 122px;
+    padding: 7.5px 22.5px;
+    background-color: #21b47c;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    font-size: 10.5px;
+    &:hover {
+        transition: .2s;
+        background-color: #19ca86;
+    }
+    & svg {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        fill: white;
+        transition: .2s;
+    }
+    &:hover {
+        & svg {
+            right: 15px;
+        }
+    }
+`;
+
 interface IProps {
     lang: string;
     id: number;
@@ -153,7 +184,7 @@ const Table: React.FC<IProps> = ({
                             </Tr>
                             <Tr>
                                 <Th colSpan={2}>Confirm</Th>
-                                <Td colSpan={6}>{ confirmId ? confirmId : "Comming soon" }</Td>
+                                <Td colSpan={6}>{ confirmId ? confirmId : <LinkBtn to={{pathname: PUBLIC_PATH + "/feedback", state: { recordId: id}}} >Feedback<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg></LinkBtn> }</Td>
                             </Tr>
                         </Tbody>
                     </RecordTable>

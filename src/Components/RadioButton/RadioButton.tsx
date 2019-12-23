@@ -22,7 +22,13 @@ const Wrapper = styled.div`
                     }
                 }
             }
-
+            .lang-img-box {
+                // height: 66px;
+            }
+            img {
+                width: 90px;
+                // width: 100px;
+            }
             .label {
 
             }
@@ -60,20 +66,18 @@ const Label = styled.label`
     width: 100%;
     height: 100%;
     cursor: pointer;
-  
-    
 `;
 
 const ImgBox = styled.div`
     width: 100%;
-    height: 74px;
+    // height: 74px;
     border: 1px solid rgba(0,0,0,0);
     box-shadow: 0 0.5px 10px rgba(0,0,0,.2);
     transition: .2s;
 `;
 const Img = styled.img`
-    width: 110px;
-    margin-top: -19px;
+    width: 90px;
+    // margin-top: -19px;
     display: block;
     // width: 100%;
     transition: .2s;

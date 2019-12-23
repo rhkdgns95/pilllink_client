@@ -7,10 +7,12 @@ const Container = styled.div`
     margin: 15px 10px;
     @media(max-width: 510px) {
         & {
+            position: relative;
             span {
                 position: absolute;
                 top: 95%;
                 left: 50%;
+                width: 100%;
                 transform: translateX(-50%);
             }
         }
@@ -29,8 +31,8 @@ const Wrapper = styled.div`
     background-color: white;
 `;
 const Img = styled.img`
-    width: 50%;
-    height: 50%;
+    width: auto;
+    // height: 50%;
     display: block;
 `;
 const Text = styled.span`

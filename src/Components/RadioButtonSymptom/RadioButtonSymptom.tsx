@@ -60,8 +60,8 @@ const Label = styled.label`
 `;
 const Img = styled.img`
     display: block;
-    width: 50%;
-    height: 50%;
+    // width: 50%;
+    // height: 50%;
     // opacity: .8;
     transition: .2s;
 `;

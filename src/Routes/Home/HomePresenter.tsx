@@ -53,7 +53,7 @@ const HomePresenter = () => {
                     <SlideForm>
                         <Slide>
                             <Steps>
-                                { step === 0 && <StepLanguage stepTitle={ <StepTitle title={"Language"} subTitle={"Please, select your language"}/> } />}
+                                { step === 0 && <StepLanguage stepTitle={ <StepTitle title={"Nationality"} subTitle={"Please, select your nationality"}/> } />}
                                 { step === 1 && <StepSymptoms stepTitle={ <StepTitle title={"Symptoms"} subTitle={"Please, select your conditions and symptoms"}/> } />}
                                 { step >= 2 && <StepDetailSymptoms stepTitle={[ <StepTitle title={"Details"} subTitle={"You can choose more than one option."} />, <StepTitle title={"Result"} subTitle={"Please, show this result to your pharmacist"} />]} />}
                             </Steps>

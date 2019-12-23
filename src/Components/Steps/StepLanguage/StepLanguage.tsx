@@ -12,6 +12,7 @@ const Wrapper = styled.div`
     @media(max-width: 500px) {
         & > .radio-box {
             justify-content: space-around;
+            margin-top: 40px;
             & > div {
                 margin: 5px 15px;
             }

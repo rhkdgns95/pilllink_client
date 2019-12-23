@@ -5,7 +5,7 @@ const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 export const TranslatedChina: ICountry = {
     name: "中国人",
     value: "CH",
-    imgPath: PATH_IMG_LANG + "/lang_ch.svg",
+    imgPath: PATH_IMG_LANG + "/lang_ch.jpg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
