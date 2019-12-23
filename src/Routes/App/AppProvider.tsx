@@ -20,13 +20,14 @@ interface IContext {
 
 const AppTitle: string = "Pill Link";
 
-export const PUBLIC_PATH: string = process.env.PUBLIC_URL
+export const PUBLIC_PATH: string = process.env.PUBLIC_URL;
 export const PATH_ALL_IMGS: string = PUBLIC_PATH + "/images";
 export const PATH_IMG_BG: string = PATH_ALL_IMGS + "/bg";
 export const PATH_IMG_LANG: string = PATH_ALL_IMGS + "/lang";
 export const PATH_IMG_NA: string = PATH_ALL_IMGS + "/nationality";
 export const PATH_IMG_DETAILS: string = PATH_ALL_IMGS + "/details";
 export const PATH_IMG_ACTION: string = PATH_ALL_IMGS + "/action";
+export const PATH_IMG_SYMPTOMS: string = PATH_ALL_IMGS + "/symptoms";
 
 const InitContext: IContext = {
     timeOut: 0,
@@ -91,7 +92,6 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
      *  User Logout
      */
     const [ logout ] = useMutation(USER_LOGOUT);
-    
     
     const user = data ? data.GetMyProfile.user : null;
 

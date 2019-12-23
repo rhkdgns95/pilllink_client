@@ -77,7 +77,7 @@ const Img = styled.img`
     display: block;
     // width: 100%;
     transition: .2s;
-    opacity: .9;
+    // opacity: .9;
 `;
 const Text = styled.p`
     margin-top: 10px;

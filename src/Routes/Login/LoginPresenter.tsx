@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "../../Styles/typed-components";
 import { useLoginContext } from "./LoginProvider";
-import { useAppContext } from "../App/AppProvider";
+import { useAppContext, PATH_IMG_BG } from "../App/AppProvider";
 import { TextInputKeyPressEventData } from "react-native";
 import Message from "../../Components/Message";
 import CircleButton from "../../Components/CircleButton";
@@ -241,7 +241,7 @@ const LoginPresenter: React.FC<IProps> = ({
                         </ButtonBox>
                     </LoginForm>
                     <LoginBg className={isEffected ? "login-bg-box active" : "login-bg-box"}>
-                        <Img src={"/images/bg/login.png"}/>
+                        <Img src={PATH_IMG_BG+ "/login.png"}/>
                     </LoginBg>
                 </Wrapper>
             </Box>

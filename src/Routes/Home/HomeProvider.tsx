@@ -95,12 +95,12 @@ const useSelect = (initValue: string): IUseSelect => {
     };
 };
 
-const useFetch = (): {value: IContext} => {
+const useFetch = (history: any): {value: IContext} => {
     const { handleTitle, handleProgress, isProgress, timeOut } = useAppContext();
     const [ step, setStep ] = useState<number>(0);
     const [ submitOk, setSubmitOk ] = useState<boolean>(false);
     const [ resultDetails, setResultDetails ] = useState<Array<ISymptomDetails>>([]);
-
+    
     const updateStep = () => {
         switch(step) {
             case 0:
@@ -159,10 +159,19 @@ const useFetch = (): {value: IContext} => {
     }
     const [ createMedicalRecordMutation ] = useMutation<createMedicalRecord, createMedicalRecordVariables>(CREATE_MEDICAL_RECORD, {
         onCompleted: data => {
-            if(isProgress) {
+            
+            if(isProgress && data && data.CreateMedicalRecord && data.CreateMedicalRecord.medicalRecordId) {
+                const { medicalRecordId: recordId } = data.CreateMedicalRecord;
                 setTimeout(() => {
                     handleProgress(false);
                     handleInit();
+                    
+                    history.push({
+                        pathname: "/feedback",
+                        state: {
+                            recordId
+                        } 
+                    });
                 }, timeOut);
             }
             // console.log("create medical record completed: ", data);
@@ -172,6 +181,8 @@ const useFetch = (): {value: IContext} => {
                 setTimeout(() => {
                     handleProgress(false);
                     handleInit();
+                    alert("error");
+                    console.log("CreateMedicalRecord error: ", data);
                 }, timeOut);
             }
             // console.log("create medical record error: ", data);
@@ -309,9 +320,10 @@ const useFetch = (): {value: IContext} => {
 }
 
 const HomeProvider: React.FC<any> = ({
-    children
+    children,
+    history
 }) => (
-    <HomeContext.Provider { ...useFetch() }>
+    <HomeContext.Provider { ...useFetch(history) }>
         {
             children
         }

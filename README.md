@@ -23,7 +23,7 @@
 - [x] Git deploy.
 - [x] Git deploy part 2.
 - [x] Git deploy part 3.
-- [] Feedback.
+- [] Step Redirect To Feedback, Feedback - Translated, 기타 -> 응급처치.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.

@@ -32,6 +32,10 @@ interface IUseCheckbox {
     onChange: React.ChangeEventHandler<HTMLInputElement>;
     onInit: (initSymptomDetails: Array<ISymptomDetails>) => any;
 }
+interface IUseCheckboxArray {
+    value: Array<string>;
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
+}
 interface IUseInputEdit {
     value: string;
     onChange: React.ChangeEventHandler<HTMLInputElement>;
@@ -136,6 +140,7 @@ type TCommonText = {
     value: string;
     imgPath: string;
 }
+
 interface ICommonSymptomsText {
     COLD: string;
     COLD_IMG: string;
@@ -182,7 +187,12 @@ interface ICommonSymptomsText {
     female_oralBirthControl: TCommonText;
     female_postCoitalBirthControl: TCommonText;
     // OTHER
-    other_tmp: TCommonText;
+    // other_tmp: TCommonText;
+    other_bandAid: TCommonText;
+    other_bandage: TCommonText;
+    other_disinfectant: TCommonText;
+    other_salineSolution: TCommonText;
+    other_artificialTears: TCommonText;
 }
 interface ISymptomInputData {
     name: string;
@@ -200,11 +210,18 @@ interface ISymptom extends ISymptomInputData{
     imgPath: string;
     details: Array<ISymptomInputData>;
 }
+interface IConfirmProps {
+    name: string;
+    value: string;
+}
+interface IConfirmData extends IConfirmProps {
+    details: Array<IConfirmProps>
+};
 interface ICountry extends ISymptomInputData {
     imgPath: string;
     selectors: Array<>
     symptoms: Array<ISymptom>;
-
+    confirms: Array<IConfirmData>;
 }
 
 interface ISymptomDetails {

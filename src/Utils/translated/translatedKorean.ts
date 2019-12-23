@@ -1,10 +1,11 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
+import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedKorean: ICountry = {
     name: "한국어",
     value: "KO",
-    imgPath: "/images/lang/lang_ko.svg",
+    imgPath: PATH_IMG_LANG + "/lang_ko.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
@@ -198,13 +199,127 @@ export const TranslatedKorean: ICountry = {
         },
         {
             ...CommonSymptoms[OTHER],
-            name: "기타",
+            name: "응급처치",
             details: [
                 {
-                    name: "기타_임시",
-                    ...CommonSymptomsText.other_tmp
+                    name: "반창고",
+                    ...CommonSymptomsText.other_bandAid
+                },
+                {
+                    name: "붕대",
+                    ...CommonSymptomsText.other_bandage
+                },
+                {
+                    name: "소독약",
+                    ...CommonSymptomsText.other_disinfectant
+                },
+                {
+                    name: "식염수",
+                    ...CommonSymptomsText.other_salineSolution
+                },
+                {
+                    name: "인공눈물",
+                    ...CommonSymptomsText.other_artificialTears
                 }
             ]
         }
+    ],
+    confirms: [
+        {
+            name: "복욕량",
+            value: "AMOUNT",
+            details: [
+                {
+                    name: "3일",
+                    value: "D3"
+                },
+                {
+                    name: "5일" ,
+                    value: "D5"
+                },
+                {
+                    name: "7일",
+                    value: "D7"
+                }
+            ]
+        },
+        {
+            name: "복약횟수",
+            value: "TIME",
+            details: [
+                {
+                    name: "아침",
+                    value: "TO_MORNING"
+                },
+                {
+                    name: "점심" ,
+                    value: "TO_LUNCH"
+                },
+                {
+                    name: "저녁",
+                    value: "TO_DINNER"
+                },
+                {
+                    name: "취침전",
+                    value: "TO_SLEEP"
+                }
+            ]
+        },
+        {
+            name: "복용방법",
+            value: "WAY",
+            details: [
+                {
+                    name: "식전30분",
+                    value: "AGO_EAT"
+                },
+                {
+                    name: "식전즉시" ,
+                    value: "AGO_IMMEDIATE_EAT"
+                },
+                {
+                    name: "식후즉시",
+                    value: "AFTER_IMMEDIATE_EAT"
+                },
+                {
+                    name: "식후30분",
+                    value: "AFTER_EAT"
+                },
+                {
+                    name: "공복",
+                    value: "NO_EAT"
+                }
+            ]
+        },
+        {
+            name: "주의사항",
+            value: "CAUTION",
+            details: [
+                {
+                    name: "졸음",
+                    value: "CAUTION_SLEEP"
+                },
+                {
+                    name: "발진",
+                    value: "CAUTION_RASH"
+                },
+                {
+                    name: "혈압 ↑",
+                    value: "CAUTION_BLOODPRESSURE"
+                },
+                {
+                    name: "복통",
+                    value: "CAUTION_STOMACAHCHE"
+                },
+                {
+                    name: "설사",
+                    value: "CAUTION_DIARRHEA"
+                },
+                {
+                    name: "어지러움",
+                    value: "CAUTION_DIZZY"
+                },
+            ]
+        },
     ]
 };

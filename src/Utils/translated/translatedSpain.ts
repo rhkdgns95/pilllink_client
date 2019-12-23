@@ -1,10 +1,11 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
+import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedSpain: ICountry = {
     name: "Espanol",
     value: "ES",
-    imgPath: "/images/lang/lang_es.svg",
+    imgPath: PATH_IMG_LANG + "/lang_es.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
@@ -198,13 +199,127 @@ export const TranslatedSpain: ICountry = {
         },
         {
             ...CommonSymptoms[OTHER],
-            name: "ES_기타",
+            name: "Primeros Auxilios",
             details: [
                 {
-                    name: "ES_기타_임시",
-                    ...CommonSymptomsText.other_tmp
+                    name: "Curita",
+                    ...CommonSymptomsText.other_bandAid
+                },
+                {
+                    name: "Venda",
+                    ...CommonSymptomsText.other_bandage
+                },
+                {
+                    name: "Desinfectante",
+                    ...CommonSymptomsText.other_disinfectant
+                },
+                {
+                    name: "Agua salina",
+                    ...CommonSymptomsText.other_salineSolution
+                },
+                {
+                    name: "Gotas para los ojos",
+                    ...CommonSymptomsText.other_artificialTears
                 }
             ]
         }
+    ],
+    confirms: [
+        {
+            name: "Cantidad",
+            value: "AMOUNT",
+            details: [
+                {
+                    name: "ES_3일",
+                    value: "D3"
+                },
+                {
+                    name: "ES_5일" ,
+                    value: "D5"
+                },
+                {
+                    name: "ES_7일",
+                    value: "D7"
+                }
+            ]
+        },
+        {
+            name: "Frecuencia",
+            value: "TIME",
+            details: [
+                {
+                    name: "ES_아침",
+                    value: "TO_MORNING"
+                },
+                {
+                    name: "ES_점심" ,
+                    value: "TO_LUNCH"
+                },
+                {
+                    name: "ES_저녁",
+                    value: "TO_DINNER"
+                },
+                {
+                    name: "ES_취침전",
+                    value: "TO_SLEEP"
+                }
+            ]
+        },
+        {
+            name: "Método",
+            value: "WAY",
+            details: [
+                {
+                    name: "ES_식전30분",
+                    value: "AGO_EAT"
+                },
+                {
+                    name: "ES_식전즉시" ,
+                    value: "AGO_IMMEDIATE_EAT"
+                },
+                {
+                    name: "ES_식후즉시",
+                    value: "AFTER_IMMEDIATE_EAT"
+                },
+                {
+                    name: "ES_식후30분",
+                    value: "AFTER_EAT"
+                },
+                {
+                    name: "ES_공복",
+                    value: "NO_EAT"
+                }
+            ]
+        },
+        {
+            name: "Avisos",
+            value: "CAUTION",
+            details: [
+                {
+                    name: "ES_졸음",
+                    value: "CAUTION_SLEEP"
+                },
+                {
+                    name: "ES_발진",
+                    value: "CAUTION_RASH"
+                },
+                {
+                    name: "ES_혈압",
+                    value: "CAUTION_BLOODPRESSURE"
+                },
+                {
+                    name: "ES_복통",
+                    value: "CAUTION_STOMACAHCHE"
+                },
+                {
+                    name: "ES_설사",
+                    value: "CAUTION_DIARRHEA"
+                },
+                {
+                    name: "ES_어지러움",
+                    value: "CAUTION_DIZZY"
+                },
+            ]
+        },
     ]
 };

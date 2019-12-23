@@ -187,11 +187,6 @@ const HistoryPresenter = () => {
                     <Pagination/>
                 </Wrapper>
             </Box>
-
-            <p>
-                <h3>나야</h3>나야
-                <div>{process.env.PUBLIC_URL}</div>
-            </p>
         </Container>
     );
 }

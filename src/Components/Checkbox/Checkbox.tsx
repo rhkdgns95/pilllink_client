@@ -66,7 +66,7 @@ const Label = styled.label`
     transition: .3s;
     cursor: pointer;
     box-shadow: 0 0.5px 10px rgba(0,50,100,.2);
-    opacity: .8;
+    // opacity: .8;
     border: 1px solid rgba(0,0,0,0);
     &:hover {
         opacity: 1;

@@ -40,8 +40,12 @@ export const CREATE_MEDICAL_RECORD = gql`
         $female_pregnancyTest: Boolean #임신테스트
         $female_oralBirthControl: Boolean #경구피임약
         $female_postCoitalBirthControl: Boolean #사후피임약
-        # Other - 기타
-        $other_tmp: Boolean #임시
+        # Other - 응급처치
+        $other_bandAid: Boolean
+        $other_bandage: Boolean
+        $other_disinfectant: Boolean
+        $other_salineSolution: Boolean
+        $other_artificialTears: Boolean
     ) {
         CreateMedicalRecord(
             lang: $lang
@@ -76,7 +80,11 @@ export const CREATE_MEDICAL_RECORD = gql`
             female_pregnancyTest: $female_pregnancyTest
             female_oralBirthControl: $female_oralBirthControl
             female_postCoitalBirthControl: $female_postCoitalBirthControl
-            other_tmp: $other_tmp
+            other_bandAid: $other_bandAid
+            other_bandage: $other_bandage
+            other_disinfectant: $other_disinfectant
+            other_salineSolution: $other_salineSolution
+            other_artificialTears: $other_artificialTears
         ) {
             ok
             error

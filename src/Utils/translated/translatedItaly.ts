@@ -1,10 +1,11 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
+import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedItaly: ICountry = {
     name: "Italiano",
     value: "IT",
-    imgPath: "/images/lang/lang_it.svg",
+    imgPath: PATH_IMG_LANG + "/lang_it.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
@@ -198,13 +199,127 @@ export const TranslatedItaly: ICountry = {
         },
         {
             ...CommonSymptoms[OTHER],
-            name: "IT_기타",
+            name: "IT_응급처치",
             details: [
                 {
-                    name: "IT_기타_임시",
-                    ...CommonSymptomsText.other_tmp
+                    name: "IT_반창코",
+                    ...CommonSymptomsText.other_bandAid
+                },
+                {
+                    name: "IT_붕대",
+                    ...CommonSymptomsText.other_bandage
+                },
+                {
+                    name: "IT_소독약",
+                    ...CommonSymptomsText.other_disinfectant
+                },
+                {
+                    name: "IT_식염수",
+                    ...CommonSymptomsText.other_salineSolution
+                },
+                {
+                    name: "IT_인공눈물",
+                    ...CommonSymptomsText.other_artificialTears
                 }
             ]
         }
+    ],
+    confirms: [
+        {
+            name: "IT_복욕량",
+            value: "AMOUNT",
+            details: [
+                {
+                    name: "IT_3일",
+                    value: "D3"
+                },
+                {
+                    name: "IT_5일" ,
+                    value: "D5"
+                },
+                {
+                    name: "IT_7일",
+                    value: "D7"
+                }
+            ]
+        },
+        {
+            name: "IT_복용간격",
+            value: "TIME",
+            details: [
+                {
+                    name: "IT_아침",
+                    value: "TO_MORNING"
+                },
+                {
+                    name: "IT_점심" ,
+                    value: "TO_LUNCH"
+                },
+                {
+                    name: "IT_저녁",
+                    value: "TO_DINNER"
+                },
+                {
+                    name: "IT_취침전",
+                    value: "TO_SLEEP"
+                }
+            ]
+        },
+        {
+            name: "IT_복용방법",
+            value: "WAY",
+            details: [
+                {
+                    name: "IT_식전30분",
+                    value: "AGO_EAT"
+                },
+                {
+                    name: "IT_식전즉시" ,
+                    value: "AGO_IMMEDIATE_EAT"
+                },
+                {
+                    name: "IT_식후즉시",
+                    value: "AFTER_IMMEDIATE_EAT"
+                },
+                {
+                    name: "IT_식후30분",
+                    value: "AFTER_EAT"
+                },
+                {
+                    name: "IT_공복",
+                    value: "NO_EAT"
+                }
+            ]
+        },
+        {
+            name: "IT_주의사항",
+            value: "CAUTION",
+            details: [
+                {
+                    name: "IT_졸음",
+                    value: "CAUTION_SLEEP"
+                },
+                {
+                    name: "IT_복통",
+                    value: "CAUTION_STOMACAHCHE"
+                },
+                {
+                    name: "IT_발진",
+                    value: "CAUTION_RASH"
+                },
+                {
+                    name: "IT_어지러움",
+                    value: "CAUTION_DIZZY"
+                },
+                {
+                    name: "IT_설사",
+                    value: "CAUTION_DIARRHEA"
+                },
+                {
+                    name: "IT_혈압",
+                    value: "CAUTION_BLOODPRESSURE"
+                }
+            ]
+        },
     ]
 };

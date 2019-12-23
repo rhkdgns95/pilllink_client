@@ -118,7 +118,7 @@ const Table: React.FC<IProps> = ({
         }
         return null;
     });
-    console.log("RESULTS: ", resultText);
+    // console.log("RESULTS: ", resultText);
     return (
         <Container>
             <Wrapper>

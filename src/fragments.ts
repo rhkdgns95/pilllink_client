@@ -77,6 +77,10 @@ export const FRAGMENT_MEDICAL_RECORDS = gql`
         female_postCoitalBirthControl
     }
     fragment ItemOther on MedicalRecord {
-        other_tmp
+        other_bandAid
+        other_bandage
+        other_disinfectant
+        other_salineSolution
+        other_artificialTears
     }
 `;

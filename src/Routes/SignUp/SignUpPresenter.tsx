@@ -2,6 +2,7 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 import Navbar from "../../Components/Navbar";
 import SignUpForm from "../../Components/SignUpForm";
+import { PATH_IMG_BG } from "../App/AppProvider";
 // import ModalAddress from "../../Components/ModalAddress";
 
 const Container = styled.div`
@@ -47,7 +48,7 @@ const SignUpPresenter = () => (
             />
             <Wrapper className={"row"}>   
                 <Bg className={"bg-box"}>
-                    <Img src={"/images/bg/signup.png"}/>
+                    <Img src={PATH_IMG_BG + "/signup.png"}/>
                 </Bg>
                 <SignUpForm/>
             </Wrapper>

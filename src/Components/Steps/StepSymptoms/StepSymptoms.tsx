@@ -4,6 +4,7 @@ import RadioButtonSymptom from "../../RadioButtonSymptom";
 import { useHomeContext } from "../../../Routes/Home/HomeProvider";
 import SelectorSymptom from "../../SelectorSymptom";
 import translator from "../../../Utils/translator";
+import { PATH_IMG_BG } from "../../../Routes/App/AppProvider";
 
 const Container = styled.div`
     
@@ -121,7 +122,7 @@ const StepSymptoms: React.FC<IProps> = ({
                 { stepTitle }
                 <SymptomGroup className={"group-select"}>
                     <SelectorBg className={"bg-box"}>
-                        <Img src={"/images/bg/select.png"}/>
+                        <Img src={PATH_IMG_BG + "/select.png"}/>
                     </SelectorBg>
                     {
                         country && (

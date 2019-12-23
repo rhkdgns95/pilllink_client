@@ -1,9 +1,16 @@
 import React from "react";
 import HomeProvider from "./HomeProvider";
 import HomePresenter from "./HomePresenter";
+import { RouteComponentProps } from "react-router-dom";
 
-const Home = () => (
-    <HomeProvider>
+interface IProps extends RouteComponentProps<any> {
+    
+}
+const Home: React.FC<IProps> = ({
+    history
+}) => (
+    
+    <HomeProvider history={history}>
         <HomeContainer/>
     </HomeProvider>
 );

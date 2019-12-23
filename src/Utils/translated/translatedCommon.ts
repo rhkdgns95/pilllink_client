@@ -1,9 +1,9 @@
-import { PATH_IMG_DETAILS } from "../../Routes/App/AppProvider";
+import { PATH_IMG_SYMPTOMS, PATH_IMG_DETAILS } from "../../Routes/App/AppProvider";
 
 const CommonSymptomsText: ICommonSymptomsText = {
     // [1] - COLD
     COLD: "COLD",
-    COLD_IMG: "/images/symptoms/symptoms_cold.svg",
+    COLD_IMG: PATH_IMG_SYMPTOMS + "/symptoms_cold.svg",
     cold_cough: {
         value: "cold_cough",
         imgPath: PATH_IMG_DETAILS + "/comming_soon.svg"
@@ -30,7 +30,7 @@ const CommonSymptomsText: ICommonSymptomsText = {
     },  // 몸살
     // [2] - Hangover
     HANGOVER: "HANGOVER",
-    HANGOVER_IMG: "/images/symptoms/symptoms_hangover.svg",
+    HANGOVER_IMG: PATH_IMG_SYMPTOMS + "/symptoms_hangover.svg",
     hangover_headache: {
         value: "hangover_headache",
         imgPath: "/"
@@ -53,7 +53,7 @@ const CommonSymptomsText: ICommonSymptomsText = {
     }, // 속쓰림
     // [3] - STOMACHACHE
     STOMACHACHE: "STOMACHACHE",
-    STOMACHACHE_IMG: "/images/symptoms/symptoms_stomachache.svg",
+    STOMACHACHE_IMG: PATH_IMG_SYMPTOMS + "/symptoms_stomachache.svg",
     stomachache_diarrhead: {
         value: "stomachache_diarrhead",
         imgPath: "/"
@@ -80,7 +80,7 @@ const CommonSymptomsText: ICommonSymptomsText = {
     }, // 속쓰림
     // [4] - Skin
     SKIN: "SKIN",
-    SKIN_IMG: "/images/symptoms/symptoms_skin.svg",
+    SKIN_IMG: PATH_IMG_SYMPTOMS + "/symptoms_skin.svg",
     skin_abrasion: {
         value: "skin_abrasion",
         imgPath: "/"
@@ -107,7 +107,7 @@ const CommonSymptomsText: ICommonSymptomsText = {
     },  // 무좀
     // [5] - Female
     FEMALE: "FEMALE",
-    FEMALE_IMG: "/images/symptoms/symptoms_female.svg",
+    FEMALE_IMG: PATH_IMG_SYMPTOMS + "/symptoms_female.svg",
     female_periodCramp: {
         value: "female_periodCramp",
         imgPath: "/"
@@ -127,11 +127,27 @@ const CommonSymptomsText: ICommonSymptomsText = {
 
     // [6] - Other
     OTHER: "OTHER",
-    OTHER_IMG: "/images/symptoms/symptoms_other.svg",
-    other_tmp: {
-        value: "other_tmp",
-        imgPath: ""
-    }, // 임시
+    OTHER_IMG: PATH_IMG_SYMPTOMS + "/symptoms_other.svg",
+    other_bandAid: {
+        value: "other_bandAid",
+        imgPath: "/"
+    }, // 반창고
+    other_bandage: {
+        value: "other_bandage",
+        imgPath: "/"
+    }, // 붕대
+    other_disinfectant: {
+        value: "other_disinfectant",
+        imgPath: "/"
+    }, // 소독약
+    other_salineSolution: {
+        value: "other_salineSolution",
+        imgPath: "/"
+    }, // 식염수
+    other_artificialTears: {
+        value: "other_artificialTears",
+        imgPath: "/"
+    }, // 인공눈물
 };
 
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
@@ -243,21 +259,5 @@ const CommonSelectors: ICommonSelectors = {
         }
     }
 };
-// 복약지도
-const CommonPrescription = {
-    "DOSAGE": { // 복약량
-        name: "Dosage",
-        value: "DOSAGE",
-        details: [
-            { value: "3DAY" }, // 3일
-            { value: "5DAY" }, // 5일
-            { value: "7DAY" } // 7일
-        ]
-    },
-    // 복약횟수
-    // 복용방법
-    // 주의점
-}
-
 
 export { CommonSymptomsText, CommonSymptoms, CommonSelectors };

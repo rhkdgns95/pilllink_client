@@ -92,6 +92,41 @@ export interface updateMyProfileVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: createConfirm
+// ====================================================
+
+export interface createConfirm_CreateConfirm {
+  __typename: "CreateConfirmResponse";
+  ok: boolean;
+  error: string | null;
+  confirmRecordId: number | null;
+}
+
+export interface createConfirm {
+  CreateConfirm: createConfirm_CreateConfirm;
+}
+
+export interface createConfirmVariables {
+  medicalRecordId: number;
+  res_amount: RES_AMOUNT;
+  res_way: RES_WAY;
+  TO_MORNING?: boolean | null;
+  TO_LUNCH?: boolean | null;
+  TO_DINNER?: boolean | null;
+  TO_SLEEP?: boolean | null;
+  CAUTION_SLEEP?: boolean | null;
+  CAUTION_STOMACAHCHE?: boolean | null;
+  CAUTION_RASH?: boolean | null;
+  CAUTION_DIZZY?: boolean | null;
+  CAUTION_DIARRHEA?: boolean | null;
+  CAUTION_BLOODPRESSURE?: boolean | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getMyMedicalRecords
 // ====================================================
 
@@ -155,9 +190,13 @@ export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords {
   female_oralBirthControl: boolean | null;
   female_postCoitalBirthControl: boolean | null;
   /**
-   * Other - 기타
+   * Other - 응급처치
    */
-  other_tmp: boolean | null;
+  other_bandAid: boolean | null;
+  other_bandage: boolean | null;
+  other_disinfectant: boolean | null;
+  other_salineSolution: boolean | null;
+  other_artificialTears: boolean | null;
   confirm: getMyMedicalRecords_GetMyMedicalRecords_medicalRecords_confirm | null;
 }
 
@@ -230,7 +269,11 @@ export interface createMedicalRecordVariables {
   female_pregnancyTest?: boolean | null;
   female_oralBirthControl?: boolean | null;
   female_postCoitalBirthControl?: boolean | null;
-  other_tmp?: boolean | null;
+  other_bandAid?: boolean | null;
+  other_bandage?: boolean | null;
+  other_disinfectant?: boolean | null;
+  other_salineSolution?: boolean | null;
+  other_artificialTears?: boolean | null;
 }
 
 /* tslint:disable */
@@ -465,9 +508,13 @@ export interface ItemFemale {
 export interface ItemOther {
   __typename: "MedicalRecord";
   /**
-   * Other - 기타
+   * Other - 응급처치
    */
-  other_tmp: boolean | null;
+  other_bandAid: boolean | null;
+  other_bandage: boolean | null;
+  other_disinfectant: boolean | null;
+  other_salineSolution: boolean | null;
+  other_artificialTears: boolean | null;
 }
 
 /* tslint:disable */
@@ -545,6 +592,20 @@ export enum Nationality {
 export enum Pregnant {
   NULL = "NULL",
   PREGNANT_TRUE = "PREGNANT_TRUE",
+}
+
+export enum RES_AMOUNT {
+  D3 = "D3",
+  D5 = "D5",
+  D7 = "D7",
+}
+
+export enum RES_WAY {
+  AFTER_EAT = "AFTER_EAT",
+  AFTER_IMMEDIATE_EAT = "AFTER_IMMEDIATE_EAT",
+  AGO_EAT = "AGO_EAT",
+  AGO_IMMEDIATE_EAT = "AGO_IMMEDIATE_EAT",
+  NO_EAT = "NO_EAT",
 }
 
 export enum Status {

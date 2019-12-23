@@ -1,10 +1,11 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
+import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedMongol: ICountry = {
     name: "Монгол",
     value: "MO",
-    imgPath: "/images/lang/lang_mo.svg",
+    imgPath: PATH_IMG_LANG + "/lang_mo.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
@@ -198,13 +199,127 @@ export const TranslatedMongol: ICountry = {
         },
         {
             ...CommonSymptoms[OTHER],
-            name: "MO_기타",
+            name: "анхны тусламж",
             details: [
                 {
-                    name: "MO_기타_임시",
-                    ...CommonSymptomsText.other_tmp
+                    name: "наалт",
+                    ...CommonSymptomsText.other_bandAid
+                },
+                {
+                    name: "боолт",
+                    ...CommonSymptomsText.other_bandage
+                },
+                {
+                    name: "ариутгах бодис",
+                    ...CommonSymptomsText.other_disinfectant
+                },
+                {
+                    name: "давсны уусмал",
+                    ...CommonSymptomsText.other_salineSolution
+                },
+                {
+                    name: "хиймэл нулимс",
+                    ...CommonSymptomsText.other_artificialTears
                 }
             ]
         }
+    ],
+    confirms: [
+        {
+            name: "эм хэмжээ",
+            value: "AMOUNT",
+            details: [
+                {
+                    name: "MO_3일",
+                    value: "D3"
+                },
+                {
+                    name: "MO_5일" ,
+                    value: "D5"
+                },
+                {
+                    name: "MO_7일",
+                    value: "D7"
+                }
+            ]
+        },
+        {
+            name: "эм удаа",
+            value: "TIME",
+            details: [
+                {
+                    name: "MO_아침",
+                    value: "TO_MORNING"
+                },
+                {
+                    name: "MO_점심" ,
+                    value: "TO_LUNCH"
+                },
+                {
+                    name: "MO_저녁",
+                    value: "TO_DINNER"
+                },
+                {
+                    name: "MO_취침전",
+                    value: "TO_SLEEP"
+                }
+            ]
+        },
+        {
+            name: "эм арга",
+            value: "WAY",
+            details: [
+                {
+                    name: "MO_식전30분",
+                    value: "AGO_EAT"
+                },
+                {
+                    name: "MO_식전즉시" ,
+                    value: "AGO_IMMEDIATE_EAT"
+                },
+                {
+                    name: "MO_식후즉시",
+                    value: "AFTER_IMMEDIATE_EAT"
+                },
+                {
+                    name: "MO_식후30분",
+                    value: "AFTER_EAT"
+                },
+                {
+                    name: "MO_공복",
+                    value: "NO_EAT"
+                }
+            ]
+        },
+        {
+            name: "анхааруулга",
+            value: "CAUTION",
+            details: [
+                {
+                    name: "MO_졸음",
+                    value: "CAUTION_SLEEP"
+                },
+                {
+                    name: "MO_발진",
+                    value: "CAUTION_RASH"
+                },
+                {
+                    name: "MO_혈압",
+                    value: "CAUTION_BLOODPRESSURE"
+                },
+                {
+                    name: "MO_복통",
+                    value: "CAUTION_STOMACAHCHE"
+                },
+                {
+                    name: "MO_설사",
+                    value: "CAUTION_DIARRHEA"
+                },
+                {
+                    name: "MO_어지러움",
+                    value: "CAUTION_DIZZY"
+                },
+            ]
+        },
     ]
 };

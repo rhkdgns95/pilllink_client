@@ -1,10 +1,11 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
+import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedRussia: ICountry = {
     name: "русский",
     value: "RU",
-    imgPath: "/images/lang/lang_ru.svg",
+    imgPath: PATH_IMG_LANG + "/lang_ru.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
@@ -198,13 +199,127 @@ export const TranslatedRussia: ICountry = {
         },
         {
             ...CommonSymptoms[OTHER],
-            name: "RU_기타",
+            name: "скорая помощь",
             details: [
                 {
-                    name: "RU_기타_임시",
-                    ...CommonSymptomsText.other_tmp
+                    name: "лейкопластырь",
+                    ...CommonSymptomsText.other_bandAid
+                },
+                {
+                    name: "бинт",
+                    ...CommonSymptomsText.other_bandage
+                },
+                {
+                    name: "дезинфицирующее средство",
+                    ...CommonSymptomsText.other_disinfectant
+                },
+                {
+                    name: "солёная вода",
+                    ...CommonSymptomsText.other_salineSolution
+                },
+                {
+                    name: "искусственный слёзы",
+                    ...CommonSymptomsText.other_artificialTears
                 }
             ]
         }
+    ],
+    confirms: [
+        {
+            name: "принима́ть лека́рство Частица",
+            value: "AMOUNT",
+            details: [
+                {
+                    name: "RU_3일",
+                    value: "D3"
+                },
+                {
+                    name: "RU_5일" ,
+                    value: "D5"
+                },
+                {
+                    name: "RU_7일",
+                    value: "D7"
+                }
+            ]
+        },
+        {
+            name: "принима́ть лека́рство количество раз",
+            value: "TIME",
+            details: [
+                {
+                    name: "RU_아침",
+                    value: "TO_MORNING"
+                },
+                {
+                    name: "RU_점심" ,
+                    value: "TO_LUNCH"
+                },
+                {
+                    name: "RU_저녁",
+                    value: "TO_DINNER"
+                },
+                {
+                    name: "RU_취침전",
+                    value: "TO_SLEEP"
+                }
+            ]
+        },
+        {
+            name: "принима́ть лека́рство способ",
+            value: "WAY",
+            details: [
+                {
+                    name: "RU_식전30분",
+                    value: "AGO_EAT"
+                },
+                {
+                    name: "RU_식전즉시" ,
+                    value: "AGO_IMMEDIATE_EAT"
+                },
+                {
+                    name: "RU_식후즉시",
+                    value: "AFTER_IMMEDIATE_EAT"
+                },
+                {
+                    name: "RU_식후30분",
+                    value: "AFTER_EAT"
+                },
+                {
+                    name: "RU_공복",
+                    value: "NO_EAT"
+                }
+            ]
+        },
+        {
+            name: "предупреждение",
+            value: "CAUTION",
+            details: [
+                {
+                    name: "RU_졸음",
+                    value: "CAUTION_SLEEP"
+                },
+                {
+                    name: "RU_발진",
+                    value: "CAUTION_RASH"
+                },
+                {
+                    name: "RU_혈압",
+                    value: "CAUTION_BLOODPRESSURE"
+                },
+                {
+                    name: "RU_복통",
+                    value: "CAUTION_STOMACAHCHE"
+                },
+                {
+                    name: "RU_설사",
+                    value: "CAUTION_DIARRHEA"
+                },
+                {
+                    name: "RU_어지러움",
+                    value: "CAUTION_DIZZY"
+                },
+            ]
+        },
     ]
 };

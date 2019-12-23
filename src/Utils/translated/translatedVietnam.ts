@@ -1,10 +1,11 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
+import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedVietnam: ICountry = {
     name: "Tiếng việt nam",
     value: "VI",
-    imgPath: "/images/lang/lang_vi.svg",
+    imgPath: PATH_IMG_LANG + "/lang_vi.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
@@ -198,13 +199,127 @@ export const TranslatedVietnam: ICountry = {
         },
         {
             ...CommonSymptoms[OTHER],
-            name: "VI_기타",
+            name: "sự sơ cứu",
             details: [
                 {
-                    name: "VI_기타_임시",
-                    ...CommonSymptomsText.other_tmp
+                    name: "băng dính y tế",
+                    ...CommonSymptomsText.other_bandAid
+                },
+                {
+                    name: "băng vải",
+                    ...CommonSymptomsText.other_bandage
+                },
+                {
+                    name: "thuốc khử trùng",
+                    ...CommonSymptomsText.other_disinfectant
+                },
+                {
+                    name: "nước muối",
+                    ...CommonSymptomsText.other_salineSolution
+                },
+                {
+                    name: "nhân tạo nước mắt",
+                    ...CommonSymptomsText.other_artificialTears
                 }
             ]
         }
+    ],
+    confirms: [
+        {
+            name: "uống thuốc lượng",
+            value: "AMOUNT",
+            details: [
+                {
+                    name: "VI_3일",
+                    value: "D3"
+                },
+                {
+                    name: "VI_5일" ,
+                    value: "D5"
+                },
+                {
+                    name: "VI_7일",
+                    value: "D7"
+                }
+            ]
+        },
+        {
+            name: "uống thuốc số lần",
+            value: "TIME",
+            details: [
+                {
+                    name: "VI_아침",
+                    value: "TO_MORNING"
+                },
+                {
+                    name: "VI_점심" ,
+                    value: "TO_LUNCH"
+                },
+                {
+                    name: "VI_저녁",
+                    value: "TO_DINNER"
+                },
+                {
+                    name: "VI_취침전",
+                    value: "TO_SLEEP"
+                }
+            ]
+        },
+        {
+            name: "uống thuốc phương pháp",
+            value: "WAY",
+            details: [
+                {
+                    name: "VI_식전30분",
+                    value: "AGO_EAT"
+                },
+                {
+                    name: "VI_식전즉시" ,
+                    value: "AGO_IMMEDIATE_EAT"
+                },
+                {
+                    name: "VI_식후즉시",
+                    value: "AFTER_IMMEDIATE_EAT"
+                },
+                {
+                    name: "VI_식후30분",
+                    value: "AFTER_EAT"
+                },
+                {
+                    name: "VI_공복",
+                    value: "NO_EAT"
+                }
+            ]
+        },
+        {
+            name: "nội dung chú ý",
+            value: "CAUTION",
+            details: [
+                {
+                    name: "VI_졸음",
+                    value: "CAUTION_SLEEP"
+                },
+                {
+                    name: "VI_발진",
+                    value: "CAUTION_RASH"
+                },
+                {
+                    name: "VI_혈압",
+                    value: "CAUTION_BLOODPRESSURE"
+                },
+                {
+                    name: "VI_복통",
+                    value: "CAUTION_STOMACAHCHE"
+                },
+                {
+                    name: "VI_설사",
+                    value: "CAUTION_DIARRHEA"
+                },
+                {
+                    name: "VI_어지러움",
+                    value: "CAUTION_DIZZY"
+                },
+            ]
+        },
     ]
 };

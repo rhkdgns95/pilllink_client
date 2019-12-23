@@ -2,9 +2,16 @@ import React, { useEffect } from "react";
 import FeedbackPresenter from "./FeedbackPresenter";
 import FeedbackProvider from "./FeedbackProvider";
 import { useAppContext } from "../App/AppProvider";
+import { RouteComponentProps } from "react-router-dom";
 
-const Feedback = () => (
-    <FeedbackProvider>
+interface IProps extends RouteComponentProps<any> {
+
+}
+const Feedback: React.FC<IProps> = ({
+    location: { state },
+    history
+}) => (
+    <FeedbackProvider recordId={state && state.recordId ? state.recordId : -1} history={history}>
         <FeedbackContainer />
     </FeedbackProvider>
 );

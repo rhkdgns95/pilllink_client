@@ -1,10 +1,11 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
+import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedChina: ICountry = {
     name: "中国人",
     value: "CH",
-    imgPath: "/images/lang/lang_ch.svg",
+    imgPath: PATH_IMG_LANG + "/lang_ch.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
@@ -60,151 +61,265 @@ export const TranslatedChina: ICountry = {
     symptoms: [
         { 
             ...CommonSymptoms[COLD],
-            name: "CH_감기",
+            name: "感冒",
             details: [
                 { 
-                    name: "CH_기침",
+                    name: "咳嗽",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "CH_두통",
+                    name: "头痛",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "CH_콧물",
+                    name: "流鼻涕",
                     ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "CH_목아픔",
+                    name: "咽喉痛",
                     ...CommonSymptomsText.cold_soreThroat
                 },
                 {
-                    name: "CH_열",
+                    name: "发烧",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "CH_몸살",
+                    name: "全身酸痛",
                     ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
-            name: "CH_숙취",
+            name: "宿醉",
             details: [
                 {
-                    name: "CH_두통",
+                    name: "头痛",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "CH_설사",
+                    name: "腹泻",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "CH_구토",
+                    name: "呕吐",
                     ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "CH_메스꺼움",
+                    name: "恶心",
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
-                    name: "CH_속쓰림",
+                    name: "胃酸",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[STOMACHACHE],
-            name: "CH_복통",
+            name: "腹痛",
             details: [
                 {
-                    name: "CH_설사",
+                    name: "腹泻",
                     ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "CH_생리통",
+                    name: "生理痛",
                     ...CommonSymptomsText.stomachache_periodCramps
                 },
                 {
-                    name: "CH_소화불량",
+                    name: "消化不良",
                     ...CommonSymptomsText.stomachache_indigestion
                 },
                 {
-                    name: "CH_변비",
+                    name: "便秘",
                     ...CommonSymptomsText.stomachache_constipation
                 },
                 {
-                    name: "CH_메스꺼움",
+                    name: "恶心",
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
-                    name: "CH_속쓰림",
+                    name: "胃痛",
                     ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
-            name: "CH_피부질환",
+            name: "皮肤疾患",
             details: [
                 {
-                    name: "CH_철과상",
+                    name: "擦伤",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "CH_여드름",
+                    name: "青春痘",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "CH_두드러기",
+                    name: "风疹",
                     ...CommonSymptomsText.skin_rash
                 },
                 {
-                    name: "CH_습진",
+                    name: "湿疹",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "CH_수포",
+                    name: "水泡",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "CH_무좀",
+                    name: "脚气",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
-            name: "CH_여성질환",
+            name: "女性健康",
             details: [
                 {
-                    name: "CH_생리통",
+                    name: "生理痛",
                     ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "CH_임신테스트",
+                    name: "妊娠测试",
                     ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "CH_경구피임약",
+                    name: "长期避孕药",
                     ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "CH_사후피임약",
+                    name: "紧急避孕药",
                     ...CommonSymptomsText.female_postCoitalBirthControl
                 },
             ]
         },
         {
             ...CommonSymptoms[OTHER],
-            name: "CH_기타",
+            name: "紧急措施",
             details: [
                 {
-                    name: "CH_기타_임시",
-                    ...CommonSymptomsText.other_tmp
+                    name: "创可贴",
+                    ...CommonSymptomsText.other_bandAid
+                },
+                {
+                    name: "绷带",
+                    ...CommonSymptomsText.other_bandage
+                },
+                {
+                    name: "消毒水",
+                    ...CommonSymptomsText.other_disinfectant
+                },
+                {
+                    name: "盐水",
+                    ...CommonSymptomsText.other_salineSolution
+                },
+                {
+                    name: "人工泪液",
+                    ...CommonSymptomsText.other_artificialTears
                 }
             ]
         }
+    ],
+    confirms: [
+        {
+            name: "用药量",
+            value: "AMOUNT",
+            details: [
+                {
+                    name: "CH_3일",
+                    value: "D3"
+                },
+                {
+                    name: "CH_5일" ,
+                    value: "D5"
+                },
+                {
+                    name: "CH_7일",
+                    value: "D7"
+                }
+            ]
+        },
+        {
+            name: "用药次数",
+            value: "TIME",
+            details: [
+                {
+                    name: "CH_아침",
+                    value: "TO_MORNING"
+                },
+                {
+                    name: "CH_점심" ,
+                    value: "TO_LUNCH"
+                },
+                {
+                    name: "CH_저녁",
+                    value: "TO_DINNER"
+                },
+                {
+                    name: "CH_취침전",
+                    value: "TO_SLEEP"
+                }
+            ]
+        },
+        {
+            name: "用药方法",
+            value: "WAY",
+            details: [
+                {
+                    name: "CH_식전30분",
+                    value: "AGO_EAT"
+                },
+                {
+                    name: "CH_식전즉시" ,
+                    value: "AGO_IMMEDIATE_EAT"
+                },
+                {
+                    name: "CH_식후즉시",
+                    value: "AFTER_IMMEDIATE_EAT"
+                },
+                {
+                    name: "CH_식후30분",
+                    value: "AFTER_EAT"
+                },
+                {
+                    name: "CH_공복",
+                    value: "NO_EAT"
+                }
+            ]
+        },
+        {
+            name: "注意事项",
+            value: "CAUTION",
+            details: [
+                {
+                    name: "CH_졸음",
+                    value: "CAUTION_SLEEP"
+                },
+                {
+                    name: "CH_발진",
+                    value: "CAUTION_RASH"
+                },
+                {
+                    name: "CH_혈압",
+                    value: "CAUTION_BLOODPRESSURE"
+                },
+                {
+                    name: "CH_복통",
+                    value: "CAUTION_STOMACAHCHE"
+                },
+                {
+                    name: "CH_설사",
+                    value: "CAUTION_DIARRHEA"
+                },
+                {
+                    name: "CH_어지러움",
+                    value: "CAUTION_DIZZY"
+                },
+            ]
+        },
     ]
 };

@@ -57,8 +57,11 @@ interface IProps {
     type: "checkbox" | "radio"
     id: number;
     name: string;
+    checked: boolean;
     defaultChecked?: boolean;
-    width?: number;
+    width?: boolean;
+    value: string;
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const FeedButton: React.FC<IProps> = ({
@@ -66,16 +69,22 @@ const FeedButton: React.FC<IProps> = ({
     id,
     type= "checkbox",
     name,
+    checked,
     defaultChecked,
-    width
+    width,
+    value,
+    onChange
 }) => (
-    <Container style={width ? {width: width + "%"} : {}} >
+    <Container style={width ? {width: "98%"} : {}} >
         <Wrapper>
             <Input 
                 type={type}
                 id={name + id}
                 name={name}
+                value={value}
+                checked={checked}
                 defaultChecked={defaultChecked}
+                onChange={onChange}
             />
             <Label htmlFor={name + id}>{ text }</Label>
         </Wrapper>

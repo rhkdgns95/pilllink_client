@@ -1,10 +1,11 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
+import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedPortugal: ICountry = {
     name: "Português",
     value: "PO",
-    imgPath: "/images/lang/lang_po.svg",
+    imgPath: PATH_IMG_LANG + "/lang_po.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
@@ -201,10 +202,124 @@ export const TranslatedPortugal: ICountry = {
             name: "PO_기타",
             details: [
                 {
-                    name: "PO_기타_임시",
-                    ...CommonSymptomsText.other_tmp
+                    name: "Band-Aid",
+                    ...CommonSymptomsText.other_bandAid
+                },
+                {
+                    name: "Bandage",
+                    ...CommonSymptomsText.other_bandage
+                },
+                {
+                    name: "Disinfectant",
+                    ...CommonSymptomsText.other_disinfectant
+                },
+                {
+                    name: "Saline Solution",
+                    ...CommonSymptomsText.other_salineSolution
+                },
+                {
+                    name: "Artificial Tears",
+                    ...CommonSymptomsText.other_artificialTears
                 }
             ]
         }
+    ],
+    confirms: [
+        {
+            name: "PO_복욕량",
+            value: "AMOUNT",
+            details: [
+                {
+                    name: "PO_3일",
+                    value: "D3"
+                },
+                {
+                    name: "PO_5일" ,
+                    value: "D5"
+                },
+                {
+                    name: "PO_7일",
+                    value: "D7"
+                }
+            ]
+        },
+        {
+            name: "PO_복용간격",
+            value: "TIME",
+            details: [
+                {
+                    name: "PO_아침",
+                    value: "TO_MORNING"
+                },
+                {
+                    name: "PO_점심" ,
+                    value: "TO_LUNCH"
+                },
+                {
+                    name: "PO_저녁",
+                    value: "TO_DINNER"
+                },
+                {
+                    name: "PO_취침전",
+                    value: "TO_SLEEP"
+                }
+            ]
+        },
+        {
+            name: "PO_복용방법",
+            value: "WAY",
+            details: [
+                {
+                    name: "PO_식전30분",
+                    value: "AGO_EAT"
+                },
+                {
+                    name: "PO_식전즉시" ,
+                    value: "AGO_IMMEDIATE_EAT"
+                },
+                {
+                    name: "PO_식후즉시",
+                    value: "AFTER_IMMEDIATE_EAT"
+                },
+                {
+                    name: "PO_식후30분",
+                    value: "AFTER_EAT"
+                },
+                {
+                    name: "PO_공복",
+                    value: "NO_EAT"
+                }
+            ]
+        },
+        {
+            name: "PO_주의사항",
+            value: "CAUTION",
+            details: [
+                {
+                    name: "PO_졸음",
+                    value: "CAUTION_SLEEP"
+                },
+                {
+                    name: "PO_발진",
+                    value: "CAUTION_RASH"
+                },
+                {
+                    name: "PO_혈압",
+                    value: "CAUTION_BLOODPRESSURE"
+                },
+                {
+                    name: "PO_복통",
+                    value: "CAUTION_STOMACAHCHE"
+                },
+                {
+                    name: "PO_설사",
+                    value: "CAUTION_DIARRHEA"
+                },
+                {
+                    name: "PO_어지러움",
+                    value: "CAUTION_DIZZY"
+                },
+            ]
+        },
     ]
 };

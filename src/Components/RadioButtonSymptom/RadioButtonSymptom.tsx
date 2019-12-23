@@ -51,7 +51,7 @@ const Label = styled.label`
     height: 140px;
     border-radius: 50%;
     cursor: pointer;
-    opacity: .8;
+    // opacity: .8;
     &:hover {
         & > img {
             opacity: 1;
@@ -62,7 +62,7 @@ const Img = styled.img`
     display: block;
     width: 50%;
     height: 50%;
-    opacity: .8;
+    // opacity: .8;
     transition: .2s;
 `;
 const Text = styled.span`

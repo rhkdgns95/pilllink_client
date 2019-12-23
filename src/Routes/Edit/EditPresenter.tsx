@@ -11,7 +11,7 @@ import { Nationality, INationality } from "../../nationality";
 import AddressEdit from "../../Components/AddressEdit";
 import CircleButton from "../../Components/CircleButton";
 import Message from "../../Components/Message";
-import { useAppContext } from "../App/AppProvider";
+import { useAppContext, PATH_IMG_BG } from "../App/AppProvider";
 
 const Container = styled.div`
 
@@ -287,7 +287,7 @@ const EditPresenter = () => {
                             <AddressEdit title={"Address"}/> 
                         </EditForm>
                         <Bg className={"bg-box"}>
-                            <Img src={"/images/bg/mypage.jpg"}/>
+                            <Img src={PATH_IMG_BG + "/mypage.jpg"}/>
                         </Bg>
                     </Info>
 

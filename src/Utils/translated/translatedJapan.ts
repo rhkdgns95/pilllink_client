@@ -1,10 +1,11 @@
 import { CommonSymptoms, CommonSymptomsText, CommonSelectors } from "./translatedCommon";
+import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedJapan: ICountry = {
     name: "日本",
     value: "JA",
-    imgPath: "/images/lang/lang_ja.svg",
+    imgPath: PATH_IMG_LANG + "/lang_ja.svg",
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
@@ -198,13 +199,128 @@ export const TranslatedJapan: ICountry = {
         },
         {
             ...CommonSymptoms[OTHER],
-            name: "JA_기타",
+            name: "応急処置・おうきゅうしょち",
             details: [
                 {
-                    name: "JA_기타_임시",
-                    ...CommonSymptomsText.other_tmp
+                    name: "絆創膏・ばんそうこう",
+                    ...CommonSymptomsText.other_bandAid
+                },
+                {
+                    name: "包帯・ほうたい",
+                    ...CommonSymptomsText.other_bandage
+                },
+                {
+                    name: "消毒液・しょうどくえき",
+                    ...CommonSymptomsText.other_disinfectant
+                },
+                {
+                    name: "食塩水・しょくえんすい",
+                    ...CommonSymptomsText.other_salineSolution
+                },
+                {
+                    name: "目薬・めくすり",
+                    ...CommonSymptomsText.other_artificialTears
                 }
             ]
         }
+    ],
+    confirms: [
+        {
+            name: "用药量",
+            value: "AMOUNT",
+            details: [
+                {
+                    name: "JA_3일",
+                    value: "D3"
+                },
+                {
+                    name: "JA_5일" ,
+                    value: "D5"
+                },
+                {
+                    name: "JA_7일",
+                    value: "D7"
+                }
+            ]
+        },
+        {
+            name: "用药次数",
+            value: "TIME",
+            details: [
+                {
+                    name: "JA_아침",
+                    value: "TO_MORNING"
+                },
+                {
+                    name: "JA_점심" ,
+                    value: "TO_LUNCH"
+                },
+                {
+                    name: "JA_저녁",
+                    value: "TO_DINNER"
+                },
+                {
+                    name: "JA_취침전",
+                    value: "TO_SLEEP"
+                }
+            ]
+        },
+        {
+            name: "用药方法",
+            value: "WAY",
+            details: [
+                {
+                    name: "JA_식전30분",
+                    value: "AGO_EAT"
+                },
+                {
+                    name: "JA_식전즉시" ,
+                    value: "AGO_IMMEDIATE_EAT"
+                },
+                {
+                    name: "JA_식후즉시",
+                    value: "AFTER_IMMEDIATE_EAT"
+                },
+                {
+                    name: "JA_식후30분",
+                    value: "AFTER_EAT"
+                },
+                {
+                    name: "JA_공복",
+                    value: "NO_EAT"
+                }
+            ]
+        },
+        {
+            name: "注意事项",
+            value: "CAUTION",
+            details: [
+                {
+                    name: "JA_졸음",
+                    value: "CAUTION_SLEEP"
+                },
+                {
+                    name: "JA_발진",
+                    value: "CAUTION_RASH"
+                },
+                {
+                    name: "JA_혈압",
+                    value: "CAUTION_BLOODPRESSURE"
+                },
+                {
+                    name: "JA_복통",
+                    value: "CAUTION_STOMACAHCHE"
+                },
+                {
+                    name: "JA_설사",
+                    value: "CAUTION_DIARRHEA"
+                },
+                
+                {
+                    name: "JA_어지러움",
+                    value: "CAUTION_DIZZY"
+                },
+            ]
+        },
     ]
 };
