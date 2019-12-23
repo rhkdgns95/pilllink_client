@@ -35,19 +35,38 @@ const Container = styled.div`
     }
     
     @media(max-width: 510px) {
+        .details-header {
+            margin-top: 30px;
+            margin-bottom: -22px;
+            span {
+                &:nth-of-type(1) {
+                    
+                    font-size: 13px;
+                }
+                &:nth-of-type(2) {
+                    font-size: 10px;
+                    margin-top: 32px;
+                    margin-left: 7px;
+                    justify-content: flex-start;
+                    img {
+                        margin-right: 7px; 
+                    }
+                }
+            }
+        }
         .group-checkbox {
             margin: 15px 0;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             justify-content: flex-start;
             & > div {
                 // margin: 10px 5px;
-                margin: 20px 0;
+                margin: 30px 0;
                 width: 33%;
             }
         }
         .result-box { 
             margin: 15px 0;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
             & > div {
                 width: 100%;
                 margin: 0 auto;
@@ -147,6 +166,34 @@ const TranslateButton = styled.span`
 const TranslateIcon = styled.img`
     
 `;
+const DetailsHeader = styled.div`
+    text-align: center;
+    white-space: nowrap;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: -60px;
+`;
+const DetailsTitle = styled.span`
+    margin: 0 auto;
+    margin-bottom: 50px;
+    color: #1bb761;
+    font-weight: bold;
+`;
+const DetailsContent = styled.span`
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    max-width: 300px;
+    margin-top: 50px;
+    font-size: 13px;
+    
+`;
+const Icon = styled.img`
+    margin-right: 10px;
+    width: 13px;
+`;
 
 interface IProps {
     stepTitle: Array<any>;
@@ -190,6 +237,8 @@ const StepDetailSymptoms: React.FC<IProps> = ({
     const [ isTranslated, setIsTranslated ] = useState<boolean>(false);
 
     const currentDetails = useInputChecked();
+    const [ title, setTitle ] = useState<string>("");
+    let symptomName: ISymptom  | undefined;
 
     // GetDetailsScreen(symptom.value);
     
@@ -281,8 +330,11 @@ const StepDetailSymptoms: React.FC<IProps> = ({
             if(step === 2) {
                 setIsEffected([true, false]);
             }
-       }   
-       
+        }   
+        let country = countries.find((item: any) => item.value === lang.value);
+        symptomName = country ? country.symptoms.find((item: any) => item.value === symptom.value) : undefined;
+        setTitle(symptomName ? symptomName.name : "");
+
     }, []);  
     
     useEffect(() => {
@@ -333,6 +385,7 @@ const StepDetailSymptoms: React.FC<IProps> = ({
                             title={stepTitle[0]}
                             symptomDetails={symptomDetails}
                             currentDetails={currentDetails}
+                            symptomName={title}
                         />
                     )
                 }
@@ -357,15 +410,24 @@ interface IDetails {
     title: string;
     symptomDetails?: ISymptom;
     currentDetails: IUseCheckbox;
+    symptomName: string;
 };
 const Details: React.FC<IDetails> = ({
     isEffected,
     title,
     symptomDetails,
-    currentDetails
+    currentDetails,
+    symptomName
 }) => (
     <>
         { title }
+        <DetailsHeader className={"details-header"}>
+            <DetailsTitle>{symptomName}</DetailsTitle>
+            <DetailsContent>
+                <Icon src={PATH_IMG_DETAILS + "/check.png"}/>
+                You can choose more than one options.
+            </DetailsContent>
+        </DetailsHeader>
         <DetailsGroup className={isEffected ? "active step-container group-checkbox" : "group-checkbox step-container"}>
             {
                 !symptomDetails ? <Tmp>Comming soon</Tmp> :

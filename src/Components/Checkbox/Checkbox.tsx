@@ -3,15 +3,16 @@ import styled from "../../Styles/typed-components";
 
 const Container = styled.div`
     margin: 21px;
+    margin-bottom: 30px;
 `;
 const Wrapper = styled.div`
     & input:checked {
         & ~ label {
-            box-shadow: 0 1px 2px rgba(0,50,0,.24), 0 -1px 3px rgba(0,50,0,.42);
-            border: 1px solid #13a964;
+            // box-shadow: 0 1px 2px rgba(0,50,0,.24), 0 -1px 3px rgba(0,50,0,.42);
+            // border: 1px solid #13a964;
             .checked-icon {
                 opacity: 1;
-                transform: scale(1) translate(-50%, -50%);
+                transform: scale(1) translateX(-50%);
             }
         }
     }
@@ -27,6 +28,8 @@ const Wrapper = styled.div`
                 margin-top: 7px;
             }
             .checked-icon {
+                top: -10px;
+                left: 90%;
                 padding: 15px;
                 transform: scale(1) translate(-50%, -50%);
                 & svg {
@@ -48,8 +51,11 @@ const InputChecked = styled.input`
     pointer-events: none;
     &:checked {
         & ~ label {
-            box-shadow: 0 1px 2px rgba(0,0,0,.24), 0 -1px 4px rgba(0,0,0,.92);
+            box-shadow: 0 0.5px 10px rgba(0,30, 90, .5);
             opacity: 1;
+            span {
+                color: #1f3b79;
+            }
         }
     }
 `;
@@ -85,17 +91,20 @@ const Text = styled.span`
     font-size: 12px;
     text-align: center;
     max-width: 100px;
+    color: #979797;
 `;
 const CheckedIcon = styled.div`
     position: absolute;
-    top: 8px;
+    margin-top: 10px;
+    top: 100%;
+    left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    left: 76%;
     border-radius: 50%;
-    padding: 18px;
+    padding: 13px;
     background: linear-gradient(90deg,rgba(42,144,16,1) 0%,rgba(75,201,43,1) 50%,rgba(42,144,16,1) 100%);
     opacity: 0;
     transition: .2s;
+    
     & svg {
         position: absolute;
         top: 50%;
