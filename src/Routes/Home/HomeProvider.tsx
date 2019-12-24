@@ -104,7 +104,7 @@ const useFetch = (history: any): {value: IContext} => {
     const updateStep = () => {
         switch(step) {
             case 0:
-                handleTitle("Pill Link | Language");        
+                handleTitle("Pill Link | Nationality");
                 // handleInitStepSymptom();
                 break;
             case 1:

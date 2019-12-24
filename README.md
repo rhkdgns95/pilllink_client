@@ -25,7 +25,8 @@
 - [x] Git deploy part 3.
 - [x] Step Redirect To Feedback, Feedback - Translated, 기타 -> 응급처치.
 - [x] StepDetailsSymptom Screen Modify.
-- [x] Languages, Symptoms, Details Modfiy.
+- [x] Languages, Symptoms, Details Modfiy, svg -> png.
+- [x] deploy
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.
