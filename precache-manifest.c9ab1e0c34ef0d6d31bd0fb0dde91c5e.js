@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6821f89992df61322454b33bddd87da5",
+    "revision": "d28904d9e05a639422de899a423da970",
     "url": "/pilllink_client/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pilllink_client/static/js/2.5664aa7c.chunk.js"
   },
   {
-    "revision": "43f7d1bf3c7c559c688e",
-    "url": "/pilllink_client/static/js/main.b9a408d6.chunk.js"
+    "revision": "b0603d4a3343ccbe3224",
+    "url": "/pilllink_client/static/js/main.17c84c6f.chunk.js"
   },
   {
     "revision": "26f58eb105725818ef47",
