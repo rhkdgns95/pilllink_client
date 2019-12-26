@@ -32,12 +32,13 @@ const Label = styled.label`
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 7px 20px;
+    padding: 10px 20px;
     border: 1px solid #dfdfdf;
     border-radius: 6px;
     color: gray;
     background-color: white;
-    white-space: nowrap;
+    // white-space: nowrap;
+    text-align: center;
     user-select: none;
     cursor: pointer;
     font-size: 12px;

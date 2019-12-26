@@ -89,6 +89,7 @@ export const CREATE_MEDICAL_RECORD = gql`
             ok
             error
             medicalRecordId
+            lang
         }
     }
 `;

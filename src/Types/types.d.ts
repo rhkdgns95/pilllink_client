@@ -61,8 +61,8 @@ interface IUsePagination {
 }
 // User Data.
 type TGender = "M" | "W";
-type TNationality = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH";
-type TLanguage = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH";
+type TNationality = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH" | "US" | "CA" | "ME" | "TA" | "HO";
+type TLanguage = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH" | "US" | "CA" | "ME" | "TA" | "HO";
 type TStatus = "COLD" | "HANGOVER" | "STOMACHACHE" | "SKIN" | "FEMALE" | "OTHER";
 type TPregnant = "NULL" | "PREGNANT_TRUE";
 type TAllergy = "NULL" | "ALLERGY_ANTIBIOTIC" | "ALLERGY_LACTOSE" | "ALLERGY_PAINKILLER";

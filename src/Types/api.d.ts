@@ -230,6 +230,7 @@ export interface createMedicalRecord_CreateMedicalRecord {
   ok: boolean | null;
   error: string | null;
   medicalRecordId: number | null;
+  lang: Language | null;
 }
 
 export interface createMedicalRecord {
@@ -564,28 +565,38 @@ export enum Gender {
 }
 
 export enum Language {
+  CA = "CA",
   CH = "CH",
   EN = "EN",
   ES = "ES",
   FR = "FR",
+  HO = "HO",
   JA = "JA",
   KO = "KO",
+  ME = "ME",
   MO = "MO",
   RU = "RU",
+  TA = "TA",
   TH = "TH",
+  US = "US",
   VI = "VI",
 }
 
 export enum Nationality {
+  CA = "CA",
   CH = "CH",
   EN = "EN",
   ES = "ES",
   FR = "FR",
+  HO = "HO",
   JA = "JA",
   KO = "KO",
+  ME = "ME",
   MO = "MO",
   RU = "RU",
+  TA = "TA",
   TH = "TH",
+  US = "US",
   VI = "VI",
 }
 
@@ -602,9 +613,7 @@ export enum RES_AMOUNT {
 
 export enum RES_WAY {
   AFTER_EAT = "AFTER_EAT",
-  AFTER_IMMEDIATE_EAT = "AFTER_IMMEDIATE_EAT",
   AGO_EAT = "AGO_EAT",
-  AGO_IMMEDIATE_EAT = "AGO_IMMEDIATE_EAT",
   NO_EAT = "NO_EAT",
 }
 

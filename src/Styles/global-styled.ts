@@ -50,7 +50,7 @@ export const GlobalStlyes = createGlobalStyle`
     }
     .row {
         display: flex;
-        flex-flow: row warp;
+        flex-flow: row wrap;
         width: 100%;
         margin: 0 auto;
         max-width: 900px;

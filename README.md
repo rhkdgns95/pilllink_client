@@ -28,6 +28,7 @@
 - [x] Languages, Symptoms, Details Modfiy, svg -> png.
 - [x] deploy
 - [x] UpdateMyProfile, GetMyProfile Bug Fixed, Add ToggleText.
+- [x] Feedback Add Toggle Button, Update diarrhea Image.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.
@@ -73,6 +74,9 @@
 : 한 파일에서 선택한 단어에 커서를 지정한다.
 - 4.6 F2
 : 한 파일에서 선택한 단어를 리팩토링해준다.
+- 4.7 웹 페이지 루트경로
+: 로컬서버의 페이지루트는 "/"일것이다. 하지만, 서버측의 루트경로에는 process.env.PUBLIC_URL으로 설정된다.
+: 이때 다른 라우터로접근하려면 BrowserRouter의 basename에 process.env.PUBLIC_URL값을 적어준 다음에 진행한다. 그리고 react-router-dom의 Link는 자동저으로 PUBLIC_URL이 등록되어있다는점을 기억하자.
 
 ## 5. Pagination - Medical Record 요청
 - 5.0 총 데이터 갯수를 가져오도록 한다.

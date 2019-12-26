@@ -11,7 +11,7 @@ const Feedback: React.FC<IProps> = ({
     location: { state },
     history
 }) => (
-    <FeedbackProvider recordId={state && state.recordId ? state.recordId : -1} history={history}>
+    <FeedbackProvider recordId={state && state.recordId ? state.recordId : -1} lang={state && state.lang ? state.lang : "NULL" } history={history}>
         <FeedbackContainer />
     </FeedbackProvider>
 );
@@ -26,9 +26,7 @@ const FeedbackContainer = () => {
     }, []);
     
     
-    return (
-        <FeedbackPresenter />
-    );
+    return <FeedbackPresenter />;
 };
 
 export default Feedback;

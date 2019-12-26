@@ -197,8 +197,8 @@ const useFetch = (history: any): {value: IContext} => {
     const [ createMedicalRecordMutation ] = useMutation<createMedicalRecord, createMedicalRecordVariables>(CREATE_MEDICAL_RECORD, {
         onCompleted: data => {
             
-            if(isProgress && data && data.CreateMedicalRecord && data.CreateMedicalRecord.medicalRecordId) {
-                const { medicalRecordId: recordId } = data.CreateMedicalRecord;
+            if(isProgress && data && data.CreateMedicalRecord && data.CreateMedicalRecord.medicalRecordId, data.CreateMedicalRecord.lang) {
+                const { medicalRecordId: recordId, lang  } = data.CreateMedicalRecord;
                 setTimeout(() => {
                     handleProgress(false);
                     handleInit();
@@ -206,7 +206,8 @@ const useFetch = (history: any): {value: IContext} => {
                     history.push({
                         pathname: "/feedback",
                         state: {
-                            recordId
+                            recordId,
+                            lang
                         } 
                     });
                 }, timeOut);

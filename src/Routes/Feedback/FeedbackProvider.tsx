@@ -10,6 +10,9 @@ interface IContext {
     recordCaution: IUseCheckboxArray;
     onCreateConfirm: () => any;
     loadingCreateConfirm: boolean;
+    isTranslated: boolean;
+    onToggleTranslate: () => any;
+    lang: TLanguage | "NULL";
 }
 const InitContext: IContext = {
     recordAmount: { value: "", onChange: () => {} },
@@ -17,7 +20,10 @@ const InitContext: IContext = {
     recordWay: { value: "", onChange: () => {} },
     recordCaution: { value: [], onChange: () => {} },
     onCreateConfirm: () => {},
-    loadingCreateConfirm: false
+    loadingCreateConfirm: false,
+    isTranslated: false,
+    onToggleTranslate: () => {},
+    lang: "NULL"
 };
 
 const FeedbackContext: React.Context<IContext> = createContext(InitContext);
@@ -60,14 +66,16 @@ const useCheckbox = (initValue: Array<string>): IUseCheckboxArray => {
         onChange
     }
 }
-const useFetch = (recordId: number, history: any): { value: IContext } => {
-    if(recordId === -1) {
+const useFetch = (recordId: number, history: any, lang: TLanguage | "NULL"): { value: IContext } => {
+    if(recordId === -1 || lang === "NULL") {
         history.push(PUBLIC_PATH);
     }
     const { isProgress, handleProgress, timeOut } = useAppContext();
     const recordAmount = useInputRadio("D3");
     const recordTime = useCheckbox([]);
     const recordWay = useInputRadio("AGO_EAT");
+    const [isTranslated, setIsTranslated] = useState<boolean>(false);
+
     const recordCaution = useCheckbox([]);
 
     const [createConfirm, { loading: loadingCreateConfirm }] = useMutation<createConfirm, createConfirmVariables>(CREATE_CONFIRM, {
@@ -90,32 +98,43 @@ const useFetch = (recordId: number, history: any): { value: IContext } => {
             }, timeOut);
         }
     });
-
+    const onToggleTranslate = () => {
+        setIsTranslated(!isTranslated);
+    }
     const onCreateConfirm = () => {
         
         if(!isProgress) {
             handleProgress(!isProgress);
             let times = {};
             let cautions = {};
+            let args = {};
             recordTime.value.map(time => {
                 times = {
                     ...times,
                     [time]: true
                 }
             });
-            recordCaution.value.map(caution => {
-                cautions = {
-                    ...cautions,
-                    [caution]: true
+
+            if(recordCaution.value.length > 0) {
+                recordCaution.value.map(caution => {
+                    cautions = {
+                        ...cautions,
+                        [caution]: true
+                    };
+                });
+                args = {
+                    ...cautions
                 };
-            });
-            const args = {
+            }
+
+            args = {
+                ...args,
                 medicalRecordId: recordId,
                 res_amount: recordAmount.value,
                 res_way: recordWay.value,
                 ...times,
-                ...cautions
             };
+            
             createConfirm({
                variables: {
                     ...args as any
@@ -132,6 +151,9 @@ const useFetch = (recordId: number, history: any): { value: IContext } => {
             recordCaution,
             onCreateConfirm,
             loadingCreateConfirm,
+            isTranslated,
+            onToggleTranslate,
+            lang
         }
     };
 };
@@ -139,9 +161,10 @@ const useFetch = (recordId: number, history: any): { value: IContext } => {
 const FeedbackProvider: React.FC<any> = ({
     children,
     recordId,
+    lang,
     history
 }) => (
-    <FeedbackContext.Provider { ...useFetch(recordId, history) }>
+    <FeedbackContext.Provider { ...useFetch(recordId, history, lang) }>
         {
             children
         }

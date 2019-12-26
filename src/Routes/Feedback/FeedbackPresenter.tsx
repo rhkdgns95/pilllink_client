@@ -3,7 +3,7 @@ import { useFeedbackContext } from "./FeedbackProvider";
 import styled from "../../Styles/typed-components";
 import Navbar from "../../Components/Navbar";
 import StepTitle from "../../Components/StepTitle";
-import { PATH_IMG_BG, useAppContext } from "../App/AppProvider";
+import { PATH_IMG_BG, useAppContext, PATH_IMG_ACTION } from "../App/AppProvider";
 import FeedItem from "../../Components/FeedItem";
 import FeedButton from "../../Components/FeedButton";
 import countries from "../../Utils/translator";
@@ -73,6 +73,10 @@ const Group = styled.div`
     background-color: #fff;
     box-shadow: 0 0.5px 10px rgba(0,50,100,.2);
     margin-right: 12px; 
+    &:nth-of-type(1) {
+        height: auto;
+        min-height: 308px;
+    }
 `;
 interface IFeedBox {
     space: number;
@@ -104,14 +108,67 @@ const SubmitBtn = styled.input`
         
     }
 `;
+const TranslateButtonBox = styled.div`
+    
+`;
+const TranslateButton = styled.span`
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    color: white;
+    top: -55px;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    padding: 15px;
+    border-radius: 50%;
+    border: 1px solid black;
+    user-select: none;
+    cursor: pointer;
+    transform: translate(-50%, -50%) rotate(180deg);
+    &:active,
+    &:hover {
+        img {
+            
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+    }
+    @media(max-width: 510px) {
+        padding: 13px;
+        top: -39px;
+        right: 18px;
+        img {
+            width: 19px;
+            height: 19px;
+        }
+    }
+`;
+const TranslateIcon = styled.img`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%) rotate(180deg);
+    transition: transform .2s;
+`;
 
 const FeedbackPresenter = () => {
     const { isProgress } = useAppContext();
-    const { recordAmount, recordTime, recordWay, recordCaution, onCreateConfirm, loadingCreateConfirm } = useFeedbackContext();
+    const { recordAmount, recordTime, recordWay, recordCaution, onCreateConfirm, loadingCreateConfirm, isTranslated, onToggleTranslate, lang } = useFeedbackContext();
     // const currentConfirm: IConfirm = TmpConfirmProps.find(item => item.value === "KO") || TmpConfirmProps[0];
-    const currentCountry: ICountry = countries.find(country => country.value === "KO") || countries[0];
+    const currentLang: TLanguage | "NULL" = isTranslated ? lang : "KO";
+    const currentCountry: ICountry = countries.find(country => country.value === currentLang) || countries[0];
     const currentConfirm: Array<IConfirmData> = currentCountry!.confirms!;
-    const isSetConfirm: boolean = recordTime.value.length > 0 && recordCaution.value.length > 0;
+    // const isSetConfirm: boolean = recordTime.value.length > 0 && recordCaution.value.length > 0;
+    console.log("LANGUAGES: ", currentLang);
+    console.log("isTranslated: ", isTranslated);
+    /**
+     *  isSetConfirm 컨펌가능한지 여부
+     * 
+     *  복약횟수, 주의사항에서 주의사항은 생략가능하므로 제거했다.
+     */
+    const isSetConfirm: boolean = recordTime.value.length > 0;
     
     return (
         <Container className={"container"}>
@@ -126,6 +183,11 @@ const FeedbackPresenter = () => {
                         subTitle={"Please, follow your pharmacist`s instruction"}
                     />
                     <Cell>
+                        <TranslateButtonBox className={""}>
+                            <TranslateButton className={""} onClick={onToggleTranslate}>
+                                <TranslateIcon src={PATH_IMG_ACTION + "/translator.svg"}/>
+                            </TranslateButton>
+                        </TranslateButtonBox>
                         <Bg className={"feed-bg"}>
                             <Img src={PATH_IMG_BG + "/feedback.jpg"}></Img>
                         </Bg>

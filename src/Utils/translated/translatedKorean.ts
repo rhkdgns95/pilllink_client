@@ -226,7 +226,7 @@ export const TranslatedKorean: ICountry = {
     ],
     confirms: [
         {
-            name: "복욕량",
+            name: "복용량",
             value: "AMOUNT",
             details: [
                 {
