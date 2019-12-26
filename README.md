@@ -29,6 +29,8 @@
 - [x] deploy
 - [x] UpdateMyProfile, GetMyProfile Bug Fixed, Add ToggleText.
 - [x] Feedback Add Toggle Button, Update diarrhea Image.
+- [x] Image Bug Fixed.
+- [] Chart, Feedback - Check My Records.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.

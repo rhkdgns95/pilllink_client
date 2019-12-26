@@ -135,8 +135,8 @@ const TranslateButton = styled.span`
     }
     @media(max-width: 510px) {
         padding: 13px;
-        top: -39px;
-        right: 18px;
+        top: -28px;
+        right: 5px;
         img {
             width: 19px;
             height: 19px;

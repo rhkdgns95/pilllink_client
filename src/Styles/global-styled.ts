@@ -50,7 +50,7 @@ export const GlobalStlyes = createGlobalStyle`
     }
     .row {
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: row;
         width: 100%;
         margin: 0 auto;
         max-width: 900px;
@@ -59,6 +59,7 @@ export const GlobalStlyes = createGlobalStyle`
         }
         @media(max-width: 510px) {
             width: 95%;
+            flex-flow: row wrap;
         }
     }
     .step-container {
