@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "pillink.com/static/js/main.73289881.chunk.js",
-    "main.js.map": "pillink.com/static/js/main.73289881.chunk.js.map",
-    "runtime-main.js": "pillink.com/static/js/runtime-main.cfec4a9e.js",
-    "runtime-main.js.map": "pillink.com/static/js/runtime-main.cfec4a9e.js.map",
-    "static/js/2.b1100b0c.chunk.js": "pillink.com/static/js/2.b1100b0c.chunk.js",
-    "static/js/2.b1100b0c.chunk.js.map": "pillink.com/static/js/2.b1100b0c.chunk.js.map",
-    "index.html": "pillink.com/index.html",
-    "precache-manifest.2906586819310f690238afec4bd3e934.js": "pillink.com/precache-manifest.2906586819310f690238afec4bd3e934.js",
-    "service-worker.js": "pillink.com/service-worker.js"
+    "main.js": "/static/js/main.ba627bcc.chunk.js",
+    "main.js.map": "/static/js/main.ba627bcc.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d374f928.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d374f928.js.map",
+    "static/js/2.32b4e722.chunk.js": "/static/js/2.32b4e722.chunk.js",
+    "static/js/2.32b4e722.chunk.js.map": "/static/js/2.32b4e722.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.02dbf4d047d0d38bc4c886d8e919da01.js": "/precache-manifest.02dbf4d047d0d38bc4c886d8e919da01.js",
+    "service-worker.js": "/service-worker.js"
   },
   "entrypoints": [
-    "static/js/runtime-main.cfec4a9e.js",
-    "static/js/2.b1100b0c.chunk.js",
-    "static/js/main.73289881.chunk.js"
+    "static/js/runtime-main.d374f928.js",
+    "static/js/2.32b4e722.chunk.js",
+    "static/js/main.ba627bcc.chunk.js"
   ]
 }
