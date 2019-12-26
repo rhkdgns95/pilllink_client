@@ -222,6 +222,7 @@ interface ICountry extends ISymptomInputData {
     selectors: Array<>
     symptoms: Array<ISymptom>;
     confirms: Array<IConfirmData>;
+    contents: Array<string>;
 }
 
 interface ISymptomDetails {

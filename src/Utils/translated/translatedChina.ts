@@ -9,50 +9,50 @@ export const TranslatedChina: ICountry = {
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "CH_알레르기",
+            name: "过敏性反应",
             details: [
                 {
-                    name: "CH_해당사항 없음",
+                    name: "没有人",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "CH_진통제",
+                    name: "镇痛剂",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "CH_유당",
+                    name: "抗生剂",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "CH_임신여부",
+            name: "妊娠",
             details: [
                 {
-                    name: "CH_임신 X",
+                    name: "妊娠 X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "CH_임신 O",
+                    name: "妊娠 O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
-            name: "CH_만성질환",
+            name: "慢性病",
             details: [
                 {
-                    name: "CH_해당사항 없음",
+                    name: "没有人",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "CH_간질환",
+                    name: "肝病",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "CH_신장질환",
+                    name: "血压高",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -230,15 +230,15 @@ export const TranslatedChina: ICountry = {
             value: "AMOUNT",
             details: [
                 {
-                    name: "CH_3일",
+                    name: "3日",
                     value: "D3"
                 },
                 {
-                    name: "CH_5일" ,
+                    name: "5日" ,
                     value: "D5"
                 },
                 {
-                    name: "CH_7일",
+                    name: "7日",
                     value: "D7"
                 }
             ]
@@ -248,19 +248,19 @@ export const TranslatedChina: ICountry = {
             value: "TIME",
             details: [
                 {
-                    name: "CH_아침",
+                    name: "早饭",
                     value: "TO_MORNING"
                 },
                 {
-                    name: "CH_점심" ,
+                    name: "午饭" ,
                     value: "TO_LUNCH"
                 },
                 {
-                    name: "CH_저녁",
+                    name: "晚饭",
                     value: "TO_DINNER"
                 },
                 {
-                    name: "CH_취침전",
+                    name: "就寝 之前",
                     value: "TO_SLEEP"
                 }
             ]
@@ -270,23 +270,15 @@ export const TranslatedChina: ICountry = {
             value: "WAY",
             details: [
                 {
-                    name: "CH_식전30분",
+                    name: "饭前 30分",
                     value: "AGO_EAT"
                 },
-                {
-                    name: "CH_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "CH_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
-                    name: "CH_식후30분",
+               {
+                    name: "饭后 30分",
                     value: "AFTER_EAT"
                 },
                 {
-                    name: "CH_공복",
+                    name: "空腹",
                     value: "NO_EAT"
                 }
             ]
@@ -296,30 +288,33 @@ export const TranslatedChina: ICountry = {
             value: "CAUTION",
             details: [
                 {
-                    name: "CH_졸음",
+                    name: "困意",
                     value: "CAUTION_SLEEP"
                 },
                 {
-                    name: "CH_발진",
+                    name: "出疹子",
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "CH_혈압",
+                    name: "血压 ↑",
                     value: "CAUTION_BLOODPRESSURE"
                 },
                 {
-                    name: "CH_복통",
+                    name: "腹痛",
                     value: "CAUTION_STOMACAHCHE"
                 },
                 {
-                    name: "CH_설사",
+                    name: "腹泻",
                     value: "CAUTION_DIARRHEA"
                 },
                 {
-                    name: "CH_어지러움",
+                    name: "发昏",
                     value: "CAUTION_DIZZY"
                 },
             ]
         },
+    ],
+    contents: [
+        "拜托,给药剂师看看."
     ]
 };

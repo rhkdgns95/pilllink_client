@@ -9,50 +9,50 @@ export const TranslatedRussia: ICountry = {
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "RU_알레르기",
+            name: "аллергия",
             details: [
                 {
-                    name: "RU_해당사항 없음",
+                    name: "Ничего",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "RU_진통제",
+                    name: "болеутоляющее средство",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "RU_유당",
+                    name: "антибиотическое средство",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "RU_임신여부",
+            name: "беременность",
             details: [
                 {
-                    name: "RU_임신 X",
+                    name: "беременность X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "RU_임신 O",
+                    name: "беременность O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
-            name: "RU_만성질환",
+            name: "хрони́ческое заболева́ние",
             details: [
                 {
-                    name: "RU_해당사항 없음",
+                    name: "Ничего",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "RU_간질환",
+                    name: "печень болезнь",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "RU_신장질환",
+                    name: "высокое давление",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -230,15 +230,15 @@ export const TranslatedRussia: ICountry = {
             value: "AMOUNT",
             details: [
                 {
-                    name: "RU_3일",
+                    name: "3день",
                     value: "D3"
                 },
                 {
-                    name: "RU_5일" ,
+                    name: "5день" ,
                     value: "D5"
                 },
                 {
-                    name: "RU_7일",
+                    name: "7день",
                     value: "D7"
                 }
             ]
@@ -248,19 +248,19 @@ export const TranslatedRussia: ICountry = {
             value: "TIME",
             details: [
                 {
-                    name: "RU_아침",
+                    name: "завтрак",
                     value: "TO_MORNING"
                 },
                 {
-                    name: "RU_점심" ,
+                    name: "обед" ,
                     value: "TO_LUNCH"
                 },
                 {
-                    name: "RU_저녁",
+                    name: "ужин",
                     value: "TO_DINNER"
                 },
                 {
-                    name: "RU_취침전",
+                    name: "отбой до",
                     value: "TO_SLEEP"
                 }
             ]
@@ -270,23 +270,15 @@ export const TranslatedRussia: ICountry = {
             value: "WAY",
             details: [
                 {
-                    name: "RU_식전30분",
+                    name: "перед едой полчаса́",
                     value: "AGO_EAT"
                 },
                 {
-                    name: "RU_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "RU_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
-                    name: "RU_식후30분",
+                    name: "после еды полчаса́",
                     value: "AFTER_EAT"
                 },
                 {
-                    name: "RU_공복",
+                    name: "пустой желудок",
                     value: "NO_EAT"
                 }
             ]
@@ -296,30 +288,33 @@ export const TranslatedRussia: ICountry = {
             value: "CAUTION",
             details: [
                 {
-                    name: "RU_졸음",
+                    name: "дремота",
                     value: "CAUTION_SLEEP"
                 },
                 {
-                    name: "RU_발진",
+                    name: "сыпь",
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "RU_혈압",
+                    name: "кровеносное давление ↑",
                     value: "CAUTION_BLOODPRESSURE"
                 },
                 {
-                    name: "RU_복통",
+                    name: "желудочное заболевание",
                     value: "CAUTION_STOMACAHCHE"
                 },
                 {
-                    name: "RU_설사",
+                    name: "понос",
                     value: "CAUTION_DIARRHEA"
                 },
                 {
-                    name: "RU_어지러움",
+                    name: "Головокружительно",
                     value: "CAUTION_DIZZY"
                 },
             ]
         },
+    ],
+    contents: [
+        "Нажмите для показа фармацевту."
     ]
 };

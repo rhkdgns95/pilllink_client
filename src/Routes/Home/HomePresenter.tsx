@@ -8,6 +8,7 @@ import { useHomeContext } from "./HomeProvider";
 import StepSymptoms from "../../Components/Steps/StepSymptoms";
 import StepDetailSymptoms from "../../Components/Steps/StepDetailSymptoms";
 import { useAppContext } from "../App/AppProvider";
+import ModalCloseBtn from "../../Components/ModalCloseBtn";
 
 const Container = styled.div`
 `;
@@ -40,7 +41,7 @@ const SlideBtnBox = styled.div`
 
 const HomePresenter = () => {
     const { isProgress } = useAppContext();
-    const { lang, step, handleStep, symptom, submitOk, handleMedicalRecord } = useHomeContext();
+    const { lang, step, handleStep, symptom, submitOk, handleMedicalRecord, isModal } = useHomeContext();
     
     return (
         <Container className={"container"}>
@@ -131,16 +132,17 @@ const HomePresenter = () => {
                                                 onClick={handleMedicalRecord}
                                                 isNext={true}
                                                 disabled={isProgress}
+                                                isModal={isModal}
                                             />
                                         }   
                                     </>
                                 )
                             }
-
                         </SlideBtnBox>
                     </SlideForm>
                 </Wrapper>
             </Box>
+            { step === 3 && isModal && <ModalCloseBtn />}
         </Container>
     )
 };

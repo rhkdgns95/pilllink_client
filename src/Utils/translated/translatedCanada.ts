@@ -222,15 +222,15 @@ export const TranslatedCanada: ICountry = {
             value: "AMOUNT",
             details: [
                 {
-                    name: "3Days",
+                    name: "3days",
                     value: "D3"
                 },
                 {
-                    name: "5Days" ,
+                    name: "5days" ,
                     value: "D5"
                 },
                 {
-                    name: "7Days",
+                    name: "7days",
                     value: "D7"
                 }
             ]
@@ -266,15 +266,7 @@ export const TranslatedCanada: ICountry = {
                     value: "AGO_EAT"
                 },
                 {
-                    name: "30mins after meal" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "EN_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
-                    name: "EN_식후30분",
+                    name: "30mins after meal",
                     value: "AFTER_EAT"
                 },
                 {
@@ -313,5 +305,8 @@ export const TranslatedCanada: ICountry = {
                 },
             ]
         },
+    ],
+    contents: [
+        "Please, click it to show to pharmacist."
     ]
 };

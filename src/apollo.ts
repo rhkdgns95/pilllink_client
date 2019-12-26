@@ -35,7 +35,7 @@ const client = new ApolloClient({
     link,
     resolvers: {
         Mutation: {
-            UserLoggedIn: (_, { token }, {cache}) => {
+            UserLoggedIn: (_, { token }, { cache }) => {
                 localStorage.setItem('x-jwt', token);
                 cache.writeData({
                     data: {
@@ -47,7 +47,8 @@ const client = new ApolloClient({
                 });
                 return null;
             },
-            UserLoggedOut: (_, __, {cache}) => {
+            UserLoggedOut: (_, __, { cache, client}) => {
+                
                 localStorage.removeItem('x-jwt');
                 cache.writeData({
                     data: {
@@ -57,6 +58,7 @@ const client = new ApolloClient({
                         }
                     }
                 });
+                
                 return null;
             }
         }

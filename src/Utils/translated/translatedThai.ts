@@ -9,50 +9,50 @@ export const TranslatedThai: ICountry = {
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "TH_알레르기",
+            name: "อาการแพ้",
             details: [
                 {
-                    name: "TH_해당사항 없음",
+                    name: "ไม่ป้องกัน",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "TH_진통제",
+                    name: "ยาแก้ปวด",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "TH_유당",
+                    name: "สารปฏิชีวนะ",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "TH_임신여부",
+            name: "การตั้งครรภ์",
             details: [
                 {
-                    name: "TH_임신 X",
+                    name: "การตั้งครรภ์ X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "TH_임신 O",
+                    name: "การตั้งครรภ์ O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
-            name: "TH_만성질환",
+            name: "อาการเรื้อรัง โรค",
             details: [
                 {
-                    name: "TH_해당사항 없음",
+                    name: "ไม่ป้องกัน",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "TH_간질환",
+                    name: "ตับ โรค",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "TH_신장질환",
+                    name: "ความดันโลหิตสูง",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -110,7 +110,7 @@ export const TranslatedThai: ICountry = {
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
-                    name: "TH_속쓰림",
+                    name: "เสียด",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
@@ -140,7 +140,7 @@ export const TranslatedThai: ICountry = {
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
-                    name: "TH_속쓰림",
+                    name: "เสียด",
                     ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
@@ -230,15 +230,15 @@ export const TranslatedThai: ICountry = {
             value: "AMOUNT",
             details: [
                 {
-                    name: "TH_3일",
+                    name: "3วัน",
                     value: "D3"
                 },
                 {
-                    name: "TH_5일" ,
+                    name: "5วัน" ,
                     value: "D5"
                 },
                 {
-                    name: "TH_7일",
+                    name: "7วัน",
                     value: "D7"
                 }
             ]
@@ -248,19 +248,19 @@ export const TranslatedThai: ICountry = {
             value: "TIME",
             details: [
                 {
-                    name: "TH_아침",
+                    name: "อาหารเช้า",
                     value: "TO_MORNING"
                 },
                 {
-                    name: "TH_점심" ,
+                    name: "อาหารกลางวัน" ,
                     value: "TO_LUNCH"
                 },
                 {
-                    name: "TH_저녁",
+                    name: "อาหารเย็น",
                     value: "TO_DINNER"
                 },
                 {
-                    name: "TH_취침전",
+                    name: "การนอน ก่อน",
                     value: "TO_SLEEP"
                 }
             ]
@@ -270,23 +270,15 @@ export const TranslatedThai: ICountry = {
             value: "WAY",
             details: [
                 {
-                    name: "TH_식전30분",
+                    name: "ก่อนกินข้าว 30นาที",
                     value: "AGO_EAT"
                 },
                 {
-                    name: "TH_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "TH_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
-                    name: "TH_식후30분",
+                    name: "หลังอาหาร 30นาที",
                     value: "AFTER_EAT"
                 },
                 {
-                    name: "TH_공복",
+                    name: "ท้องว่าง",
                     value: "NO_EAT"
                 }
             ]
@@ -296,30 +288,33 @@ export const TranslatedThai: ICountry = {
             value: "CAUTION",
             details: [
                 {
-                    name: "TH_졸음",
+                    name: "ความง่วง",
                     value: "CAUTION_SLEEP"
                 },
                 {
-                    name: "TH_발진",
+                    name: "ผื่น",
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "TH_혈압",
+                    name: "ความดันโลหิต ↑",
                     value: "CAUTION_BLOODPRESSURE"
                 },
                 {
-                    name: "TH_복통",
+                    name: "อาการปวดท้อง",
                     value: "CAUTION_STOMACAHCHE"
                 },
                 {
-                    name: "TH_설사",
+                    name: "การท้องร่วง",
                     value: "CAUTION_DIARRHEA"
                 },
                 {
-                    name: "TH_어지러움",
+                    name: "วิงเวียน",
                     value: "CAUTION_DIZZY"
                 },
             ]
         },
+    ],
+    contents: [
+        "กรุณาคลิกเพื่อแสดงให้เภสัชกรค่ะ."
     ]
 };

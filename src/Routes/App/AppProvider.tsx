@@ -78,14 +78,15 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
             const { GetMyProfile: { ok, user } } = data;
             if(ok && user) {
                 if(data.GetMyProfile.ok) {
-                    // console.log("data.GetMyProfile.ok: ", data.GetMyProfile);
+                    console.log("data.GetMyProfile.ok: ", data.GetMyProfile);
                 }
             }
         },
         onError: data => {
             console.log("GetMyProfile error: ", data);
         },
-        skip: !loggedIn
+        skip: !loggedIn,
+        fetchPolicy: "network-only"
     });
     /**
      *  
@@ -143,7 +144,7 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
         //    }
         // },
         refetchQueries: [
-            {query: GET_MY_PROFILE}
+            { query: GET_MY_PROFILE }
         ]
     });
     

@@ -27,6 +27,7 @@
 - [x] StepDetailsSymptom Screen Modify.
 - [x] Languages, Symptoms, Details Modfiy, svg -> png.
 - [x] deploy
+- [x] UpdateMyProfile, GetMyProfile Bug Fixed, Add ToggleText.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.

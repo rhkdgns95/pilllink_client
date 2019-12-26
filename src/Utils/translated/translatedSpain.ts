@@ -9,50 +9,50 @@ export const TranslatedSpain: ICountry = {
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "ES_알레르기",
+            name: "alergia",
             details: [
                 {
-                    name: "ES_해당사항 없음",
+                    name: "Ninguna",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "ES_진통제",
+                    name: "calmante",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "ES_유당",
+                    name: "antibiótico",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "ES_임신여부",
+            name: "embarazo",
             details: [
                 {
-                    name: "ES_임신 X",
+                    name: "embarazo X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "ES_임신 O",
+                    name: "embarazo O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
-            name: "ES_만성질환",
+            name: "enfermedad crónico",
             details: [
                 {
-                    name: "ES_해당사항 없음",
+                    name: "Ninguna",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "ES_간질환",
+                    name: "hígado dolencia",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "ES_신장질환",
+                    name: "alta presión arterial",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -61,138 +61,138 @@ export const TranslatedSpain: ICountry = {
     symptoms: [
         { 
             ...CommonSymptoms[COLD],
-            name: "ES_감기",
+            name: "Resfriado",
             details: [
                 { 
-                    name: "ES_기침",
+                    name: "Tos",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "ES_두통",
+                    name: "Dolor de Cabeza",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "ES_콧물",
+                    name: "Flujo Nasal",
                     ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "ES_목아픔",
+                    name: "Dolor de Garganta ",
                     ...CommonSymptomsText.cold_soreThroat
                 },
                 {
-                    name: "ES_열",
+                    name: "Fiebre",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "ES_몸살",
+                    name: "Dolor Corporal",
                     ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
-            name: "ES_숙취",
+            name: "Resaca",
             details: [
                 {
-                    name: "ES_두통",
+                    name: "Dolor de Cabeza",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "ES_설사",
+                    name: "Diarrea",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "ES_구토",
+                    name: "Vómito",
                     ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "ES_메스꺼움",
+                    name: "Nausea",
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
-                    name: "ES_속쓰림",
+                    name: "Acidez estomacal",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[STOMACHACHE],
-            name: "ES_복통",
+            name: "Dolor de Estómago",
             details: [
                 {
-                    name: "ES_설사",
+                    name: "Diarrea",
                     ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "ES_생리통",
+                    name: "Dolor Menstrual - Cólicos",
                     ...CommonSymptomsText.stomachache_periodCramps
                 },
                 {
-                    name: "ES_소화불량",
+                    name: "Indigestión",
                     ...CommonSymptomsText.stomachache_indigestion
                 },
                 {
-                    name: "ES_변비",
+                    name: "Estreñimiento",
                     ...CommonSymptomsText.stomachache_constipation
                 },
                 {
-                    name: "ES_메스꺼움",
+                    name: "Nausea",
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
-                    name: "ES_속쓰림",
+                    name: "Acidez Estomacal",
                     ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
-            name: "ES_피부질환",
+            name: "dermatopatía",
             details: [
                 {
-                    name: "ES_철과상",
+                    name: "Herida",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "ES_여드름",
+                    name: "Acné",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "ES_두드러기",
+                    name: "Urticaria",
                     ...CommonSymptomsText.skin_rash
                 },
                 {
-                    name: "ES_습진",
+                    name: "Eccema",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "ES_수포",
+                    name: "Ampolla",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "ES_무좀",
+                    name: "Pie de Atleta",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
-            name: "ES_여성질환",
+            name: "Salud femenina",
             details: [
                 {
-                    name: "ES_생리통",
+                    name: "Dolor Menstrual",
                     ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "ES_임신테스트",
+                    name: "Prueba del Embarazo",
                     ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "ES_경구피임약",
+                    name: "Píldora Anticonceptiva",
                     ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "ES_사후피임약",
+                    name: "Píldora del día después",
                     ...CommonSymptomsText.female_postCoitalBirthControl
                 },
             ]
@@ -230,15 +230,15 @@ export const TranslatedSpain: ICountry = {
             value: "AMOUNT",
             details: [
                 {
-                    name: "ES_3일",
+                    name: "3día",
                     value: "D3"
                 },
                 {
-                    name: "ES_5일" ,
+                    name: "5día" ,
                     value: "D5"
                 },
                 {
-                    name: "ES_7일",
+                    name: "7día",
                     value: "D7"
                 }
             ]
@@ -248,19 +248,19 @@ export const TranslatedSpain: ICountry = {
             value: "TIME",
             details: [
                 {
-                    name: "ES_아침",
+                    name: "desayuno",
                     value: "TO_MORNING"
                 },
                 {
-                    name: "ES_점심" ,
+                    name: "almuerzo" ,
                     value: "TO_LUNCH"
                 },
                 {
-                    name: "ES_저녁",
+                    name: "cena",
                     value: "TO_DINNER"
                 },
                 {
-                    name: "ES_취침전",
+                    name: "dormición antes",
                     value: "TO_SLEEP"
                 }
             ]
@@ -270,23 +270,15 @@ export const TranslatedSpain: ICountry = {
             value: "WAY",
             details: [
                 {
-                    name: "ES_식전30분",
+                    name: "en ayunas 30minuto",
                     value: "AGO_EAT"
                 },
                 {
-                    name: "ES_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "ES_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
-                    name: "ES_식후30분",
+                    name: "después de la comida 30minuto",
                     value: "AFTER_EAT"
                 },
                 {
-                    name: "ES_공복",
+                    name: "estómago vacío",
                     value: "NO_EAT"
                 }
             ]
@@ -296,30 +288,33 @@ export const TranslatedSpain: ICountry = {
             value: "CAUTION",
             details: [
                 {
-                    name: "ES_졸음",
+                    name: "somnolencia",
                     value: "CAUTION_SLEEP"
                 },
                 {
-                    name: "ES_발진",
+                    name: "erupción",
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "ES_혈압",
+                    name: "presión sanguínea ↑",
                     value: "CAUTION_BLOODPRESSURE"
                 },
                 {
-                    name: "ES_복통",
+                    name: "Dolor de Estómago",
                     value: "CAUTION_STOMACAHCHE"
                 },
                 {
-                    name: "ES_설사",
+                    name: "Diarrea",
                     value: "CAUTION_DIARRHEA"
                 },
                 {
-                    name: "ES_어지러움",
+                    name: "mareo",
                     value: "CAUTION_DIZZY"
                 },
             ]
         },
+    ],
+    contents: [
+        "Para mostrarlo usted mismo."
     ]
 };

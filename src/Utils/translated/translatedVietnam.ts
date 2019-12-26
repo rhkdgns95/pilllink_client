@@ -9,50 +9,50 @@ export const TranslatedVietnam: ICountry = {
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "VI_알레르기",
+            name: "dị ứng",
             details: [
                 {
-                    name: "VI_해당사항 없음",
+                    name: "Không có",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "VI_진통제",
+                    name: "thuốc giảm đau",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "VI_유당",
+                    name: "thuốc kháng sinh",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "VI_임신여부",
+            name: "có thai",
             details: [
                 {
-                    name: "VI_임신 X",
+                    name: "có thai X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "VI_임신 O",
+                    name: "có thai O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
-            name: "VI_만성질환",
+            name: "Bệnh mãn tính",
             details: [
                 {
-                    name: "VI_해당사항 없음",
+                    name: "Không có",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "VI_간질환",
+                    name: "gan bệnh tật",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "VI_신장질환",
+                    name: "chứng cao huyết áp",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -61,138 +61,138 @@ export const TranslatedVietnam: ICountry = {
     symptoms: [
         { 
             ...CommonSymptoms[COLD],
-            name: "VI_감기",
+            name: "bệnh cảm",
             details: [
                 { 
-                    name: "VI_기침",
+                    name: "sự ho",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "VI_두통",
+                    name: "sự đau đầu",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "VI_콧물",
+                    name: "nước mũi",
                     ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "VI_목아픔",
+                    name: "viêm họng",
                     ...CommonSymptomsText.cold_soreThroat
                 },
                 {
-                    name: "VI_열",
+                    name: "nhiệt",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "VI_몸살",
+                    name: "chứng đau nhức toàn thân",
                     ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
-            name: "VI_숙취",
+            name: "dư vị say rượu",
             details: [
                 {
-                    name: "VI_두통",
+                    name: "sự đau đầu",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "VI_설사",
+                    name: "sự tiêu chảy",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "VI_구토",
+                    name: "sự ói mửa",
                     ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "VI_메스꺼움",
+                    name: "buồn nôn",
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
-                    name: "VI_속쓰림",
+                    name: "bệnh ợ lên có vị chua",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[STOMACHACHE],
-            name: "VI_복통",
+            name: "đau bụng",
             details: [
                 {
-                    name: "VI_설사",
+                    name: "sự tiêu chảy",
                     ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "VI_생리통",
+                    name: "sự đau bụng kinh",
                     ...CommonSymptomsText.stomachache_periodCramps
                 },
                 {
-                    name: "VI_소화불량",
+                    name: "sự khó tiêu",
                     ...CommonSymptomsText.stomachache_indigestion
                 },
                 {
-                    name: "VI_변비",
+                    name: "chứng táo bón",
                     ...CommonSymptomsText.stomachache_constipation
                 },
                 {
-                    name: "VI_메스꺼움",
+                    name: "buồn nôn",
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
-                    name: "VI_속쓰림",
+                    name: "bệnh ợ lên có vị chua",
                     ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
-            name: "VI_피부질환",
+            name: "Bệnh da liễu",
             details: [
                 {
-                    name: "VI_철과상",
+                    name: "vết xước",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "VI_여드름",
+                    name: "mụn trứng cá",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "VI_두드러기",
+                    name: "dị ứng",
                     ...CommonSymptomsText.skin_rash
                 },
                 {
-                    name: "VI_습진",
+                    name: "bệnh chàm",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "VI_수포",
+                    name: "vết bỏng",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "VI_무좀",
+                    name: "bệnh nấm ở chân",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
-            name: "VI_여성질환",
+            name: "phụ nữ sự khỏe mạnh",
             details: [
                 {
-                    name: "VI_생리통",
+                    name: "sự đau bụng kinh",
                     ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "VI_임신테스트",
+                    name: "Thử thai",
                     ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "VI_경구피임약",
+                    name: "thuốc ngừa thai loại uống",
                     ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "VI_사후피임약",
+                    name: "về sau thuốc tránh thai",
                     ...CommonSymptomsText.female_postCoitalBirthControl
                 },
             ]
@@ -230,15 +230,15 @@ export const TranslatedVietnam: ICountry = {
             value: "AMOUNT",
             details: [
                 {
-                    name: "VI_3일",
+                    name: "3ngày",
                     value: "D3"
                 },
                 {
-                    name: "VI_5일" ,
+                    name: "5ngày" ,
                     value: "D5"
                 },
                 {
-                    name: "VI_7일",
+                    name: "7ngày",
                     value: "D7"
                 }
             ]
@@ -248,19 +248,19 @@ export const TranslatedVietnam: ICountry = {
             value: "TIME",
             details: [
                 {
-                    name: "VI_아침",
+                    name: "cơm sáng",
                     value: "TO_MORNING"
                 },
                 {
-                    name: "VI_점심" ,
+                    name: "bữa trưa" ,
                     value: "TO_LUNCH"
                 },
                 {
-                    name: "VI_저녁",
+                    name: "bữa tối",
                     value: "TO_DINNER"
                 },
                 {
-                    name: "VI_취침전",
+                    name: "sự ngủ trước",
                     value: "TO_SLEEP"
                 }
             ]
@@ -270,23 +270,15 @@ export const TranslatedVietnam: ICountry = {
             value: "WAY",
             details: [
                 {
-                    name: "VI_식전30분",
+                    name: "trước khi ăn 30phút",
                     value: "AGO_EAT"
                 },
                 {
-                    name: "VI_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "VI_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
-                    name: "VI_식후30분",
+                    name: "sau bữa ăn 30phút",
                     value: "AFTER_EAT"
                 },
                 {
-                    name: "VI_공복",
+                    name: "bụng trống không",
                     value: "NO_EAT"
                 }
             ]
@@ -296,30 +288,33 @@ export const TranslatedVietnam: ICountry = {
             value: "CAUTION",
             details: [
                 {
-                    name: "VI_졸음",
+                    name: "cơn buồn ngủ",
                     value: "CAUTION_SLEEP"
                 },
                 {
-                    name: "VI_발진",
+                    name: "chứng nổi nhọt",
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "VI_혈압",
+                    name: "huyết áp ↑",
                     value: "CAUTION_BLOODPRESSURE"
                 },
                 {
-                    name: "VI_복통",
+                    name: "đau bụng",
                     value: "CAUTION_STOMACAHCHE"
                 },
                 {
-                    name: "VI_설사",
+                    name: "sự tiêu chảy",
                     value: "CAUTION_DIARRHEA"
                 },
                 {
-                    name: "VI_어지러움",
+                    name: "chóng mặt",
                     value: "CAUTION_DIZZY"
                 },
             ]
         },
+    ],
+    contents: [
+        "Nếu muốn cho các thầy thuốc xem thì hãy nhấp chuột."
     ]
 };

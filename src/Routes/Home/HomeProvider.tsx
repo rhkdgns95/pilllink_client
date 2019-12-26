@@ -1,7 +1,7 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
 import { useMutation } from "react-apollo";
 import { CREATE_MEDICAL_RECORD } from "./HomeQueries";
-import { useAppContext, PUBLIC_PATH } from "../App/AppProvider";
+import { useAppContext } from "../App/AppProvider";
 import translator from "../../Utils/translator";
 import { createMedicalRecord, createMedicalRecordVariables }  from "../../Types/api";
 import { GET_MY_PROFILE } from "../App/AppQueries";
@@ -18,6 +18,8 @@ interface IContext {
     handleSubmitOk: (isOk: boolean) => any;
     onCreateResultDetails: (data: any) => any;
     handleMedicalRecord: () => any;
+    isModal: boolean;
+    handleModal: () => any;
 }
 
 const InitContext: IContext = {
@@ -31,7 +33,9 @@ const InitContext: IContext = {
     submitOk: false,
     handleSubmitOk: (isOk: boolean) => {},
     onCreateResultDetails: () => {},
-    handleMedicalRecord: () => {}
+    handleMedicalRecord: () => {},
+    isModal: false,
+    handleModal: () => {}
 };
 
 const HomeContext: React.Context<IContext> = createContext<IContext>(InitContext);
@@ -40,7 +44,7 @@ const useHomeContext = () => useContext(HomeContext);
 const useInput = (defaultName: TLanguage | string): IUseRadio => {
     const [value, setValue] = useState<string>(defaultName); 
     const [ , setCurrentValue] = useState<string>(defaultName); // 실제 저장될 LANG.
-
+    
     const onChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         const { target: { value }} = event;
         setValue(value);
@@ -138,6 +142,13 @@ const useFetch = (history: any): {value: IContext} => {
     const symptom = useRadio("");
 
     /**
+     *  Step - 3 Details
+     * 
+     *  Modal - isModal
+     */
+    const [ isModal, setIsModal ] = useState<boolean>(true);
+
+    /**
      *  useEffect(() => {}, [lang])
      * 
      *  언어선택이 하나라도 된어있다면,
@@ -193,7 +204,7 @@ const useFetch = (history: any): {value: IContext} => {
                     handleInit();
                     
                     history.push({
-                        pathname: PUBLIC_PATH + "feedback",
+                        pathname: "/feedback",
                         state: {
                             recordId
                         } 
@@ -311,9 +322,26 @@ const useFetch = (history: any): {value: IContext} => {
                     handleSubmitOk(false);
                 }
             }
+            if(prevStep === 3 && newStep === 2) {
+                if(!isModal) {
+                    setTimeout(() => {
+                        setIsModal(true);
+                    }, 500);
+                }
+            }
             // newStep
             return newStep;
         });
+    }
+
+    /**
+     *  handleModal
+     * 
+     *  Step3의 Details페이지의 알림문구를
+     *  보여주는것을 제어한다.
+     */
+    const handleModal = () => {
+        setIsModal(!isModal);
     }
     
     /**
@@ -326,6 +354,7 @@ const useFetch = (history: any): {value: IContext} => {
     const handleSubmitOk = (isOk: boolean) => {
         setSubmitOk(isOk);
     }
+
 
     // console.log("Current Language: ", lang);
     return {
@@ -340,7 +369,9 @@ const useFetch = (history: any): {value: IContext} => {
             submitOk,
             handleSubmitOk,
             handleMedicalRecord,
-            onCreateResultDetails
+            onCreateResultDetails,
+            isModal,
+            handleModal
         }
     };
 }

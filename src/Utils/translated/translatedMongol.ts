@@ -9,50 +9,50 @@ export const TranslatedMongol: ICountry = {
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "MO_알레르기",
+            name: "харшил",
             details: [
                 {
-                    name: "MO_해당사항 없음",
+                    name: "байхгүй",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "MO_진통제",
+                    name: "өвчин намдаах эм",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "MO_유당",
+                    name: "антибиотек",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "MO_임신여부",
+            name: "хөл хүнд",
             details: [
                 {
-                    name: "MO_임신 X",
+                    name: "хөл хүнд  X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "MO_임신 O",
+                    name: "хөл хүнд O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
-            name: "MO_만성질환",
+            name: "архаг өвчин",
             details: [
                 {
-                    name: "MO_해당사항 없음",
+                    name: "байхгүй",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "MO_간질환",
+                    name: "элэг өвчин",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "MO_신장질환",
+                    name: "цусны өндөр даралт",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -110,14 +110,14 @@ export const TranslatedMongol: ICountry = {
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
-                    name: "MO_속쓰림",
+                    name: "дотор хорсох",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[STOMACHACHE],
-            name: "MO_복통",
+            name: "гэдэсний өвчин",
             details: [
                 {
                     name: "гэдэс суулгалт",
@@ -140,7 +140,7 @@ export const TranslatedMongol: ICountry = {
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
-                    name: "MO_속쓰림",
+                    name: "дотор хорсох",
                     ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
@@ -230,15 +230,15 @@ export const TranslatedMongol: ICountry = {
             value: "AMOUNT",
             details: [
                 {
-                    name: "MO_3일",
+                    name: "3өдөр",
                     value: "D3"
                 },
                 {
-                    name: "MO_5일" ,
+                    name: "5өдөр" ,
                     value: "D5"
                 },
                 {
-                    name: "MO_7일",
+                    name: "7өдөр",
                     value: "D7"
                 }
             ]
@@ -248,19 +248,19 @@ export const TranslatedMongol: ICountry = {
             value: "TIME",
             details: [
                 {
-                    name: "MO_아침",
+                    name: "өглөөний цай",
                     value: "TO_MORNING"
                 },
                 {
-                    name: "MO_점심" ,
+                    name: "үдийн хоол" ,
                     value: "TO_LUNCH"
                 },
                 {
-                    name: "MO_저녁",
+                    name: "оройн хоол",
                     value: "TO_DINNER"
                 },
                 {
-                    name: "MO_취침전",
+                    name: "унтах түрүүчийн",
                     value: "TO_SLEEP"
                 }
             ]
@@ -270,23 +270,15 @@ export const TranslatedMongol: ICountry = {
             value: "WAY",
             details: [
                 {
-                    name: "MO_식전30분",
+                    name: "хоолны өмнө 30минут",
                     value: "AGO_EAT"
                 },
                 {
-                    name: "MO_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "MO_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
-                    name: "MO_식후30분",
+                    name: "хоолны дараа 30минут",
                     value: "AFTER_EAT"
                 },
                 {
-                    name: "MO_공복",
+                    name: "өлөн элэг",
                     value: "NO_EAT"
                 }
             ]
@@ -296,30 +288,33 @@ export const TranslatedMongol: ICountry = {
             value: "CAUTION",
             details: [
                 {
-                    name: "MO_졸음",
+                    name: "нойр",
                     value: "CAUTION_SLEEP"
                 },
                 {
-                    name: "MO_발진",
+                    name: "тууралт",
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "MO_혈압",
+                    name: "цусны даралт ↑",
                     value: "CAUTION_BLOODPRESSURE"
                 },
                 {
-                    name: "MO_복통",
+                    name: "гэдэсний өвчин",
                     value: "CAUTION_STOMACAHCHE"
                 },
                 {
-                    name: "MO_설사",
+                    name: "гэдэс суулгалт",
                     value: "CAUTION_DIARRHEA"
                 },
                 {
-                    name: "MO_어지러움",
+                    name: "толгой эргэх",
                     value: "CAUTION_DIZZY"
                 },
             ]
         },
+    ],
+    contents: [
+        "Хэл сэлгэх товчлуур."
     ]
 };

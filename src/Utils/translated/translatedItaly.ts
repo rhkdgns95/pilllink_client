@@ -274,14 +274,6 @@ export const TranslatedItaly: ICountry = {
                     value: "AGO_EAT"
                 },
                 {
-                    name: "IT_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "IT_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
                     name: "IT_식후30분",
                     value: "AFTER_EAT"
                 },
@@ -321,5 +313,8 @@ export const TranslatedItaly: ICountry = {
                 }
             ]
         },
+    ],
+    contents: [
+        "IT_투글버튼 문구"
     ]
 };

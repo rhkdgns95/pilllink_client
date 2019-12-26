@@ -85,8 +85,8 @@ const SelectorBg = styled.div`
     width: 172px;
 `;
 const Img = styled.img`
-    // display: block;
-    // width: 100%;
+    display: block;
+    width: 100%;
 `;
 const RadioButtonGroup = styled.div`
     display: flex;

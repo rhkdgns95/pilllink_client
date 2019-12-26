@@ -274,14 +274,6 @@ export const TranslatedPortugal: ICountry = {
                     value: "AGO_EAT"
                 },
                 {
-                    name: "PO_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "PO_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
                     name: "PO_식후30분",
                     value: "AFTER_EAT"
                 },
@@ -321,5 +313,8 @@ export const TranslatedPortugal: ICountry = {
                 },
             ]
         },
+    ],
+    contents: [
+        "PO_투글버튼 문구준비중."
     ]
 };

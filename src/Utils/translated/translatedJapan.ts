@@ -9,50 +9,50 @@ export const TranslatedJapan: ICountry = {
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "JA_알레르기",
+            name: "アレルギー",
             details: [
                 {
-                    name: "JA_해당사항 없음",
+                    name: "ない",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "JA_진통제",
+                    name: "鎮痛薬 ちんつうざい ",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "JA_유당",
+                    name: "抗生剤 こうせいざい",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "JA_임신여부",
+            name: "妊娠 にんしん",
             details: [
                 {
-                    name: "JA_임신 X",
+                    name: "妊娠 にんしん X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "JA_임신 O",
+                    name: "妊娠 にんしん O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
-            name: "JA_만성질환",
+            name: "慢性 疾患 まんせい しっかん",
             details: [
                 {
-                    name: "JA_해당사항 없음",
+                    name: "ない",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "JA_간질환",
+                    name: " 肝 疾患 きも しっかん",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "JA_신장질환",
+                    name: "高血圧 こうけつあつ",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -61,138 +61,138 @@ export const TranslatedJapan: ICountry = {
     symptoms: [
         { 
             ...CommonSymptoms[COLD],
-            name: "JA_감기",
+            name: "風邪・かぜ",
             details: [
                 { 
-                    name: "JA_기침",
+                    name: "咳・せき",
                     ...CommonSymptomsText.cold_cough
                 },
                 {
-                    name: "JA_두통",
+                    name: "頭痛・ずつう",
                     ...CommonSymptomsText.cold_headache
                 },
                 {
-                    name: "JA_콧물",
+                    name: "鼻水・はなみず",
                     ...CommonSymptomsText.cold_runnyNose
                 },
                 {
-                    name: "JA_목아픔",
+                    name: "喉の痛み・のどのいたみ",
                     ...CommonSymptomsText.cold_soreThroat
                 },
                 {
-                    name: "JA_열",
+                    name: "熱・ねつ",
                     ...CommonSymptomsText.cold_fever
                 },
                 {
-                    name: "JA_몸살",
+                    name: "筋肉痛・きんにくつう",
                     ...CommonSymptomsText.cold_bodyache
                 }
             ]
         },
         {
             ...CommonSymptoms[HANGOVER],
-            name: "JA_숙취",
+            name: "二日酔い・ふつかよい",
             details: [
                 {
-                    name: "JA_두통",
+                    name: "頭痛・ずつう",
                     ...CommonSymptomsText.hangover_headache
                 },
                 {
-                    name: "JA_설사",
+                    name: "下痢・げり",
                     ...CommonSymptomsText.hangover_diarrhea
                 },
                 {
-                    name: "JA_구토",
+                    name: "嘔吐・おうと",
                     ...CommonSymptomsText.hangover_vomit
                 },
                 {
-                    name: "JA_메스꺼움",
+                    name: "むかむかする",
                     ...CommonSymptomsText.hangover_nausea
                 },
                 {
-                    name: "JA_속쓰림",
+                    name: "胃のもたれ・いのもたれ",
                     ...CommonSymptomsText.hangover_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[STOMACHACHE],
-            name: "JA_복통",
+            name: "腹痛・はらいた",
             details: [
                 {
-                    name: "JA_설사",
+                    name: "下痢・げり",
                     ...CommonSymptomsText.stomachache_diarrhead
                 },
                 {
-                    name: "JA_생리통",
+                    name: "生理痛・せいりつう",
                     ...CommonSymptomsText.stomachache_periodCramps
                 },
                 {
-                    name: "JA_소화불량",
+                    name: "不消化・ふしょうか",
                     ...CommonSymptomsText.stomachache_indigestion
                 },
                 {
-                    name: "JA_변비",
+                    name: "ふん詰まり・ふんづまり",
                     ...CommonSymptomsText.stomachache_constipation
                 },
                 {
-                    name: "JA_메스꺼움",
+                    name: "むかむかする",
                     ...CommonSymptomsText.stomachache_nausea
                 },
                 {
-                    name: "JA_속쓰림",
+                    name: "胃のもたれ・いのもたれ",
                     ...CommonSymptomsText.stomachache_heartburn
                 }
             ]
         },
         {
             ...CommonSymptoms[SKIN],
-            name: "JA_피부질환",
+            name: "皮膚疾患・ひふしっかん",
             details: [
                 {
-                    name: "JA_철과상",
+                    name: "かすり傷・かすりきず",
                     ...CommonSymptomsText.skin_abrasion
                 },
                 {
-                    name: "JA_여드름",
+                    name: "にきび",
                     ...CommonSymptomsText.skin_acne
                 },
                 {
-                    name: "JA_두드러기",
+                    name: "蕁麻疹・じんましん",
                     ...CommonSymptomsText.skin_rash
                 },
                 {
-                    name: "JA_습진",
+                    name: "湿疹・しっしん",
                     ...CommonSymptomsText.skin_eczema
                 },
                 {
-                    name: "JA_수포",
+                    name: "水膨れ・みずぶくれ",
                     ...CommonSymptomsText.skin_blister
                 },
                 {
-                    name: "JA_무좀",
+                    name: "水虫・みずむし",
                     ...CommonSymptomsText.skin_athletesfoot
                 }
             ]
         },
         {
             ...CommonSymptoms[FEMALE],
-            name: "JA_여성질환",
+            name: "女性健康・じょせいけんこう",
             details: [
                 {
-                    name: "JA_생리통",
+                    name: "生理痛・せいりつう",
                     ...CommonSymptomsText.female_periodCramp
                 },
                 {
-                    name: "JA_임신테스트",
+                    name: "妊娠テスト・にんしんてすと",
                     ...CommonSymptomsText.female_pregnancyTest
                 },
                 {
-                    name: "JA_경구피임약",
+                    name: "オーラルピル",
                     ...CommonSymptomsText.female_oralBirthControl
                 },
                 {
-                    name: "JA_사후피임약",
+                    name: "モーニングアフターピル",
                     ...CommonSymptomsText.female_postCoitalBirthControl
                 },
             ]
@@ -230,15 +230,15 @@ export const TranslatedJapan: ICountry = {
             value: "AMOUNT",
             details: [
                 {
-                    name: "JA_3일",
+                    name: "3日 ひ",
                     value: "D3"
                 },
                 {
-                    name: "JA_5일" ,
+                    name: "5日 ひ" ,
                     value: "D5"
                 },
                 {
-                    name: "JA_7일",
+                    name: "7日 ひ",
                     value: "D7"
                 }
             ]
@@ -248,19 +248,19 @@ export const TranslatedJapan: ICountry = {
             value: "TIME",
             details: [
                 {
-                    name: "JA_아침",
+                    name: "朝飯 あさはん",
                     value: "TO_MORNING"
                 },
                 {
-                    name: "JA_점심" ,
+                    name: "昼飯 ひるめし" ,
                     value: "TO_LUNCH"
                 },
                 {
-                    name: "JA_저녁",
+                    name: "夕飯  ゆうはん",
                     value: "TO_DINNER"
                 },
                 {
-                    name: "JA_취침전",
+                    name: "就寝前 しゅうしん まえ",
                     value: "TO_SLEEP"
                 }
             ]
@@ -270,23 +270,15 @@ export const TranslatedJapan: ICountry = {
             value: "WAY",
             details: [
                 {
-                    name: "JA_식전30분",
+                    name: "食前 30分 しょくぜん 30ぶん",
                     value: "AGO_EAT"
                 },
                 {
-                    name: "JA_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "JA_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
-                    name: "JA_식후30분",
+                    name: "食後 30分 しょくご 30ぶん",
                     value: "AFTER_EAT"
                 },
                 {
-                    name: "JA_공복",
+                    name: "空腹 くうふく",
                     value: "NO_EAT"
                 }
             ]
@@ -296,31 +288,34 @@ export const TranslatedJapan: ICountry = {
             value: "CAUTION",
             details: [
                 {
-                    name: "JA_졸음",
+                    name: "眠気 ねむけ",
                     value: "CAUTION_SLEEP"
                 },
                 {
-                    name: "JA_발진",
+                    name: "発疹 はっしん",
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "JA_혈압",
+                    name: "血圧↑ けつあつ↑",
                     value: "CAUTION_BLOODPRESSURE"
                 },
                 {
-                    name: "JA_복통",
+                    name: "腹痛・はらいた",
                     value: "CAUTION_STOMACAHCHE"
                 },
                 {
-                    name: "JA_설사",
+                    name: "下痢・げり",
                     value: "CAUTION_DIARRHEA"
                 },
                 
                 {
-                    name: "JA_어지러움",
+                    name: "眩暈 めまい",
                     value: "CAUTION_DIZZY"
                 },
             ]
         },
+    ],
+    contents: [
+        "クリックして薬剤師に見せてください."
     ]
 };

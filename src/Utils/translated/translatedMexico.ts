@@ -274,14 +274,6 @@ export const TranslatedMexico: ICountry = {
                     value: "AGO_EAT"
                 },
                 {
-                    name: "ES_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "ES_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
                     name: "ES_식후30분",
                     value: "AFTER_EAT"
                 },
@@ -321,5 +313,8 @@ export const TranslatedMexico: ICountry = {
                 },
             ]
         },
+    ],
+    contents: [
+        "ME_투글버튼 문구준비중.."
     ]
 };

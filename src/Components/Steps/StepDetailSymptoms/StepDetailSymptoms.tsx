@@ -6,7 +6,6 @@ import Checkbox from "../../Checkbox";
 import { PATH_IMG_DETAILS, PATH_IMG_BG, PATH_IMG_ACTION } from "../../../Routes/App/AppProvider";
 import ResultItem from "../../ResultItem";
 import { TranslatedKorean } from "../../../Utils/translated/translatedKorean";
-
 const Container = styled.div`
     @media(max-width: 910px) {
         .group-checkbox {
@@ -133,19 +132,68 @@ const ResultGroup = styled.div`
         }
     }
 `;
-const TranslateButton = styled.span`
+const TranslateButtonBox = styled.div`
+    &.active {
+        &::before {
+            content: "";
+            position: fixed;
+            display: block;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            background-color: rgba(0,10,0,0.42);
+            z-index: 1;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 20px;
+            right: 50px;
+            transform: translate(50%, -50%);
+            background-color: white;
+            box-shadow: inset 0.5px 0.5px 4px 6px rgba(0,0,0,0.1), inset -0.5px -0.5px 4px 6px rgba(0,0,100,0.1);
+            border-radius: 50%;
+            z-index: 2;
+        }
+    }
+`;
+interface ITranslateButton {
+    toggleText: string;
+}
+const TranslateButton = styled.span<ITranslateButton>`
     position: absolute;
+    z-index: 3;
     background-color: white;
     color: white;
-    top: 0;
-    right: 0;
-    
+    top: 20px;
+    right: 50px;
+    transform: translate(50%, -50%);
     width: 15px;
     height: 15px;
     padding: 15px;
     border-radius: 50%;
     border: 1px solid black;
-    cursor: pointer;
+    user-select: none;
+    &.active {
+        &::after {
+            content: "${props => props.toggleText}";
+            position: absolute;
+            top: 50%;
+            display: inline-block;
+            line-height: 18px;
+            left: -250%;
+            transform: translate(-50%, -50%);
+            width: 110px;
+            text-align: center;
+            color: #e5fffb;
+            font-size: 13px;
+            text-shadow: 0 2px 4px rgba(0,0,0,.4);
+        }
+    }
+    
     img {
         position: absolute;
         top: 50%;
@@ -155,16 +203,15 @@ const TranslateButton = styled.span`
         transition: transform .2s;
         transform: translate(-50%, -50%) rotate(180deg);
     }
-    &:active,
-    &:hover {
-        img {
-            transform: translate(-50%, -50%) rotate(0deg);
-        }
-    }
+    
     
 `;
 const TranslateIcon = styled.img`
-    
+    cursor: pointer;
+    &:active,
+    &:hover {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
 `;
 const DetailsHeader = styled.div`
     text-align: center;
@@ -231,12 +278,14 @@ const useInputChecked = (): IUseCheckbox => {
 const StepDetailSymptoms: React.FC<IProps> = ({
     stepTitle
 }) => { 
-    const { symptom, lang, handleSubmitOk, submitOk, step, onCreateResultDetails } = useHomeContext();
+    const { symptom, lang, handleSubmitOk, submitOk, step, onCreateResultDetails, isModal, handleModal } = useHomeContext();
     const [ isEffected, setIsEffected ] = useState<Array<boolean>>([false, false]);
     const [ symptomDetails, setSymptomDetails ] = useState<ISymptom>();
     const [ symptomDetailsKorean, setSymptomDetailsKorean ] = useState<ISymptom>();
     const [ isTranslated, setIsTranslated ] = useState<boolean>(false);
-
+    
+    const country: ICountry | undefined = countries.find(country => country.value === lang.value) || countries[0];
+    
     const currentDetails = useInputChecked();
     const [ title, setTitle ] = useState<string>("");
     let symptomName: ISymptom  | undefined;
@@ -399,6 +448,8 @@ const StepDetailSymptoms: React.FC<IProps> = ({
                             currentDetails={currentDetails.details.filter(item => item.checked === true)}
                             symptomDetails={isTranslated ? symptomDetailsKorean : symptomDetails}
                             onToggleTranslate={onToggleTranslate}
+                            isModal={isModal}
+                            toggleText={country.contents[0]}
                         />
                     )
                 }
@@ -454,13 +505,17 @@ interface IResult {
     currentDetails: Array<ISymptomDetails>;
     symptomDetails?: ISymptom;
     onToggleTranslate: () => any;
+    isModal: boolean;
+    toggleText: string;
 }
 const Result: React.FC<IResult> = ({
     title,
     isEffected,
     currentDetails,
     symptomDetails,
-    onToggleTranslate
+    onToggleTranslate,
+    isModal,
+    toggleText
 }) => (
     <>
         { title }
@@ -481,9 +536,11 @@ const Result: React.FC<IResult> = ({
                 }
             </ResultGroup>
         </ResultBgBox>
-        <TranslateButton onClick={onToggleTranslate}>
-            <TranslateIcon src={PATH_IMG_ACTION + "/translator.svg"}/>
-        </TranslateButton>
+        <TranslateButtonBox className={isModal ? "active" : ""}>
+            <TranslateButton className={isModal ? "active" : ""} toggleText={toggleText}>
+                <TranslateIcon src={PATH_IMG_ACTION + "/translator.svg"} onClick={onToggleTranslate}/>
+            </TranslateButton>
+        </TranslateButtonBox>
     </>
 );
 

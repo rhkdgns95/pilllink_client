@@ -274,14 +274,6 @@ export const TranslatedTaiwan: ICountry = {
                     value: "AGO_EAT"
                 },
                 {
-                    name: "CH_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "CH_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
                     name: "CH_식후30분",
                     value: "AFTER_EAT"
                 },
@@ -321,5 +313,8 @@ export const TranslatedTaiwan: ICountry = {
                 },
             ]
         },
+    ],
+    contents: [
+        "TA_투글버튼 문구준비중."
     ]
 };

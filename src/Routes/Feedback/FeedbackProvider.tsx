@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { PUBLIC_PATH, useAppContext } from "../App/AppProvider";
 import { useMutation } from "react-apollo";
 import { createConfirm, createConfirmVariables } from "../../Types/api";

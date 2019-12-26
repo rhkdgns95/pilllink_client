@@ -9,50 +9,50 @@ export const TranslatedFrance: ICountry = {
     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "FR_알레르기",
+            name: "allergie",
             details: [
                 {
-                    name: "FR_해당사항 없음",
+                    name: "Néant",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "FR_진통제",
+                    name: "antalgique",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "FR_유당",
+                    name: "antibiotique",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "FR_임신여부",
+            name: "grossesse",
             details: [
                 {
-                    name: "FR_임신 X",
+                    name: "grossesse X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "FR_임신 O",
+                    name: "grossesse O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
         },
         {
             ...CommonSelectors["CHRONICDISEASES"],
-            name: "FR_만성질환",
+            name: "maladie chronique",
             details: [
                 {
-                    name: "FR_해당사항 없음",
+                    name: "Néant",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "FR_간질환",
+                    name: "foie maladie",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "FR_신장질환",
+                    name: "hypertension",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -226,100 +226,95 @@ export const TranslatedFrance: ICountry = {
     ],
     confirms: [
         {
-            name: "FR_복욕량",
+            name: "Crampes menstruelle",
             value: "AMOUNT",
             details: [
                 {
-                    name: "FR_3일",
+                    name: "3Jour",
                     value: "D3"
                 },
                 {
-                    name: "FR_5일" ,
+                    name: "5Jour" ,
                     value: "D5"
                 },
                 {
-                    name: "FR_7일",
+                    name: "7Jour",
                     value: "D7"
                 }
             ]
         },
         {
-            name: "FR_복용간격",
+            name: "Test de grossesse",
             value: "TIME",
             details: [
                 {
-                    name: "FR_아침",
+                    name: "petit-déjeuner",
                     value: "TO_MORNING"
                 },
                 {
-                    name: "FR_점심" ,
+                    name: "déjeuner" ,
                     value: "TO_LUNCH"
                 },
                 {
-                    name: "FR_저녁",
+                    name: "dîner",
                     value: "TO_DINNER"
                 },
                 {
-                    name: "FR_취침전",
+                    name: "avant de se coucher",
                     value: "TO_SLEEP"
                 }
             ]
         },
         {
-            name: "FR_복용방법",
+            name: "Contraceptifs oraux",
             value: "WAY",
             details: [
                 {
-                    name: "FR_식전30분",
+                    name: "30 minutes avant le repas",
                     value: "AGO_EAT"
                 },
                 {
-                    name: "FR_식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "FR_식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
-                    name: "FR_식후30분",
+                    name: "30 minutes après le repas",
                     value: "AFTER_EAT"
                 },
                 {
-                    name: "FR_공복",
+                    name: "À jeun",
                     value: "NO_EAT"
                 }
             ]
         },
         {
-            name: "FR_주의사항",
+            name: "Contraception post coital",
             value: "CAUTION",
             details: [
                 {
-                    name: "FR_졸음",
+                    name: "assoupissement",
                     value: "CAUTION_SLEEP"
                 },
                 {
-                    name: "FR_발진",
+                    name: "éruption",
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "FR_혈압",
+                    name: "tension artérielle ↑",
                     value: "CAUTION_BLOODPRESSURE"
                 },                
                 {
-                    name: "FR_복통",
+                    name: "Mal de ventre",
                     value: "CAUTION_STOMACAHCHE"
                 },
                 {
-                    name: "FR_설사",
+                    name: "Diarrhée",
                     value: "CAUTION_DIARRHEA"
                 },
                 {
-                    name: "FR_어지러움",
+                    name: "Vertiges Cliquez pour montrer au",
                     value: "CAUTION_DIZZY"
                 },
             ]
         },
+    ],
+    contents: [
+        "s'il vous plaît, cliquez-le pour le montrer au pharmacien"
     ]
 };

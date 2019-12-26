@@ -52,7 +52,7 @@ export const TranslatedKorean: ICountry = {
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "신장질환",
+                    name: "고혈압",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -274,14 +274,6 @@ export const TranslatedKorean: ICountry = {
                     value: "AGO_EAT"
                 },
                 {
-                    name: "식전즉시" ,
-                    value: "AGO_IMMEDIATE_EAT"
-                },
-                {
-                    name: "식후즉시",
-                    value: "AFTER_IMMEDIATE_EAT"
-                },
-                {
                     name: "식후30분",
                     value: "AFTER_EAT"
                 },
@@ -321,5 +313,10 @@ export const TranslatedKorean: ICountry = {
                 },
             ]
         },
-    ]
+    ],
+    contents: [
+        // 문구추가 여러개있을수도 있으므로 배열로 설정.
+        // [0]은 toggle버튼이다.
+        "약사에게 보여주기 위해 눌러주세요."
+    ]    
 };
