@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pilllink_client/precache-manifest.24eea19d4015d582198a0e36195af5b2.js"
+  "/pilllink_client/precache-manifest.d6bfce3547795f077d8079a4cf130915.js"
 );
 
 self.addEventListener('message', (event) => {
