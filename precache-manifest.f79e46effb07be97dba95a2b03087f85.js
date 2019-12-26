@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f93274e3c9b22855faf3f166bec1c42a",
+    "revision": "386142ea1182b007d7812a251e5d0cd5",
     "url": "/pilllink_client/index.html"
   },
   {
