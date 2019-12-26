@@ -32,6 +32,7 @@
 - [x] Image Bug Fixed.
 - [x] CreateMedicalRecord redirect to /mypage., Translator Multiple checking text
 - [x] Route Fixed.
+- [x] GoDaddy dns register.
 - [] Chart, Feedback - Check My Records.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)

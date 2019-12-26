@@ -112,6 +112,7 @@ const usePagination = (max: number, initCursor: number, initScreen: number): IUs
         onhandleUsingArrow();
         window.scrollTo({top: 0});
     }, [cursor, screen, onChangeCursor]);
+    
     return {
         cursor,
         screen,
