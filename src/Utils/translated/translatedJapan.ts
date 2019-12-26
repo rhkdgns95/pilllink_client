@@ -316,6 +316,7 @@ export const TranslatedJapan: ICountry = {
         },
     ],
     contents: [
+        "多数の症状をご選択できます。",
         "クリックして薬剤師に見せてください."
     ]
 };

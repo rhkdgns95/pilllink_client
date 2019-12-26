@@ -30,6 +30,7 @@
 - [x] UpdateMyProfile, GetMyProfile Bug Fixed, Add ToggleText.
 - [x] Feedback Add Toggle Button, Update diarrhea Image.
 - [x] Image Bug Fixed.
+- [x] CreateMedicalRecord redirect to /mypage., Translator Multiple checking text
 - [] Chart, Feedback - Check My Records.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)

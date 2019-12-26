@@ -161,8 +161,6 @@ const FeedbackPresenter = () => {
     const currentCountry: ICountry = countries.find(country => country.value === currentLang) || countries[0];
     const currentConfirm: Array<IConfirmData> = currentCountry!.confirms!;
     // const isSetConfirm: boolean = recordTime.value.length > 0 && recordCaution.value.length > 0;
-    console.log("LANGUAGES: ", currentLang);
-    console.log("isTranslated: ", isTranslated);
     /**
      *  isSetConfirm 컨펌가능한지 여부
      * 

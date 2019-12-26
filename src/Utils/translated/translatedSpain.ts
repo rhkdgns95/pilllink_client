@@ -315,6 +315,7 @@ export const TranslatedSpain: ICountry = {
         },
     ],
     contents: [
+        "Puedes seleccionar múltiples síntomas.",
         "Para mostrarlo usted mismo."
     ]
 };

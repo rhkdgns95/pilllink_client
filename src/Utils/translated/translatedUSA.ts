@@ -307,6 +307,7 @@ export const TranslatedUSA: ICountry = {
         },
     ],
     contents: [
+        "You may select multiple symptoms.",
         "Please, click it to show to pharmacist."
     ]
 };

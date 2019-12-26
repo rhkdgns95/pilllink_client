@@ -315,6 +315,7 @@ export const TranslatedVietnam: ICountry = {
         },
     ],
     contents: [
+        "Bạn có thể chọn rất nhiều các triệu chứng",
         "Nếu muốn cho các thầy thuốc xem thì hãy nhấp chuột."
     ]
 };

@@ -315,6 +315,7 @@ export const TranslatedRussia: ICountry = {
         },
     ],
     contents: [
+        "Можно выбрать несколько симптомов.",
         "Нажмите для показа фармацевту."
     ]
 };

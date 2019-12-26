@@ -315,6 +315,7 @@ export const TranslatedMexico: ICountry = {
         },
     ],
     contents: [
+        "ME_중복선택가능.",
         "ME_투글버튼 문구준비중.."
     ]
 };

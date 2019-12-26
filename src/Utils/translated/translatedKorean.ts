@@ -316,7 +316,9 @@ export const TranslatedKorean: ICountry = {
     ],
     contents: [
         // 문구추가 여러개있을수도 있으므로 배열로 설정.
-        // [0]은 toggle버튼이다.
+        // [0]은 Result의 중복선택 가능하다고 설명 문구.
+        // [1]은 toggle은 버튼이다.
+        "중복선택가능.",
         "약사에게 보여주기 위해 눌러주세요."
     ]    
 };

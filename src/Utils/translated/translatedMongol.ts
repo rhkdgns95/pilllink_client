@@ -315,6 +315,7 @@ export const TranslatedMongol: ICountry = {
         },
     ],
     contents: [
+        "Та олон шинж тэмдгийг сонгож болно",
         "Хэл сэлгэх товчлуур."
     ]
 };

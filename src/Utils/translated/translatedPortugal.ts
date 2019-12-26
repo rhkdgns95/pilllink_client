@@ -315,6 +315,7 @@ export const TranslatedPortugal: ICountry = {
         },
     ],
     contents: [
+        "PO_중복선택가능",
         "PO_투글버튼 문구준비중."
     ]
 };

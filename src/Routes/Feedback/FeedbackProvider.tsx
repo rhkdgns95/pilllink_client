@@ -85,7 +85,7 @@ const useFetch = (recordId: number, history: any, lang: TLanguage | "NULL"): { v
                     handleProgress(!isProgress);
                 }
     
-                history.push(PUBLIC_PATH);
+                history.push(PUBLIC_PATH + "/history");
             }, timeOut);
         },
         onError: data => {

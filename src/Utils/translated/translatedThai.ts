@@ -315,6 +315,7 @@ export const TranslatedThai: ICountry = {
         },
     ],
     contents: [
+        "คุณสามารถเลือกได้หลายลักษณะ",
         "กรุณาคลิกเพื่อแสดงให้เภสัชกรค่ะ."
     ]
 };

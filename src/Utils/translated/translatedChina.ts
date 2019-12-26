@@ -315,6 +315,7 @@ export const TranslatedChina: ICountry = {
         },
     ],
     contents: [
+        "多种症状可同时选择",
         "拜托,给药剂师看看."
     ]
 };

@@ -315,6 +315,7 @@ export const TranslatedItaly: ICountry = {
         },
     ],
     contents: [
+        "IT_중복선택 가능.",
         "IT_투글버튼 문구"
     ]
 };

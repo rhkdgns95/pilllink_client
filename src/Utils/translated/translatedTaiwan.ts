@@ -315,6 +315,7 @@ export const TranslatedTaiwan: ICountry = {
         },
     ],
     contents: [
+        "TA_중복선택가능",
         "TA_투글버튼 문구준비중."
     ]
 };

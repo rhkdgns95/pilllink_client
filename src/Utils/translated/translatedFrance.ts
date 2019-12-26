@@ -315,6 +315,7 @@ export const TranslatedFrance: ICountry = {
         },
     ],
     contents: [
+        "Vous pouvez choisir plusieurs symptômes",
         "s'il vous plaît, cliquez-le pour le montrer au pharmacien"
     ]
 };

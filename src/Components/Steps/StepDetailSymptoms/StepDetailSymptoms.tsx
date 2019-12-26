@@ -437,6 +437,7 @@ const StepDetailSymptoms: React.FC<IProps> = ({
                             symptomDetails={symptomDetails}
                             currentDetails={currentDetails}
                             symptomName={title}
+                            optionText={country.contents[0]}
                         />
                     )
                 }
@@ -449,7 +450,7 @@ const StepDetailSymptoms: React.FC<IProps> = ({
                             symptomDetails={isTranslated ? symptomDetailsKorean : symptomDetails}
                             onToggleTranslate={onToggleTranslate}
                             isModal={isModal}
-                            toggleText={country.contents[0]}
+                            toggleText={country.contents[1]}
                         />
                     )
                 }
@@ -464,13 +465,15 @@ interface IDetails {
     symptomDetails?: ISymptom;
     currentDetails: IUseCheckbox;
     symptomName: string;
+    optionText: string;
 };
 const Details: React.FC<IDetails> = ({
     isEffected,
     title,
     symptomDetails,
     currentDetails,
-    symptomName
+    symptomName,
+    optionText
 }) => (
     <>
         { title }
@@ -478,7 +481,7 @@ const Details: React.FC<IDetails> = ({
             <DetailsTitle>{symptomName}</DetailsTitle>
             <DetailsContent>
                 <Icon src={PATH_IMG_DETAILS + "/check.png"}/>
-                You can choose more than one options.
+                { optionText }
             </DetailsContent>
         </DetailsHeader>
         <DetailsGroup className={isEffected ? "active step-container group-checkbox" : "group-checkbox step-container"}>
