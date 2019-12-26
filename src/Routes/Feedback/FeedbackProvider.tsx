@@ -85,7 +85,7 @@ const useFetch = (recordId: number, history: any, lang: TLanguage | "NULL"): { v
                     handleProgress(!isProgress);
                 }
     
-                history.push(PUBLIC_PATH + "/history");
+                history.push("/history");
             }, timeOut);
         },
         onError: data => {
@@ -94,7 +94,7 @@ const useFetch = (recordId: number, history: any, lang: TLanguage | "NULL"): { v
                     handleProgress(!isProgress);
                 }
                 console.log("CreateConfirm onError: ", data);
-                history.push(PUBLIC_PATH)
+                history.push("/");
             }, timeOut);
         }
     });
