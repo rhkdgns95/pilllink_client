@@ -27,11 +27,8 @@ const AppContainer: React.FC<any> = ({
 }) => {
     // const { loadingGetMyProfile, user } = useAppContext();
     return (
-        <BrowserRouter>
-        <div>
-            hello.
-        </div>
-        {/* {
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        {
             loggedIn ? <LoggedIn/> : <LoggedOut/>
             // (loadingGetMyProfile) ? (
             //     // Loading progress.....
@@ -39,16 +36,16 @@ const AppContainer: React.FC<any> = ({
             // ) : (
             //     loggedIn ? <LoggedIn/> : <LoggedOut/>
             // )
-        } */}
+        }
         </BrowserRouter>
     );
 };
 const LoggedIn = () => (
     <Switch>
         <Router path={"/"} component={Home} exact={true}/>
-        <Router path={"/edit"} component={Edit} exact={true}/>
-        <Router path={"/history"} component={History} exact={true}/>
-        <Router path={"/feedback"} component={Feedback} exact={true}/>
+        <Router path={"/edit"} component={Edit}/>
+        <Router path={"/history"} component={History} />
+        <Router path={"/feedback"} component={Feedback} />
         <Redirect from={"*"} to={"/"}/>
     </Switch>
 );
@@ -56,7 +53,7 @@ const LoggedIn = () => (
 const LoggedOut = () => (
     <Switch>
         <Router path={"/"} component={Login} exact={true}/>
-        <Router path={"/signup"} component={SignUp} exact={true}/>
+        <Router path={"/signup"} component={SignUp} />
         <Redirect to={"/"} from={"*"}/>
     </Switch>  
 );
