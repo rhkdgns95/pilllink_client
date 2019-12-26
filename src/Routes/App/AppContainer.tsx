@@ -27,9 +27,11 @@ const AppContainer: React.FC<any> = ({
 }) => {
     // const { loadingGetMyProfile, user } = useAppContext();
     return (
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
-        {
-            
+        <BrowserRouter>
+        <div>
+            hello.
+        </div>
+        {/* {
             loggedIn ? <LoggedIn/> : <LoggedOut/>
             // (loadingGetMyProfile) ? (
             //     // Loading progress.....
@@ -37,7 +39,7 @@ const AppContainer: React.FC<any> = ({
             // ) : (
             //     loggedIn ? <LoggedIn/> : <LoggedOut/>
             // )
-        }
+        } */}
         </BrowserRouter>
     );
 };
