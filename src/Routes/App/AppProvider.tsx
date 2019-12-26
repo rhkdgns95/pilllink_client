@@ -17,7 +17,7 @@ interface IContext {
     loadingUpdateMyProfile: boolean;
     logout: () => any;
 }
-
+// nameserver 등록학.
 const AppTitle: string = "Pill Link";
 
 export const PUBLIC_PATH: string = process.env.PUBLIC_URL;
