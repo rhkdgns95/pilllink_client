@@ -201,15 +201,23 @@ const useFetch = (history: any): {value: IContext} => {
                 const { medicalRecordId: recordId, lang  } = data.CreateMedicalRecord;
                 setTimeout(() => {
                     handleProgress(false);
-                    handleInit();
                     
-                    history.push({
-                        pathname: "/feedback",
-                        state: {
-                            recordId,
-                            lang
-                        } 
-                    });
+                    if(symptom.value === "OTHER") {
+                        history.push({
+                            pathname: "/history"
+                        });
+                    } else {
+                        history.push({
+                            pathname: "/feedback",
+                            state: {
+                                recordId,
+                                lang
+                            } 
+                        });
+                    }
+                    
+                    handleInit();
+
                 }, timeOut);
             }
             // console.log("create medical record completed: ", data);

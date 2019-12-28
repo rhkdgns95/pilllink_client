@@ -6,35 +6,35 @@ export const TranslatedSpain: ICountry = {
     name: "Espanol",
     value: "ES",
     imgPath: PATH_IMG_LANG + "/lang_es.jpg",
-    selectors: [
+  selectors: [
         {
             ...CommonSelectors["ALLERGY"],
-            name: "alergia",
+            name: "Alergia",
             details: [
                 {
                     name: "Ninguna",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
-                    name: "calmante",
+                    name: "Calmante",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "antibiótico",
+                    name: "Antibiótico",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]
         },
         {
             ...CommonSelectors["PREGNANT"],
-            name: "embarazo",
+            name: "Embarazo",
             details: [
                 {
-                    name: "embarazo X",
+                    name: "Embarazo X",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "embarazo O",
+                    name: "Embarazo O",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
@@ -48,11 +48,11 @@ export const TranslatedSpain: ICountry = {
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
-                    name: "hígado dolencia",
+                    name: "Hígado dolencia",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "alta presión arterial",
+                    name: "Alta presión arterial",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -248,19 +248,19 @@ export const TranslatedSpain: ICountry = {
             value: "TIME",
             details: [
                 {
-                    name: "desayuno",
+                    name: "Desayuno",
                     value: "TO_MORNING"
                 },
                 {
-                    name: "almuerzo" ,
+                    name: "Almuerzo" ,
                     value: "TO_LUNCH"
                 },
                 {
-                    name: "cena",
+                    name: "Cena",
                     value: "TO_DINNER"
                 },
                 {
-                    name: "dormición antes",
+                    name: "Dormición antes",
                     value: "TO_SLEEP"
                 }
             ]
@@ -270,15 +270,15 @@ export const TranslatedSpain: ICountry = {
             value: "WAY",
             details: [
                 {
-                    name: "en ayunas 30minuto",
+                    name: "En ayunas 30minuto",
                     value: "AGO_EAT"
                 },
                 {
-                    name: "después de la comida 30minuto",
+                    name: "Después de la comida 30minuto",
                     value: "AFTER_EAT"
                 },
                 {
-                    name: "estómago vacío",
+                    name: "Estómago vacío",
                     value: "NO_EAT"
                 }
             ]
@@ -288,15 +288,15 @@ export const TranslatedSpain: ICountry = {
             value: "CAUTION",
             details: [
                 {
-                    name: "somnolencia",
+                    name: "Somnolencia",
                     value: "CAUTION_SLEEP"
                 },
                 {
-                    name: "erupción",
+                    name: "Erupción",
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "presión sanguínea ↑",
+                    name: "Presión sanguínea ↑",
                     value: "CAUTION_BLOODPRESSURE"
                 },
                 {
@@ -308,7 +308,7 @@ export const TranslatedSpain: ICountry = {
                     value: "CAUTION_DIARRHEA"
                 },
                 {
-                    name: "mareo",
+                    name: "Mareo",
                     value: "CAUTION_DIZZY"
                 },
             ]

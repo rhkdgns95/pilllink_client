@@ -7,7 +7,7 @@ import Table from "../../Components/Table";
 import Pagination from "../../Components/Pagination";
 import { useHistoryContext } from "./HistoryProvider";
 import { getTime } from "../../Utils/getTime";
-import { getMyMedicalRecords_GetMyMedicalRecords_medicalRecords } from "../../Types/api";
+import { getMyMedicalRecords_GetMyMedicalRecords_medicalRecords, Status } from "../../Types/api";
 import countries from "../../Utils/translator";
 
 const Container = styled.div`
@@ -166,7 +166,7 @@ const HistoryPresenter = () => {
                     <List className={isEffected ? "active step-container" : "step-container"}>
                         {
                             records && newRecords && newRecords.map((record, key) => 
-                                <Table key={key} confirmId={record.confirmId} id={records![key]!.id} symptom={record.name} results={record.symptoms} lang={records![key]!.lang} date={getTime(records[key]!.createdAt)}/>
+                                <Table key={key} confirmId={record.confirmId} isOther={records[key]!.status === "OTHER"} id={records![key]!.id} symptom={record.name} results={record.symptoms} lang={records![key]!.lang} date={getTime(records[key]!.createdAt)}/>
                             )
                         }
                         {

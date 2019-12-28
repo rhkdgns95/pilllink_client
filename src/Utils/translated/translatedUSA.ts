@@ -266,7 +266,7 @@ export const TranslatedUSA: ICountry = {
                     value: "AGO_EAT"
                 },
                 {
-                    name: "EN_식후30분",
+                    name: "30mins after meal",
                     value: "AFTER_EAT"
                 },
                 {

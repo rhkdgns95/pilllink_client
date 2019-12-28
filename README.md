@@ -33,6 +33,8 @@
 - [x] CreateMedicalRecord redirect to /mypage., Translator Multiple checking text
 - [x] Route Fixed.
 - [x] GoDaddy dns register.
+- [x] Ago Update Translator.
+- [x] Update Translator, Delete Other's Confirm.
 - [] Chart, Feedback - Check My Records.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)

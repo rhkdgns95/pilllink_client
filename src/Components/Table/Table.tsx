@@ -131,6 +131,7 @@ interface IProps {
     symptom: string;
     confirmId: number;
     results: Array<any>;
+    isOther?: boolean;
 }
 const Table: React.FC<IProps> = ({
     lang,
@@ -138,7 +139,8 @@ const Table: React.FC<IProps> = ({
     date,
     confirmId,
     symptom,
-    results
+    results,
+    isOther
 }) => {
     let resultText: string = "";
     results.map((data, key) => {
@@ -182,10 +184,14 @@ const Table: React.FC<IProps> = ({
                                 <Th colSpan={2}>Lang</Th>
                                 <Td colSpan={6}>{ lang }</Td>
                             </Tr>
-                            <Tr>
-                                <Th colSpan={2}>Confirm</Th>
-                                <Td colSpan={6}>{ confirmId ? confirmId : <LinkBtn to={{pathname: "/feedback", state: { recordId: id, lang }}} >Feedback<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg></LinkBtn> }</Td>
-                            </Tr>
+                            {
+                                !isOther && (
+                                <Tr>
+                                    <Th colSpan={2}>Confirm</Th>
+                                    <Td colSpan={6}>{ confirmId ? confirmId : <LinkBtn to={{pathname: "/feedback", state: { recordId: id, lang }}} >Feedback<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg></LinkBtn> }</Td>
+                                </Tr>
+                                )
+                            }
                         </Tbody>
                     </RecordTable>
                 </Record>

@@ -138,9 +138,9 @@ export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords_confirm 
 
 export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords {
   __typename: "MedicalRecord";
+  status: Status;
   id: number;
   lang: Language;
-  status: Status;
   allergy: Allergy;
   pregnant: Pregnant;
   chronicDiseases: ChronicDiseases;

@@ -30,7 +30,7 @@ export const TranslatedJapan: ICountry = {
             name: "妊娠 にんしん",
             details: [
                 {
-                    name: "妊娠 にんしん X",
+                    name: "不妊娠/ふにんしん",
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
@@ -230,15 +230,15 @@ export const TranslatedJapan: ICountry = {
             value: "AMOUNT",
             details: [
                 {
-                    name: "3日 ひ",
+                    name: "3日 みっか",
                     value: "D3"
                 },
                 {
-                    name: "5日 ひ" ,
+                    name: "5日 いつか" ,
                     value: "D5"
                 },
                 {
-                    name: "7日 ひ",
+                    name: "7日 なのか",
                     value: "D7"
                 }
             ]

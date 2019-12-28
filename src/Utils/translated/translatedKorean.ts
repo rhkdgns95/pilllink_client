@@ -20,7 +20,7 @@ export const TranslatedKorean: ICountry = {
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_PAINKILLER"]
                 },
                 {
-                    name: "유당",
+                    name: "항생제",
                     ...CommonSelectors["ALLERGY"].details["ALLERGY_ANTIBIOTIC"]
                 }
             ]

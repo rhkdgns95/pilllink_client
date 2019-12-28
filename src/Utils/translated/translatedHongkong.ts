@@ -6,13 +6,13 @@ export const TranslatedHongkong: ICountry = {
     name: "Hongkong",
     value: "HO",
     imgPath: PATH_IMG_LANG + "/lang_ho.png",
-    selectors: [
+     selectors: [
         {
             ...CommonSelectors["ALLERGY"],
             name: "过敏性反应",
             details: [
                 {
-                    name: "没有人",
+                    name: "无",
                     ...CommonSelectors["ALLERGY"].details["NULL"]
                 },
                 {
@@ -34,7 +34,7 @@ export const TranslatedHongkong: ICountry = {
                     ...CommonSelectors["PREGNANT"].details["NULL"]
                 },
                 {
-                    name: "妊娠 O",
+                    name: "妊娠 ✔",
                     ...CommonSelectors["PREGNANT"].details["PREGNANT_TRUE"]
                 }
             ]
@@ -44,7 +44,7 @@ export const TranslatedHongkong: ICountry = {
             name: "慢性病",
             details: [
                 {
-                    name: "没有人",
+                    name: "无",
                     ...CommonSelectors["CHRONICDISEASES"].details["NULL"]
                 },
                 {
@@ -52,7 +52,7 @@ export const TranslatedHongkong: ICountry = {
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_LIVER"]
                 },
                 {
-                    name: "血压高",
+                    name: "高血压",
                     ...CommonSelectors["CHRONICDISEASES"].details["CHRONIC_KIDNEY"]
                 }
             ]
@@ -214,7 +214,7 @@ export const TranslatedHongkong: ICountry = {
                     ...CommonSymptomsText.other_disinfectant
                 },
                 {
-                    name: "盐水",
+                    name: "生理盐水",
                     ...CommonSymptomsText.other_salineSolution
                 },
                 {
@@ -296,7 +296,7 @@ export const TranslatedHongkong: ICountry = {
                     value: "CAUTION_RASH"
                 },
                 {
-                    name: "血压 ↑",
+                    name: "血压上升",
                     value: "CAUTION_BLOODPRESSURE"
                 },
                 {
@@ -315,7 +315,7 @@ export const TranslatedHongkong: ICountry = {
         },
     ],
     contents: [
-        "你可以选择多种症状",
+        "多种症状可同时选择",
         "拜托,给药剂师看看."
     ]
 };

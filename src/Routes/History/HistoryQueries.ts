@@ -11,7 +11,7 @@ export const GET_MY_RECORDS = gql`
             error
             totalCount
             medicalRecords {
-                
+                status                
                 ...ItemMedicalRecord
                 ...ItemCold
                 ...ItemHangover
