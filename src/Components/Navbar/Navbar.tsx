@@ -9,7 +9,7 @@ const Container = styled.div`
     @media(max-width: 500px) {
         & {
             .title {
-                letter-spacing: 10px;
+                letter-spacing: 12.7px;
             }
             .sub-title {
                 font-size: 6.5px;
@@ -38,9 +38,8 @@ const HomeLink = styled(Link)`
 `;
 const Title = styled.p`
     color: ${props => props.theme.greenColor};
-    letter-spacing: 10px;
     font-size: 23px;
-    letter-spacing: 21px;
+    letter-spacing: 25.3px;
     font-weight: bold;
 `;
 const SubTitle = styled.span`

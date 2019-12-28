@@ -229,7 +229,7 @@ const DetailsTitle = styled.span`
 const DetailsContent = styled.span`
     font-weight: bold;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     padding: 10px 0;
     max-width: 300px;
@@ -376,7 +376,7 @@ const StepDetailSymptoms: React.FC<IProps> = ({
         if(!symptomDetails) {
             handleDetails();
         }
-        // handleTitle("Pill Link | " + symptom.value);
+        // handleTitle("Pil+Link | " + symptom.value);
         if(currentDetails && !isEffected) {
             if(step === 2) {
                 setIsEffected([true, false]);

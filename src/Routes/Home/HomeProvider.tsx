@@ -108,20 +108,20 @@ const useFetch = (history: any): {value: IContext} => {
     const updateStep = () => {
         switch(step) {
             case 0:
-                handleTitle("Pill Link | Nationality");
+                handleTitle("Pil+Link | Nationality");
                 // handleInitStepSymptom();
                 break;
             case 1:
-                handleTitle("Pill Link | Symptoms")
+                handleTitle("Pil+Link | Symptoms")
                 break;
             case 2:
                 const country = translator.find(item => item.value === lang.value);
                 const symptomName: ISymptom  | undefined = country ? country.symptoms.find(item => item.value === symptom.value) : undefined;
                 const title: string = symptomName ? symptomName.name : "No";
-                handleTitle("Pill Link | " + title);
+                handleTitle("Pil+Link | " + title);
                 break;
             case 3: 
-                handleTitle("Pill Link | Result");
+                handleTitle("Pil+Link | Result");
                 break;
             default:
                 break;

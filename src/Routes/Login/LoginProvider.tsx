@@ -42,7 +42,7 @@ const useInputText = (placeholder: string) => {
     };
 };
 
-const title = "Pill Link | Login";
+const title = "Pil+Link | Login";
 
 const useFetch = (): {value: IContext} => {
     const { handleTitle, isProgress, handleProgress } = useAppContext();

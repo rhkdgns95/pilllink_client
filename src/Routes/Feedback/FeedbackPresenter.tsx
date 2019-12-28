@@ -171,8 +171,8 @@ const FeedbackPresenter = () => {
     return (
         <Container className={"container"}>
             <Navbar
-                title={"PillLink"}
-                subTitle={"Show your symptoms to pharmacy and hospital"}
+                title={"PilLink"}
+                subTitle={"Show your symptoms to a pharmacy or hospital"}
             />
             <Wrapper className={"row"}>
                 <Row>
@@ -520,8 +520,8 @@ const FeedbackPresenter = () => {
     return (
         <Container className={"container"}>
             <Navbar
-                title={"PillLink"}
-                subTitle={"Show your symptoms to pharmacy and hospital"}
+                title={"PilLink"}
+                subTitle={"Show your symptoms to a pharmacy or hospital"}
             />
             <Wrapper className={"row"}>
                 <Row>

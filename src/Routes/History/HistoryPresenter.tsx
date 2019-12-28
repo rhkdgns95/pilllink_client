@@ -154,8 +154,8 @@ const HistoryPresenter = () => {
         <Container className={"container"}>
             <Box className={"box"}>
                 <Navbar
-                    title={"PillLink"}
-                    subTitle={"Show your symptoms to pharmacy and hospital"}
+                    title={"PilLink"}
+                    subTitle={"Show your symptoms to a pharmacy or hospital"}
                 />
                 <Wrapper className={"row"}>
                     <StepTitle 

@@ -150,7 +150,7 @@ const useFetch = (): { value: IContext } => {
     const records: Array<getMyMedicalRecords_GetMyMedicalRecords_medicalRecords | null> | null  = data ? data.GetMyMedicalRecords.medicalRecords : null;
     
     useEffect(() => {
-        handleTitle("Pill Link | My History");
+        handleTitle("Pil+Link | My History");
     }, []);
 
     useEffect(() => {

@@ -161,7 +161,7 @@ const useFetch = (): {value: IContext} => {
     useEffect(onFormInit, [user]);
     
     useEffect(() => {
-        handleTitle("Pill Link | My Info");
+        handleTitle("Pil+Link | My Info");
         return () => {
             message.onChangeMessage({
                 ok: true,

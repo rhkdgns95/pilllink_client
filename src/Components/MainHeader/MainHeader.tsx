@@ -16,7 +16,7 @@ const Container = styled.div`
                 }
             }
             p {
-                letter-spacing: 15px;
+                letter-spacing: 22px;
                 font-size: 30px;
                 margin-bottom: 2px; 
             }
@@ -88,7 +88,7 @@ const Wrapper = styled.div`
 const Title = styled.p`
     color: ${props => props.theme.greenColor};
     font-size: 50px;
-    letter-spacing: 25px;
+    letter-spacing: 34.5px;
     line-height: 100%;
     margin-bottom: 8px;
 `;

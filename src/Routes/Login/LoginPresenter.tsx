@@ -175,9 +175,9 @@ const LoginPresenter: React.FC<IProps> = ({
                 <HeaderBg className={"bg"}>
                     <MainHeader
                         className={"row"}
-                        topTitle={"Pill+Link"}
-                        title={"PillLink"}
-                        subTitle={"Show your symptoms to pharmacy and hospital"}
+                        topTitle={"Pil+Link"}
+                        title={"PilLink"}
+                        subTitle={"Show your symptoms to a pharmacy or hospital"}
                     />
                 </HeaderBg>
                 <Wrapper className={"row wrapper"}>

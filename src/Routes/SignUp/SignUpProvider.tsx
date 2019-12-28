@@ -187,7 +187,7 @@ const useFetch = (): {value: IContext} => {
         }
     });
 
-    handleTitle("Pill Link | Sign up");
+    handleTitle("Pil+Link | Sign up");
 
     const toggleModal = () => {
         setIsModal(!isModal);

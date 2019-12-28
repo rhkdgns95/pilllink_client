@@ -22,7 +22,7 @@ const FeedbackContainer = () => {
      *  [1] title 설정
      */
     useEffect(() => {
-        handleTitle("Pill Link | Feedback")
+        handleTitle("Pil+Link | Feedback")
     }, []);
     
     
