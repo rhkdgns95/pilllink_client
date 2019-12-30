@@ -17,7 +17,7 @@ const Text = styled.span`
 const Footer = () => (
     <Container className={'footer'}>
         <Wrapper>
-            <Text>2019 PILLINK ⓒ All Copyrights Reserved.</Text>
+            <Text>2019 PIL + LINK ⓒ All Copyrights Reserved.</Text>
         </Wrapper>
     </Container>
 );

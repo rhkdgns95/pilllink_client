@@ -12,13 +12,13 @@ const Login = () => (
 
 const LoginContainer = () => {
     const { isProgress, handleProgress, timeOut } = useAppContext();
-    const { handleLogin, loginLoading, email: { value: email }, password: { value: password } } = useLoginContext();
+    const { handleLogin, loginLoading, userId: { value: userId }, password: { value: password } } = useLoginContext();
     const onSubmit = () => {
         if(!isProgress && !loginLoading) {
             setTimeout(() => {
                 handleLogin({
                     variables: {
-                        email,
+                        userId,
                         password
                     }
                 });

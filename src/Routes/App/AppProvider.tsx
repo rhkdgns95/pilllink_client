@@ -78,12 +78,15 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
             const { GetMyProfile: { ok, user } } = data;
             if(ok && user) {
                 if(data.GetMyProfile.ok) {
-                    console.log("data.GetMyProfile.ok: ", data.GetMyProfile);
+                    // console.log("data.GetMyProfile.ok: ", data.GetMyProfile);
                 }
             }
         },
         onError: data => {
             console.log("GetMyProfile error: ", data);
+            // 잘못된토큰일수도 있으므로
+            // 로그아웃 시켜주도록 한다.
+            logout();
         },
         skip: !loggedIn,
         fetchPolicy: "network-only"

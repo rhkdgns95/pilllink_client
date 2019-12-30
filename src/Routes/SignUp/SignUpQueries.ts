@@ -2,6 +2,7 @@ import { gql } from "apollo-boost";
 
 export const EMAIL_SIGNUP = gql`
     mutation emailSignUp(
+        $userId: String!
         $firstName: String!
         $lastName: String!
         $gender: Gender!
@@ -15,6 +16,7 @@ export const EMAIL_SIGNUP = gql`
         $password: String!
     ) {
         EmailSignUp(
+            userId: $userId
             firstName: $firstName
             lastName: $lastName
             gender: $gender

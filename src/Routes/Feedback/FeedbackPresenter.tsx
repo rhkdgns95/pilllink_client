@@ -181,11 +181,17 @@ const FeedbackPresenter = () => {
                         subTitle={"Please, follow your pharmacist`s instruction"}
                     />
                     <Cell>
-                        <TranslateButtonBox className={""}>
-                            <TranslateButton className={""} onClick={onToggleTranslate}>
-                                <TranslateIcon src={PATH_IMG_ACTION + "/translator.svg"}/>
-                            </TranslateButton>
-                        </TranslateButtonBox>
+                        {
+                            // 한국어가 아닌경우만 번역기능 보이기.
+                            lang !== "KO" && (
+                                <TranslateButtonBox className={""}>         
+                                    <TranslateButton className={""} onClick={onToggleTranslate}>
+                                        <TranslateIcon src={PATH_IMG_ACTION + "/translator.svg"}/>
+                                    </TranslateButton>
+                                </TranslateButtonBox>
+                            )
+                        }
+                        
                         <Bg className={"feed-bg"}>
                             <Img src={PATH_IMG_BG + "/feedback.jpg"}></Img>
                         </Bg>

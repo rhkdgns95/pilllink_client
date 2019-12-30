@@ -8,6 +8,7 @@ import CircleButton from "../../Components/CircleButton";
 import InputIconText from "../../Components/InputIconText";
 import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
+import ModalAccount from "../../Components/ModalAccount";
 
 const Container = styled.div`
     position: relative;
@@ -135,11 +136,12 @@ const ForgotLine = styled.p`
     text-align: right;
     margin-bottom: 7px;
 `;
-const ForgotLink = styled(Link)`
+const ForgotLink = styled.span`
     width: 100%;
     font-size: 12px;
     color: #939393;
     transition: .2s;
+    cursor: pointer;
     &:hover {
         color: black;
     }
@@ -161,7 +163,7 @@ const LoginPresenter: React.FC<IProps> = ({
 }) => {
     const { isProgress } = useAppContext();
     const [ isEffected, setIsEffected ] = useState<boolean>(false);
-    const { email, password, loginLoading, element, error, handleError } = useLoginContext();
+    const { userId, password, loginLoading, element, error, handleError, isModal, toggleModal } = useLoginContext();
     
     useEffect(() => {
         if(!isEffected){
@@ -186,10 +188,10 @@ const LoginPresenter: React.FC<IProps> = ({
                             e.currentTarget.onkeyup = (data: TextInputKeyPressEventData) => {
                                 const { key } = data;
                                 if(key === "Enter") {
-                                    if(email.value === "") {
-                                        handleError("Please enter your e-mail");
+                                    if(userId.value === "") {
+                                        handleError("Please enter your ID.");
                                     } else if(password.value === "") {
-                                        handleError("Please enter your password");
+                                        handleError("Please enter your Password.");
                                     } else {
                                         onSubmit();
                                     }
@@ -199,13 +201,13 @@ const LoginPresenter: React.FC<IProps> = ({
                     }>
                         <MessageExtended text={error}/>
                         <ForgotLine>
-                            <ForgotLink to={"/"}>
-                                Forgot password?
+                            <ForgotLink onClick={toggleModal}>
+                                Forgot Account?
                             </ForgotLink>
                         </ForgotLine>
                         <InputIconText 
                             element={element}
-                            { ...email }
+                            { ...userId }
                             id={1}
                             svgPath={"M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"}
                         />
@@ -229,7 +231,7 @@ const LoginPresenter: React.FC<IProps> = ({
                                 color={"gold"}
                                 disabled={ isProgress || loginLoading }
                                 onClick={() => {
-                                    if(email.value === "") {
+                                    if(userId.value === "") {
                                         handleError("Please enter your e-mail");
                                     } else if(password.value === "") {
                                         handleError("Please enter your password");
@@ -245,6 +247,7 @@ const LoginPresenter: React.FC<IProps> = ({
                     </LoginBg>
                 </Wrapper>
             </Box>
+            { isModal && <ModalAccount toggleModal={toggleModal}/> }
         </Container>    
     );
 }

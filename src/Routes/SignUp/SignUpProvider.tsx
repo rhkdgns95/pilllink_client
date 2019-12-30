@@ -11,6 +11,7 @@ interface IContext {
     toggleModal: () => any;
     firstName: IUseInputText,
     lastName: IUseInputText,
+    userId: IUseInputText, 
     email: IUseInputText,
     password: IUseInputText,
     age: IUseSelect,
@@ -30,6 +31,7 @@ const InitContext: IContext = {
     isModal: false,
     toggleModal: () => {},
     message:"",
+    userId: { value: "", onChange: () => {}, placeholder: "" },
     firstName: { value: "", onChange: () => {}, placeholder: "" },
     lastName: { value: "", onChange: () => {}, placeholder: "" },
     email: { value: "", onChange: () => {}, placeholder: "" },
@@ -107,6 +109,7 @@ const useRadio = (initValue: string): IUseRadio => {
  *  verifySignUpForm 회원가입 양식 검증
  * 
  *  1. 해외거주자가 아닌경우, Address선택을 안한경우. // 생략됨.
+ *  1. UserId를 적지않은 경우.
  *  2. 이름입력을하지 않는경우,
  *  3. 패스워드 입력 6글자 이상작성하지 않는경우
  * 
@@ -115,16 +118,20 @@ const useRadio = (initValue: string): IUseRadio => {
  *  
  */
 const verifySignUpForm = (formData: ISignUpFormData, callbackFn: any): boolean => {
-    const { firstName, lastName, password } = formData;
+    const { firstName, lastName, password, email } = formData;
     
     let errorMessage: string = "";
-    
-    if(firstName === "" || lastName === "") { 
+    if( formData.userId === "") {
+        // [1] 
+        errorMessage = "Please write your ID";
+    } else if(firstName === "" || lastName === "") { 
         // [2]
-        errorMessage = "Please write your name";
+        errorMessage = "Please write your Name";
     } else if(password.length <= 5) {
         // [3]
-        errorMessage = "Please write at least 6 digit password";
+        errorMessage = "Please write at least 6 digit Password";
+    } else if(email === "") {
+        errorMessage = "Please write your E-mail"
     }
 
     if(errorMessage === "") { // 에러가 없는경우
@@ -150,7 +157,8 @@ const useFetch = (): {value: IContext} => {
             addressItem.onInit();
         }
     }, [addressList.value])
-    
+
+    const userId = useInput("");
     const firstName = useInput("");
     const lastName = useInput("");
     const age = useSelect("5");
@@ -201,6 +209,7 @@ const useFetch = (): {value: IContext} => {
         if(agree && !isProgress) { // 동의한 경우 + 이미 실행중인경우
             
             const formData: ISignUpFormData= {
+                userId: userId.value,
                 firstName: firstName.value,
                 lastName: lastName.value,
                 gender: gender.value === "male" ? Gender["M"] : Gender["W"],
@@ -235,6 +244,7 @@ const useFetch = (): {value: IContext} => {
         value: {
             isModal,
             toggleModal,
+            userId,
             firstName,
             lastName,
             age,

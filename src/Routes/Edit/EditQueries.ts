@@ -1,8 +1,23 @@
 import { gql } from "apollo-boost";
 import { FRAGMENT_USER } from "../../fragments";
 
+export const UPDATE_MY_PASSWORD = gql`
+    mutation updateMyPassword(
+        $currentPassword: String!
+        $newPassword: String!
+    ) {
+        UpdateMyPassword(
+            currentPassword: $currentPassword
+            newPassword: $newPassword
+        ) {
+            ok
+            error
+        }
+    }
+`;
 export const UPDATE_MY_RPFOILE = gql`
     mutation updateMyProfile(
+        $email: String!
         $firstName: String!
         $lastName: String!
         $age: Int!
@@ -15,6 +30,7 @@ export const UPDATE_MY_RPFOILE = gql`
         $nationality: Nationality
     ) {
         UpdateMyProfile(
+            email: $email
             firstName: $firstName
             lastName: $lastName
             age: $age

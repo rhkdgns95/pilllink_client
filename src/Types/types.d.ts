@@ -70,6 +70,7 @@ type TChronicDiseases =  "NULL" | "CHRONIC_KIDNEY" | "CHRONIC_LIVER";
 
 // Form Data - SignUp.
 interface ISignUpFormData {
+    userId: string;
     firstName: string,
     lastName: string,
     gender: Gender,
@@ -119,6 +120,7 @@ interface IMedicalRecord {
 }
 // Form Data - Update My Profile
 interface IUpdateFormData {
+    email: string;
     firstName: string;
     lastName: string;
     gender: TGender;

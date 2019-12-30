@@ -2,6 +2,8 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { useAppContext } from "../App/AppProvider";
 
 interface IContext {
+    userId: IUseInputEdit;
+    email: IUseInputEdit;
     firstName: IUseInputEdit;
     lastName: IUseInputEdit;
     password: IUseInputEdit;
@@ -19,6 +21,8 @@ interface IContext {
 }
 
 const InitContext: IContext = {
+    userId: { value: "", onChange: () => {}, onInit: () => {} },
+    email: { value: "", onChange: () => {}, onInit: () => {} },
     firstName: { value: "", onChange: () => {}, onInit: () => {} },
     lastName: { value: "", onChange: () => {}, onInit: () => {} },
     password: { value: "", onChange: () => {}, onInit: () => {} },
@@ -72,6 +76,8 @@ const useSelect = (initValue: string): IUseSelectEdit => {
 
 const useFetch = (): {value: IContext} => {
     const { handleTitle, user, isProgress, handleProgress, message, updateMyprofile } = useAppContext();
+    const userId = useInput("");
+    const email = useInput("");
     const firstName = useInput(user ? user.firstName : "");
     const lastName = useInput(user ? user.lastName : "");
     const password = useInput(""); // 빈값으로 놓기.
@@ -84,20 +90,22 @@ const useFetch = (): {value: IContext} => {
     
     const addressList = useSelect("SEOUL");
     const addressItem = useSelect("0");
-    
+
     const toggleModal = () => {
         setIsModal(!isModal);
     }
 
     const onFormInit = () => {
         if(user) {
+            email.onInit(user.email);
             firstName.onInit(user.firstName);
             lastName.onInit(user.lastName);
             password.onInit("");
             gender.onInit(user.gender);
             age.onInit(user.age + "");
             nationality.onInit(user.nationality);
-            
+            userId.onInit(user.userId);
+
             if(user.isAbroad) { // 외국 사는경우,
                 isAbroad.onInit("true");
                 abroadAddress.onInit(user!.abroadAddress!);
@@ -129,8 +137,14 @@ const useFetch = (): {value: IContext} => {
                 data: newMessage
             });
             return false;
-        } 
-
+        } else if(email.value === "") {
+            newMessage = "Please write your email";
+            message.onChangeMessage({
+                ok: false,
+                data: newMessage
+            });
+            return false;
+        }
         return newMessage === "";
     }
 
@@ -139,6 +153,7 @@ const useFetch = (): {value: IContext} => {
         if(isVerify && !isProgress) {
             handleProgress(true);
             const formData: IUpdateFormData = {
+                email: email.value,
                 firstName: firstName.value,
                 lastName: lastName.value,
                 age: parseInt(age.value),
@@ -172,6 +187,8 @@ const useFetch = (): {value: IContext} => {
     
     return {
         value: {
+            userId,
+            email,
             firstName,
             lastName,
             password,

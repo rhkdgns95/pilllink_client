@@ -9,6 +9,7 @@
 export interface getMyProfile_GetMyProfile_user {
   __typename: "User";
   id: number;
+  userId: string;
   fullName: string | null;
   firstName: string;
   lastName: string;
@@ -41,12 +42,36 @@ export interface getMyProfile {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: updateMyPassword
+// ====================================================
+
+export interface updateMyPassword_UpdateMyPassword {
+  __typename: "UpdateMyPasswordResponse";
+  ok: boolean;
+  error: string | null;
+}
+
+export interface updateMyPassword {
+  UpdateMyPassword: updateMyPassword_UpdateMyPassword;
+}
+
+export interface updateMyPasswordVariables {
+  currentPassword: string;
+  newPassword: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: updateMyProfile
 // ====================================================
 
 export interface updateMyProfile_UpdateMyProfile_user {
   __typename: "User";
   id: number;
+  userId: string;
   fullName: string | null;
   firstName: string;
   lastName: string;
@@ -75,6 +100,7 @@ export interface updateMyProfile {
 }
 
 export interface updateMyProfileVariables {
+  email: string;
   firstName: string;
   lastName: string;
   age: number;
@@ -297,8 +323,56 @@ export interface emailSignIn {
 }
 
 export interface emailSignInVariables {
-  email: string;
+  userId: string;
   password: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: forgotMyAccount
+// ====================================================
+
+export interface forgotMyAccount_ForgotMyAccount {
+  __typename: "ForgotMyAccountResponse";
+  ok: boolean;
+  error: string | null;
+  userId: string | null;
+}
+
+export interface forgotMyAccount {
+  ForgotMyAccount: forgotMyAccount_ForgotMyAccount;
+}
+
+export interface forgotMyAccountVariables {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: resetPassword
+// ====================================================
+
+export interface resetPassword_ResetPassword {
+  __typename: "ResetPasswordResponse";
+  ok: boolean;
+  error: string | null;
+}
+
+export interface resetPassword {
+  ResetPassword: resetPassword_ResetPassword;
+}
+
+export interface resetPasswordVariables {
+  userId: string;
+  email: string;
 }
 
 /* tslint:disable */
@@ -321,6 +395,7 @@ export interface emailSignUp {
 }
 
 export interface emailSignUpVariables {
+  userId: string;
   firstName: string;
   lastName: string;
   gender: Gender;
@@ -345,6 +420,7 @@ export interface emailSignUpVariables {
 export interface ItemUser {
   __typename: "User";
   id: number;
+  userId: string;
   fullName: string | null;
   firstName: string;
   lastName: string;

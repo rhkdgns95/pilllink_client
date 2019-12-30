@@ -8,21 +8,27 @@ import { USER_LOGGED_IN } from "./LoginQueries.local";
 interface IContext {
     loginLoading: boolean;
     error: string | null;
-    email: IUseInputText;
+    userId: IUseInputText;
     password: IUseInputText;
     handleLogin: any;
     element: any;
     handleError: (message: string | null) => any;
+    isModal: boolean;
+    toggleModal: () => any;
+    // forgotMyAccount: () => any;
 }
 
 const InitContext: IContext = {
     error: null,
     loginLoading: false,
     element: null,
-    email: { onChange: () => {}, placeholder: "", value: "" },
+    userId: { onChange: () => {}, placeholder: "", value: "" },
     password: { onChange: () => {}, placeholder: "", value: "" },
     handleLogin: () => {},
-    handleError: () => {}
+    handleError: () => {},
+    isModal: false,
+    toggleModal: () => {},
+    // forgotMyAccount: () => {}
 }
 
 const LoginContext: React.Context<IContext> = createContext<IContext>(InitContext);
@@ -30,6 +36,7 @@ const useLoginContext = () => useContext(LoginContext);
 
 const useInputText = (placeholder: string) => {
     const [value, setValue] = useState<string>("");
+
     const onChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         const { target: { value }} = event;
         setValue(value);
@@ -53,15 +60,23 @@ const useFetch = (): {value: IContext} => {
     }
 
     const element = useRef<HTMLInputElement>(null);
+    
     useEffect(() => {
         handleTitle(title);
         if(element.current) {
             element.current.focus();
         }
     }, []);
-    const email = useInputText("EMAIL");
+    
+    const userId = useInputText("ID");
     const password = useInputText("PASSWORD");
     const [ userLoggedIn ] = useMutation(USER_LOGGED_IN);
+    const [ isModal, setIsModal ] = useState<boolean>(false);
+
+    const toggleModal = () => {
+        setIsModal(!isModal);
+    }
+
     const [ handleLogin, { loading: loginLoading } ] = useLazyQuery<emailSignIn, emailSignInVariables>(LOGIN_QUERY, {
         fetchPolicy: "cache-and-network",
         onCompleted: data => {
@@ -80,6 +95,9 @@ const useFetch = (): {value: IContext} => {
             }
         },  
         onError: data => {
+            if(isProgress) {
+                handleProgress(false);
+            }
             console.log("handle login error: ", data);
         }
     });
@@ -87,12 +105,14 @@ const useFetch = (): {value: IContext} => {
     return {
         value: {
             loginLoading,
-            email,
+            userId,
             password,
             handleLogin,
             element,
             error,
-            handleError
+            handleError,
+            isModal,
+            toggleModal,
         }
     };
 };

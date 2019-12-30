@@ -305,6 +305,9 @@ const StepDetailSymptoms: React.FC<IProps> = ({
         if(country) {
             symptomDetails = country.symptoms.find(registeredSymptom => registeredSymptom.value === symptom.value);
             // console.log(symptomDetails);
+            if(lang.value === "KO") {
+                handleModal();
+            }
             
         } 
         setSymptomDetails(symptomDetails);
@@ -444,6 +447,7 @@ const StepDetailSymptoms: React.FC<IProps> = ({
                 {
                     step === 3 && (
                         <Result 
+                            lang={lang.value}
                             isEffected={isEffected[1]}
                             title={stepTitle[1]}
                             currentDetails={currentDetails.details.filter(item => item.checked === true)}
@@ -510,6 +514,7 @@ interface IResult {
     onToggleTranslate: () => any;
     isModal: boolean;
     toggleText: string;
+    lang: string;
 }
 const Result: React.FC<IResult> = ({
     title,
@@ -518,7 +523,8 @@ const Result: React.FC<IResult> = ({
     symptomDetails,
     onToggleTranslate,
     isModal,
-    toggleText
+    toggleText,
+    lang
 }) => (
     <>
         { title }
@@ -539,11 +545,17 @@ const Result: React.FC<IResult> = ({
                 }
             </ResultGroup>
         </ResultBgBox>
-        <TranslateButtonBox className={isModal ? "active" : ""}>
-            <TranslateButton className={isModal ? "active" : ""} toggleText={toggleText}>
-                <TranslateIcon src={PATH_IMG_ACTION + "/translator.svg"} onClick={onToggleTranslate}/>
-            </TranslateButton>
-        </TranslateButtonBox>
+        {
+            // 한국어가 아닌 경우만 번역기 버튼 보이기.
+            lang !== "KO" && (
+                <TranslateButtonBox className={isModal ? "active" : ""}>
+                    <TranslateButton className={isModal ? "active" : ""} toggleText={toggleText}>
+                        <TranslateIcon src={PATH_IMG_ACTION + "/translator.svg"} onClick={onToggleTranslate}/>
+                    </TranslateButton>
+                </TranslateButtonBox>
+            )
+        }
+        
     </>
 );
 

@@ -2,6 +2,16 @@ import React, { ChangeEvent } from "react";
 import styled from "../../Styles/typed-components";
 
 const Container = styled.div`
+    @media(max-width: 510px) {
+        &.active-button {
+            & > div {
+                input {
+                    flex: 4;
+                    padding: 7px 9px;
+                }
+            }           
+        }
+    }
 `;
 const Wrapper = styled.div`
     display: flex;
@@ -36,6 +46,10 @@ const InputTyped = styled.input`
             color: #0aa147;
         }
     }
+    &:disabled {
+        // background-color: #e0e0e0;
+        border: 1px solid #dfdfdf;  
+    }
 `;
 const InputText = styled(InputTyped)`
 `;
@@ -47,21 +61,36 @@ const Label = styled.label`
     transition: color .1s;
     color: #147d51;
 `;
+const ChangePasswordBtn = styled.input`
+    padding: 7px 20px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    &:focus,
+    &:active {
+        border: 1px solid black;
+    }
+`;
 interface IProps {
     title: string; 
     value: string;
     type?: "text" | "password",
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => any
+    disabled?: boolean;
+    onClick?: () => any;
 }
 const InputTitleText: React.FC<IProps> = ({
     title,
     value,
     type="text",
-    onChange
+    onChange,
+    disabled, 
+    onClick // Change Password.
 }) => (
-    <Container>
+    <Container className={onClick ? "active-button" : ""}>
         <Wrapper>
-            <InputText value={value} type={type} onChange={onChange}/>
+            { onClick && <ChangePasswordBtn value={"Change Password"} type={"button"} onClick={onClick}/>}
+            { !onClick && <InputText value={value} type={type} onChange={onChange} disabled={disabled}/> }
             <Label>{ title }</Label>
         </Wrapper>
         

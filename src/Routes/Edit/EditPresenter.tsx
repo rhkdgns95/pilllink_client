@@ -12,6 +12,7 @@ import AddressEdit from "../../Components/AddressEdit";
 import CircleButton from "../../Components/CircleButton";
 import Message from "../../Components/Message";
 import { useAppContext, PATH_IMG_BG } from "../App/AppProvider";
+import ModalChangePwdForm from "../../Components/ModalChangePwdForm";
 
 const Container = styled.div`
 
@@ -184,10 +185,11 @@ const MessageBox = styled.div<IMessage>`
     }
 `;
 const EditPresenter = () => {
-    const { loadingUpdateMyProfile, message, } = useAppContext();
+
+    const { loadingUpdateMyProfile, message, user } = useAppContext();
     const [ isEffected, setIsEffected ] = useState<boolean>(false);
     
-    const { firstName, lastName, age, gender, nationality, onFormInit, onUpdate } = useEditContext();
+    const { userId, email, firstName, lastName, age, gender, nationality, onFormInit, onUpdate, isModal, toggleModal } = useEditContext();
     let optionsAge: Array<any> = [];
     const currentNationality: INationality | undefined = Nationality.find(item => item.code === nationality.value);
     
@@ -219,12 +221,27 @@ const EditPresenter = () => {
                     <Info className={isEffected ? "info step-container active" : "info step-container"}>
                         <EditForm className={"edit-form"}>
                             <InputTitleText 
+                                title={"ID"}
+                                { ...userId }
+                                disabled={true}
+                            />
+                            <InputTitleText 
+                                title={"password"}
+                                value={"password"}
+                                onChange={() => {}}
+                                onClick={toggleModal}
+                            />
+                            <InputTitleText 
                                 title={"first name"}
                                 { ...firstName }
                             />
                             <InputTitleText 
                                 title={"last name"}
                                 { ...lastName }
+                            />
+                            <InputTitleText 
+                                title={"E-mail"}
+                                { ...email }
                             />
                             {/* <InputTitleText 
                                 title={"password"}
@@ -307,6 +324,7 @@ const EditPresenter = () => {
                         />
                     </ButtonBox>
                 </Wrapper>
+                { isModal && <ModalChangePwdForm toggleModal={toggleModal} userId={user ? user.id : -1}/>}
                 {/* <ModalAddressEdit /> */}
             </Box>
         </Container>

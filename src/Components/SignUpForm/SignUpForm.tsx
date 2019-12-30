@@ -162,13 +162,22 @@ o   기타 불법적이거나 부당한 행위
 `;
 
 const SignUpForm = () => {
-    const { firstName, lastName, gender, email, password, toggleAgree, agree, onSubmit, message } = useSignUpContext();
+    const { userId, firstName, lastName, gender, email, password, toggleAgree, agree, onSubmit, message } = useSignUpContext();
     return (
         <Container>
             <TitleExtended 
                 className={"signup-title"}
                 title={"sign up"}
                 error={message}
+            />
+            <InputTitleText 
+                title={"ID"}
+                { ...userId }
+            />
+            <InputTitleText 
+                title={"password"}
+                type={"password"}
+                { ...password }
             />
             <InputTitleText 
                 title={"first name"}
@@ -205,13 +214,8 @@ const SignUpForm = () => {
             <Selector title={"Nationality"} />
             <Address title={"Address"}/>
             <InputTitleText 
-                title={"Email"}
+                title={"E-mail"}
                 { ...email }
-            />
-            <InputTitleText 
-                title={"password"}
-                type={"password"}
-                { ...password }
             />
             <TextArea 
                 title={"Agreement"}
