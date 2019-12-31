@@ -36,6 +36,7 @@
 - [x] Ago Update Translator.
 - [x] Update Translator, Delete Other's Confirm.
 - [x] Adding UpdateMyPassword, Account Settings(ID, Password).
+- [x] Update Step Button.
 - [] Admin - Chart, Feedback, UserRecords.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)

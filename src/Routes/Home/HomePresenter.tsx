@@ -52,6 +52,7 @@ const SlideBtnBox = styled.div`
                 margin: 0;
             }
             input {
+                padding: 12.5px;
                 border-radius: 0;
                 display: block;
                 width: 100%;
