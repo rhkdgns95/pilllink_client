@@ -163,7 +163,7 @@ const useFetch = (): { value: IContext } => {
             users,
             pagination,
             max,
-            loading
+            loading,
         }
     }
 };

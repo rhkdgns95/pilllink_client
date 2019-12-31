@@ -69,7 +69,7 @@ const Container = styled.div`
             & > div {
                 width: 100%;
                 margin: 0 auto;
-                justify-content: flex-start;
+                justify-content: space-between;
                 & > .result-item {
                     width: 95px;
                     height: 95px;
@@ -177,6 +177,16 @@ const TranslateButton = styled.span<ITranslateButton>`
     border-radius: 50%;
     border: 1px solid black;
     user-select: none;
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        transition: transform .2s;
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+    
     &.active {
         &::after {
             content: "${props => props.toggleText}";
@@ -194,15 +204,6 @@ const TranslateButton = styled.span<ITranslateButton>`
         }
     }
     
-    img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 20px;
-        height: 20px;
-        transition: transform .2s;
-        transform: translate(-50%, -50%) rotate(180deg);
-    }
     
     
 `;

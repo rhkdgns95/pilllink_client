@@ -6,9 +6,10 @@ import { useAppContext } from "../../Routes/App/AppProvider";
 
 const Container = styled.div`
     width: 100%;
-    @media(max-width: 500px) {
+    @media(max-width: 510px) {
         & {
             .title {
+                // letter-spacing: 25.7px;
                 letter-spacing: 12.7px;
             }
             .sub-title {
@@ -35,6 +36,10 @@ const Wrapper = styled.div`
 `;
 const HomeLink = styled(Link)`
     margin: 15px 0;
+    @media(max-width: 510px) {
+    //     margin-left: -19px;
+    // transform: scale(.8);
+    }
 `;
 const Title = styled.p`
     color: ${props => props.theme.greenColor};

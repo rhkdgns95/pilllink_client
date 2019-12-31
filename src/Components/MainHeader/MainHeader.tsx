@@ -65,6 +65,7 @@ const TopHeader = styled.span`
         width: 1100px;
         height: 3px;
         right: 0;
+        left: auto;
         background-color: white;
     }
 `;
