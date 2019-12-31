@@ -1,5 +1,5 @@
 import React from "react";
-import AppProvider, { PUBLIC_PATH } from "./AppProvider";
+import AppProvider, { PUBLIC_PATH, useAppContext } from "./AppProvider";
 import { BrowserRouter, Switch, Route as Router, Redirect } from "react-router-dom";
 import ProgressBar from "../../Components/ProgressBar";
 import Home from "../Home";
@@ -9,6 +9,7 @@ import Edit from "../Edit";
 import History from "../History";
 import Footer from "../../Components/Footer";
 import Feedback from "../Feedback";
+import Admin from "../Admin";
 
 
 const App = ({data}: {data: any}) => {
@@ -40,12 +41,26 @@ const AppContainer: React.FC<any> = ({
         </BrowserRouter>
     );
 };
-const LoggedIn = () => (
+const LoggedIn = () => {
+    const { user, loadingGetMyProfile: loading } = useAppContext();
+    if(loading || !user) {
+        return <></>
+    }
+
+    return user.userId === "pil_admin" ? <LoggedInAdmin/> : <LoggedInUsers/>;
+}
+const LoggedInUsers = () => (
     <Switch>
         <Router path={"/"} component={Home} exact={true}/>
         <Router path={"/edit"} component={Edit}/>
         <Router path={"/history"} component={History} />
         <Router path={"/feedback"} component={Feedback} />
+        <Redirect from={"*"} to={"/"}/>
+    </Switch>
+);
+const LoggedInAdmin = () => (
+    <Switch>
+        <Router path={"/"} component={Admin} exact={true}/>
         <Redirect from={"*"} to={"/"}/>
     </Switch>
 );

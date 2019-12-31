@@ -46,6 +46,10 @@ interface IUseSelectEdit {
     onChange: React.ChangeEventHandler<HTMLSelectElement>;
     onInit: (value: string) => any;
 }
+interface IUseTab {
+    no: number;
+    text: string;
+}
 interface IUsePagination {
     cursor: number;
     screen: number;

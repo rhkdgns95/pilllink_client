@@ -50,9 +50,21 @@ const Container = styled.div`
                 z-index: 2;
             }
         }
-        
+    }
+    @media(max-width: 510px) {
+        &.active {
+            & > div {
+                &::before {
+                    top: -350%;
+                }
+                &::after {
+                    width: 103%;
+                }
+            }
+        }
     }
 `;
+
 const Wrapper = styled.div`
 
 `;

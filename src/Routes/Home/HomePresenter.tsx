@@ -36,6 +36,28 @@ const SlideBtnBox = styled.div`
             margin-left: 10px;
         }
     }
+    @media(max-width: 510px) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        background-color: black;
+        justify-content: flex-start;
+        flex: 2;
+        & > div {
+            flex: 1;
+            width: 50%;
+            &:last-child {
+                margin: 0;
+            }
+            input {
+                border-radius: 0;
+                display: block;
+                width: 100%;
+            }
+        }
+    }
 `;
 
 
@@ -56,7 +78,7 @@ const HomePresenter = () => {
                             <Steps>
                                 { step === 0 && <StepLanguage stepTitle={ <StepTitle title={"Nationality"} subTitle={"Please, select your nationality"}/> } />}
                                 { step === 1 && <StepSymptoms stepTitle={ <StepTitle title={"Symptoms"} subTitle={"Please, select your conditions and symptoms"}/> } />}
-                                { step >= 2 && <StepDetailSymptoms stepTitle={[ <StepTitle title={"Details"} subTitle={"You can choose more than one option."} />, <StepTitle title={"Result"} subTitle={"Please, show this result to your pharmacist"} />]} />}
+                                { step >= 2 && <StepDetailSymptoms stepTitle={[ <StepTitle title={"Details"} subTitle={""} />, <StepTitle title={"Result"} subTitle={"Please, show this result to your pharmacist"} />]} />}
                             </Steps>
                         </Slide>
                         <SlideBtnBox>

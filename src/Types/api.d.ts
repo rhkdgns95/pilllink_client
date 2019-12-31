@@ -3,6 +3,51 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getUsers
+// ====================================================
+
+export interface getUsers_GetUsers_users {
+  __typename: "User";
+  id: number;
+  userId: string;
+  fullName: string | null;
+  firstName: string;
+  lastName: string;
+  email: string;
+  nationality: Nationality;
+  gender: Gender;
+  age: number;
+  isAbroad: boolean;
+  abroadAddress: string | null;
+  addressList: Address | null;
+  addressItem: string | null;
+  medicalRecordsCount: number | null;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
+export interface getUsers_GetUsers {
+  __typename: "GetUsersResponse";
+  ok: boolean;
+  error: string | null;
+  users: (getUsers_GetUsers_users | null)[] | null;
+  totalUsers: number | null;
+}
+
+export interface getUsers {
+  GetUsers: getUsers_GetUsers;
+}
+
+export interface getUsersVariables {
+  take: number;
+  skip: number;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getMyProfile
 // ====================================================
 
