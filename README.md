@@ -38,6 +38,7 @@
 - [x] Adding UpdateMyPassword, Account Settings(ID, Password).
 - [x] Update Step Button.
 - [x] LoginContainer youtube video popup.
+- [x] Netlify add _redirects
 - [] Admin - Chart, Feedback, UserRecords.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
