@@ -16,6 +16,7 @@ export const FRAGMENT_USER = gql`
         addressList
         addressItem
         medicalRecordsCount
+        boardCount
         createdAt
         updatedAt
     }
@@ -83,5 +84,22 @@ export const FRAGMENT_MEDICAL_RECORDS = gql`
         other_disinfectant
         other_salineSolution
         other_artificialTears
+    }
+`;
+
+export const FRAGMENT_BOARD = gql`
+    fragment ItemBoard on Board {
+        id
+        text
+        selector
+        result
+        writerId
+        # writer {
+            # ...ItemUser
+            # fullName
+        # }
+        selector
+        createdAt
+        updatedAt
     }
 `;

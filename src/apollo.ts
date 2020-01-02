@@ -16,8 +16,8 @@ cache.writeData({
 });
 
 const httpLink = createHttpLink({
-    // uri: "http://localhost:4000/graphql"
-    uri: "https://pilllink.herokuapp.com/graphql"
+    uri: "http://localhost:4000/graphql"
+    // uri: "https://pilllink.herokuapp.com/graphql"
 });
 const middlewareLink = new ApolloLink((operation, forward) => {
     operation.setContext({

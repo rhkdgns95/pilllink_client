@@ -162,7 +162,7 @@ const HistoryPresenter = () => {
                         title={"My page"}
                         subTitle={"You can update your information and see your history"}
                     />
-                    <MyMenu isEdit={false}/>
+                    <MyMenu active={"history"}/>
                     <List className={isEffected ? "active step-container" : "step-container"}>
                         {
                             records && newRecords && newRecords.map((record, key) => 

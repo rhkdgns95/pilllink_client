@@ -3,6 +3,81 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getUserBoards
+// ====================================================
+
+export interface getUserBoards_GetUserBoards_boards_writer {
+  __typename: "User";
+  id: number;
+  userId: string;
+  fullName: string | null;
+  firstName: string;
+  lastName: string;
+  email: string;
+  nationality: Nationality;
+  gender: Gender;
+  age: number;
+  isAbroad: boolean;
+  abroadAddress: string | null;
+  addressList: Address | null;
+  addressItem: string | null;
+  medicalRecordsCount: number | null;
+  boardCount: number | null;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
+export interface getUserBoards_GetUserBoards_boards {
+  __typename: "Board";
+  id: number;
+  text: string;
+  selector: SELECTOR;
+  result: string | null;
+  writerId: number | null;
+  createdAt: string;
+  updatedAt: string | null;
+  writer: getUserBoards_GetUserBoards_boards_writer;
+}
+
+export interface getUserBoards_GetUserBoards {
+  __typename: "GetUserBoardsResponse";
+  ok: boolean;
+  error: string | null;
+  boards: (getUserBoards_GetUserBoards_boards | null)[] | null;
+}
+
+export interface getUserBoards {
+  GetUserBoards: getUserBoards_GetUserBoards;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: updateBoardResult
+// ====================================================
+
+export interface updateBoardResult_UpdateBoardResult {
+  __typename: "UpdateBoardResultResponse";
+  ok: boolean;
+  error: string | null;
+}
+
+export interface updateBoardResult {
+  UpdateBoardResult: updateBoardResult_UpdateBoardResult;
+}
+
+export interface updateBoardResultVariables {
+  boardId: number;
+  result: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getUsers
 // ====================================================
 
@@ -22,6 +97,7 @@ export interface getUsers_GetUsers_users {
   addressList: Address | null;
   addressItem: string | null;
   medicalRecordsCount: number | null;
+  boardCount: number | null;
   createdAt: string;
   updatedAt: string | null;
 }
@@ -67,6 +143,7 @@ export interface getMyProfile_GetMyProfile_user {
   addressList: Address | null;
   addressItem: string | null;
   medicalRecordsCount: number | null;
+  boardCount: number | null;
   createdAt: string;
   updatedAt: string | null;
 }
@@ -80,6 +157,30 @@ export interface getMyProfile_GetMyProfile {
 
 export interface getMyProfile {
   GetMyProfile: getMyProfile_GetMyProfile;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: createBoard
+// ====================================================
+
+export interface createBoard_CreateBoard {
+  __typename: "CreateBoardResponse";
+  ok: boolean;
+  error: string | null;
+  boardId: number | null;
+}
+
+export interface createBoard {
+  CreateBoard: createBoard_CreateBoard;
+}
+
+export interface createBoardVariables {
+  text: string;
+  selector: SELECTOR;
 }
 
 /* tslint:disable */
@@ -129,6 +230,7 @@ export interface updateMyProfile_UpdateMyProfile_user {
   addressList: Address | null;
   addressItem: string | null;
   medicalRecordsCount: number | null;
+  boardCount: number | null;
   createdAt: string;
   updatedAt: string | null;
 }
@@ -459,6 +561,41 @@ export interface emailSignUpVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getMyBoards
+// ====================================================
+
+export interface getMyBoards_GetMyBoards_boards {
+  __typename: "Board";
+  id: number;
+  text: string;
+  selector: SELECTOR;
+  result: string | null;
+  writerId: number | null;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
+export interface getMyBoards_GetMyBoards {
+  __typename: "GetMyBoardsResponse";
+  ok: boolean;
+  error: string | null;
+  boards: (getMyBoards_GetMyBoards_boards | null)[] | null;
+}
+
+export interface getMyBoards {
+  GetMyBoards: getMyBoards_GetMyBoards;
+}
+
+export interface getMyBoardsVariables {
+  skip: number;
+  take: number;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL fragment: ItemUser
 // ====================================================
 
@@ -478,6 +615,7 @@ export interface ItemUser {
   addressList: Address | null;
   addressItem: string | null;
   medicalRecordsCount: number | null;
+  boardCount: number | null;
   createdAt: string;
   updatedAt: string | null;
 }
@@ -643,6 +781,25 @@ export interface ItemOther {
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL fragment: ItemBoard
+// ====================================================
+
+export interface ItemBoard {
+  __typename: "Board";
+  id: number;
+  text: string;
+  selector: SELECTOR;
+  result: string | null;
+  writerId: number | null;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
@@ -736,6 +893,12 @@ export enum RES_WAY {
   AFTER_EAT = "AFTER_EAT",
   AGO_EAT = "AGO_EAT",
   NO_EAT = "NO_EAT",
+}
+
+export enum SELECTOR {
+  BOARD_PROBLEM = "BOARD_PROBLEM",
+  BOARD_QUESTION = "BOARD_QUESTION",
+  BOARD_SUGGESTION = "BOARD_SUGGESTION",
 }
 
 export enum Status {

@@ -9,6 +9,8 @@ import StepSymptoms from "../../Components/Steps/StepSymptoms";
 import StepDetailSymptoms from "../../Components/Steps/StepDetailSymptoms";
 import { useAppContext } from "../App/AppProvider";
 import ModalCloseBtn from "../../Components/ModalCloseBtn";
+import BoardButton from "../../Components/BoardButton";
+import ModalBoard from "../../Components/ModalBoard";
 
 const Container = styled.div`
 `;
@@ -63,7 +65,7 @@ const SlideBtnBox = styled.div`
 
 
 const HomePresenter = () => {
-    const { isProgress } = useAppContext();
+    const { isProgress, isBoard } = useAppContext();
     const { lang, step, handleStep, symptom, submitOk, handleMedicalRecord, isModal } = useHomeContext();
     
     return (
@@ -166,6 +168,9 @@ const HomePresenter = () => {
                 </Wrapper>
             </Box>
             { step === 3 && isModal && <ModalCloseBtn />}
+            { !isBoard && <BoardButton />}
+            { isBoard &&  <ModalBoard/> }
+            
         </Container>
     )
 };

@@ -317,5 +317,19 @@ export const TranslatedMexico: ICountry = {
     contents: [
         "Puedes seleccionar múltiples síntomas.",
         "Para mostrarlo usted mismo."
+    ],
+    boardSelectors: [
+        {
+            name: "제안",
+            value: "BOARD_SUGGESTION"
+        },
+        {
+            name: "문의사항",
+            value: "BOARD_QUESTION"
+        },
+        {
+            name: "불편사항",
+            value: "BOARD_PROBLEM"
+        }
     ]
 };

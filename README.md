@@ -38,7 +38,8 @@
 - [x] Adding UpdateMyPassword, Account Settings(ID, Password).
 - [x] Update Step Button.
 - [x] LoginContainer youtube video popup.
-- [x] Netlify add _redirects
+- [x] Netlify add _redirects.
+- [x] Add Board + Admin - Records.
 - [] Admin - Chart, Feedback, UserRecords.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
@@ -88,6 +89,9 @@
 - 4.7 웹 페이지 루트경로
 : 로컬서버의 페이지루트는 "/"일것이다. 하지만, 서버측의 루트경로에는 process.env.PUBLIC_URL으로 설정된다.
 : 이때 다른 라우터로접근하려면 BrowserRouter의 basename에 process.env.PUBLIC_URL값을 적어준 다음에 진행한다. 그리고 react-router-dom의 Link는 자동저으로 PUBLIC_URL이 등록되어있다는점을 기억하자.
+- 4.8. 404 Not Found.
+: Netlify의 홈페이지에서 배포한 것의 404 Page Not Found를 방지하기위해서 _redirects를 루트경로에 추가하고 아래의 한줄을 작성하면 해결된다.
+: /*    /index.html   200
 
 
 ## 5. Pagination - Medical Record 요청

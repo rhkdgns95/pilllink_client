@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const AdminStatistics = () => (
     <Container>
         <Wrapper>
-            Hello, AdminStatistics
+            Hello, Admin Statistics - comming soon.
         </Wrapper>
     </Container>
 );

@@ -49,6 +49,12 @@ const GoLink = styled(Link)`
         }
         background-color: #119458;
     }
+    white-space: nowrap;
+    @media(max-width: 510px) {
+        & svg {
+            display: none;
+        }
+    }
 `;
 const GoProfile = styled(GoLink)`
     
@@ -56,26 +62,34 @@ const GoProfile = styled(GoLink)`
 const GoHistory = styled(GoLink)`
 
 `;
+const GoSuggestion = styled(GoLink)`
+
+`;
 interface IProps {
-    isEdit: boolean;
+    active: string;
 }
 const MyMenu: React.FC<IProps> = ({
-    isEdit
+    active
 }) => {
     const { user } = useAppContext();
     
     return (
         <Container>
             <Wrapper>
-                <GoProfile className={isEdit ? "active" : ""} to={"/edit"}>
+                <GoProfile className={active === "info" ? "active" : ""} to={"/edit"}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z"/></svg>
-                    My Information
+                    Information
                 </GoProfile>
-                <GoHistory className={isEdit ? "" : "active"} to={"/history"}>
+                <GoHistory className={active === "history" ? "active" : ""} to={"/history"}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z"/></svg>
-                    My History
+                    History
                     { user && " ("+ user.medicalRecordsCount + ")"}
                 </GoHistory>
+                <GoSuggestion className={active === "suggestion" ? "active" : ""} to={"/suggestion"}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z"/></svg>
+                    Suggestion
+                    { user && " ("+ user.boardCount + ")"}
+                </GoSuggestion>
             </Wrapper>
         </Container>
     );

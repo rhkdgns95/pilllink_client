@@ -10,6 +10,7 @@ import History from "../History";
 import Footer from "../../Components/Footer";
 import Feedback from "../Feedback";
 import Admin from "../Admin";
+import Suggestion from "../Suggestion";
 
 
 const App = ({data}: {data: any}) => {
@@ -55,6 +56,7 @@ const LoggedInUsers = () => (
         <Router path={"/edit"} component={Edit}/>
         <Router path={"/history"} component={History} />
         <Router path={"/feedback"} component={Feedback} />
+        <Router path={"/suggestion"} component={Suggestion} />
         <Redirect from={"*"} to={"/"}/>
     </Switch>
 );

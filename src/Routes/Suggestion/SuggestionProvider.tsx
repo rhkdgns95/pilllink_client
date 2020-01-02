@@ -1,28 +1,30 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { getUsers, getUsersVariables, getUsers_GetUsers_users  } from "../../Types/api";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useLazyQuery } from "react-apollo";
-import { GET_USERS } from "./AdminUsersQueries";
+import { getMyBoards, getMyBoards_GetMyBoards_boards, getMyBoardsVariables } from "../../Types/api";
+import { GET_MY_BOARDS } from "./SuggestionQueries";
+import { useAppContext } from "../App/AppProvider";
 
 interface IContext {
-    users: (getUsers_GetUsers_users | null)[] | null;
+    boards: Array<getMyBoards_GetMyBoards_boards | null> | null;
+    loading: boolean;
     pagination: IUsePagination;
-    loading: boolean,
     max: number;
 }
-
-const InitContect: IContext = {
-    users: [],
-    pagination: { cursor: 1, screen: 1, onChangeCursor: () => {}, totalCount: 0, hasFirst: false, hasLast: false, hasPrev: false, hasNext: false, onClickArrow: () => {}, onClickDBArrow: () => {}, onhandleUsingArrow: () => {} },
+const InitContext: IContext = {
+    boards: [],
     loading: false,
+    pagination: { cursor: 1, screen: 1, onChangeCursor: () => {}, totalCount: 0, hasFirst: false, hasLast: false, hasPrev: false, hasNext: false, onClickArrow: () => {}, onClickDBArrow: () => {}, onhandleUsingArrow: () => {} },
     max: 0
 };
 
-const AdminUsersContext: React.Context<IContext> = createContext<IContext>(InitContect);
-const useAdminUsersContext = () => useContext(AdminUsersContext);
+const SuggestionContext: React.Context<IContext> = createContext<IContext>(InitContext);
+
+const useSuggestionContext = () => useContext(SuggestionContext);
+
 
 export const PaginationSettings = {
     pageCount: 3,  // pageCount: 한 페이지에서 보여질 리스트 갯수
-    tableCount: 5, // tableCount: 한페이지에 보여질 table 갯수
+    tableCount: 4, // tableCount: 한페이지에 보여질 table 갯수
 }
 const START_SCREEN = 1; // 1부터 시작, 인덱스가 아니므로 주의!
 const START_OFFSET = 1; 
@@ -129,54 +131,61 @@ const usePagination = (max: number, initCursor: number, initScreen: number): IUs
 }
 
 const useFetch = (): { value: IContext } => {
+    const { user, handleTitle } = useAppContext();
     const [max, setMax] = useState<number>(0);  
     const pagination = usePagination(max, START_OFFSET, START_SCREEN);
 
-    const [ getUsers, { data, loading }] = useLazyQuery<getUsers, getUsersVariables>(GET_USERS, {
+    const [getBoards, { data, loading }] = useLazyQuery<getMyBoards, getMyBoardsVariables>(GET_MY_BOARDS, {
         fetchPolicy: "cache-and-network",
         onCompleted: data => {
-            console.log("GET_USERS OK: ", data);
-            setMax(data.GetUsers.totalUsers || 0);
+            // console.log("GetMyBoards onCompletd: ", data);
         },
         onError: data => {
-            console.log("GET_USERS ERROR: ", data);
-        }
+            console.log("GetMyBoards onError: ", data);
+        },
     });
     
-    const { cursor, screen } = pagination;
-    const users = data ? data.GetUsers.users : null;
-    
-    // console.log("USERS:", users );
+    const { cursor } = pagination;
+
+    useEffect(() => {
+        handleTitle("Pil+Link | My Suggestion");
+    }, []);
 
     useEffect(() => {
         const { tableCount } = PaginationSettings;
-        getUsers({
+        getBoards({
             variables: {
                 take: tableCount,
                 skip: cursor * tableCount - tableCount
             }
         });
+        // onhandleUsingArrow();
     }, [ cursor ]);
+    useEffect(() => {
+        setMax(user ? user!.boardCount! : 0);
+    }, [user]);
 
+    const boards = data ? data.GetMyBoards.boards : null;
+    
     return {
         value: {
-            users,
-            pagination,
-            max,
+            boards,
             loading,
+            pagination,
+            max
         }
     }
-};
+}
 
-const AdminUsersProvider: React.FC<any> = ({
+const SuggestionProvider: React.FC<any> = ({
     children
 }) => (
-    <AdminUsersContext.Provider { ...useFetch() }>
+    <SuggestionContext.Provider { ...useFetch() }>
         {
             children
         }
-    </AdminUsersContext.Provider>    
+    </SuggestionContext.Provider>
 );
 
-export { useAdminUsersContext };
-export default AdminUsersProvider;
+export { useSuggestionContext };
+export default SuggestionProvider;

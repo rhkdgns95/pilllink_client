@@ -214,7 +214,7 @@ const EditPresenter = () => {
                         title={"My page"}
                         subTitle={"You can update your information and see your history"}
                     />
-                    <MyMenu isEdit={true}/>
+                    <MyMenu active={"info"}/>
                     <MessageBox className={"message-box"} ok={message.ok} message={message.data}>
                         <Message className={"message"} text={message.data}/>
                     </MessageBox>

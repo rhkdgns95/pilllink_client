@@ -317,5 +317,19 @@ export const TranslatedThai: ICountry = {
     contents: [
         "คุณสามารถเลือกได้หลายลักษณะ",
         "กรุณาคลิกเพื่อแสดงให้เภสัชกรค่ะ."
+    ],
+    boardSelectors: [
+        {
+            name: "제안",
+            value: "BOARD_SUGGESTION"
+        },
+        {
+            name: "문의사항",
+            value: "BOARD_QUESTION"
+        },
+        {
+            name: "불편사항",
+            value: "BOARD_PROBLEM"
+        }
     ]
 };

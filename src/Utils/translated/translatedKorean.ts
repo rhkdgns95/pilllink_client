@@ -320,5 +320,19 @@ export const TranslatedKorean: ICountry = {
         // [1]은 toggle은 버튼이다.
         "중복선택가능.",
         "약사에게 보여주기 위해 눌러주세요."
-    ]    
+    ],
+    boardSelectors: [
+        {
+            name: "제안",
+            value: "BOARD_SUGGESTION"
+        },
+        {
+            name: "문의사항",
+            value: "BOARD_QUESTION"
+        },
+        {
+            name: "불편사항",
+            value: "BOARD_PROBLEM"
+        }
+    ]
 };

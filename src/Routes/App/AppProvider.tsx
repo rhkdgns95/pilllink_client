@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useQuery, useMutation } from "react-apollo";
-import { GET_MY_PROFILE } from "./AppQueries";
-import { getMyProfile_GetMyProfile_user, getMyProfile, updateMyProfile, updateMyProfileVariables } from "../../Types/api";
+import { GET_MY_PROFILE, CREATE_BOARD } from "./AppQueries";
+import { getMyProfile_GetMyProfile_user, getMyProfile, updateMyProfile, updateMyProfileVariables, createBoard, createBoardVariables } from "../../Types/api";
 import { UPDATE_MY_RPFOILE } from "../Edit/EditQueries";
 import { USER_LOGOUT } from "./AppQueries.local";
 
@@ -16,6 +16,10 @@ interface IContext {
     updateMyprofile: (data: { variables: updateMyProfileVariables }) => any;
     loadingUpdateMyProfile: boolean;
     logout: () => any;
+    isBoard: boolean;
+    toggleBoard: () => any;
+    createBoardLoading: boolean, 
+    handleCreateBoard: (text: string, selector: string) => any;
 }
 
 const AppTitle: string = "Pil+Link";
@@ -39,7 +43,11 @@ const InitContext: IContext = {
     message: { ok: true, data: "", onChangeMessage: () => {} },
     updateMyprofile: () => {},
     loadingUpdateMyProfile: false,
-    logout: () => {}
+    logout: () => {},
+    isBoard: false,
+    toggleBoard: () => {},
+    createBoardLoading: false,
+    handleCreateBoard: () => {}
 };
 
 
@@ -67,11 +75,20 @@ const useMessage = (): IMessage => {
 const useFetch = (loggedIn: boolean): { value: IContext } => {
     const timeOut:number = 500;
     const message = useMessage();
-    
+
+    const [ isBoard, setIsBoard ] = useState<boolean>(false);
+    /**
+     *  Toggle Board Modal
+     */
+    const toggleBoard = () => {
+        setIsBoard(!isBoard);
+    }
+
     /**
      * 
      *  GetMyProfile
      */
+
     const { loading: loadingGetMyProfile, data } = useQuery<getMyProfile>(GET_MY_PROFILE, {
         // fetchPolicy: "cache-and-network",
         onCompleted: data => {
@@ -150,7 +167,49 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
             { query: GET_MY_PROFILE }
         ]
     });
+
+    /**
+     *  createBoard
+     */
+    const [ createBoard, { loading: createBoardLoading }] = useMutation<createBoard, createBoardVariables>(CREATE_BOARD, {
+        refetchQueries: [
+            { query: GET_MY_PROFILE }
+        ],
+        onCompleted: data => {
+            setTimeout(() => {
+                if(isProgress) {
+                    const { CreateBoard: { ok, error }} = data;
+                    handleProgress(false);
+                    if(ok && error === null) {
+                        alert("Completed Suggestion.")
+                    } else {
+                        alert(error);
+                    }
+                }
+            }, timeOut);
+            
+            // console.log("CreateBoard onCompletedd: ", data);
+        },
+        onError: data => {
+            setTimeout(() => {
+                if(isProgress) {
+                    handleProgress(false);
+                }
+            }, timeOut);
+            console.log("CreateBoard onError: ", data);
+        }
+    });
     
+    const handleCreateBoard = (text: string, selector: string) => {
+        
+        createBoard({
+            variables: {
+                selector, 
+                text
+            } as any
+        });
+    };
+
     const [ isProgress, setIsProgress ] = useState<boolean>(false);
     const [ title, setTitle ] = useState<string>(AppTitle);
     
@@ -178,7 +237,11 @@ const useFetch = (loggedIn: boolean): { value: IContext } => {
             message,
             updateMyprofile,
             loadingUpdateMyProfile,
-            logout
+            logout,
+            isBoard,
+            toggleBoard,
+            createBoardLoading,
+            handleCreateBoard
         }
     };
 }

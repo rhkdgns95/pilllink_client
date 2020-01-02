@@ -317,5 +317,19 @@ export const TranslatedRussia: ICountry = {
     contents: [
         "Можно выбрать несколько симптомов.",
         "Нажмите для показа фармацевту."
+    ],
+    boardSelectors: [
+        {
+            name: "제안",
+            value: "BOARD_SUGGESTION"
+        },
+        {
+            name: "문의사항",
+            value: "BOARD_QUESTION"
+        },
+        {
+            name: "불편사항",
+            value: "BOARD_PROBLEM"
+        }
     ]
 };

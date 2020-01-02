@@ -13,6 +13,7 @@ const Container = styled.div`
             width: 100%;
             height: 50%;
             background-color: rgba(0,10,0,0.42);
+            z-index: 1;
         }        
         & > div {
             position: relative;

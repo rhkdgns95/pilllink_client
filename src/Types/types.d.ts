@@ -50,6 +50,10 @@ interface IUseTab {
     no: number;
     text: string;
 }
+interface IUseTextare {
+    value: string;
+    onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
+}
 interface IUsePagination {
     cursor: number;
     screen: number;
@@ -225,10 +229,11 @@ interface IConfirmData extends IConfirmProps {
 };
 interface ICountry extends ISymptomInputData {
     imgPath: string;
-    selectors: Array<>
+    selectors: Array<>;
     symptoms: Array<ISymptom>;
     confirms: Array<IConfirmData>;
     contents: Array<string>;
+    boardSelectors: Array<IConfirmProps>;
 }
 
 interface ISymptomDetails {

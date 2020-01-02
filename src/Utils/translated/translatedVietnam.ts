@@ -317,5 +317,19 @@ export const TranslatedVietnam: ICountry = {
     contents: [
         "Bạn có thể chọn rất nhiều các triệu chứng",
         "Nếu muốn cho các thầy thuốc xem thì hãy nhấp chuột."
+    ],
+    boardSelectors: [
+        {
+            name: "제안",
+            value: "BOARD_SUGGESTION"
+        },
+        {
+            name: "문의사항",
+            value: "BOARD_QUESTION"
+        },
+        {
+            name: "불편사항",
+            value: "BOARD_PROBLEM"
+        }
     ]
 };

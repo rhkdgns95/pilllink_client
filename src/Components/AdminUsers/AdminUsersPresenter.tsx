@@ -16,9 +16,21 @@ const Wrapper = styled.div`
 
 const TableBox = styled.div`
     margin-bottom: 30px;
+    width: 100%;
+    
+    // min-height: 300px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.24);
+    max-height: 350px;
+    @media(max-width: 910px) {
+        overflow-x: scroll;
+        border: .5px solid #b1b1b1;
+    }
 `;
 const Total = styled.p`
-    margin: 10px 0;
+    margin: 20px 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #8b8b8b;
 `;
 const Table = styled.table`
     width: 100%;
@@ -41,10 +53,22 @@ const Tr = styled.tr`
 const Th = styled.th`
     padding: 10px;
     text-align: center;
+    white-space: nowrap;
 `;
 const Td = styled.td`
     padding: 10px;
     text-align: center;
+    white-space: nowrap;
+    &.text {
+        text-overflow: ellipsis; 
+        overflow : hidden;
+        // white-space: inherit;
+        // white-space: nowrap;
+        // max-width: 120px;
+        @media(max-width: 510px) {
+            // max-width: 80px;
+        }
+    }
 `;
 
 const Img = styled.img`
@@ -61,7 +85,7 @@ const AdminUsersPresenter = () => {
     return (
         <Container>
             <Wrapper>
-                <Total>총원 : {max}명</Total>
+                <Total>Total  ({max}명)</Total>
                 <TableBox>
                     <Table>
                         <Thead>
@@ -82,8 +106,8 @@ const AdminUsersPresenter = () => {
                                 users && users.map((user, key) => 
                                     <Tr key={key}>
                                         <Td>{index + key + 1}</Td>
-                                        <Td>{user!.fullName}</Td>
-                                        <Td>{user!.userId}</Td>
+                                        <Td className={"text"}>{user!.fullName}</Td>
+                                        <Td className={"text"}>{user!.userId}</Td>
                                         <Td>{user!.gender}</Td>
                                         <Td>{user!.age}</Td>
                                         <Td>

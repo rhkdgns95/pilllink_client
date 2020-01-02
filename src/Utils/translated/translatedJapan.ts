@@ -318,5 +318,19 @@ export const TranslatedJapan: ICountry = {
     contents: [
         "多数の症状をご選択できます。",
         "クリックして薬剤師に見せてください."
+    ],
+    boardSelectors: [
+        {
+            name: "제안",
+            value: "BOARD_SUGGESTION"
+        },
+        {
+            name: "문의사항",
+            value: "BOARD_QUESTION"
+        },
+        {
+            name: "불편사항",
+            value: "BOARD_PROBLEM"
+        }
     ]
 };

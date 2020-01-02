@@ -317,5 +317,19 @@ export const TranslatedPortugal: ICountry = {
     contents: [
         "PO_중복선택가능",
         "PO_투글버튼 문구준비중."
+    ],
+    boardSelectors: [
+        {
+            name: "제안",
+            value: "BOARD_SUGGESTION"
+        },
+        {
+            name: "문의사항",
+            value: "BOARD_QUESTION"
+        },
+        {
+            name: "불편사항",
+            value: "BOARD_PROBLEM"
+        }
     ]
 };
