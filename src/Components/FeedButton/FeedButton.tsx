@@ -2,7 +2,7 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 
 const Container = styled.div`
-    margin: 0 auto;
+    // margin: 0 auto;
     height: 100%;
     @media(max-width: 510px) {
         height: 35px;
@@ -32,7 +32,7 @@ const Label = styled.label`
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 10px 20px;
+    padding: 7.5px 20px;
     border: 1px solid #dfdfdf;
     border-radius: 6px;
     color: gray;

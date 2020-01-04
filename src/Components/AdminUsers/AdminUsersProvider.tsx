@@ -135,7 +135,7 @@ const useFetch = (): { value: IContext } => {
     const [ getUsers, { data, loading }] = useLazyQuery<getUsers, getUsersVariables>(GET_USERS, {
         fetchPolicy: "cache-and-network",
         onCompleted: data => {
-            console.log("GET_USERS OK: ", data);
+            // console.log("GET_USERS OK: ", data);
             setMax(data.GetUsers.totalUsers || 0);
         },
         onError: data => {

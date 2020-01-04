@@ -35,6 +35,7 @@ interface IUseCheckbox {
 interface IUseCheckboxArray {
     value: Array<string>;
     onChange: React.ChangeEventHandler<HTMLInputElement>;
+    onInit?: () => any;
 }
 interface IUseInputEdit {
     value: string;
@@ -54,6 +55,7 @@ interface IUseTextare {
     value: string;
     onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
 }
+
 interface IUsePagination {
     cursor: number;
     screen: number;
@@ -67,6 +69,14 @@ interface IUsePagination {
     onClickArrow: (newScreen: number) => any;
     onhandleUsingArrow: () => any;
 }
+interface IUseFeedback {
+    recordPerOneTime: IUseRadio; // 약 갯수
+    recordAmount: IUseRadio; // 복용일
+    recordTime: IUseCheckboxArray; // 복약횟수
+    recordWay: IUseRadio; // 복용방법
+    recordCaution: IUseCheckboxArray; // 주의사항
+}
+
 // User Data.
 type TGender = "M" | "W";
 type TNationality = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH" | "US" | "CA" | "ME" | "TA" | "HO";

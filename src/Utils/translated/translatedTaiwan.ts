@@ -226,9 +226,35 @@ export const TranslatedTaiwan: ICountry = {
     ],
     confirms: [
         {
+            name: "TA_1회 약 갯수",
+            value: "PER_ONETIME_CNT",
+            details: [
+                {
+                    name: "1",
+                    value: "1"
+                },
+                {
+                    name: "2",
+                    value: "2"
+                },
+                {
+                    name: "3",
+                    value: "3"
+                },
+            ]
+        },
+        {
             name: "用药量",
             value: "AMOUNT",
             details: [
+                {
+                    name: "1日",
+                    value: "D1"
+                },
+                {
+                    name: "2日" ,
+                    value: "D2"
+                },
                 {
                     name: "3日",
                     value: "D3"

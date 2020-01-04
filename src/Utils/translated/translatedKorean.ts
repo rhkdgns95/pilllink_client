@@ -3,7 +3,7 @@ import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedKorean: ICountry = {
-    name: "한국어",
+    name: "한국",
     value: "KO",
     imgPath: PATH_IMG_LANG + "/lang_ko.jpg",
     selectors: [
@@ -226,9 +226,35 @@ export const TranslatedKorean: ICountry = {
     ],
     confirms: [
         {
-            name: "복용량",
+            name: "1회 복용알약",
+            value: "PER_ONETIME_CNT",
+            details: [
+                {
+                    name: "1알",
+                    value: "1"
+                },
+                {
+                    name: "2알",
+                    value: "2"
+                },
+                {
+                    name: "3알",
+                    value: "3"
+                },
+            ]
+        },
+        {
+            name: "복용일",
             value: "AMOUNT",
             details: [
+                {
+                    name: "1일",
+                    value: "D1"
+                },
+                {
+                    name: "2일",
+                    value: "D2"
+                },
                 {
                     name: "3일",
                     value: "D3"

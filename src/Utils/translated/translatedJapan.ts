@@ -226,9 +226,35 @@ export const TranslatedJapan: ICountry = {
     ],
     confirms: [
         {
+            name: "JA_1회 약 갯수",
+            value: "PER_ONETIME_CNT",
+            details: [
+                {
+                    name: "1",
+                    value: "1"
+                },
+                {
+                    name: "2",
+                    value: "2"
+                },
+                {
+                    name: "3",
+                    value: "3"
+                },
+            ]
+        },
+        {
             name: "用药量",
             value: "AMOUNT",
             details: [
+                {
+                    name: "1日 みっか",
+                    value: "D1"
+                },
+                {
+                    name: "2日 いつか" ,
+                    value: "D2"
+                },
                 {
                     name: "3日 みっか",
                     value: "D3"

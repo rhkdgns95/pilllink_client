@@ -88,7 +88,7 @@ const cleanNullArgs = (arr: any) => {
 const HistoryPresenter = () => {
     const { records } = useHistoryContext();
     const [isEffected, setIsEffected] = useState<boolean>(false);
-
+    
     useEffect(() => {
         if(!isEffected) {
             setIsEffected(true);
@@ -129,7 +129,7 @@ const HistoryPresenter = () => {
             newObject = {
                 symptoms: tmpSymptoms,
                 name: details.name,
-                confirmId: records![recordKey]!.confirmId
+                confirmCount: records![recordKey]!.confirmCount
             };
             // Record값을 Value로 값을 저장할때,
             // newObject = {
@@ -166,7 +166,7 @@ const HistoryPresenter = () => {
                     <List className={isEffected ? "active step-container" : "step-container"}>
                         {
                             records && newRecords && newRecords.map((record, key) => 
-                                <Table key={key} confirmId={record.confirmId} isOther={records[key]!.status === "OTHER"} id={records![key]!.id} symptom={record.name} results={record.symptoms} lang={records![key]!.lang} date={getTime(records[key]!.createdAt)}/>
+                                <Table key={key} confirmCount={record.confirmCount} confirms={records[key] && records[key]!.confirm ? records[key]!.confirm : undefined} isOther={records[key]!.status === "OTHER"} id={records![key]!.id} symptom={record.name} results={record.symptoms} lang={records![key]!.lang} date={getTime(records[key]!.createdAt)}/>
                             )
                         }
                         {

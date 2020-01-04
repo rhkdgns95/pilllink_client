@@ -226,9 +226,35 @@ export const TranslatedMongol: ICountry = {
     ],
     confirms: [
         {
+            name: "MO_1회 약 갯수",
+            value: "PER_ONETIME_CNT",
+            details: [
+                {
+                    name: "1",
+                    value: "1"
+                },
+                {
+                    name: "2",
+                    value: "2"
+                },
+                {
+                    name: "3",
+                    value: "3"
+                },
+            ]
+        },
+        {
             name: "эм хэмжээ",
             value: "AMOUNT",
             details: [
+                {
+                    name: "1өдөр",
+                    value: "D1"
+                },
+                {
+                    name: "2өдөр" ,
+                    value: "D2"
+                },
                 {
                     name: "3өдөр",
                     value: "D3"

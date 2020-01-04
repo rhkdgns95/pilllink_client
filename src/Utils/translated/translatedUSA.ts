@@ -218,9 +218,35 @@ export const TranslatedUSA: ICountry = {
     ],
     confirms: [
         {
+            name: "US_1회 약 갯수",
+            value: "PER_ONETIME_CNT",
+            details: [
+                {
+                    name: "1",
+                    value: "1"
+                },
+                {
+                    name: "2",
+                    value: "2"
+                },
+                {
+                    name: "3",
+                    value: "3"
+                },
+            ]
+        },
+        {
             name: "Quanity",
             value: "AMOUNT",
             details: [
+                {
+                    name: "1days",
+                    value: "D1"
+                },
+                {
+                    name: "2days" ,
+                    value: "D2"
+                },
                 {
                     name: "3days",
                     value: "D3"

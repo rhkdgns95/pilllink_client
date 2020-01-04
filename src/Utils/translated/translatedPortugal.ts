@@ -3,7 +3,7 @@ import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedPortugal: ICountry = {
-    name: "Português",
+    name: "Portugal",
     value: "PO",
     imgPath: PATH_IMG_LANG + "/lang_po.jpg",
     selectors: [
@@ -226,9 +226,35 @@ export const TranslatedPortugal: ICountry = {
     ],
     confirms: [
         {
+            name: "PO_1회 약 갯수",
+            value: "PER_ONETIME_CNT",
+            details: [
+                {
+                    name: "1",
+                    value: "1"
+                },
+                {
+                    name: "2",
+                    value: "2"
+                },
+                {
+                    name: "3",
+                    value: "3"
+                },
+            ]
+        },
+        {
             name: "PO_복욕량",
             value: "AMOUNT",
             details: [
+                {
+                    name: "PO_1일",
+                    value: "D1"
+                },
+                {
+                    name: "PO_2일" ,
+                    value: "D2"
+                },
                 {
                     name: "PO_3일",
                     value: "D3"

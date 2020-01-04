@@ -40,6 +40,7 @@
 - [x] LoginContainer youtube video popup.
 - [x] Netlify add _redirects.
 - [x] Add Board + Admin - Records.
+- [x] Feedback - Mulitple Confirm, History - Table in Table
 - [] Admin - Chart, Feedback, UserRecords.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
@@ -92,7 +93,11 @@
 - 4.8. 404 Not Found.
 : Netlify의 홈페이지에서 배포한 것의 404 Page Not Found를 방지하기위해서 _redirects를 루트경로에 추가하고 아래의 한줄을 작성하면 해결된다.
 : /*    /index.html   200
-
+- 4.9. useState주의점.
+: [1] 배열로 사용할때, 하나의 useState의 값을 복사 할 수 없다. 
+  (즉 배열 갯수만큼 useState를 생성해야한다.)
+: [2] 똑같은 값에 대입하는 경우 복사가아니라, 의존하게되며 서로의 값은 useState의 값을 참조한다. 주소의 참조라는 개념이다.
+- Feedback의 예시로 N개의 useState를 사용시에는 배열로 만들었다가 에러가 났었다. 이는 위의 개념을 읽어보면 이해될것이다. 하나의 useState를 여러 변수에 대입시 복사가아니라 의존하게 된다. 즉 값이 참조하는게아니라, 주소가 참조되어서 값을 수정할때 원하는값으로 수정하기 어렵다. 그리고 배열을 추가할때도 마찬가지이다. 그래서 해결한 방법으로는, useState객체를 N개만큼 추가하여 일일이 넣었다. -> 다른방법으로도 찾아보자.
 
 ## 5. Pagination - Medical Record 요청
 - 5.0 총 데이터 갯수를 가져오도록 한다.

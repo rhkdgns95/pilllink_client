@@ -109,7 +109,7 @@ const TableSuggestion: React.FC<IProps> = ({
                     <Tr>
                         <Th>Result</Th>
                             <Td colSpan={4}>
-                                <span> {result ? result : "-"} </span>
+                            <span> {result ? result : "-"} </span>
                             </Td>
                     </Tr>
                 </Tbody>

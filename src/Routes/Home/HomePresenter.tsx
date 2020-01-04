@@ -169,7 +169,7 @@ const HomePresenter = () => {
             </Box>
             { step === 3 && isModal && <ModalCloseBtn />}
             { !isBoard && <BoardButton />}
-            { isBoard &&  <ModalBoard/> }
+            { isBoard &&  <ModalBoard /> }
             
         </Container>
     )

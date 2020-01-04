@@ -272,7 +272,6 @@ export interface createConfirm_CreateConfirm {
   __typename: "CreateConfirmResponse";
   ok: boolean;
   error: string | null;
-  confirmRecordId: number | null;
 }
 
 export interface createConfirm {
@@ -280,19 +279,7 @@ export interface createConfirm {
 }
 
 export interface createConfirmVariables {
-  medicalRecordId: number;
-  res_amount: RES_AMOUNT;
-  res_way: RES_WAY;
-  TO_MORNING?: boolean | null;
-  TO_LUNCH?: boolean | null;
-  TO_DINNER?: boolean | null;
-  TO_SLEEP?: boolean | null;
-  CAUTION_SLEEP?: boolean | null;
-  CAUTION_STOMACAHCHE?: boolean | null;
-  CAUTION_RASH?: boolean | null;
-  CAUTION_DIZZY?: boolean | null;
-  CAUTION_DIARRHEA?: boolean | null;
-  CAUTION_BLOODPRESSURE?: boolean | null;
+  data: CreateConfirmVariables[];
 }
 
 /* tslint:disable */
@@ -317,7 +304,7 @@ export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords {
   allergy: Allergy;
   pregnant: Pregnant;
   chronicDiseases: ChronicDiseases;
-  confirmId: number | null;
+  confirmCount: number | null;
   createdAt: string;
   updatedAt: string | null;
   /**
@@ -370,7 +357,7 @@ export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords {
   other_disinfectant: boolean | null;
   other_salineSolution: boolean | null;
   other_artificialTears: boolean | null;
-  confirm: getMyMedicalRecords_GetMyMedicalRecords_medicalRecords_confirm | null;
+  confirm: (getMyMedicalRecords_GetMyMedicalRecords_medicalRecords_confirm | null)[] | null;
 }
 
 export interface getMyMedicalRecords_GetMyMedicalRecords {
@@ -636,7 +623,7 @@ export interface ItemMedicalRecord {
   allergy: Allergy;
   pregnant: Pregnant;
   chronicDiseases: ChronicDiseases;
-  confirmId: number | null;
+  confirmCount: number | null;
   createdAt: string;
   updatedAt: string | null;
 }
@@ -884,6 +871,8 @@ export enum Pregnant {
 }
 
 export enum RES_AMOUNT {
+  D1 = "D1",
+  D2 = "D2",
   D3 = "D3",
   D5 = "D5",
   D7 = "D7",
@@ -908,6 +897,23 @@ export enum Status {
   OTHER = "OTHER",
   SKIN = "SKIN",
   STOMACHACHE = "STOMACHACHE",
+}
+
+export interface CreateConfirmVariables {
+  medicalRecordId: number;
+  res_perOneTimeCnt: number;
+  res_amount: RES_AMOUNT;
+  res_way: RES_WAY;
+  TO_MORNING?: boolean | null;
+  TO_LUNCH?: boolean | null;
+  TO_DINNER?: boolean | null;
+  TO_SLEEP?: boolean | null;
+  CAUTION_SLEEP?: boolean | null;
+  CAUTION_STOMACAHCHE?: boolean | null;
+  CAUTION_RASH?: boolean | null;
+  CAUTION_DIZZY?: boolean | null;
+  CAUTION_DIARRHEA?: boolean | null;
+  CAUTION_BLOODPRESSURE?: boolean | null;
 }
 
 //==============================================================

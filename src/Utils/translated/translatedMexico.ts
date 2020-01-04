@@ -226,9 +226,35 @@ export const TranslatedMexico: ICountry = {
     ],
     confirms: [
         {
+            name: "ME_1회 약 갯수",
+            value: "PER_ONETIME_CNT",
+            details: [
+                {
+                    name: "1",
+                    value: "1"
+                },
+                {
+                    name: "2",
+                    value: "2"
+                },
+                {
+                    name: "3",
+                    value: "3"
+                },
+            ]
+        },
+        {
             name: "Cantidad",
             value: "AMOUNT",
             details: [
+                {
+                    name: "1día",
+                    value: "D1"
+                },
+                {
+                    name: "2día" ,
+                    value: "D2"
+                },
                 {
                     name: "3día",
                     value: "D3"

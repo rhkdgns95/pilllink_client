@@ -2,6 +2,7 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 import { Link } from "react-router-dom";
 import { PUBLIC_PATH } from "../../Routes/App/AppProvider";
+import countries from "../../Utils/translator";
 
 const Container = styled.div`
     margin-top: 10px;
@@ -62,6 +63,7 @@ const Date = styled.span`
 `;
 const Record = styled.div`
     border-top: 2px solid #0fb76a;
+    border-bottom: 1px solid #afc7c2;
 `;
 const RecordTable = styled.table`
     width: 100%;
@@ -123,24 +125,43 @@ const LinkBtn = styled(Link)`
         }
     }
 `;
-
+const SubTable = styled.table`
+    // width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 10px auto;
+    // border: 1px solid gray;
+    display: table-cell;
+    border-top: 2px solid #0fb76a;
+    th {
+        // background: #59b48b;
+        // color: white;
+        // background-color: #d5e4ea;
+    }
+    @media(max-width: 910px) {
+        display: table;
+        width: 100%;
+    }
+`;
 interface IProps {
     lang: string;
     id: number;
     date: string;
     symptom: string;
-    confirmId: number;
+    confirmCount: number;
     results: Array<any>;
     isOther?: boolean;
+    confirms?: any;
 }
 const Table: React.FC<IProps> = ({
     lang,
     id,
     date,
-    confirmId,
+    confirmCount,
     symptom,
     results,
-    isOther
+    isOther,
+    confirms
 }) => {
     let resultText: string = "";
     results.map((data, key) => {
@@ -151,7 +172,95 @@ const Table: React.FC<IProps> = ({
         }
         return null;
     });
-    // console.log("RESULTS: ", resultText);
+    
+    const currentCountry: ICountry = countries.find(country => country.value === lang) || countries[0];
+    
+    console.log("confirms: ", confirms);
+
+
+    const confirmArrData = confirms.map((item: any) => {
+        const translatedConfirms = currentCountry.confirms;
+        const DetailsAmount = translatedConfirms.find(confirm => confirm.value === "AMOUNT")!;
+        const DetailsCaution = translatedConfirms.find(confirm => confirm.value === "CAUTION")!;
+        const DetailsTime = translatedConfirms.find(confirm => confirm.value === "TIME")!;
+        const DetailsWay = translatedConfirms.find(confirm => confirm.value === "WAY")!;
+        // const AmountDetails = translatedConfirms.find(confirm => confirm.value === "AMOUNT")!;
+
+        let res_perOneTimeCnt: number = item.res_perOneTimeCnt; 
+        let res_way = "" // [1]
+        let res_amount = ""; // [2]
+        let res_time = ""; // [3]
+        let res_cautions = ""; // [4] 주의사항
+
+        const { TO_MORNING,
+            TO_LUNCH,
+            TO_DINNER,
+            TO_SLEEP, } = confirms;
+
+        const {
+            CAUTION_SLEEP,
+            CAUTION_STOMACAHCHE,
+            CAUTION_RASH,
+            CAUTION_DIZZY,
+            CAUTION_DIARRHEA,
+            CAUTION_BLOODPRESSURE
+        } = confirms;
+
+        // [1]
+        DetailsWay.details.find(detail => {
+            const { value } = detail;
+            if(value === item.res_way) {
+                res_way = detail.name;
+                return detail;
+            }
+        });
+
+        // [2]
+        DetailsAmount.details.find(detail => {
+            if(detail.value === item.res_amount) { 
+                res_amount = detail.name
+                return detail;
+            }
+        });
+
+        // [3]
+        DetailsTime.details.map((detail, key) => {
+            const { value } = detail;
+            if(value === "TO_MORNING" || value === "TO_LUNCH" || value === "TO_DINNER" || value === "TO_SLEEP") {
+                if(key > 0) {
+                    res_time = res_time + ", ".concat(detail.name);
+                } else {
+                    res_time = res_time.concat(detail.name);
+                } 
+            }
+        });
+
+        // [4] 주의 사항이 한가지라도 존재한다면,
+        if(CAUTION_SLEEP || CAUTION_STOMACAHCHE || CAUTION_RASH || CAUTION_DIZZY || CAUTION_DIARRHEA || CAUTION_BLOODPRESSURE) {
+            DetailsCaution.details.map((detail, key) => {
+                const { value } = detail;
+                if(value === CAUTION_SLEEP || value === CAUTION_STOMACAHCHE || value === CAUTION_RASH || value === CAUTION_DIZZY || value === CAUTION_DIARRHEA || value === CAUTION_BLOODPRESSURE) {
+                    if(key > 0) {
+                        res_cautions = res_cautions + ", ".concat(detail.name);
+                    } else {
+                        res_cautions = res_cautions.concat(detail.name);
+                    }
+                }
+            });
+        }
+
+        
+
+        console.log("res_amount: ", res_amount);
+        // const res_way = translatedConfirms.find(confirm => confirm.)
+        return {
+            res_perOneTimeCnt,
+            res_way,
+            res_amount,
+            res_time,
+            res_cautions
+        };
+    });
     return (
         <Container>
             <Wrapper>
@@ -180,16 +289,60 @@ const Table: React.FC<IProps> = ({
                                 <Th colSpan={2}>Result</Th>
                                 <Td colSpan={6}>{ resultText }</Td>
                             </Tr>
-                            <Tr>
+                            {/* <Tr>
                                 <Th colSpan={2}>Lang</Th>
                                 <Td colSpan={6}>{ lang }</Td>
-                            </Tr>
+                            </Tr> */}
                             {
+                                // 기타 항목은 Confirm이 없다.
                                 !isOther && (
-                                <Tr>
-                                    <Th colSpan={2}>Confirm</Th>
-                                    <Td colSpan={6}>{ confirmId ? confirmId : <LinkBtn to={{pathname: "/feedback", state: { recordId: id, lang }}} >Feedback<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg></LinkBtn> }</Td>
-                                </Tr>
+                                <>
+                                    <Tr>
+                                        <Th colSpan={2}>Confirm Count</Th>
+                                        <Td colSpan={6}>{ confirmCount ? confirmCount : <LinkBtn to={{pathname: "/feedback", state: { recordId: id, lang }}} >Feedback<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg></LinkBtn> }</Td>
+                                    </Tr>
+                                    {
+                                        confirms && confirmCount > 0 &&
+                                            <Tr>
+                                                <Th colSpan={2}>Confirm</Th>
+                                                <Td colSpan={6}>
+                                                    {
+                                                        confirmArrData.map((item: any, key: number) => (
+                                                            <SubTable key={key + "SubTable"}>
+                                                                {/* 1회 복용알약 */}
+                                                                <Tbody>
+                                                                    <Tr>
+                                                                        <Th colSpan={2}>{ currentCountry.confirms[0].name }</Th>
+                                                                        <Td colSpan={6}>{ item.res_perOneTimeCnt }</Td>
+                                                                    </Tr>
+                                                                    {/* 복용일 */}
+                                                                    <Tr>
+                                                                        <Th colSpan={2}>{ currentCountry.confirms[1].name }</Th>
+                                                                        <Td colSpan={6}>{ item.res_amount }</Td>
+                                                                    </Tr>
+                                                                    {/* 복약횟수 */}
+                                                                    <Tr>
+                                                                        <Th colSpan={2}>{ currentCountry.confirms[2].name }</Th>
+                                                                        <Td colSpan={6}>{ item.res_time }</Td>
+                                                                    </Tr>
+                                                                    {/* 복약방법 */}
+                                                                    <Tr>
+                                                                        <Th colSpan={2}>{ currentCountry.confirms[3].name }</Th>
+                                                                        <Td colSpan={6}>{ item.res_way }</Td>
+                                                                    </Tr>  
+                                                                    {/* 주의사항 */}
+                                                                    <Tr>
+                                                                        <Th colSpan={2}>{ currentCountry.confirms[4].name }</Th>
+                                                                        <Td colSpan={6}>{ item.res_caution ? item.res_caution : "-" }</Td>
+                                                                    </Tr>  
+                                                                </Tbody>
+                                                            </SubTable>   
+                                                        ))
+                                                    }
+                                                </Td>
+                                            </Tr>
+                                        }
+                                </>
                                 )
                             }
                         </Tbody>

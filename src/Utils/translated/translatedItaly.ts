@@ -226,9 +226,35 @@ export const TranslatedItaly: ICountry = {
     ],
     confirms: [
         {
+            name: "IT_1회 약 갯수",
+            value: "PER_ONETIME_CNT",
+            details: [
+                {
+                    name: "1",
+                    value: "1"
+                },
+                {
+                    name: "2",
+                    value: "2"
+                },
+                {
+                    name: "3",
+                    value: "3"
+                },
+            ]
+        },
+        {
             name: "IT_복욕량",
             value: "AMOUNT",
             details: [
+                {
+                    name: "IT_1일",
+                    value: "D1"
+                },
+                {
+                    name: "IT_2일" ,
+                    value: "D2"
+                },
                 {
                     name: "IT_3일",
                     value: "D3"

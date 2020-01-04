@@ -3,7 +3,7 @@ import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedVietnam: ICountry = {
-    name: "Tiếng việt nam",
+    name: "Việt nam",
     value: "VI",
     imgPath: PATH_IMG_LANG + "/lang_vi.jpg",
     selectors: [
@@ -226,9 +226,35 @@ export const TranslatedVietnam: ICountry = {
     ],
     confirms: [
         {
+            name: "VI_1회 약 갯수",
+            value: "PER_ONETIME_CNT",
+            details: [
+                {
+                    name: "1",
+                    value: "1"
+                },
+                {
+                    name: "2",
+                    value: "2"
+                },
+                {
+                    name: "3",
+                    value: "3"
+                },
+            ]
+        },
+        {
             name: "uống thuốc lượng",
             value: "AMOUNT",
             details: [
+                {
+                    name: "1ngày",
+                    value: "D1"
+                },
+                {
+                    name: "2ngày" ,
+                    value: "D2"
+                },
                 {
                     name: "3ngày",
                     value: "D3"
