@@ -188,6 +188,7 @@ const AdminRecordPresenter = () => {
                                                 <th>내용</th>
                                                 <th>종류</th>
                                                 <th>작성일</th>
+                                                <th>답변일</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -200,6 +201,7 @@ const AdminRecordPresenter = () => {
                                                         <td className={"text"}>{ board!.text }</td>
                                                         <td>{TranslatedKorean.boardSelectors.find(item => item.value === board!.selector)!.name}</td>
                                                         <td>{ getTime(board!.createdAt) }</td>
+                                                        <td>{ getTime(board!.updatedAt!) }</td>
                                                     </tr>
                                                 )
                                             }

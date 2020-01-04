@@ -347,15 +347,15 @@ export const TranslatedJapan: ICountry = {
     ],
     boardSelectors: [
         {
-            name: "제안",
+            name: "提案",
             value: "BOARD_SUGGESTION"
         },
         {
-            name: "문의사항",
+            name: "お問い合わせ",
             value: "BOARD_QUESTION"
         },
         {
-            name: "불편사항",
+            name: "不都合",
             value: "BOARD_PROBLEM"
         }
     ]

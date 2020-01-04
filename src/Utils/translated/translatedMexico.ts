@@ -346,15 +346,15 @@ export const TranslatedMexico: ICountry = {
     ],
     boardSelectors: [
         {
-            name: "제안",
+            name: "sugerencia",
             value: "BOARD_SUGGESTION"
         },
         {
-            name: "문의사항",
+            name: "pregunta",
             value: "BOARD_QUESTION"
         },
         {
-            name: "불편사항",
+            name: "incomodidad",
             value: "BOARD_PROBLEM"
         }
     ]

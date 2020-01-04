@@ -338,15 +338,15 @@ export const TranslatedCanada: ICountry = {
     ],
     boardSelectors: [
         {
-            name: "제안",
+            name: "Suggestion",
             value: "BOARD_SUGGESTION"
         },
         {
-            name: "문의사항",
+            name: "Inquiry",
             value: "BOARD_QUESTION"
         },
         {
-            name: "불편사항",
+            name: "Inconvinience",
             value: "BOARD_PROBLEM"
         }
     ]

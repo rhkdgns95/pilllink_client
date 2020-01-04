@@ -346,15 +346,15 @@ export const TranslatedVietnam: ICountry = {
     ],
     boardSelectors: [
         {
-            name: "제안",
+            name: "sự đề nghị",
             value: "BOARD_SUGGESTION"
         },
         {
-            name: "문의사항",
+            name: "việc hỏi việc hỏi",
             value: "BOARD_QUESTION"
         },
         {
-            name: "불편사항",
+            name: "sự bất tiện",
             value: "BOARD_PROBLEM"
         }
     ]

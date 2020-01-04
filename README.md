@@ -40,7 +40,8 @@
 - [x] LoginContainer youtube video popup.
 - [x] Netlify add _redirects.
 - [x] Add Board + Admin - Records.
-- [x] Feedback - Mulitple Confirm, History - Table in Table
+- [x] Feedback - Mulitple Confirm, History - Table in Table.
+- [x] UI - BoardButton. 
 - [] Admin - Chart, Feedback, UserRecords.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)

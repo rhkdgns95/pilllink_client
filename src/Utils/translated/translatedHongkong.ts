@@ -3,7 +3,7 @@ import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedHongkong: ICountry = {
-    name: "香港香港",
+    name: "Hong Kong",
     value: "HO",
     imgPath: PATH_IMG_LANG + "/lang_ho.png",
      selectors: [
@@ -346,15 +346,15 @@ export const TranslatedHongkong: ICountry = {
     ],
     boardSelectors: [
         {
-            name: "제안",
+            name: "建议",
             value: "BOARD_SUGGESTION"
         },
         {
-            name: "문의사항",
+            name: "询问",
             value: "BOARD_QUESTION"
         },
         {
-            name: "불편사항",
+            name: "不便之处",
             value: "BOARD_PROBLEM"
         }
     ]

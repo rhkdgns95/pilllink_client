@@ -346,15 +346,15 @@ export const TranslatedThai: ICountry = {
     ],
     boardSelectors: [
         {
-            name: "제안",
+            name: "การเสนอ",
             value: "BOARD_SUGGESTION"
         },
         {
-            name: "문의사항",
+            name: "การสอบถาม",
             value: "BOARD_QUESTION"
         },
         {
-            name: "불편사항",
+            name: "ความไม่สบาย",
             value: "BOARD_PROBLEM"
         }
     ]

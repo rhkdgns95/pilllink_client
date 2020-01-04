@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "../../Styles/typed-components";
 import { useAppContext, PATH_IMG_BG } from "../../Routes/App/AppProvider";
 import { TranslatedKorean } from "../../Utils/translated/translatedKorean";
+import countries from "../../Utils/translator";
 
 const Container = styled.div`
     position: fixed;
@@ -208,9 +209,15 @@ const useText = (): IUseTextare => {
         onChange
     }
 }
-const ModalBoard = () => {
+interface IProps {
+    lang: string;
+}
+const ModalBoard: React.FC<IProps> = ({
+    lang
+}) => {
     
     const { isProgress, handleProgress, toggleBoard, createBoardLoading, handleCreateBoard } = useAppContext();
+    const currentCountry: ICountry = countries.find(item => item.value === lang) || TranslatedKorean;
     const select = useSelect();
     delete select.onInit;
     const text = useText();
@@ -232,7 +239,7 @@ const ModalBoard = () => {
             
             <Wrapper onClick={e => e.stopPropagation()}>
                 <Title>
-                    Suggestion
+                    { lang === "KO" ? "Suggestion" : currentCountry.boardSelectors[0].name}
                     <svg onClick={toggleBoard} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
                 </Title>    
                 <Row className={"flex-row"}>
@@ -244,7 +251,7 @@ const ModalBoard = () => {
                     <Cell className={"cell-flex"}>
                         <Selector { ...select }>
                             {
-                                TranslatedKorean.boardSelectors.map((item, key) => 
+                                currentCountry.boardSelectors.map((item, key) => 
                                     <Option value={item.value} key={key}>{item.name}</Option>
                                 )
                             }

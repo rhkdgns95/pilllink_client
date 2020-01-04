@@ -346,15 +346,15 @@ export const TranslatedTaiwan: ICountry = {
     ],
     boardSelectors: [
         {
-            name: "제안",
+            name: "建议",
             value: "BOARD_SUGGESTION"
         },
         {
-            name: "문의사항",
+            name: "询问",
             value: "BOARD_QUESTION"
         },
         {
-            name: "불편사항",
+            name: "不便之处",
             value: "BOARD_PROBLEM"
         }
     ]

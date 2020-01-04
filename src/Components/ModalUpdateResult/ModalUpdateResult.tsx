@@ -53,6 +53,7 @@ const Menu = styled.div`
     display: flex;
     flex: 2;
     width: 100%;
+    margin-bottom: -1px;
     &::before {
         content: "";
         position: absolute;
@@ -102,6 +103,17 @@ const MenuTitle = styled.div`
 const MenuIdTitle = styled(MenuTitle)`
 
 `;
+const TextAreaBox = styled.div`
+    border: .5px solid #dfdfdf;
+    // border-top: 0;
+    padding: .5px;
+    &.active {
+        background-color: #e8e8e8;
+        textarea {
+            background-color: #e8e8e8;
+        }
+    }
+`;
 const TextArea = styled.textarea`
     display: block;
     width: 100%;
@@ -111,7 +123,6 @@ const TextArea = styled.textarea`
     height: 200px;
     &:focus,
     &:active {
-        
         border-top: 0;
         box-shadow: 0;
         outline: none;
@@ -124,16 +135,7 @@ const TextArea = styled.textarea`
     line-height: 23px;
     font-size: 12px;
 `;
-const TextAreaBox = styled.div`
-    border: .5px solid #dfdfdf;
-    border-top: 0;
-    &.active {
-        background-color: #e8e8e8;
-        textarea {
-            background-color: #e8e8e8;
-        }
-    }
-`;
+
 const Name = styled.div`
     
 `;

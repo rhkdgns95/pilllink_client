@@ -168,8 +168,8 @@ const HomePresenter = () => {
                 </Wrapper>
             </Box>
             { step === 3 && isModal && <ModalCloseBtn />}
-            { !isBoard && <BoardButton />}
-            { isBoard &&  <ModalBoard /> }
+            { step <= 2 && lang.value !== "" && !isBoard && <BoardButton />}
+            { step <= 2 && lang.value !== "" && isBoard &&  <ModalBoard lang={lang.value}/> }
             
         </Container>
     )

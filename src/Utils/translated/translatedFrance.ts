@@ -3,7 +3,7 @@ import { PATH_IMG_LANG } from "../../Routes/App/AppProvider";
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;
 
 export const TranslatedFrance: ICountry = {
-    name: "La France",
+    name: "France",
     value: "FR",
     imgPath: PATH_IMG_LANG + "/lang_fr.jpg",
     selectors: [
@@ -346,15 +346,15 @@ export const TranslatedFrance: ICountry = {
     ],
     boardSelectors: [
         {
-            name: "제안",
+            name: "Suggestion",
             value: "BOARD_SUGGESTION"
         },
         {
-            name: "문의사항",
+            name: "Enquête",
             value: "BOARD_QUESTION"
         },
         {
-            name: "불편사항",
+            name: "Inconvenience",
             value: "BOARD_PROBLEM"
         }
     ]
