@@ -218,7 +218,7 @@ export const TranslatedEngland: ICountry = {
     ],
     confirms: [
         {
-            name: "EN_1회 약 갯수",
+            name: "Dosage per each",
             value: "PER_ONETIME_CNT",
             details: [
                 {

@@ -226,7 +226,7 @@ export const TranslatedFrance: ICountry = {
     ],
     confirms: [
         {
-            name: "FR_1회 약 갯수",
+            name: "Dose",
             value: "PER_ONETIME_CNT",
             details: [
                 {

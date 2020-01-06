@@ -226,7 +226,7 @@ export const TranslatedJapan: ICountry = {
     ],
     confirms: [
         {
-            name: "JA_1회 약 갯수",
+            name: "服量  ふくりょう",
             value: "PER_ONETIME_CNT",
             details: [
                 {

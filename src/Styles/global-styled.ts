@@ -2,20 +2,32 @@ import { createGlobalStyle } from "./typed-components";
 
 export const GlobalStlyes = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+    
+    a {
+        &:hover {
+            color: white;
+        }    
+    }
     html, body {
         margin: 0;
         border: 0;
         height: 100%;
+        line-height: normal;
     }
     body {
         background-color: ${props => props.theme.bgColor};
         font-family: 'Nanum Gothic', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
     }
     * {
         box-sizing: border-box;
     }
     ul, li, a, p {
         margin: 0;
+        margin-top: 0;
+        margin-bottom: 0;
         padding: 0;
         list-style: none;
         text-decoration: none;
@@ -32,6 +44,9 @@ export const GlobalStlyes = createGlobalStyle`
             border: 0;
             box-shadow: none;
         }
+    }
+    input[type=password] {
+        letter-spacing: -4px;
     }
     select {
         // margin-bottom: -1px;
@@ -79,7 +94,7 @@ export const GlobalStlyes = createGlobalStyle`
             pointer-events: none;
         }
     }
-
+    
     // footer - 조절
     #root {
         height: 100%;
@@ -105,5 +120,7 @@ export const GlobalStlyes = createGlobalStyle`
             }
         }
     }
-    
+    .axis-text {
+        font-size: 12px;
+    }
 `;

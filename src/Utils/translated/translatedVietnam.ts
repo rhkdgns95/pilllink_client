@@ -226,7 +226,7 @@ export const TranslatedVietnam: ICountry = {
     ],
     confirms: [
         {
-            name: "VI_1회 약 갯수",
+            name: "liều lượng",
             value: "PER_ONETIME_CNT",
             details: [
                 {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "../../Styles/typed-components";
 import { useAdminUsersContext, PaginationSettings } from "./AdminUsersProvider";
 import PaginationUsers from "../PaginationUsers";
@@ -79,11 +79,18 @@ const Img = styled.img`
 
 const AdminUsersPresenter = () => {
     const { users, max, pagination } = useAdminUsersContext();
+    const [ isEffected, setIsEffected ] = useState<boolean>(false);
     const { cursor } = pagination;
     const { tableCount } = PaginationSettings;
     const index: number = (cursor - 1) * tableCount;
+
+    useEffect(() => {
+        if(!isEffected) {
+            setIsEffected(true);
+        }
+    }, []);
     return (
-        <Container>
+        <Container className={isEffected ? "active step-container group-radio" : "step-container group-radio"}>
             <Wrapper>
                 <Total>Total  ({max}명)</Total>
                 <TableBox>

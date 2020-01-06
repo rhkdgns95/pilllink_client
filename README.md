@@ -42,6 +42,11 @@
 - [x] Add Board + Admin - Records.
 - [x] Feedback - Mulitple Confirm, History - Table in Table.
 - [x] UI - BoardButton. 
+- [x] Admin - Statistic No Completed.
+- [] Admin - Chart(Gender) part one.
+- [] Admin - Chart(Age) part two.
+- [] Admin - Chart(Nationality) part three.
+- [] Admin - Chart(Address) part four.
 - [] Admin - Chart, Feedback, UserRecords.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
@@ -66,6 +71,16 @@
 8. yarn add react-daum-postcode
 9. yarn add react-app-polyfill
 10. yarn add --dev gh-pages
+11. yarn add d3-selection @types/d3-selection
+12. yarn add d3-scale @types/d3-scale d3-array @types/d3-array 
+13. yarn add d3-axis @types/d3-axis
+14[예시]. yarn add randomstring @types/randomstring
+15. yarn add antd
+16. yarn add react-app-rewired
+17. yarn add babel-plugin-import
+18. yarn add customize-cra
+19. yarn add react-apexcharts
+20. yarn add apexcharts
 
 ## 3. Dev
 
@@ -99,6 +114,14 @@
   (즉 배열 갯수만큼 useState를 생성해야한다.)
 : [2] 똑같은 값에 대입하는 경우 복사가아니라, 의존하게되며 서로의 값은 useState의 값을 참조한다. 주소의 참조라는 개념이다.
 - Feedback의 예시로 N개의 useState를 사용시에는 배열로 만들었다가 에러가 났었다. 이는 위의 개념을 읽어보면 이해될것이다. 하나의 useState를 여러 변수에 대입시 복사가아니라 의존하게 된다. 즉 값이 참조하는게아니라, 주소가 참조되어서 값을 수정할때 원하는값으로 수정하기 어렵다. 그리고 배열을 추가할때도 마찬가지이다. 그래서 해결한 방법으로는, useState객체를 N개만큼 추가하여 일일이 넣었다. -> 다른방법으로도 찾아보자.
+- 5.0 D3 Chart
+: D3 Chart는 svg태그안에 데이터 rect와 line등등 svg관련 태그들을 추가시켜서 임의로 사용가능하다. 
+: 보통은 useRef로 svg를 참조하는 ref값을 생성하여, 마운트가 된 이후 그리도록 한다. (제이쿼리 라이브러리를 지원해주어서 사용 가능하다.)
+: (JQuery에서)DOM데이터의 속성 추가할때 attr('fill', 'red')와같이 사용한다.
+: 그렇지만 그보다더 효과적으로 사용하기위해 아래처럼사용한다.(data사용!)
+: .data(data) .append('rect') .attr('fill', d => d.color) .attr('width', d => d.width)와 같이 data에 = [{ width : 400, fill: 'red' }]와 같이 넣어주면 해당 DOM이 사용할수있는 Data속성이 정의된다. 
+- 5.1 Antd 부분 적용하기.
+: react-app-rewired
 
 ## 5. Pagination - Medical Record 요청
 - 5.0 총 데이터 갯수를 가져오도록 한다.

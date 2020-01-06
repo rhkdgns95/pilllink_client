@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "../../Styles/typed-components";
 import { useAdminRecordContext } from "./AdminRecordProvider";
 import { getUserBoards_GetUserBoards_boards } from "../../Types/api";
@@ -110,6 +110,8 @@ const IconButton = styled.input`
 `;
 const AdminRecordPresenter = () => {
     const { boards = [], isModal, handleCurrentBoardId, toggleModal } = useAdminRecordContext();
+    const [ isEffected, setIsEffected ] = useState<boolean>(false);
+
     let waitingBoards: Array<getUserBoards_GetUserBoards_boards | null> = [];
     let completedBoards: Array<getUserBoards_GetUserBoards_boards | null> = [];
     
@@ -122,9 +124,14 @@ const AdminRecordPresenter = () => {
             }
         });
     }
+    useEffect(() => {
+        if(!isEffected) {
+            setIsEffected(true);
+        }
+    }, []);
     
     return (
-        <Container>
+        <Container className={isEffected ? "active step-container group-radio" : "step-container group-radio"}>
             <Wrapper>
                 {
                     waitingBoards && (

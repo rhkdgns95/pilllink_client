@@ -226,7 +226,7 @@ export const TranslatedMongol: ICountry = {
     ],
     confirms: [
         {
-            name: "MO_1회 약 갯수",
+            name: "ТУГНАЛ",
             value: "PER_ONETIME_CNT",
             details: [
                 {

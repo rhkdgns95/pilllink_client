@@ -264,3 +264,39 @@ interface IAddress {
     value: TAddressVal,
     details: Array<IAddressDetails>
 }
+interface IDimensions {
+    width: number;
+    height: number;
+    marginLeft: number;
+    paddingTop: number;
+    color: string;
+}
+interface IUseChart {
+
+}
+interface IChartProps {
+    name: string;
+    units: number;
+    color: string;
+}
+interface IChart {
+    data: Array<IChartProps>;
+    format: string;
+    // data: Array<IChartProps>
+}
+interface IGenderChartProps {
+    men_name: string;
+    men_units: number;
+    men_color: string;
+    women_name: string;
+    women_units: number;
+    women_color: string;
+}
+interface IGenderChart {
+    data: Array<IGenderChartProps>;
+    format: string;
+}
+// interface IUseChart {
+//     ref: React.RefObject<SVGSVGElement | null>;
+//     dimensions: IDimensions;
+// }

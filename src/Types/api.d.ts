@@ -3,6 +3,62 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getNationalityUser
+// ====================================================
+
+export interface getNationalityUser_GetNationalityUser_countries {
+  __typename: "Country";
+  name: string;
+  count: number;
+}
+
+export interface getNationalityUser_GetNationalityUser {
+  __typename: "GetNationalityUserResponse";
+  ok: boolean;
+  error: string | null;
+  countries: (getNationalityUser_GetNationalityUser_countries | null)[] | null;
+}
+
+export interface getNationalityUser {
+  GetNationalityUser: getNationalityUser_GetNationalityUser;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: getGender
+// ====================================================
+
+export interface getGender_GetGenders_monthGender {
+  __typename: "MonthGender";
+  month: number | null;
+  men: number | null;
+  women: number | null;
+}
+
+export interface getGender_GetGenders {
+  __typename: "GetGendersResponse";
+  ok: boolean | null;
+  error: string | null;
+  monthGender: (getGender_GetGenders_monthGender | null)[] | null;
+}
+
+export interface getGender {
+  GetGenders: getGender_GetGenders;
+}
+
+export interface getGenderVariables {
+  dateFrom?: Date | null;
+  dateTo?: Date | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getUserBoards
 // ====================================================
 
@@ -293,7 +349,25 @@ export interface createConfirmVariables {
 export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords_confirm {
   __typename: "ConfirmRecord";
   id: number;
-  createdAt: string;
+  res_perOneTimeCnt: number;
+  res_amount: RES_AMOUNT;
+  res_way: RES_WAY;
+  /**
+   * Time
+   */
+  TO_MORNING: boolean | null;
+  TO_LUNCH: boolean | null;
+  TO_DINNER: boolean | null;
+  TO_SLEEP: boolean | null;
+  /**
+   * Caution
+   */
+  CAUTION_SLEEP: boolean | null;
+  CAUTION_STOMACAHCHE: boolean | null;
+  CAUTION_RASH: boolean | null;
+  CAUTION_DIZZY: boolean | null;
+  CAUTION_DIARRHEA: boolean | null;
+  CAUTION_BLOODPRESSURE: boolean | null;
 }
 
 export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords {
@@ -639,7 +713,25 @@ export interface ItemMedicalRecord {
 export interface ItemConfirm {
   __typename: "ConfirmRecord";
   id: number;
-  createdAt: string;
+  res_perOneTimeCnt: number;
+  res_amount: RES_AMOUNT;
+  res_way: RES_WAY;
+  /**
+   * Time
+   */
+  TO_MORNING: boolean | null;
+  TO_LUNCH: boolean | null;
+  TO_DINNER: boolean | null;
+  TO_SLEEP: boolean | null;
+  /**
+   * Caution
+   */
+  CAUTION_SLEEP: boolean | null;
+  CAUTION_STOMACAHCHE: boolean | null;
+  CAUTION_RASH: boolean | null;
+  CAUTION_DIZZY: boolean | null;
+  CAUTION_DIARRHEA: boolean | null;
+  CAUTION_BLOODPRESSURE: boolean | null;
 }
 
 /* tslint:disable */
@@ -914,6 +1006,11 @@ export interface CreateConfirmVariables {
   CAUTION_DIZZY?: boolean | null;
   CAUTION_DIARRHEA?: boolean | null;
   CAUTION_BLOODPRESSURE?: boolean | null;
+}
+
+export interface Date {
+  dateStartYear: number;
+  dateStartMonth: number;
 }
 
 //==============================================================

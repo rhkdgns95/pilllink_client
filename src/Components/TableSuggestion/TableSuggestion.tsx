@@ -34,7 +34,7 @@ const Th = styled.th`
     }
     @media(max-width: 510px) {
         &.table-content {
-            padding: 30px 0;
+            padding: 30px 15px;
         }
     }
 `;

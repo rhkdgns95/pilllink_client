@@ -226,7 +226,7 @@ export const TranslatedChina: ICountry = {
     ],
     confirms: [
         {
-            name: "CH_1회 약 갯수",
+            name: "服用量",
             value: "PER_ONETIME_CNT",
             details: [
                 {

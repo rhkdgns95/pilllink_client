@@ -226,7 +226,7 @@ export const TranslatedTaiwan: ICountry = {
     ],
     confirms: [
         {
-            name: "TA_1회 약 갯수",
+            name: "服用量",
             value: "PER_ONETIME_CNT",
             details: [
                 {

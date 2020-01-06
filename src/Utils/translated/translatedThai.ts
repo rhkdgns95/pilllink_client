@@ -226,7 +226,7 @@ export const TranslatedThai: ICountry = {
     ],
     confirms: [
         {
-            name: "TH_1회 약 갯수",
+            name: "ขนาด",
             value: "PER_ONETIME_CNT",
             details: [
                 {
