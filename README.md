@@ -43,10 +43,8 @@
 - [x] Feedback - Mulitple Confirm, History - Table in Table.
 - [x] UI - BoardButton. 
 - [x] Admin - Statistic No Completed.
-- [] Admin - Chart(Gender) part one.
-- [] Admin - Chart(Age) part two.
-- [] Admin - Chart(Nationality) part three.
-- [] Admin - Chart(Address) part four.
+- [x] Admin - Chart(Gender, Area, Nationality)
+- [] Admin - Chart(Area - Details).
 - [] Admin - Chart, Feedback, UserRecords.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)

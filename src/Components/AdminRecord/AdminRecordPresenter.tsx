@@ -131,8 +131,8 @@ const AdminRecordPresenter = () => {
     }, []);
     
     return (
-        <Container className={isEffected ? "active step-container group-radio" : "step-container group-radio"}>
-            <Wrapper>
+        <Container>
+            <Wrapper className={isEffected ? "active step-container group-radio" : "step-container group-radio"}>
                 {
                     waitingBoards && (
                         <>
@@ -219,8 +219,8 @@ const AdminRecordPresenter = () => {
                         </>
                     )
                 }
-                { isModal && <ModalUpdateResult /> }
             </Wrapper>
+            { isModal && <ModalUpdateResult /> }
         </Container>
     );
 }

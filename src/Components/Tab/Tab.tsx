@@ -38,7 +38,7 @@ const Container = styled.div`
                     }
                 }
                 .tab-info {
-                    z-index: 1;
+                    z-index: 12;
                     position: fixed;
                     display: block;
                     width: 70%;

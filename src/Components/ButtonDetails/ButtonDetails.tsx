@@ -7,7 +7,6 @@ const Container = styled.div`
 const Wrapper = styled.div`
     background: linear-gradient(90deg, rgba(55,208,77,1) 0%, rgba(7,200,142,1) 100%);
     display: inline-block;
-    margin-left: auto;
 `;
 
 const Button = styled.input`

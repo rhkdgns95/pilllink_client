@@ -128,7 +128,6 @@ const useChart = (data: Array<IChartProps>, format: string) => {
             .attr('x', d => x(d.name)! + dimensions.marginLeft) 
             .attr('y', d => y(d.units) + dimensions.paddingTop)
             .attr('fill', d => d.color)
-            
         }
     }   
 
@@ -177,6 +176,8 @@ const useChart = (data: Array<IChartProps>, format: string) => {
             .attr('x', d => x(d.name)! + dimensions.marginLeft) 
             .attr('y', d => y(d.units) + dimensions.paddingTop)
             .attr('fill', d => d.color)
+
+
         }
     }
     useEffect(() => {

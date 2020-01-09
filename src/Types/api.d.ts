@@ -3,6 +3,46 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getAddressUser
+// ====================================================
+
+export interface getAddressUser_GetAddressUser_users {
+  __typename: "User";
+  id: number;
+  userId: string;
+  fullName: string | null;
+  firstName: string;
+  lastName: string;
+  email: string;
+  nationality: Nationality;
+  gender: Gender;
+  age: number;
+  isAbroad: boolean;
+  abroadAddress: string | null;
+  addressList: Address | null;
+  addressItem: string | null;
+  medicalRecordsCount: number | null;
+  boardCount: number | null;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
+export interface getAddressUser_GetAddressUser {
+  __typename: "GetAddressUserResponse";
+  ok: boolean;
+  error: string | null;
+  users: (getAddressUser_GetAddressUser_users | null)[] | null;
+}
+
+export interface getAddressUser {
+  GetAddressUser: getAddressUser_GetAddressUser;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getNationalityUser
 // ====================================================
 

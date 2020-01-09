@@ -4,48 +4,18 @@ import { useQuery } from "react-apollo";
 import { GET_NATIONALITY_USER } from "./ChartNationalityQueries";
 import { getNationalityUser } from "../../Types/api";
 import ButtonDetails from "../../Components/ButtonDetails";
-const data3 = [
-    {
-        name: '한국',
-        units: 150,
-        color: "rgb(63,189,222)"
-    },
-    {
-        name: '미국',
-        units: 110,
-        color: '#ff5722'
-    },
-    {
-        name: '영국',
-        units: 200,
-        color: "#2764ff"
-    },
-    {
-        name: '대만',
-        units: 120,
-        color: '#ff5722'
-    },
-    {
-        name: '태국',
-        units: 150,
-        color: "#2764ff"
-    },
-    {
-        name: '일본',
-        units: 120,
-        color: '#ff5722'
-    },
-    {
-        name: '중국',
-        units: 150,
-        color: "#2764ff"
-    },
-    {
-        name: '프랑스',
-        units: 120,
-        color: '#ff5722'
+import styled from "../../Styles/typed-components";
+
+const ButtonBox = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 10px 0;
+    justify-content: flex-end;
+    & > div {
+        margin-left: 10px;
     }
-];
+`;
 
 const useFetch = () => {
     const { data, loading } = useQuery<getNationalityUser, any>(GET_NATIONALITY_USER, {
@@ -65,6 +35,8 @@ const ChartNationality = () => {
     const [options, setOptions] = useState();
     const [series, setSeries] = useState();
     const { data, loading } = useFetch();
+    const [ isEffected, setIsEffected ] = useState<boolean>(false);
+
     useEffect(() => {
         if(!series) {
             setSeries([
@@ -79,7 +51,7 @@ const ChartNationality = () => {
         if(!options) {
             setOptions({
                 chart: {
-                    background: '#f4f4f4',
+                    background: '#fff',
                     foreColor: '#333'
                 },
                 xaxis: {
@@ -104,7 +76,7 @@ const ChartNationality = () => {
                     margin: 20,
                     offsetY: 20,
                     style: {
-                        fontSize: '25px'
+                        fontSize: '15px'
                     }
                 }
             });
@@ -124,7 +96,7 @@ const ChartNationality = () => {
                 ]);
                 setOptions({
                     chart: {
-                        background: '#f4f4f4',
+                        background: '#fff',
                         foreColor: '#333'
                     },
                     xaxis: {
@@ -147,13 +119,20 @@ const ChartNationality = () => {
                         margin: 20,
                         offsetY: 20,
                         style: {
-                            fontSize: '25px'
+                            fontSize: '15px'
                         }
                     }
                 });
             }
         }
     }, [data]);
+
+    useEffect(() => {
+        if(!isEffected) {
+            setIsEffected(true);
+        }
+    }, []);
+
     const handleClick = () => {
         setOptions({
             ...options,
@@ -168,11 +147,12 @@ const ChartNationality = () => {
     };
 
     return (
-        <div>
-            <div>
-                <ButtonDetails onClick={handleClick} value={"Change"}/>
-            </div>
-            <div style={{ margin: "10px auto", width: "100%", textAlign: "center" }}>
+        <div className={isEffected ? "active step-container group-radio" : "step-container group-radio"}>
+            <ButtonBox>
+                {/* <ButtonDetails value={"Details"} onClick={toggleModal} /> */}
+                <ButtonDetails onClick={handleClick} value={"View"} />
+            </ButtonBox>
+            <div style={{ width: "100%", textAlign: "center" }}>
                 {
                     !loading && series && (
                         <Chart
