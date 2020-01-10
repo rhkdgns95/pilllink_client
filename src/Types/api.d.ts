@@ -3,6 +3,31 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getAgeUser
+// ====================================================
+
+export interface getAgeUser_GetAgeUser_userAge {
+  __typename: "UserAgeResponse";
+  title: string;
+  count: number;
+}
+
+export interface getAgeUser_GetAgeUser {
+  __typename: "GetAgeUserResponse";
+  ok: boolean;
+  error: string | null;
+  userAge: (getAgeUser_GetAgeUser_userAge | null)[] | null;
+}
+
+export interface getAgeUser {
+  GetAgeUser: getAgeUser_GetAgeUser;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getAddressUser
 // ====================================================
 

@@ -5,6 +5,7 @@ import { GET_NATIONALITY_USER } from "./ChartNationalityQueries";
 import { getNationalityUser } from "../../Types/api";
 import ButtonDetails from "../../Components/ButtonDetails";
 import styled from "../../Styles/typed-components";
+import ChartTitle from "../../Components/ChartTitle";
 
 const ButtonBox = styled.div`
     display: flex;
@@ -147,7 +148,8 @@ const ChartNationality = () => {
     };
 
     return (
-        <div className={isEffected ? "active step-container group-radio" : "step-container group-radio"}>
+        <div className={"chart-container"}>
+            <ChartTitle text={"국가별"}/>
             <ButtonBox>
                 {/* <ButtonDetails value={"Details"} onClick={toggleModal} /> */}
                 <ButtonDetails onClick={handleClick} value={"View"} />

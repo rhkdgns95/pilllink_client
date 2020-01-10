@@ -44,8 +44,7 @@
 - [x] UI - BoardButton. 
 - [x] Admin - Statistic No Completed.
 - [x] Admin - Chart(Gender, Area, Nationality)
-- [] Admin - Chart(Area - Details).
-- [] Admin - Chart, Feedback, UserRecords.
+- [x] Admin - All Chart(Statistic Modify)
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.

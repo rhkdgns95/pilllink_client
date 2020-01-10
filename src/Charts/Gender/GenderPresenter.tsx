@@ -25,23 +25,9 @@ const ButtonBox = styled.div`
         margin-left: 10px;
     }
 `;
-const data = [
-    {
-        name: '남자',
-        units: 150,
-        color: "#2764ff"
-    },
-    {
-        name: '여자',
-        units: 120,
-        color: '#ff5722'
-    }
-];
-
 
 const GenderPresenter = () => {
     const { gender, loading, isModal, toggleModal, series, options, handleChangeChart } = useGenderContext();
-    const [ isEffected, setIsEffected ] = useState<boolean>(false);
     
     let data: Array<IChartProps> = [
         {
@@ -56,17 +42,12 @@ const GenderPresenter = () => {
         }
     ];
     
-    useEffect(() => {
-        if(!isEffected) {
-            setIsEffected(true);
-        }
-    }, []);
-
     return (
-        <Container>
+        <Container className={"chart-container"}>
             {
                 !loading && gender && (
-                    <Wrapper className={isEffected ? "active step-container group-radio" : "step-container group-radio"}>
+                    <Wrapper>
+                        <ChartTitle text={"성별"}/>
                         <ButtonBox>
                             <ButtonDetails value={"Details"} onClick={toggleModal} />
                             <ButtonDetails value={"View"} onClick={handleChangeChart} />

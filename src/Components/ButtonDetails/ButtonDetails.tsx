@@ -21,6 +21,11 @@ const Button = styled.input`
         color: #39b14d;
         background: white;
     }
+    @media(max-width: 510px) {
+        padding: 5.5px 13px;
+        font-size: 10px;
+        
+    }
 `;
 
 interface IProps {
