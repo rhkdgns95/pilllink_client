@@ -123,4 +123,46 @@ export const GlobalStlyes = createGlobalStyle`
     .axis-text {
         font-size: 12px;
     }
+    .chart-container {
+        box-shadow: rgba(0, 50, 100, 0.15) 0px 0.5px 12px;
+        border: .5px solid #dfdfdf;
+        padding: 20px;
+        margin-bottom: 20px;
+        @media(max-width: 510px) {
+            padding: 10px;
+        }
+    }
+    @media(max-width: 510px) {
+        .ant-calendar-picker-container {
+            max-width: 300px !important;
+            width: 100%;
+            margin: 0 auto;
+            border: 2px solid #5bad55 !important;
+            left: 50% !important;
+            transform: translateX(-50%);
+        }
+        .ant-calendar-range-right {
+            border-top: 1px solid #52c966;
+        }
+        .ant-calendar-date-panel {
+            max-width: 320px;
+        }
+        .ant-calendar-range {
+            width: 100%;
+        }
+        .ant-calendar-range-part {
+            float: none !important;
+            width: 100% !important;
+        }
+        .ant-calendar-input-wrap {
+            display: none;
+        }
+        .ant-calendar-range-middle {
+            display: none;
+        }
+        .ant-calendar-picker-container {
+            // transform: scale(.8);
+        }
+    }
+    
 `;

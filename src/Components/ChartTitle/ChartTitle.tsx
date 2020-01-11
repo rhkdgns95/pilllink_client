@@ -2,8 +2,8 @@ import React from "react";
 import styled from "../../Styles/typed-components";
 
 const Container = styled.div`
-    margin-top: 45px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 `;
 
 const Wrapper = styled.div`

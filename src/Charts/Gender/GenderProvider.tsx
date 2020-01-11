@@ -169,7 +169,6 @@ const useFetch = (): { value: IContext } => {
     }
 
     const genders = data ? data.GetGenders.monthGender : null;
-    console.log("DATA: ", data);
     return {
         value: {
             gender: genders ? genders[0] : null,

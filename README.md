@@ -45,6 +45,7 @@
 - [x] Admin - Statistic No Completed.
 - [x] Admin - Chart(Gender, Area, Nationality)
 - [x] Admin - All Chart(Statistic Modify)
+- [x] Admin - Line Chart - MedicalRecord.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.

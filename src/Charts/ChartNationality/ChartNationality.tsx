@@ -127,13 +127,7 @@ const ChartNationality = () => {
             }
         }
     }, [data]);
-
-    useEffect(() => {
-        if(!isEffected) {
-            setIsEffected(true);
-        }
-    }, []);
-
+    
     const handleClick = () => {
         setOptions({
             ...options,

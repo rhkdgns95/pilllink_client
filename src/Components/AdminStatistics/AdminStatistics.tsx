@@ -4,6 +4,7 @@ import Age from "../../Charts/Age";
 import Gender from "../../Charts/Gender/GenderContainer";
 import ChartNationality from "../../Charts/ChartNationality";
 import ChartAddress from "../../Charts/ChartAddress";
+import ChartMedicalRecord from "../../Charts/ChartMedicalRecord";
 
 const Container = styled.div`
 
@@ -89,7 +90,8 @@ const AdminStatistics = () => {
                 <Gender />
                 <Age />
                 <ChartAddress />
-                <ChartNationality />
+                <ChartNationality /> 
+                <ChartMedicalRecord />
             </Wrapper>
         </Container>
     );

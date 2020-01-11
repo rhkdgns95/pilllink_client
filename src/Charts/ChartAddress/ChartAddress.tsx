@@ -32,6 +32,7 @@ const ChartTable = styled.table`
     border-collapse: collapse;
     border-top: 2px solid #21c983;
     border-bottom: 1px solid #dfdfdf;
+    white-space: nowrap;
     tbody {
         display: flex;
         flex-flow: row wrap;

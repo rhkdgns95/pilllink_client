@@ -128,7 +128,7 @@ const useFetch = () => {
             });
         }
     }, [data]);
-
+    
 
     const handleChangeChart = () => {
         setOptions({

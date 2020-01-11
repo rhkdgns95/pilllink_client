@@ -68,6 +68,35 @@ export interface getAddressUser {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getPeriodMedicalRecord
+// ====================================================
+
+export interface getPeriodMedicalRecord_GetPeriodMedicalRecord_data {
+  __typename: "GetPeriodMedicalRecordData";
+  title: string;
+  count: number;
+}
+
+export interface getPeriodMedicalRecord_GetPeriodMedicalRecord {
+  __typename: "GetPeriodMedicalRecordResponse";
+  ok: boolean;
+  error: string | null;
+  data: (getPeriodMedicalRecord_GetPeriodMedicalRecord_data | null)[] | null;
+}
+
+export interface getPeriodMedicalRecord {
+  GetPeriodMedicalRecord: getPeriodMedicalRecord_GetPeriodMedicalRecord;
+}
+
+export interface getPeriodMedicalRecordVariables {
+  date: GetPeriodMedicalRecordArgs;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getNationalityUser
 // ====================================================
 
@@ -1076,6 +1105,17 @@ export interface CreateConfirmVariables {
 export interface Date {
   dateStartYear: number;
   dateStartMonth: number;
+}
+
+export interface GetPeriodMedicalRecordArgs {
+  startDate: PeriodDate;
+  endDate: PeriodDate;
+}
+
+export interface PeriodDate {
+  year: number;
+  month: number;
+  day: number;
 }
 
 //==============================================================
