@@ -148,6 +148,22 @@ const CommonSymptomsText: ICommonSymptomsText = {
         value: "other_artificialTears",
         imgPath: PATH_IMG_DETAILS + "/other/other_artificial_tears.png"
     }, // 인공눈물
+    other_mensoredamCream: {
+        value: "other_mensoredamCream",
+        imgPath: PATH_IMG_DETAILS + "/other/other_mensoredam_cream.png"
+    }, // 멘소레담 크림형
+    other_mensoredamSpray: {
+        value: "other_mensoredamSpray",
+        imgPath: PATH_IMG_DETAILS + "/other/other_mensoredam_spray.png"
+    }, // 멘소레담 스프레이형
+    other_painKillingPatch: {
+        value: "other_painKillingPatch",
+        imgPath: PATH_IMG_DETAILS + "/other/other_pain_killing_patch.png"
+    }, // 파스
+    other_painKillingPatchWater: {
+        value: "other_painKillingPatchWater",
+        imgPath: PATH_IMG_DETAILS + "/other/other_pain_killing_patch_water.png"
+    }, // 물파스
 };
 
 const { COLD, STOMACHACHE, HANGOVER, FEMALE, SKIN, OTHER } = CommonSymptomsText;

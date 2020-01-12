@@ -220,6 +220,22 @@ export const TranslatedItaly: ICountry = {
                 {
                     name: "IT_인공눈물",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "IT_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "IT_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "IT_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "IT_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

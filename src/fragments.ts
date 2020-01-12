@@ -100,6 +100,10 @@ export const FRAGMENT_MEDICAL_RECORDS = gql`
         other_disinfectant
         other_salineSolution
         other_artificialTears
+        other_mensoredamCream #멘소래담 크림형
+        other_mensoredamSpray # 멘소레담 스프레이형
+        other_painKillingPatch #파스
+        other_painKillingPatchWater #물파스
     }
 `;
 

@@ -212,6 +212,22 @@ export const TranslatedUSA: ICountry = {
                 {
                     name: "Artificial Tears",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "EN_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "EN_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "EN_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "EN_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

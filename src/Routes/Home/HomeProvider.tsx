@@ -160,7 +160,7 @@ const useFetch = (history: any): {value: IContext} => {
 
     useEffect(() => {
         
-        window.onbeforeunload = () => undefined;
+        // window.onbeforeunload = () => undefined;
         // window.addEventListener('')
         return () => {
             if(lang.value !== "") {
@@ -334,7 +334,9 @@ const useFetch = (history: any): {value: IContext} => {
             if(prevStep === 3 && newStep === 2) {
                 if(!isModal) {
                     setTimeout(() => {
-                        setIsModal(true);
+                        if(lang.value !== "" && lang.value !== "KO") {
+                            setIsModal(true);
+                        }
                     }, 500);
                 }
             }

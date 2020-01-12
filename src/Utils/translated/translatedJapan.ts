@@ -220,6 +220,22 @@ export const TranslatedJapan: ICountry = {
                 {
                     name: "目薬・めくすり",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "JA_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "JA_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "JA_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "JA_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

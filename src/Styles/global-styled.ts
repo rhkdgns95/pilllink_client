@@ -132,6 +132,8 @@ export const GlobalStlyes = createGlobalStyle`
             padding: 10px;
         }
     }
+
+    
     @media(max-width: 510px) {
         .ant-calendar-picker-container {
             max-width: 300px !important;
@@ -164,5 +166,4 @@ export const GlobalStlyes = createGlobalStyle`
             // transform: scale(.8);
         }
     }
-    
 `;

@@ -220,6 +220,22 @@ export const TranslatedMongol: ICountry = {
                 {
                     name: "хиймэл нулимс",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "MO_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "MO_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "MO_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "MO_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

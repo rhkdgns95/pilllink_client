@@ -36,7 +36,6 @@ const ChartNationality = () => {
     const [options, setOptions] = useState();
     const [series, setSeries] = useState();
     const { data, loading } = useFetch();
-    const [ isEffected, setIsEffected ] = useState<boolean>(false);
 
     useEffect(() => {
         if(!series) {

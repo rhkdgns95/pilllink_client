@@ -220,6 +220,22 @@ export const TranslatedMexico: ICountry = {
                 {
                     name: "Gotas para los ojos",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "ME_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "ME_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "ME_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "ME_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

@@ -46,6 +46,10 @@ export const CREATE_MEDICAL_RECORD = gql`
         $other_disinfectant: Boolean
         $other_salineSolution: Boolean
         $other_artificialTears: Boolean
+        $other_mensoredamCream: Boolean 
+        $other_mensoredamSpray: Boolean 
+        $other_painKillingPatch: Boolean 
+        $other_painKillingPatchWater: Boolean
     ) {
         CreateMedicalRecord(
             lang: $lang
@@ -85,6 +89,10 @@ export const CREATE_MEDICAL_RECORD = gql`
             other_disinfectant: $other_disinfectant
             other_salineSolution: $other_salineSolution
             other_artificialTears: $other_artificialTears
+            other_mensoredamCream: $other_mensoredamCream
+            other_mensoredamSpray: $other_mensoredamSpray
+            other_painKillingPatch: $other_painKillingPatch
+            other_painKillingPatchWater: $other_painKillingPatchWater
         ) {
             ok
             error

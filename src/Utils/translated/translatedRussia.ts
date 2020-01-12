@@ -220,6 +220,22 @@ export const TranslatedRussia: ICountry = {
                 {
                     name: "искусственный слёзы",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "RU_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "RU_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "RU_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "RU_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

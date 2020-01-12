@@ -213,6 +213,10 @@ interface ICommonSymptomsText {
     other_disinfectant: TCommonText;
     other_salineSolution: TCommonText;
     other_artificialTears: TCommonText;
+    other_mensoredamCream: TCommonText;
+    other_mensoredamSpray: TCommonText;
+    other_painKillingPatch: TCommonText;
+    other_painKillingPatchWater: TCommonText;
 }
 interface ISymptomInputData {
     name: string;

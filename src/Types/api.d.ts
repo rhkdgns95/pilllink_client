@@ -525,6 +525,10 @@ export interface getMyMedicalRecords_GetMyMedicalRecords_medicalRecords {
   other_disinfectant: boolean | null;
   other_salineSolution: boolean | null;
   other_artificialTears: boolean | null;
+  other_mensoredamCream: boolean | null;
+  other_mensoredamSpray: boolean | null;
+  other_painKillingPatch: boolean | null;
+  other_painKillingPatchWater: boolean | null;
   confirm: (getMyMedicalRecords_GetMyMedicalRecords_medicalRecords_confirm | null)[] | null;
 }
 
@@ -603,6 +607,10 @@ export interface createMedicalRecordVariables {
   other_disinfectant?: boolean | null;
   other_salineSolution?: boolean | null;
   other_artificialTears?: boolean | null;
+  other_mensoredamCream?: boolean | null;
+  other_mensoredamSpray?: boolean | null;
+  other_painKillingPatch?: boolean | null;
+  other_painKillingPatchWater?: boolean | null;
 }
 
 /* tslint:disable */
@@ -948,6 +956,10 @@ export interface ItemOther {
   other_disinfectant: boolean | null;
   other_salineSolution: boolean | null;
   other_artificialTears: boolean | null;
+  other_mensoredamCream: boolean | null;
+  other_mensoredamSpray: boolean | null;
+  other_painKillingPatch: boolean | null;
+  other_painKillingPatchWater: boolean | null;
 }
 
 /* tslint:disable */

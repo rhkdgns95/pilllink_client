@@ -220,6 +220,22 @@ export const TranslatedKorean: ICountry = {
                 {
                     name: "인공눈물",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "멘소레담(크림)",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "멘소레담(스프레이)",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

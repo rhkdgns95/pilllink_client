@@ -46,6 +46,7 @@
 - [x] Admin - Chart(Gender, Area, Nationality)
 - [x] Admin - All Chart(Statistic Modify)
 - [x] Admin - Line Chart - MedicalRecord.
+- [x] Details - Four Items, Popup - Design.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.

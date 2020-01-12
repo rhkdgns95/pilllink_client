@@ -31,7 +31,7 @@ const tabArray: Array<IUseTab> = [
 
 
 const useFetch = (): { value: IContext } => {
-    const [tab, setTab] = useState<IUseTab>(tabArray[2]);
+    const [tab, setTab] = useState<IUseTab>(tabArray[0]);
     
     
 

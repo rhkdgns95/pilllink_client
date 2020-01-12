@@ -32,14 +32,14 @@ const useFetch = () => {
     
     const { data, loading } = useQuery<getAgeUser, any>(GET_AGE_USER, {
         onCompleted: data => {
-            console.log("GetAgeAddress onCompleted: ", data);
+            // console.log("GetAgeAddress onCompleted: ", data);
         },
         onError: data => {
             console.log("GetAgeAddress onError: ", data);
         }
     });
     const userAge: Array<getAgeUser_GetAgeUser_userAge | null> | null = data ? data.GetAgeUser.userAge : [];
-    console.log("userAge: ", userAge);
+    // console.log("userAge: ", userAge);
     useEffect(() => {
         if(!series) {
             setSeries([
@@ -88,9 +88,9 @@ const useFetch = () => {
     }, []);
 
     useEffect(() => {
-        console.log("실행됨!: ", data);
+        // console.log("실행됨!: ", data);
         if(userAge) {
-            console.log("userAge ", userAge);
+            // console.log("userAge ", userAge);
             setSeries([
                 {
                     ...series,

@@ -220,6 +220,22 @@ export const TranslatedHongkong: ICountry = {
                 {
                     name: "人工泪液",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "CH_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "CH_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "CH_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "CH_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

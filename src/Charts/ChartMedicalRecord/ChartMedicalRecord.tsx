@@ -127,9 +127,20 @@ const useFetch = () => {
     const [series, setSeries] = useState();
     const [startDate, setStartDate] = useState();
     const [endDate, setEndDate] = useState();
-
+    const [total, setTotal] = useState<number>(0);
     const [ getPeriodMedicalRecord, { data, loading } ] = useLazyQuery<getPeriodMedicalRecord, getPeriodMedicalRecordVariables>(GET_PERIOD_MEDICAL_RECORD, {
         onCompleted: data => {
+            if(data) {
+                const { GetPeriodMedicalRecord: { ok, data: medicalRecords }} = data;
+                if(medicalRecords) {
+                    let count = 0;
+                    medicalRecords.map(item => {
+                        count += item!.count;
+                    });
+                    setTotal(count);
+                }
+
+            }
             // console.log("GetPeriodMedicalRecord onCompleted: " ,data);
         },
         onError: data => {
@@ -331,18 +342,19 @@ const useFetch = () => {
         series, 
         options,
         period,
-        handleChangeRangePicker
+        handleChangeRangePicker,
+        total
     };
 }
 const ChartMedicalRecord= () => {
-    const { period, handleChange, loading, series, options, handleChangeRangePicker } = useFetch();
+    const { total, period, handleChange, loading, series, options, handleChangeRangePicker } = useFetch();
 
     return (
         <Container className={"chart-container"}>
             <ChartTitle text={"기간별"}/>
             <Line>
                 <LineText>총 누적 이용 횟수</LineText>
-                <LineData>3,300</LineData>
+                <LineData>{total}</LineData>
             </Line>
             <Line>
                 <LineText>기간별 조회</LineText>

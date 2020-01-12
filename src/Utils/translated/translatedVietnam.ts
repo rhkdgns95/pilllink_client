@@ -220,6 +220,22 @@ export const TranslatedVietnam: ICountry = {
                 {
                     name: "nhân tạo nước mắt",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "VI_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "VI_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "VI_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "VI_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

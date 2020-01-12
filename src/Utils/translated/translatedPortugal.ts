@@ -220,6 +220,22 @@ export const TranslatedPortugal: ICountry = {
                 {
                     name: "Artificial Tears",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "PO_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "PO_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "PO_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "PO_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }

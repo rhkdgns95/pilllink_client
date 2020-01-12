@@ -220,6 +220,22 @@ export const TranslatedThai: ICountry = {
                 {
                     name: "การประดิษฐ์ น้ำตา",
                     ...CommonSymptomsText.other_artificialTears
+                },
+                {
+                    name: "TH_멘소레담_크림형",
+                    ...CommonSymptomsText.other_mensoredamCream
+                },
+                {
+                    name: "TH_멘소레담_스프레이형",
+                    ...CommonSymptomsText.other_mensoredamSpray
+                },
+                {
+                    name: "TH_파스",
+                    ...CommonSymptomsText.other_painKillingPatch
+                },
+                {
+                    name: "TH_물파스",
+                    ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
         }
