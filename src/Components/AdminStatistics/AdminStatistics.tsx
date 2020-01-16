@@ -88,10 +88,10 @@ const AdminStatistics = () => {
         <Container>
             <Wrapper className={isEffected ? "active step-container group-radio" : "step-container group-radio"}>
                 <Gender />
-                {/* <Age />
+                <Age />
                 <ChartAddress />
                 <ChartNationality /> 
-                <ChartMedicalRecord /> */}
+                <ChartMedicalRecord />
             </Wrapper>
         </Container>
     );
