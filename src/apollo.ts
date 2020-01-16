@@ -17,7 +17,7 @@ cache.writeData({
 
 const httpLink = createHttpLink({
     // uri: "http://localhost:4000/graphql"
-    uri: "https://pilllink.herokuapp.com/graphql"
+    uri: process.env.NODE_ENV === "production" ? "https://pilllink.herokuapp.com/graphql" : "http://localhost:4000/graphql"
 });
 const middlewareLink = new ApolloLink((operation, forward) => {
     operation.setContext({

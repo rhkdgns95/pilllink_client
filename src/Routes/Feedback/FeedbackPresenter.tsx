@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFeedbackContext } from "./FeedbackProvider";
 import styled from "../../Styles/typed-components";
 import Navbar from "../../Components/Navbar";
@@ -132,7 +132,7 @@ const TranslateButton = styled.span`
     z-index: 3;
     background-color: white;
     color: white;
-    top: -110px;
+    top: -87px;
     right: 0;
     width: 15px;
     height: 15px;
@@ -151,7 +151,7 @@ const TranslateButton = styled.span`
     }
     @media(max-width: 510px) {
         padding: 11.5px;
-        top: -83px;
+        top: -79px;
         right: 0px;
         img {
             width: 16px;
@@ -176,6 +176,44 @@ const Menu = styled.div`
     align-items: flex-end;
 `;
 const MenuCell = styled.div`
+    position: relative;
+    
+    &.menu-item-cell {
+        &.modal-active {
+            z-index: 9;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                // border:1px solid green;
+            }
+            &::after {
+                content: "의약품 외부에 복약지도 해주실 의약품에 번호를 써주세요!";
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                max-width: 192px;
+                width: 300px;
+                // width: 100%;
+                background-color: white;
+                color: #2b7241;
+                white-space: normal;
+                padding: 10px;
+                font-size: 13px;
+                border-radius: 3px;
+                white-space: normal;
+                @media(max-width: 510px) {
+                    left: 6px;
+                }
+            }
+        }
+        
+    }
+    
     @media(max-width: 510px) {
         display: flex;
         white-space: nowrap;
@@ -268,10 +306,44 @@ const MenuText = styled.div`
     }
 `;
 
+const Modal = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.32);
+`;
+const ModalCloseBtn = styled.span`
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px;
+    cursor: pointer;
+    & svg {
+        padding: 5px;
+        fill: gray;
+        transition: .2s;
+    }
+    &:hover {
+        & svg {
+            fill: #ff9d9d;
+        }
+    }
+`;
+
+
 const FeedbackPresenter = () => {
     const { isProgress } = useAppContext();
     const { isConfirm, handleCurrentIndex, handleChangeCount, count, currentIndex, formFeedback, onCreateConfirm, loadingCreateConfirm, isTranslated, onToggleTranslate, lang } = useFeedbackContext();
     // const currentConfirm: IConfirm = TmpConfirmProps.find(item => item.value === "KO") || TmpConfirmProps[0];
+    const [isModal, setIsModal] = useState<boolean>(true);
     const currentLang: TLanguage | "NULL" = isTranslated ? lang : "KO";
     const currentCountry: ICountry = countries.find(country => country.value === currentLang) || countries[0];
     const currentConfirm: Array<IConfirmData> = currentCountry!.confirms!;
@@ -298,7 +370,7 @@ const FeedbackPresenter = () => {
                         subTitle={"Please, follow your pharmacist`s instruction"}
                     />
                     <Menu>
-                        <MenuCell className={"menu-item-cell"}>
+                        <MenuCell className={`${isModal && "modal-active"} menu-item-cell`}>
                             {
                                 formFeedback.map((item, key) => 
                                     {
@@ -459,6 +531,16 @@ const FeedbackPresenter = () => {
                     { isConfirm && <SubmitBtn disabled={(isProgress || loadingCreateConfirm ) ? true : false} type={"button"} value={"Submit"} onClick={onCreateConfirm}/> }
                 </Row>
             </Wrapper>
+            {
+                isModal && (
+                    <Modal>
+                        <ModalCloseBtn onClick={e => setIsModal(false)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                        </ModalCloseBtn>
+                    </Modal>
+                )
+            }
+            
         </Container>
     );
 }

@@ -222,19 +222,19 @@ export const TranslatedTaiwan: ICountry = {
                     ...CommonSymptomsText.other_artificialTears
                 },
                 {
-                    name: "CH_멘소레담_크림형",
+                    name: "乳液",
                     ...CommonSymptomsText.other_mensoredamCream
                 },
                 {
-                    name: "CH_멘소레담_스프레이형",
+                    name: "啫喱水",
                     ...CommonSymptomsText.other_mensoredamSpray
                 },
                 {
-                    name: "CH_파스",
+                    name: "贴片",
                     ...CommonSymptomsText.other_painKillingPatch
                 },
                 {
-                    name: "CH_물파스",
+                    name: "液状",
                     ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]

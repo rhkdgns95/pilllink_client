@@ -6,6 +6,8 @@ import ChartTitle from "../../Components/ChartTitle";
 import ButtonDetails from "../../Components/ButtonDetails";
 import Chart from "react-apexcharts";
 // import ChartRect from "../ChartRect";
+import 'promise-polyfill/src/polyfill';
+
 
 const Container = styled.div`
 
@@ -28,7 +30,12 @@ const ButtonBox = styled.div`
 
 const GenderPresenter = () => {
     const { gender, loading, isModal, toggleModal, series, options, handleChangeChart } = useGenderContext();
-    
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
+        if(!isMounted) {
+            setIsMounted(true);
+        }
+    }, []);
     let data: Array<IChartProps> = [
         {
             color: "orange",
@@ -54,7 +61,7 @@ const GenderPresenter = () => {
                         </ButtonBox>
                         { 
                             // !loading && gender && <ChartRect data={data} format={"명"}/> 
-                            !loading && series && gender && (
+                            isMounted && !loading && series && gender && (
                                 <Chart
                                     options={options}
                                     series={series}

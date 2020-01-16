@@ -351,7 +351,7 @@ const LoginPresenter: React.FC<IProps> = ({
                             {/* 음소거옵션
                                 ?autoplay=1&mute=1 
                             */}
-                            <iframe width="804" height="452" frameBorder={0}  src="https://www.youtube.com/embed/3gowJqXFoMo?iv_load_policy=3;showinfo=0;modestbranding=0;controls=0;rel=0;amp;autoplay=1;loop=1;playlist=fn5OBAfHLKQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                            <iframe width="804" height="452" frameBorder={0}  src="https://www.youtube.com/embed/3gowJqXFoMo?iv_load_policy=3;showinfo=0;modestbranding=0;controls=0;rel=0;amp;loop=1;playlist=fn5OBAfHLKQ" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         </Video>
                     </Popup>
                     )

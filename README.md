@@ -47,6 +47,7 @@
 - [x] Admin - All Chart(Statistic Modify)
 - [x] Admin - Line Chart - MedicalRecord.
 - [x] Details - Four Items, Popup - Design.
+- [x] Video Options, Feedback Modal.
 - [] Polyfil.
 - [] MyPage - History Part 2 (Confirm)
 - [] Manager.
@@ -80,6 +81,8 @@
 18. yarn add customize-cra
 19. yarn add react-apexcharts
 20. yarn add apexcharts
+21. yarn add promise-polyfill
+22. yarn add @types/promise-polyfill
 
 ## 3. Dev
 

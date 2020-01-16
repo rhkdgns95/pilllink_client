@@ -222,19 +222,19 @@ export const TranslatedFrance: ICountry = {
                     ...CommonSymptomsText.other_artificialTears
                 },
                 {
-                    name: "FR_멘소레담_크림형",
+                    name: "Lotion",
                     ...CommonSymptomsText.other_mensoredamCream
                 },
                 {
-                    name: "FR_멘소레담_스프레이형",
+                    name: "Spray",
                     ...CommonSymptomsText.other_mensoredamSpray
                 },
                 {
-                    name: "FR_파스",
+                    name: "Patch",
                     ...CommonSymptomsText.other_painKillingPatch
                 },
                 {
-                    name: "FR_물파스",
+                    name: "État liquide",
                     ...CommonSymptomsText.other_painKillingPatchWater
                 }
             ]
